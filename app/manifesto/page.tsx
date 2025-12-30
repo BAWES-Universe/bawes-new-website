@@ -113,15 +113,6 @@ export default function Manifesto() {
               We are execution.
             </p>
           </motion.div>
-
-          <motion.p 
-            className="text-xl text-white/50 text-center italic"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            This page is for those who want to go deeper.
-          </motion.p>
         </div>
       </Section>
 

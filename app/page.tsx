@@ -281,10 +281,6 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-          
-          <Button href="https://discord.gg/bawes" variant="secondary">
-            Join the community on Discord
-          </Button>
         </div>
       </Section>
 

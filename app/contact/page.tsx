@@ -269,7 +269,7 @@ export default function Contact() {
               Prefer to connect another way?
             </p>
             <motion.a
-              href="https://discord.gg/bawes"
+              href="https://discord.gg/CXceJWnwNT"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-6 py-3 bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-xl transition-colors group"

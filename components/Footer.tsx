@@ -41,7 +41,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <a 
-                href="https://discord.gg/bawes" 
+                href="https://discord.gg/CXceJWnwNT" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-bawes-gold/20 transition-colors group"
@@ -102,7 +102,7 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <a href="https://discord.gg/bawes" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-bawes-orange transition-colors text-sm">
+                    <a href="https://discord.gg/CXceJWnwNT" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-bawes-orange transition-colors text-sm">
                       Discord
                     </a>
                   </li>
