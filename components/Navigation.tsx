@@ -118,13 +118,28 @@ export default function Navigation() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8 flex-shrink-0">
+            <div className="hidden lg:flex items-center gap-6 flex-shrink-0">
+              {/* Discord Button - Desktop */}
+              <motion.a
+                href="https://discord.gg/CXceJWnwNT"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center px-4 py-2 rounded-lg bg-[#5865F2] hover:bg-[#4752C4] text-white text-sm font-medium transition-all whitespace-nowrap"
+                aria-label="Join us on Discord"
+              >
+                Join us on Discord
+              </motion.a>
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: (index + 1) * 0.1 }}
                 >
                   <Link
                     href={link.href}
@@ -137,14 +152,30 @@ export default function Navigation() {
               ))}
             </div>
 
-            {/* Mobile Menu Button - Always visible on screens < 1024px */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="block lg:hidden relative z-[100] flex items-center justify-center min-w-[44px] min-h-[44px] w-10 h-10 sm:w-11 sm:h-11 text-white hover:text-bawes-gold transition-all flex-shrink-0 ml-1 sm:ml-2 rounded-lg bg-white/5 hover:bg-white/10 active:bg-white/20 touch-manipulation border border-white/10"
-              aria-label="Toggle menu"
-              aria-expanded={isOpen}
-              style={{ WebkitTapHighlightColor: 'transparent' }}
-            >
+            {/* Mobile: Discord Button + Hamburger grouped together */}
+            <div className="lg:hidden flex items-center flex-shrink-0">
+              <motion.a
+                href="https://discord.gg/CXceJWnwNT"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center justify-center min-h-[44px] h-10 sm:h-11 px-2.5 sm:px-3 rounded-lg bg-[#5865F2] hover:bg-[#4752C4] text-white text-xs sm:text-sm font-medium transition-all touch-manipulation mr-[10px]"
+                aria-label="Join us on Discord"
+                style={{ WebkitTapHighlightColor: 'transparent' }}
+              >
+                Join us on Discord
+              </motion.a>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="relative z-[100] flex items-center justify-center min-w-[44px] min-h-[44px] w-10 h-10 sm:w-11 sm:h-11 text-white hover:text-bawes-gold transition-all flex-shrink-0 rounded-lg bg-white/5 hover:bg-white/10 active:bg-white/20 touch-manipulation border border-white/10"
+                aria-label="Toggle menu"
+                aria-expanded={isOpen}
+                style={{ WebkitTapHighlightColor: 'transparent' }}
+              >
               <svg 
                 className="w-6 h-6 pointer-events-none" 
                 fill="none" 
@@ -159,7 +190,8 @@ export default function Navigation() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
       </motion.nav>

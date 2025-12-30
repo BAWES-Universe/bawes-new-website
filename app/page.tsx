@@ -320,9 +320,19 @@ export default function Home() {
             transition={{ delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button href="#universe" size="lg">
-              Enter the Universe
-            </Button>
+            <motion.a
+              href="https://universe.bawes.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-300 relative overflow-hidden group px-8 py-4 text-base bg-gradient-to-r from-bawes-gold via-bawes-red to-bawes-orange text-white hover:shadow-lg hover:shadow-bawes-gold/30"
+            >
+              <span className="relative z-10">
+                Enter the Universe
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-bawes-orange via-bawes-red to-bawes-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </motion.a>
             <Button href="/contact" variant="secondary" size="lg">
               Talk to us
             </Button>
