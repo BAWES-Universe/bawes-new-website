@@ -166,14 +166,14 @@ export default function Home() {
               </p>
             </div>
             <div className="p-6 glass-card rounded-xl text-left">
-              <p className="text-lg text-bawes-gold font-semibold mb-2">BAWES helps design and integrate</p>
+              <p className="text-lg text-white/80 mb-2 font-semibold">BAWES helps design and integrate</p>
               <p className="text-white/60">
                 these experiences when needed. We don't just provide tools — we help you build.
               </p>
             </div>
           </div>
           
-          <Button href="/market" variant="outline">
+          <Button href="/market" variant="secondary">
             Learn about markets in Universe
           </Button>
         </div>

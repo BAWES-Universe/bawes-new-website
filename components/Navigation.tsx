@@ -177,7 +177,7 @@ export default function Navigation() {
               </motion.a>
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="relative z-[100] flex items-center justify-center min-w-[44px] min-h-[44px] w-10 h-10 sm:w-11 sm:h-11 text-white hover:text-bawes-gold transition-all flex-shrink-0 rounded-lg bg-white/5 hover:bg-white/10 active:bg-white/20 touch-manipulation border border-white/10"
+                className="relative z-[100] flex items-center justify-center min-w-[44px] min-h-[44px] w-10 h-10 sm:w-11 sm:h-11 text-white hover:text-white transition-all flex-shrink-0 rounded-lg bg-white/5 hover:bg-white/10 active:bg-white/20 touch-manipulation border border-white/10"
                 aria-label="Toggle menu"
                 aria-expanded={isOpen}
                 style={{ WebkitTapHighlightColor: 'transparent' }}
