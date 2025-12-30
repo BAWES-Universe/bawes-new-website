@@ -67,7 +67,7 @@ export default function Navigation() {
               </motion.div>
               <div className="flex items-baseline gap-1">
                 <span className="text-2xl font-bold text-white">BAWES</span>
-                <span className="text-xl font-light bawes-gradient-text">.NET</span>
+                <span className="text-xl font-light bawes-gradient-text">Universe</span>
               </div>
             </Link>
 

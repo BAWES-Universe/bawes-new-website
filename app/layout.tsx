@@ -4,13 +4,13 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'BAWES.NET — Shared Digital Environments',
-  description: 'BAWES builds and operates shared digital environments where people work, learn, trade, and collaborate in real time.',
-  keywords: ['BAWES', 'Universe', 'digital environments', 'collaboration', 'spaces'],
+  title: 'BAWES Universe - Build Your Own Universe',
+  description: 'We are not building an app. We are building a universe. A fully integrated, people-first universe designed to help you think, act, build, and grow.',
+  keywords: ['BAWES', 'Universe', 'digital environments', 'collaboration', 'spaces', 'build your own universe'],
   authors: [{ name: 'BAWES' }],
   openGraph: {
-    title: 'BAWES.NET — Shared Digital Environments',
-    description: 'Turn ideas into action — together.',
+    title: 'BAWES Universe - Build Your Own Universe',
+    description: 'We are not building an app. We are building a universe.',
     type: 'website',
   },
 }

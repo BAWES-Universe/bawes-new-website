@@ -1,4 +1,4 @@
-# 🦋 BAWES.NET
+# 🦋 BAWES Universe
 
 An impressive, animated Next.js website for BAWES — building shared digital environments where people work, learn, trade, and collaborate in real time.
 
