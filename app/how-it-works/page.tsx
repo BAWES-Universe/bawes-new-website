@@ -138,9 +138,9 @@ export default function HowItWorks() {
           </div>
           <div className="glass-card p-8 rounded-2xl border border-bawes-gold/20">
             <p className="text-lg text-white/80 mb-4">
-              <span className="text-bawes-gold font-semibold">Orbit does not contain universes.</span>
+              <span className="text-bawes-gold font-semibold">Orbit shows you where you are</span> in the universe — your location and position.
             </p>
-            <p className="text-white/60 mb-4">It helps you navigate between them.</p>
+            <p className="text-white/60 mb-4">Use it to discover and navigate what's around you.</p>
             <p className="text-white/70 italic">Think of Orbit as orientation, not hierarchy.</p>
           </div>
         </div>
