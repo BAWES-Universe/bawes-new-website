@@ -129,7 +129,7 @@ export default function Contact() {
               You need clarity, structure, or help executing something real.
             </p>
             <p className="text-lg text-white/70 mt-6">
-              We work with founders, teams, students, and organizations — intentionally and hands-on.
+              We work with founders, teams, students, and organizations, intentionally and hands-on.
             </p>
           </motion.div>
         </div>

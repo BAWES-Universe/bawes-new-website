@@ -83,7 +83,7 @@ export default function Home() {
               Universe is a shared digital environment made of <span className="text-bawes-gold font-semibold">spaces</span>, not apps or pages.
             </p>
             <p>
-              People move through rooms and worlds, see who's around, and work together naturally — whether they're collaborating, studying, building, shopping, or just hanging out.
+              People move through rooms and worlds, see who's around, and work together naturally, whether they're collaborating, studying, building, shopping, or just hanging out.
             </p>
           </div>
           
@@ -129,7 +129,7 @@ export default function Home() {
           <FeatureCard
             emoji="🛍️"
             title="Commerce"
-            description="Shops, services, and marketplaces embedded into shared spaces — connected to real-world tools."
+            description="Shops, services, and marketplaces embedded into shared spaces, connected to real-world tools."
             color="bawes-orange"
             delay={0.2}
           />
@@ -155,20 +155,20 @@ export default function Home() {
           </h2>
           
           <p className="text-xl text-white/70 mb-6 leading-relaxed">
-            Universe supports shared market experiences where people discover products, services, and opportunities together — not in isolation.
+            Universe supports shared market experiences where people discover products, services, and opportunities together, not in isolation.
           </p>
           
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             <div className="p-6 glass-card rounded-xl text-left">
               <p className="text-lg text-white/80 mb-2 font-semibold">Commerce is tool-agnostic.</p>
               <p className="text-white/60">
-                Shops and marketplaces can connect to whatever stack fits — Shopify, custom systems, booking tools, or existing infrastructure.
+                Shops and marketplaces can connect to whatever stack fits: Shopify, custom systems, booking tools, or existing infrastructure.
               </p>
             </div>
             <div className="p-6 glass-card rounded-xl text-left">
               <p className="text-lg text-white/80 mb-2 font-semibold">BAWES helps design and integrate</p>
               <p className="text-white/60">
-                these experiences when needed. We don't just provide tools — we help you build.
+                these experiences when needed. We don't just provide tools; we help you build.
               </p>
             </div>
           </div>
@@ -189,7 +189,7 @@ export default function Home() {
           </h2>
           
           <p className="text-xl text-white/70 mb-8 leading-relaxed">
-            You can ask the Universe for help — guidance, people, or execution — and your request is routed to the right place.
+            You can ask the Universe for help (guidance, people, or execution), and your request is routed to the right place.
           </p>
           
           <div className="space-y-4 mb-12">
@@ -243,7 +243,7 @@ export default function Home() {
             Things we've built
           </h2>
           <p className="text-xl text-white/70 mb-4">
-            We don't just talk about systems — we build them.
+            We don't just talk about systems; we build them.
           </p>
           <p className="text-lg text-white/50 mb-12">
             Selected projects and experiments demonstrating execution, infrastructure, and digital transformation.

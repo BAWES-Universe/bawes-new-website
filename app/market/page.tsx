@@ -121,7 +121,7 @@ export default function Market() {
             </motion.div>
             <h3 className="text-2xl font-bold mb-4 text-white">Market & Mall Experiences</h3>
             <p className="text-white/60 leading-relaxed">
-              Shared market areas for launches, showcases, and discovery — social by design.
+              Shared market areas for launches, showcases, and discovery, social by design.
             </p>
           </motion.div>
         </div>

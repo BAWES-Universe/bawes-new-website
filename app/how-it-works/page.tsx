@@ -138,7 +138,7 @@ export default function HowItWorks() {
           </div>
           <div className="glass-card p-8 rounded-2xl border border-bawes-gold/20">
             <p className="text-lg text-white/80 mb-4">
-              <span className="text-bawes-gold font-semibold">Orbit shows you where you are</span> in the universe — your location and position.
+              <span className="text-bawes-gold font-semibold">Orbit shows you where you are</span> in the universe: your location and position.
             </p>
             <p className="text-white/60 mb-4">Use it to discover and navigate what's around you.</p>
             <p className="text-white/70 italic">Think of Orbit as orientation, not hierarchy.</p>
@@ -201,7 +201,7 @@ export default function HowItWorks() {
               Rooms are built using maps.
             </p>
             <p className="text-white/60 leading-relaxed">
-              Universe provides room templates — proven layouts designed for specific use cases — so people can start fast and build with confidence.
+              Universe provides room templates (proven layouts designed for specific use cases) so people can start fast and build with confidence.
             </p>
           </div>
           
@@ -255,7 +255,7 @@ export default function HowItWorks() {
             </ul>
             <div className="p-4 bg-bawes-gold/10 rounded-lg">
               <p className="text-white/80">
-                This allows <span className="text-bawes-gold font-semibold">open spaces with protected cores</span> — without private worlds.
+                This allows <span className="text-bawes-gold font-semibold">open spaces with protected cores</span>, without private worlds.
               </p>
             </div>
           </div>

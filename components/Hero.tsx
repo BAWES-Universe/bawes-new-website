@@ -301,7 +301,7 @@ export default function Hero() {
                   Turn ideas into action
                 </span>
                 <br />
-                <span className="text-white/90">— together.</span>
+                <span className="text-white/90">together.</span>
               </h1>
               
               <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-3xl mx-auto leading-relaxed">

@@ -82,7 +82,7 @@ export default function EmptySeat() {
               The Empty Seat is a structural decision that protects continuity, creativity, and execution without ego.
             </p>
             <p className="text-2xl font-bold text-center text-white">
-              Leadership is functional — <span className="bawes-gradient-text">not symbolic</span>.
+              Leadership is functional, <span className="bawes-gradient-text">not symbolic</span>.
             </p>
           </motion.div>
         </div>

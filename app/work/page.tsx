@@ -179,7 +179,7 @@ export default function Work() {
               {
                 emoji: '🎓',
                 title: 'StudentHub',
-                description: 'Hire students like cloud resources—instantly, with full tracking and support.',
+                description: 'Hire students like cloud resources, instantly, with full tracking and support.',
                 website: 'https://studenthub.co',
                 discord: 'https://discord.gg/CXceJWnwNT',
                 color: 'bawes-red',
@@ -188,7 +188,7 @@ export default function Work() {
               {
                 emoji: '🛒',
                 title: 'Plugn',
-                description: 'Launch your store in minutes. Connect inventory, payments, and fulfillment—no devs needed.',
+                description: 'Launch your store in minutes. Connect inventory, payments, and fulfillment without devs needed.',
                 website: 'https://plugn.io',
                 discord: 'https://discord.gg/amjZaKAZ8X',
                 color: 'bawes-orange',

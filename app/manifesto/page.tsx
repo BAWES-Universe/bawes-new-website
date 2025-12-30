@@ -83,7 +83,7 @@ export default function Manifesto() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            A people-first environment designed to help ideas turn into action — faster, smarter, and with less friction.
+            A people-first environment designed to help ideas turn into action, faster, smarter, and with less friction.
           </motion.p>
 
           <motion.div 
