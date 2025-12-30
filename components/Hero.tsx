@@ -1,12 +1,24 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import Button from '@/components/ui/Button'
+
+interface Star {
+  x: number
+  y: number
+  z: number
+  size: number
+  brightness: number
+  twinkleSpeed: number
+  twinkleOffset: number
+}
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const mouseRef = useRef({ x: 0, y: 0 })
+  const smoothMouseRef = useRef({ x: 0, y: 0 })
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -21,136 +33,233 @@ export default function Hero() {
   const smoothOpacity = useSpring(opacity, { stiffness: 100, damping: 30 })
   const smoothScale = useSpring(scale, { stiffness: 100, damping: 30 })
 
-  // WebGL background effect
+  // Canvas space background
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const gl = canvas.getContext('webgl')
-    if (!gl) return
-
-    const vertexShader = `
-      attribute vec2 position;
-      void main() {
-        gl_Position = vec4(position, 0.0, 1.0);
-      }
-    `
-
-    const fragmentShader = `
-      precision mediump float;
-      uniform float time;
-      uniform vec2 resolution;
-      
-      float noise(vec3 p) {
-        vec3 i = floor(p);
-        vec4 a = dot(i, vec3(1., 57., 21.)) + vec4(0., 57., 21., 78.);
-        vec3 f = cos((p-i)*acos(-1.))*(-.5)+.5;
-        a = mix(sin(cos(a)*a),sin(cos(1.+a)*(1.+a)), f.x);
-        a.xy = mix(a.xz, a.yw, f.y);
-        return mix(a.x, a.y, f.z);
-      }
-      
-      void main() {
-        vec2 uv = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
-        vec3 color = vec3(0.0);
-        float t = time * 0.15;
-        
-        // Create a cosmic, nebula-like effect with BAWES colors
-        for(float i = 0.0; i < 3.0; i++) {
-          vec2 p = uv;
-          p.x += noise(vec3(uv * 2.0, t + i * 20.0)) * 0.15;
-          p.y += noise(vec3(uv * 2.0, t + i * 20.0 + 10.0)) * 0.15;
-          
-          float brightness = length(p) * 2.0;
-          brightness = 0.08 / brightness;
-          
-          // BAWES gold, red, orange colors
-          vec3 col = vec3(0.62, 0.49, 0.18); // Gold
-          if (i == 1.0) col = vec3(0.94, 0.24, 0.18); // Red
-          if (i == 2.0) col = vec3(0.97, 0.58, 0.11); // Orange
-          
-          color += col * brightness;
-        }
-        
-        // Add stars
-        float stars = pow(noise(vec3(uv * 400.0, t * 0.3)), 22.0) * 0.6;
-        color += vec3(stars);
-        
-        // Vignette
-        float vignette = 1.0 - length(uv) * 0.5;
-        color *= vignette;
-        
-        gl_FragColor = vec4(color, 1.0);
-      }
-    `
-
-    // Compile shaders
-    const vs = gl.createShader(gl.VERTEX_SHADER)!
-    gl.shaderSource(vs, vertexShader)
-    gl.compileShader(vs)
-
-    const fs = gl.createShader(gl.FRAGMENT_SHADER)!
-    gl.shaderSource(fs, fragmentShader)
-    gl.compileShader(fs)
-
-    // Create program
-    const program = gl.createProgram()!
-    gl.attachShader(program, vs)
-    gl.attachShader(program, fs)
-    gl.linkProgram(program)
-
-    // Create buffer
-    const buffer = gl.createBuffer()
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW)
-
-    // Set up attributes and uniforms
-    const position = gl.getAttribLocation(program, 'position')
-    gl.enableVertexAttribArray(position)
-    gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0)
-
-    const timeUniform = gl.getUniformLocation(program, 'time')
-    const resolutionUniform = gl.getUniformLocation(program, 'resolution')
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
 
     let animationFrame: number
-    const startTime = Date.now()
+    let stars: Star[] = []
+    let shootingStars: { x: number; y: number; vx: number; vy: number; life: number; maxLife: number }[] = []
+
+    // Mouse tracking
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseRef.current = {
+        x: (e.clientX / window.innerWidth - 0.5) * 2,
+        y: (e.clientY / window.innerHeight - 0.5) * 2,
+      }
+    }
+    window.addEventListener('mousemove', handleMouseMove)
 
     const resize = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
-      gl.viewport(0, 0, canvas.width, canvas.height)
+      initStars()
     }
 
-    const render = () => {
-      const currentTime = (Date.now() - startTime) / 1000
+    const initStars = () => {
+      stars = []
+      const starCount = Math.floor((canvas.width * canvas.height) / 1500)
+      
+      for (let i = 0; i < starCount; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          z: Math.random(), // depth layer 0-1
+          size: Math.random() * 1.2 + 0.3, // Much smaller stars
+          brightness: Math.random() * 0.5 + 0.5,
+          twinkleSpeed: Math.random() * 0.5 + 0.5,
+          twinkleOffset: Math.random() * Math.PI * 2,
+        })
+      }
+    }
 
-      gl.clearColor(0.04, 0.04, 0.04, 1)
-      gl.clear(gl.COLOR_BUFFER_BIT)
+    const drawNebulae = (time: number) => {
+      const nebulae = [
+        // Golden nebula - center
+        { x: canvas.width * 0.4, y: canvas.height * 0.5, radius: canvas.width * 0.5, color: '158, 125, 47', opacity: 0.06 },
+        // Red nebula - right
+        { x: canvas.width * 0.75, y: canvas.height * 0.6, radius: canvas.width * 0.4, color: '239, 61, 46', opacity: 0.04 },
+        // Orange accent
+        { x: canvas.width * 0.3, y: canvas.height * 0.3, radius: canvas.width * 0.3, color: '247, 148, 29', opacity: 0.03 },
+        // Deep purple
+        { x: canvas.width * 0.15, y: canvas.height * 0.75, radius: canvas.width * 0.25, color: '80, 60, 140', opacity: 0.05 },
+      ]
 
-      gl.useProgram(program)
-      gl.uniform1f(timeUniform, currentTime)
-      gl.uniform2f(resolutionUniform, canvas.width, canvas.height)
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+      nebulae.forEach((nebula, i) => {
+        // Very gentle movement with smooth mouse
+        const offsetX = smoothMouseRef.current.x * 8 * (i * 0.15 + 0.5)
+        const offsetY = smoothMouseRef.current.y * 8 * (i * 0.15 + 0.5)
+        
+        const gradient = ctx.createRadialGradient(
+          nebula.x + offsetX, nebula.y + offsetY, 0,
+          nebula.x + offsetX, nebula.y + offsetY, nebula.radius
+        )
+        
+        // Subtle pulsing
+        const pulse = Math.sin(time * 0.0005 + i * 0.8) * 0.015
+        
+        gradient.addColorStop(0, `rgba(${nebula.color}, ${nebula.opacity + pulse})`)
+        gradient.addColorStop(0.5, `rgba(${nebula.color}, ${(nebula.opacity + pulse) * 0.4})`)
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)')
+        
+        ctx.fillStyle = gradient
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+      })
+    }
 
+    const drawStars = (time: number) => {
+      stars.forEach((star) => {
+        // Very gentle parallax - smooth and slow
+        const parallaxStrength = 6 + star.z * 6 // 6-12 pixels max movement
+        const parallaxX = smoothMouseRef.current.x * parallaxStrength
+        const parallaxY = smoothMouseRef.current.y * parallaxStrength
+        
+        const x = star.x + parallaxX
+        const y = star.y + parallaxY
+        
+        // Gentle twinkling
+        const twinkle = Math.sin(time * 0.001 * star.twinkleSpeed + star.twinkleOffset)
+        const currentBrightness = star.brightness * (0.7 + twinkle * 0.3)
+        
+        // Simple crisp stars - no blur
+        const alpha = currentBrightness
+        
+        // Slight color variation based on depth
+        let r = 255, g = 255, b = 255
+        if (star.z < 0.3) {
+          // Distant - slight blue tint
+          r = 220; g = 230; b = 255
+        } else if (star.z > 0.7) {
+          // Close - slight warm tint
+          r = 255; g = 250; b = 240
+        }
+        
+        // Draw crisp star point
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`
+        ctx.beginPath()
+        ctx.arc(x, y, star.size, 0, Math.PI * 2)
+        ctx.fill()
+        
+        // Only add tiny glow to brighter stars
+        if (star.brightness > 0.8 && star.size > 0.8) {
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha * 0.15})`
+          ctx.beginPath()
+          ctx.arc(x, y, star.size * 2.5, 0, Math.PI * 2)
+          ctx.fill()
+        }
+      })
+    }
+
+    const maybeAddShootingStar = () => {
+      if (Math.random() < 0.003 && shootingStars.length < 2) {
+        const startX = Math.random() * canvas.width * 0.8
+        const angle = Math.PI / 4 + (Math.random() - 0.5) * 0.3 // Roughly diagonal
+        const speed = Math.random() * 6 + 8
+        shootingStars.push({
+          x: startX,
+          y: -10,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          life: 0,
+          maxLife: Math.random() * 50 + 30,
+        })
+      }
+    }
+
+    const drawShootingStars = () => {
+      shootingStars = shootingStars.filter((star) => {
+        star.x += star.vx
+        star.y += star.vy
+        star.life++
+        
+        if (star.life > star.maxLife) return false
+        if (star.x > canvas.width || star.y > canvas.height) return false
+        
+        const progress = star.life / star.maxLife
+        const opacity = progress < 0.3 ? progress / 0.3 : Math.pow(1 - progress, 2)
+        
+        // Draw glowing trail
+        const trailLength = 50
+        const gradient = ctx.createLinearGradient(
+          star.x, star.y,
+          star.x - star.vx * trailLength * 0.15, star.y - star.vy * trailLength * 0.15
+        )
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${opacity})`)
+        gradient.addColorStop(0.3, `rgba(255, 250, 220, ${opacity * 0.6})`)
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)')
+        
+        ctx.strokeStyle = gradient
+        ctx.lineWidth = 1.5
+        ctx.lineCap = 'round'
+        ctx.beginPath()
+        ctx.moveTo(star.x, star.y)
+        ctx.lineTo(star.x - star.vx * trailLength * 0.15, star.y - star.vy * trailLength * 0.15)
+        ctx.stroke()
+        
+        // Bright head
+        ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`
+        ctx.beginPath()
+        ctx.arc(star.x, star.y, 1.5, 0, Math.PI * 2)
+        ctx.fill()
+        
+        return true
+      })
+    }
+
+    const render = (time: number) => {
+      // Smooth mouse interpolation - this creates the gentle, floaty feel
+      const lerp = 0.03 // Very smooth interpolation
+      smoothMouseRef.current.x += (mouseRef.current.x - smoothMouseRef.current.x) * lerp
+      smoothMouseRef.current.y += (mouseRef.current.y - smoothMouseRef.current.y) * lerp
+      
+      // Deep space background
+      ctx.fillStyle = '#030308'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      
+      // Subtle center glow
+      const bgGradient = ctx.createRadialGradient(
+        canvas.width * 0.5, canvas.height * 0.5, 0,
+        canvas.width * 0.5, canvas.height * 0.5, canvas.width * 0.7
+      )
+      bgGradient.addColorStop(0, 'rgba(15, 12, 25, 0.6)')
+      bgGradient.addColorStop(1, 'rgba(3, 3, 8, 0)')
+      ctx.fillStyle = bgGradient
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      
+      // Draw nebulae
+      drawNebulae(time)
+      
+      // Draw stars
+      drawStars(time)
+      
+      // Shooting stars
+      maybeAddShootingStar()
+      drawShootingStars()
+      
       animationFrame = requestAnimationFrame(render)
     }
 
     window.addEventListener('resize', resize)
     resize()
-    render()
+    render(0)
 
     return () => {
       window.removeEventListener('resize', resize)
+      window.removeEventListener('mousemove', handleMouseMove)
       cancelAnimationFrame(animationFrame)
     }
   }, [])
 
   return (
     <section ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* WebGL Background */}
+      {/* Canvas Background */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full -z-10" aria-hidden="true" />
       
-      {/* Gradient overlay */}
+      {/* Gradient overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 -z-5" />
 
       {/* Content */}
@@ -170,12 +279,11 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-8"
             >
-              {/* Butterfly emoji with glow */}
+              {/* Animated glowing orb */}
               <motion.div 
-                className="text-6xl mb-6"
+                className="relative w-16 h-16 mx-auto mb-8"
                 animate={{ 
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, -5, 0]
+                  scale: [1, 1.08, 1],
                 }}
                 transition={{ 
                   duration: 4, 
@@ -183,7 +291,9 @@ export default function Hero() {
                   ease: 'easeInOut'
                 }}
               >
-                🦋
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-bawes-gold via-bawes-red to-bawes-orange opacity-60 blur-lg" />
+                <div className="absolute inset-1 rounded-full bg-gradient-to-br from-bawes-gold via-bawes-red to-bawes-orange opacity-80 blur-sm" />
+                <div className="absolute inset-3 rounded-full bg-gradient-to-br from-white via-bawes-gold to-bawes-orange" />
               </motion.div>
               
               <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold mb-8 tracking-tight">
@@ -268,4 +378,3 @@ export default function Hero() {
     </section>
   )
 }
-
