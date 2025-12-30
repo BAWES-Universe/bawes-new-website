@@ -7,15 +7,46 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const { scrollY } = useScroll()
+  
+  // Track scroll for mobile compatibility - this ensures nav works on all devices
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll() // Check initial state
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
   
   const backgroundColor = useTransform(
     scrollY, 
     [0, 100], 
-    ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.9)']
+    ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.7)']
   )
   
-  const borderOpacity = useTransform(scrollY, [0, 100], [0, 0.15])
+  const backdropBlurValue = useTransform(
+    scrollY,
+    [0, 100],
+    [0, 20]
+  )
+  
+  const backdropFilter = useTransform(
+    backdropBlurValue,
+    (blur) => blur > 0 ? `blur(${blur}px)` : 'none'
+  )
+  
+  const borderOpacity = useTransform(
+    scrollY,
+    [0, 100],
+    [0, 0.2]
+  )
+  
+  const borderBottom = useTransform(
+    borderOpacity,
+    (opacity) => opacity > 0 ? `1px solid rgba(159, 126, 47, ${opacity})` : 'none'
+  )
 
   useEffect(() => {
     if (isOpen) {
@@ -41,18 +72,29 @@ export default function Navigation() {
   return (
     <>
       <motion.nav 
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg"
-        style={{
-          backgroundColor,
-          borderBottom: `1px solid rgba(159, 126, 47, ${borderOpacity.get()})`,
-        }}
+        className="fixed top-0 left-0 right-0 z-50 w-full overflow-x-hidden"
+        style={
+          isScrolled
+            ? {
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                borderBottom: '1px solid rgba(159, 126, 47, 0.2)',
+              }
+            : {
+                backgroundColor,
+                backdropFilter,
+                WebkitBackdropFilter: backdropFilter,
+                borderBottom,
+              }
+        }
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center gap-3 group">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex items-center justify-between h-20 relative w-full min-w-0">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0 min-w-0">
               <motion.div 
                 className="relative w-10 h-10"
                 whileHover={{ rotate: 360 }}
@@ -65,14 +107,14 @@ export default function Navigation() {
                   className="object-contain"
                 />
               </motion.div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-bold text-white">BAWES</span>
-                <span className="text-xl font-light bawes-gradient-text">Universe</span>
+              <div className="flex items-baseline gap-1 min-w-0">
+                <span className="text-xl sm:text-2xl font-bold text-white truncate">BAWES</span>
+                <span className="text-lg sm:text-xl font-light bawes-gradient-text truncate hidden xs:inline">Universe</span>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-8 flex-1 justify-end min-w-0">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.href}
@@ -82,7 +124,7 @@ export default function Navigation() {
                 >
                   <Link
                     href={link.href}
-                    className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group"
+                    className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group whitespace-nowrap"
                   >
                     {link.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-bawes-gold via-bawes-red to-bawes-orange group-hover:w-full transition-all duration-300" />
@@ -91,21 +133,29 @@ export default function Navigation() {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
-            <motion.button
+            {/* Mobile Menu Button - Always visible on screens < 1024px */}
+            <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden text-white p-2"
+              className="block lg:hidden relative z-[100] flex items-center justify-center min-w-[44px] min-h-[44px] w-11 h-11 text-white hover:text-bawes-gold transition-all flex-shrink-0 ml-2 sm:ml-4 rounded-lg bg-white/5 hover:bg-white/10 active:bg-white/20 touch-manipulation border border-white/10"
               aria-label="Toggle menu"
-              whileTap={{ scale: 0.95 }}
+              aria-expanded={isOpen}
+              style={{ WebkitTapHighlightColor: 'transparent' }}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg 
+                className="w-6 h-6 pointer-events-none" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth={2.5}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
                 {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
-            </motion.button>
+            </button>
           </div>
         </div>
       </motion.nav>
