@@ -63,7 +63,7 @@ export default function Navigation() {
     { href: '/', label: 'Home' },
     { href: '/how-it-works', label: 'How It Works' },
     { href: '/market', label: 'Market' },
-    { href: '/work', label: 'Work' },
+    { href: '/work', label: 'Components' },
     { href: '/manifesto', label: 'Manifesto' },
     { href: '/empty-seat', label: 'The Empty Seat' },
     { href: '/contact', label: 'Contact' },

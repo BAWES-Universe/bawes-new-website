@@ -232,7 +232,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Things we've built */}
+      {/* Work with Universe Components */}
       <Section className="relative">
         <div className="absolute inset-0 -z-10">
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-bawes-gold/30 to-transparent" />
@@ -240,16 +240,16 @@ export default function Home() {
         
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Things we've built
+            Work with <span className="bawes-gradient-text">Universe Components</span>
           </h2>
           <p className="text-xl text-white/70 mb-4">
-            We don't just talk about systems; we build them.
+            Universe is built from modular components that work together seamlessly.
           </p>
           <p className="text-lg text-white/50 mb-12">
-            Selected projects and experiments demonstrating execution, infrastructure, and digital transformation.
+            Each component serves a specific purpose while integrating naturally with the broader ecosystem.
           </p>
           <Button href="/work">
-            View selected work
+            Explore components
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
