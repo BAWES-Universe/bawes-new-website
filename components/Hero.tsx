@@ -308,32 +308,16 @@ export default function Hero() {
                 We build and operate shared digital environments where people work, learn, trade, and collaborate in real time.
               </p>
               
-              <div className="space-y-3 mb-12">
-                <motion.p 
-                  className="text-2xl md:text-3xl font-semibold text-white/90"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 }}
-                >
-                  No friction.
-                </motion.p>
-                <motion.p 
-                  className="text-2xl md:text-3xl font-semibold text-white/90"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6 }}
-                >
-                  No silos.
-                </motion.p>
-                <motion.p 
-                  className="text-2xl md:text-3xl font-semibold bawes-gradient-text"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.7 }}
-                >
-                  Just momentum.
-                </motion.p>
-              </div>
+              <motion.p 
+                className="text-2xl md:text-3xl font-semibold mb-12"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <span className="text-white/90">No friction. </span>
+                <span className="text-white/90">No silos. </span>
+                <span className="bawes-gradient-text">Just momentum.</span>
+              </motion.p>
             </motion.div>
 
             <motion.div
