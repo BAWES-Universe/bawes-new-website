@@ -72,9 +72,13 @@ export default function Navigation() {
   return (
     <>
       <motion.nav 
-        className="fixed top-0 left-0 right-0 z-50 w-full overflow-x-hidden"
-        style={
-          isScrolled
+        className="fixed top-0 left-0 right-0 z-50"
+        style={{
+          width: '100%',
+          maxWidth: '100%',
+          boxSizing: 'border-box',
+          overflowX: 'hidden',
+          ...(isScrolled
             ? {
                 backgroundColor: 'rgba(0, 0, 0, 0.7)',
                 backdropFilter: 'blur(20px)',
@@ -86,17 +90,17 @@ export default function Navigation() {
                 backdropFilter,
                 WebkitBackdropFilter: backdropFilter,
                 borderBottom,
-              }
-        }
+              }),
+        }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="flex items-center justify-between h-20 relative w-full min-w-0">
-            <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0 min-w-0">
+        <div className="w-full px-3 sm:px-4 lg:px-8 lg:max-w-7xl lg:mx-auto" style={{ width: '100%', maxWidth: '100%', boxSizing: 'border-box' }}>
+          <div className="flex items-center justify-between h-20 w-full min-w-0 gap-2" style={{ width: '100%', maxWidth: '100%', boxSizing: 'border-box' }}>
+            <Link href="/" className="flex items-center gap-1.5 sm:gap-2 lg:gap-3 group flex-shrink min-w-0 overflow-hidden max-w-[calc(100%-60px)]">
               <motion.div 
-                className="relative w-10 h-10"
+                className="relative w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 flex-shrink-0"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               >
@@ -107,14 +111,14 @@ export default function Navigation() {
                   className="object-contain"
                 />
               </motion.div>
-              <div className="flex items-baseline gap-1 min-w-0">
-                <span className="text-xl sm:text-2xl font-bold text-white truncate">BAWES</span>
-                <span className="text-lg sm:text-xl font-light bawes-gradient-text truncate hidden xs:inline">Universe</span>
+              <div className="flex items-baseline gap-0.5 sm:gap-1 min-w-0">
+                <span className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-white truncate">BAWES</span>
+                <span className="text-sm sm:text-base lg:text-lg xl:text-xl font-light bawes-gradient-text truncate">Universe</span>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8 flex-1 justify-end min-w-0">
+            <div className="hidden lg:flex items-center gap-8 flex-shrink-0">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.href}
@@ -136,7 +140,7 @@ export default function Navigation() {
             {/* Mobile Menu Button - Always visible on screens < 1024px */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="block lg:hidden relative z-[100] flex items-center justify-center min-w-[44px] min-h-[44px] w-11 h-11 text-white hover:text-bawes-gold transition-all flex-shrink-0 ml-2 sm:ml-4 rounded-lg bg-white/5 hover:bg-white/10 active:bg-white/20 touch-manipulation border border-white/10"
+              className="block lg:hidden relative z-[100] flex items-center justify-center min-w-[44px] min-h-[44px] w-10 h-10 sm:w-11 sm:h-11 text-white hover:text-bawes-gold transition-all flex-shrink-0 ml-1 sm:ml-2 rounded-lg bg-white/5 hover:bg-white/10 active:bg-white/20 touch-manipulation border border-white/10"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
               style={{ WebkitTapHighlightColor: 'transparent' }}
