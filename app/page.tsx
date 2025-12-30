@@ -83,16 +83,16 @@ export default function Home() {
               Universe is a shared digital environment made of <span className="text-bawes-gold font-semibold">spaces</span>, not apps or pages.
             </p>
             <p>
-              People move through rooms and worlds, see who's around, and work together naturally, whether they're collaborating, studying, building, shopping, or just hanging out.
+              People move through rooms and worlds, see who&apos;s around, and work together naturally, whether they&apos;re collaborating, studying, building, shopping, or just hanging out.
             </p>
           </div>
           
           <div className="mt-12 p-8 glass-card rounded-2xl">
             <p className="text-2xl md:text-3xl font-semibold text-white mb-4">
-              You don't switch tools.
+              You don&apos;t switch tools.
             </p>
             <p className="text-2xl md:text-3xl font-semibold bawes-gradient-text">
-              The space adapts to what you're doing.
+              The space adapts to what you&apos;re doing.
             </p>
           </div>
         </div>
@@ -168,7 +168,7 @@ export default function Home() {
             <div className="p-6 glass-card rounded-xl text-left">
               <p className="text-lg text-white/80 mb-2 font-semibold">BAWES helps design and integrate</p>
               <p className="text-white/60">
-                these experiences when needed. We don't just provide tools; we help you build.
+                these experiences when needed. We don&apos;t just provide tools; we help you build.
               </p>
             </div>
           </div>
@@ -223,7 +223,7 @@ export default function Home() {
           
           <div className="p-8 glass-card rounded-2xl border border-bawes-gold/20">
             <p className="text-lg text-white/70 mb-4">
-              Universe doesn't promise answers to everything.
+              Universe doesn&apos;t promise answers to everything.
             </p>
             <p className="text-xl font-semibold text-white">
               It promises a <span className="bawes-gradient-text">path forward</span> for anything.
@@ -297,7 +297,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            You don't need to understand everything to start.
+            You don&apos;t need to understand everything to start.
           </motion.h2>
           <motion.p 
             className="text-2xl text-white/70 mb-12"

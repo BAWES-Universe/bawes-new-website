@@ -123,7 +123,7 @@ export default function Contact() {
             </h1>
             
             <p className="text-xl text-white/70 mb-4">
-              Sometimes you don't need a product.
+              Sometimes you don&apos;t need a product.
             </p>
             <p className="text-lg text-white/50">
               You need clarity, structure, or help executing something real.
@@ -230,7 +230,7 @@ export default function Contact() {
                 >
                   ✨
                 </motion.span>
-                <p className="text-bawes-gold font-semibold text-lg">Message sent! We'll be in touch soon.</p>
+                <p className="text-bawes-gold font-semibold text-lg">Message sent! We&apos;ll be in touch soon.</p>
               </motion.div>
             ) : error ? (
               <motion.div 

@@ -107,7 +107,7 @@ export default function Manifesto() {
             />
             
             <p className="text-2xl md:text-3xl font-bold text-center text-white mb-4">
-              We don't just support execution.
+              We don&apos;t just support execution.
             </p>
             <p className="text-2xl md:text-3xl font-bold text-center bawes-gradient-text">
               We are execution.
