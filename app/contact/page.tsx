@@ -13,15 +13,78 @@ export default function Contact() {
     context: ''
   })
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
+    setIsSubmitting(true)
+    setError(false)
+
+    try {
+      const webhookUrl = 'https://discord.com/api/webhooks/1455669938256740581/3P3BCgFKr9LxvC8YugZPGoe7jaXZbY9SAt2mAbO2QV_9Qh-RSqlUgF_ecxnI4oh2nBoB'
+      
+      const embed = {
+        title: '📧 New Contact Form Submission',
+        color: 0x9F7E2F, // BAWES gold color
+        fields: [
+          {
+            name: '👤 Name',
+            value: formData.name || 'Not provided',
+            inline: true
+          },
+          {
+            name: '📧 Email',
+            value: formData.email || 'Not provided',
+            inline: true
+          },
+          {
+            name: '💬 What are they trying to do?',
+            value: formData.message || 'Not provided',
+            inline: false
+          }
+        ],
+        timestamp: new Date().toISOString()
+      }
+
+      // Add optional context field if provided
+      if (formData.context) {
+        embed.fields.push({
+          name: '📝 Additional Context',
+          value: formData.context,
+          inline: false
+        })
+      }
+
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          embeds: [embed]
+        })
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
+      setSubmitted(true)
       setFormData({ name: '', email: '', message: '', context: '' })
-    }, 3000)
+      
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 3000)
+    } catch (err) {
+      console.error('Error sending message:', err)
+      setError(true)
+      setTimeout(() => {
+        setError(false)
+      }, 3000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -95,7 +158,8 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-bawes-gold focus:ring-2 focus:ring-bawes-gold/20 transition-all"
+                disabled={isSubmitting}
+                className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-bawes-gold focus:ring-2 focus:ring-bawes-gold/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder="Your name"
               />
             </div>
@@ -112,7 +176,8 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-bawes-gold focus:ring-2 focus:ring-bawes-gold/20 transition-all"
+                disabled={isSubmitting}
+                className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-bawes-gold focus:ring-2 focus:ring-bawes-gold/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder="your@email.com"
               />
             </div>
@@ -128,8 +193,9 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 required
+                disabled={isSubmitting}
                 rows={5}
-                className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-bawes-gold focus:ring-2 focus:ring-bawes-gold/20 transition-all resize-none"
+                className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-bawes-gold focus:ring-2 focus:ring-bawes-gold/20 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder="Tell us about your project, idea, or challenge..."
               />
             </div>
@@ -144,8 +210,9 @@ export default function Contact() {
                 name="context"
                 value={formData.context}
                 onChange={handleChange}
+                disabled={isSubmitting}
                 rows={3}
-                className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-bawes-gold focus:ring-2 focus:ring-bawes-gold/20 transition-all resize-none"
+                className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-bawes-gold focus:ring-2 focus:ring-bawes-gold/20 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder="Any additional details, timeline, or context..."
               />
             </div>
@@ -165,15 +232,25 @@ export default function Contact() {
                 </motion.span>
                 <p className="text-bawes-gold font-semibold text-lg">Message sent! We'll be in touch soon.</p>
               </motion.div>
+            ) : error ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="p-6 glass-card rounded-xl border border-bawes-red/30 text-center"
+              >
+                <motion.span 
+                  className="text-4xl block mb-4"
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 0.5 }}
+                >
+                  ⚠️
+                </motion.span>
+                <p className="text-bawes-red font-semibold text-lg">Failed to send message. Please try again.</p>
+              </motion.div>
             ) : (
-              <div className="space-y-4">
-                <Button type="submit" size="lg" className="w-full">
-                  Send Message
-                </Button>
-                <p className="text-sm text-white/40 text-center">
-                  No pressure. No funnel.
-                </p>
-              </div>
+              <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </Button>
             )}
           </form>
         </motion.div>
@@ -195,7 +272,7 @@ export default function Contact() {
               href="https://discord.gg/bawes"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 rounded-xl text-bawes-gold hover:bg-bawes-gold/10 transition-colors group"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-xl transition-colors group"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
