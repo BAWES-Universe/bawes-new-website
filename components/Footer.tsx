@@ -78,8 +78,7 @@ export default function Footer() {
                   {[
                     { label: 'How It Works', href: '/how-it-works' },
                     { label: 'Market', href: '/market' },
-                    { label: 'Components', href: '/work' },
-                    { label: 'Manifesto', href: '/manifesto' }
+                    { label: 'Components', href: '/work' }
                   ].map((item) => (
                     <li key={item.label}>
                       <Link 
@@ -129,9 +128,20 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 text-center">
-          <p className="text-white/30 text-sm">
-            © {new Date().getFullYear()} BAWES Universe. Open by default.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+            <p className="text-white/30 text-sm">
+              © {new Date().getFullYear()} BAWES Universe. Open by default.
+            </p>
+            <div className="flex items-center gap-3 text-xs text-white/30">
+              <Link href="/terms-of-use" className="hover:text-white/50 transition-colors">
+                Terms of Use
+              </Link>
+              <span className="text-white/20">•</span>
+              <Link href="/privacy-policy" className="hover:text-white/50 transition-colors">
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
