@@ -1,246 +1,189 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import Section from '@/components/Section'
 import Button from '@/components/ui/Button'
 
-const useCases = [
+const cases = [
   {
-    id: 'museum',
-    emoji: '🏛️',
-    label: 'Museums & Cultural Venues',
-    headline: 'A museum that comes alive after hours',
-    story:
-      'Visitors walk through digital galleries at their own pace. Animal NPCs roam the natural history wing. A staff guide bot greets arrivals by name, remembers what exhibits they explored last time, and offers a personalised tour. Staff have their own avatar look. Visitors never accidentally pick an NPC character.',
-    capabilities: [
-      'NPC animal bots with world-scoped avatar sets hidden from visitors',
-      'Staff-only avatar set gated by membership tag',
-      'Guide bot with persistent memory per visitor',
-      'Proximity-triggered tour sequences',
-      'Public exploration with protected back-of-house areas',
+    icon: '🏛️',
+    segment: 'Museums & Cultural Institutions',
+    who: 'Cultural operators',
+    color: 'gold',
+    problem: 'You want digital activations with real character — guided NPCs, staff identities, visitor-appropriate experiences — without hiring a dev team.',
+    platform: 'Launch a spatial museum world. Assign zoo animal or guide NPCs with bot-only avatar sets (never shown to visitors). Give staff tagged uniforms. Visitors get a clean, curated picker.',
+    flows: [
+      'Visitor arrives → picks from approved avatar set → explores rooms',
+      'NPC animal bots roam — assigned lion/giraffe avatars from bot-only set',
+      'Staff guide avatars gated by "staff" membership tag',
+      'Orbit admin swaps exhibits without touching code',
     ],
-    color: 'bawes-gold',
+    badge: 'Live deployment ready',
   },
   {
-    id: 'education',
-    emoji: '🎓',
-    label: 'Education & Campus',
-    headline: 'A digital campus students actually want to be in',
-    story:
-      'Students join their cohort world each morning. Study rooms have spatial audio so group work feels like a real library. Office hours happen in a professor\'s virtual room — walk in when the door is open. The AI tutor bot answers questions between sessions and remembers each student\'s learning history.',
-    capabilities: [
-      'Cohort worlds with membership-gated access to rooms',
-      'AI tutor bots with per-student persistent memory',
-      'Office hours rooms with presence signals',
-      'Club and social worlds alongside academic spaces',
-      'StudentHub integration for job matching inside the campus world',
+    icon: '🎓',
+    segment: 'Universities & Campuses',
+    who: 'Education operators',
+    color: 'blue',
+    problem: 'Students need persistent presence — study rooms, mentor access, career fairs, club spaces — that feels alive and socially real.',
+    platform: 'A full campus world with AI tutors per room, club worlds, lecture halls, office-hour bots with persistent memory, and career fair worlds connected to StudentHub.',
+    flows: [
+      'Student logs in → assigned to campus universe',
+      'Office-hour bots answer questions with session memory',
+      'Club leads manage their own worlds via Orbit',
+      'Career fair world opens on demand — StudentHub profiles visible',
     ],
-    color: 'bawes-red',
+    badge: 'StudentHub integration',
   },
   {
-    id: 'enterprise',
-    emoji: '🏢',
-    label: 'Corporate & Enterprise',
-    headline: 'The office your remote team actually shows up for',
-    story:
-      'Teams have floors. Focus pods have spatial audio that mutes the noise outside. The company bot answers HR and IT questions 24/7. New hires are greeted on their first day by an onboarding sequence, not an email. Branded avatars make every employee visually part of the company\'s identity.',
-    capabilities: [
-      'Branded avatar set scoped to company universe (email domain gating)',
-      'Department worlds with role-based access zones',
-      'HR/IT bot with tool execution (query internal docs, submit tickets)',
-      'Onboarding sequences triggered on first room entry',
-      'Executive meeting rooms with restricted area controls',
+    icon: '🏢',
+    segment: 'Branded Corporate Universes',
+    who: 'Enterprise clients',
+    color: 'teal',
+    problem: 'You need an internal collaboration space with your brand — custom avatars, access controlled by company email, and a governance-ready admin layer.',
+    platform: 'A private universe scoped to @yourcompany.com. Branded uniform avatars in a company-only set. Full Orbit admin. Bots for onboarding, HR FAQs, or culture programming.',
+    flows: [
+      'Only @company.com emails can access the universe',
+      'Employees see branded uniform avatars only',
+      'HR bot handles onboarding in welcome room',
+      'Orbit admin manages departments, rooms, and access tags',
     ],
-    color: 'bawes-orange',
+    badge: 'Email-domain scoping',
   },
   {
-    id: 'events',
-    emoji: '🎪',
-    label: 'Events & Conferences',
-    headline: 'An event space that\'s alive before the keynote starts',
-    story:
-      'Attendees arrive in a shared lobby and can already see who\'s present. Sponsor booths are rooms with live staff and AI assistants. Speakers prepare backstage in a restricted area. Event-exclusive avatar drops are available for three days only, then gone.',
-    capabilities: [
-      'Time-limited avatar drops (startsAt / endsAt windows)',
-      'Backstage zones restricted to speakers and crew',
-      'Sponsor booth rooms with AI-assisted product demos',
-      'Live presence across all event spaces',
-      'Post-event archive with session recordings accessible in-world',
+    icon: '🛍️',
+    segment: 'Markets & Commerce Experiences',
+    who: 'Commerce operators',
+    color: 'orange',
+    problem: 'You want to run live market events — shopping, services, food, artisan goods — inside a social space where discovery happens naturally.',
+    platform: 'Shared market worlds with embedded Shopify or booking connectors. Vendors have their own booths (rooms). Plugn integrations let service providers connect.',
+    flows: [
+      'Visitor enters market world → browses vendor booths (rooms)',
+      'Booth NPC bots greet and describe products',
+      'Purchase links to Shopify or booking system inline',
+      'Market admin manages vendors and room access via Orbit',
     ],
-    color: 'bawes-gold',
+    badge: 'Plugn + Shopify ready',
   },
   {
-    id: 'commerce',
-    emoji: '🛍️',
-    label: 'Retail & Commerce',
-    headline: 'A market where discovery is social',
-    story:
-      'Multiple vendors share one market world. Shoppers see each other browsing, sparking organic conversations. A shop assistant bot answers product questions and checks stock in real time. Checkout happens in context — no new tabs, no broken flow.',
-    capabilities: [
-      'Shared spatial market with multiple vendor rooms',
-      'Shop assistant bot with tool execution (live inventory, booking)',
-      'Shopify and custom stack integration',
-      'Embedded payment flow without leaving the world',
-      'Social presence showing where other shoppers are browsing',
+    icon: '🎉',
+    segment: 'Events & Seasonal Activations',
+    who: 'Event producers',
+    color: 'purple',
+    problem: 'You want time-limited digital events — launch days, conferences, seasonal parties — with exclusive access, VIP rooms, and special character drops.',
+    platform: 'Time-gated worlds with exclusive avatar sets that auto-expire. VIP area permissions. Bot MCs in event rooms. Automatic world opening and closing scheduled in Orbit.',
+    flows: [
+      'Event opens on scheduled date → special avatar set unlocks',
+      'VIP tag holders access backstage/speaker rooms',
+      'Bot MC manages agenda and Q&A in main hall',
+      'Avatar set and world auto-expire at event end',
     ],
-    color: 'bawes-red',
+    badge: 'Time-gated drops',
   },
   {
-    id: 'community',
-    emoji: '🌐',
-    label: 'Communities & Creator Worlds',
-    headline: 'A community space that rewards being present',
-    story:
-      'Members hang out in a persistent digital space between events. Premium subscribers unlock an exclusive fashion set. VIPs receive a one-off custom avatar that only they can use. The world grows richer the more people show up — there is always something happening.',
-    capabilities: [
-      'Premium subscription avatar sets (recurring B2C model)',
-      'One-off celebrity / VIP avatar grants',
-      'Community world with open spaces and members-only zones',
-      'Discord bridge: community activity syncs both ways',
-      'Seasonal event drops with time-limited avatar sets',
+    icon: '🎮',
+    segment: 'Gaming & Community Hubs',
+    who: 'Community builders',
+    color: 'red',
+    problem: 'You want a persistent community home — hangout worlds, subscriber clubs, Discord-bridged chat, and an identity layer that rewards loyalty.',
+    platform: 'Community world with Discord + Matrix bridging. Subscriber-only avatar clubs with seasonal drops. Game rooms and hangout spaces with persistent bot characters.',
+    flows: [
+      'Community members arrive and join Discord via in-world prompt',
+      'Subscribers unlock exclusive avatar sets monthly',
+      'Bot characters hold lore, respond to questions, run mini-games',
+      'Moderators manage access and worlds via Orbit',
     ],
-    color: 'bawes-orange',
+    badge: 'Discord + Matrix bridge',
   },
 ]
 
-const UseCaseCard = ({ uc, isActive, onClick }: { uc: typeof useCases[0]; isActive: boolean; onClick: () => void }) => (
-  <button
-    onClick={onClick}
-    className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 ${
-      isActive
-        ? 'border-bawes-gold/50 bg-white/8'
-        : 'border-white/10 bg-white/3 hover:border-white/20 hover:bg-white/5'
-    }`}
-  >
-    <div className="flex items-center gap-3">
-      <span className="text-2xl">{uc.emoji}</span>
-      <span className={`font-semibold text-sm ${isActive ? 'text-white' : 'text-white/60'}`}>{uc.label}</span>
-    </div>
-  </button>
-)
+const colorMap: Record<string, { border: string; text: string; bg: string }> = {
+  gold:   { border: 'border-bawes-gold/30',   text: 'text-bawes-gold',   bg: 'bg-bawes-gold/10' },
+  red:    { border: 'border-bawes-red/30',    text: 'text-bawes-red',    bg: 'bg-bawes-red/10' },
+  orange: { border: 'border-bawes-orange/30', text: 'text-bawes-orange', bg: 'bg-bawes-orange/10' },
+  blue:   { border: 'border-blue-500/30',     text: 'text-blue-400',     bg: 'bg-blue-500/10' },
+  teal:   { border: 'border-teal-500/30',     text: 'text-teal-400',     bg: 'bg-teal-500/10' },
+  purple: { border: 'border-purple-500/30',   text: 'text-purple-400',   bg: 'bg-purple-500/10' },
+}
 
 export default function UseCasesPage() {
-  const [active, setActive] = useState(0)
-  const current = useCases[active]
-  const detailRef = useRef(null)
-
   return (
-    <div className="pt-20">
-      {/* Hero */}
-      <section className="min-h-[55vh] flex items-center justify-center relative overflow-hidden">
+    <div>
+      <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 right-1/3 w-[500px] h-[500px] bg-bawes-orange/8 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] bg-bawes-gold/8 rounded-full blur-3xl" />
+          <div className="absolute top-1/3 left-1/4 w-[500px] h-[400px] bg-bawes-gold/6 rounded-full blur-3xl" />
+          <div className="absolute inset-0 grid-pattern opacity-20" />
         </div>
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <span className="inline-block px-4 py-1.5 rounded-full border border-bawes-orange/30 text-bawes-orange text-sm font-medium mb-6">
-              Use Cases
-            </span>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Built for <span className="bawes-gradient-text">your</span> world
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <p className="text-bawes-gold text-sm font-semibold uppercase tracking-widest mb-4">Use Cases</p>
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+              Real worlds built on
+              <br />
+              <span className="bawes-gradient-text">Universe</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto leading-relaxed">
-              See exactly how Universe works for museums, campuses, offices, events, retail, and communities.
+            <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+              Operational deployments — not demos. Each use case shows the visitor flow,
+              operator controls, and the commercial logic that makes it work.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Interactive use case explorer */}
-      <Section className="relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[340px_1fr] gap-8 items-start">
-            {/* Sidebar */}
-            <div className="lg:sticky lg:top-32 space-y-3">
-              {useCases.map((uc, i) => (
-                <UseCaseCard key={uc.id} uc={uc} isActive={i === active} onClick={() => setActive(i)} />
-              ))}
-            </div>
-
-            {/* Detail panel */}
-            <motion.div
-              ref={detailRef}
-              key={current.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="glass-card rounded-3xl p-10 relative overflow-hidden"
-            >
-              {/* Accent top line */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-bawes-gold via-bawes-red to-bawes-orange" />
-
-              <div className="text-6xl mb-6">{current.emoji}</div>
-              <span className="inline-block px-3 py-1 rounded-full border border-white/20 text-white/50 text-xs font-semibold uppercase tracking-widest mb-4">
-                {current.label}
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                {current.headline}
-              </h2>
-              <p className="text-white/65 text-lg leading-relaxed mb-10">
-                {current.story}
-              </p>
-
-              <div className="border-t border-white/10 pt-8">
-                <p className="text-sm font-semibold text-white/40 uppercase tracking-widest mb-5">
-                  Platform capabilities used
-                </p>
-                <ul className="space-y-3">
-                  {current.capabilities.map((cap, i) => (
-                    <motion.li
-                      key={cap}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.08 }}
-                      className="flex items-start gap-3 text-white/70"
-                    >
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-br from-bawes-gold to-bawes-orange shrink-0" />
-                      {cap}
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <Button href="/features" size="lg" variant="secondary">
-                  See all features
-                </Button>
-                <Button href="/contact" size="lg">
-                  Build this world
-                </Button>
-              </div>
-            </motion.div>
+      <Section>
+        <div className="max-w-5xl mx-auto space-y-16">
+          {cases.map(({ icon, segment, who, color, problem, platform, flows, badge }, i) => {
+            const c = colorMap[color]
+            return (
+              <motion.div
+                key={segment}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className={`glass-card rounded-3xl p-8 md:p-10 border ${c.border}`}
+              >
+                <div className="flex items-start justify-between gap-4 mb-6 flex-wrap">
+                  <div className="flex items-center gap-4">
+                    <span className="text-5xl">{icon}</span>
+                    <div>
+                      <p className={`text-xs font-semibold uppercase tracking-widest mb-1 ${c.text}`}>{who}</p>
+                      <h2 className="text-2xl md:text-3xl font-bold text-white">{segment}</h2>
+                    </div>
+                  </div>
+                  <span className={`text-sm font-semibold px-3 py-1 rounded-full ${c.bg} ${c.text} border ${c.border}`}>{badge}</span>
+                </div>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <p className={`text-xs font-semibold uppercase tracking-widest mb-3 ${c.text}`}>The problem</p>
+                    <p className="text-white/65 leading-relaxed">{problem}</p>
+                  </div>
+                  <div>
+                    <p className={`text-xs font-semibold uppercase tracking-widest mb-3 ${c.text}`}>How Universe solves it</p>
+                    <p className="text-white/65 leading-relaxed">{platform}</p>
+                  </div>
+                </div>
+                <div className="mt-8">
+                  <p className={`text-xs font-semibold uppercase tracking-widest mb-4 ${c.text}`}>Visitor & operator flow</p>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {flows.map((flow, fi) => (
+                      <div key={fi} className="flex items-start gap-3 p-4 rounded-xl bg-white/4 border border-white/6">
+                        <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${c.bg} ${c.text}`}>{fi + 1}</span>
+                        <p className="text-sm text-white/65 leading-relaxed">{flow}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
+        <div className="text-center mt-16">
+          <p className="text-white/50 mb-6">Ready to build your world?</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="/contact">Talk to us about your use case</Button>
+            <Button href="https://universe.bawes.net" variant="secondary">Enter the Universe</Button>
           </div>
-        </div>
-      </Section>
-
-      {/* Bottom CTA */}
-      <Section className="relative min-h-[40vh] flex items-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-radial from-bawes-red/10 via-transparent to-transparent" />
-        </div>
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-6 text-white"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Don&apos;t see your use case?
-          </motion.h2>
-          <motion.p
-            className="text-xl text-white/60 mb-10"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            Universe adapts to any context where people gather, collaborate, and transact. Tell us what you&apos;re building.
-          </motion.p>
-          <Button href="/contact" size="lg">
-            Talk to us
-          </Button>
         </div>
       </Section>
     </div>
