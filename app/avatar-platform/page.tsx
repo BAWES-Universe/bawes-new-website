@@ -16,7 +16,7 @@ const tiers = [
   {
     label: 'Universe-scoped',
     description: 'Available only inside a specific universe. Invisible to visitors in other universes.',
-    example: 'A brand\'s collection: only wearable inside the brand\'s own world ecosystem.',
+    example: "A brand's collection: only wearable inside the brand's own world ecosystem.",
     icon: '🏛️',
     color: 'bawes-orange',
   },
@@ -110,7 +110,7 @@ export default function AvatarPlatformPage() {
         <div className="max-w-5xl mx-auto text-center px-4">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span className="inline-block px-4 py-1.5 rounded-full border border-bawes-orange/30 text-bawes-orange text-sm font-medium mb-6">
-              Avatar & Identity Platform
+              Avatar &amp; Identity Platform
             </span>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Identity is <span className="bawes-gradient-text">infrastructure</span>
@@ -138,7 +138,7 @@ export default function AvatarPlatformPage() {
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div>
                 <div className="text-4xl mb-3">🤖</div>
-                <p className="text-white/60 text-sm leading-relaxed">Visitors accidentally select your AI bot\'s avatar, impersonating your character</p>
+                <p className="text-white/60 text-sm leading-relaxed">Visitors accidentally select your AI bot&apos;s avatar, impersonating your character</p>
               </div>
               <div>
                 <div className="text-4xl mb-3">👔</div>
