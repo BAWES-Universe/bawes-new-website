@@ -71,7 +71,7 @@ const exampleBots = [
     world: 'University Campus',
     avatar: '📚',
     behaviour:
-      'Stationed in the library world. Students approach with study questions between lectures. The bot remembers each student\'s course, past questions, and learning pace — adapting explanations accordingly.',
+      "Stationed in the library world. Students approach with study questions between lectures. The bot remembers each student's course, past questions, and learning pace — adapting explanations accordingly.",
     provider: 'Anthropic Claude',
     tools: ['Student profile lookup', 'Course material search', 'Assignment deadline retrieval'],
   },
@@ -94,6 +94,28 @@ const exampleBots = [
     tools: ['HR policy docs search', 'IT ticket submission', 'Directory lookup'],
   },
 ]
+
+// Extracted as a proper component so hooks are called at component level, not inside .map()
+function CapabilityCard({ cap, index }: { cap: typeof botCapabilities[0]; index: number }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+  return (
+    <motion.div
+      key={cap.title}
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ delay: index * 0.05 }}
+      className="glass-card rounded-2xl p-6 hover:border-bawes-red/30 transition-colors group"
+    >
+      <div className="text-3xl mb-4">{cap.icon}</div>
+      <h3 className="text-white font-bold mb-3 text-lg group-hover:text-bawes-red transition-colors">
+        {cap.title}
+      </h3>
+      <p className="text-white/55 text-sm leading-relaxed">{cap.description}</p>
+    </motion.div>
+  )
+}
 
 export default function AIBotsPage() {
   return (
@@ -152,26 +174,9 @@ export default function AIBotsPage() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {botCapabilities.map((cap, i) => {
-              const ref = useRef(null)
-              const isInView = useInView(ref, { once: true })
-              return (
-                <motion.div
-                  key={cap.title}
-                  ref={ref}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: i * 0.05 }}
-                  className="glass-card rounded-2xl p-6 hover:border-bawes-red/30 transition-colors group"
-                >
-                  <div className="text-3xl mb-4">{cap.icon}</div>
-                  <h3 className="text-white font-bold mb-3 text-lg group-hover:text-bawes-red transition-colors">
-                    {cap.title}
-                  </h3>
-                  <p className="text-white/55 text-sm leading-relaxed">{cap.description}</p>
-                </motion.div>
-              )
-            })}
+            {botCapabilities.map((cap, i) => (
+              <CapabilityCard key={cap.title} cap={cap} index={i} />
+            ))}
           </div>
         </div>
       </Section>

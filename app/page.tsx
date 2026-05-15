@@ -93,9 +93,8 @@ const PillarCard = ({ icon, title, features, delay = 0 }: {
 export default function Home() {
   return (
     <div>
-      {/* ─── HERO ─────────────────────────────────── */}
+      {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Background */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-bawes-gold/8 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-bawes-red/8 rounded-full blur-3xl" />
@@ -115,7 +114,7 @@ export default function Home() {
               transition={{ delay: 0.2 }}
             >
               <span className="w-2 h-2 rounded-full bg-bawes-gold animate-pulse" />
-              Now live — enter the Universe
+              Now live &mdash; enter the Universe
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8">
@@ -154,7 +153,6 @@ export default function Home() {
               </Button>
             </div>
 
-            {/* Proof bar */}
             <motion.div
               className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-white/40"
               initial={{ opacity: 0 }}
@@ -176,7 +174,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── WHAT IT IS ───────────────────────────── */}
+      {/* WHAT IT IS */}
       <Section id="platform" className="relative">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-bawes-orange/5 rounded-full blur-3xl" />
@@ -236,7 +234,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* ─── PLATFORM PILLARS ─────────────────────── */}
+      {/* PLATFORM PILLARS */}
       <Section className="relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern -z-10 opacity-20" />
         <div className="max-w-6xl mx-auto">
@@ -291,7 +289,7 @@ export default function Home() {
             />
             <PillarCard
               icon="🎭"
-              title="Avatar & Identity"
+              title="Avatar &amp; Identity"
               features={[
                 'Managed avatar catalog (Sets)',
                 'Per-world and per-universe scoping',
@@ -315,7 +313,7 @@ export default function Home() {
             />
             <PillarCard
               icon="🛒"
-              title="Commerce & Integrations"
+              title="Commerce &amp; Integrations"
               features={[
                 'Shopify, booking, and custom connectors',
                 'Shared market experiences',
@@ -329,13 +327,13 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <Button href="/platform">
-              Full platform overview →
+              Full platform overview &rarr;
             </Button>
           </div>
         </div>
       </Section>
 
-      {/* ─── USE CASES ────────────────────────────── */}
+      {/* USE CASES */}
       <Section className="relative">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-gradient-to-b from-bawes-gold/5 to-transparent" />
@@ -361,7 +359,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <UseCaseCard
               icon="🏛️"
-              title="Museums & Cultural Institutions"
+              title="Museums &amp; Cultural Institutions"
               who="Cultural operators"
               description="Run guided NPC animal bots, staff avatars with proper uniforms, and visitor-only character sets — all without custom engineering."
               outcomes={[
@@ -374,7 +372,7 @@ export default function Home() {
             />
             <UseCaseCard
               icon="🏫"
-              title="Universities & Campuses"
+              title="Universities &amp; Campuses"
               who="Education operators"
               description="Give students a persistent campus with study rooms, AI tutors, club spaces, mentor rooms, and career fair worlds."
               outcomes={[
@@ -400,7 +398,7 @@ export default function Home() {
             />
             <UseCaseCard
               icon="🛍️"
-              title="Markets & Commerce Spaces"
+              title="Markets &amp; Commerce Spaces"
               who="Commerce operators"
               description="Embed shops, service providers, and marketplaces into shared spatial rooms. Connect Shopify, booking systems, or custom stacks."
               outcomes={[
@@ -413,7 +411,7 @@ export default function Home() {
             />
             <UseCaseCard
               icon="🎉"
-              title="Events & Seasonal Activations"
+              title="Events &amp; Seasonal Activations"
               who="Event producers"
               description="Launch time-limited event worlds with special avatar drops, gated VIP rooms, and scheduled openings and closings."
               outcomes={[
@@ -426,7 +424,7 @@ export default function Home() {
             />
             <UseCaseCard
               icon="🎮"
-              title="Gaming & Community Hubs"
+              title="Gaming &amp; Community Hubs"
               who="Community builders"
               description="Run persistent communities with game rooms, hangout worlds, Discord-bridged chat, and exclusive subscriber avatar clubs."
               outcomes={[
@@ -441,16 +439,16 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <Button href="/use-cases" variant="secondary">
-              All use cases →
+              All use cases &rarr;
             </Button>
           </div>
         </div>
       </Section>
 
-      {/* ─── AVATAR PLATFORM FEATURE SPOTLIGHT ────── */}
+      {/* AVATAR PLATFORM SPOTLIGHT */}
       <Section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-radial from-bawes-gold/8 to-transparent rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-bawes-gold/8 rounded-full blur-3xl" />
         </div>
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -460,7 +458,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <p className="text-bawes-gold text-sm font-semibold uppercase tracking-widest mb-4">New — Avatar Platform</p>
+              <p className="text-bawes-gold text-sm font-semibold uppercase tracking-widest mb-4">New &mdash; Avatar Platform</p>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Avatar identity as a
                 <span className="bawes-gradient-text"> product asset</span>
@@ -468,7 +466,7 @@ export default function Home() {
               <p className="text-white/60 leading-relaxed mb-6">
                 The Avatar Platform turns character customization into a managed, revenue-ready catalog.
                 Create sets, scope them per world, gate by membership or subscription, assign NPC bots,
-                and track every change in audit logs — without custom engineering.
+                and track every change in audit logs &mdash; without custom engineering.
               </p>
               <ul className="space-y-3 mb-8">
                 {[
@@ -493,7 +491,7 @@ export default function Home() {
                 ))}
               </ul>
               <Button href="/avatar-platform">
-                Read the full Avatar Platform overview →
+                Read the full Avatar Platform overview &rarr;
               </Button>
             </motion.div>
 
@@ -550,7 +548,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* ─── HOW IT WORKS ─────────────────────────── */}
+      {/* HOW IT WORKS */}
       <Section className="relative">
         <div className="absolute inset-0 grid-pattern -z-10 opacity-15" />
         <div className="max-w-4xl mx-auto text-center">
@@ -569,15 +567,13 @@ export default function Home() {
           </motion.div>
 
           <div className="relative">
-            {/* Connector line */}
             <div className="hidden md:block absolute top-10 left-[calc(12.5%+1.5rem)] right-[calc(12.5%+1.5rem)] h-px bg-gradient-to-r from-transparent via-bawes-gold/30 to-transparent" />
-
             <div className="grid md:grid-cols-4 gap-6">
               {[
                 { step: '01', icon: '🗺️', label: 'Design your world', desc: 'Pick a template or build a custom map. Define your universe hierarchy.' },
                 { step: '02', icon: '🛸', label: 'Configure in Orbit', desc: 'Set access rules, member roles, avatar sets, bot characters, and room permissions.' },
                 { step: '03', icon: '🤖', label: 'Deploy AI bots', desc: 'Add conversational bots to rooms. Give them names, personas, memories, and avatars.' },
-                { step: '04', icon: '🚀', label: 'Launch & invite', desc: 'Share your universe URL. Players arrive, explore, and engage in real time.' },
+                { step: '04', icon: '🚀', label: 'Launch &amp; invite', desc: 'Share your universe URL. Players arrive, explore, and engage in real time.' },
               ].map(({ step, icon, label, desc }, i) => (
                 <motion.div
                   key={step}
@@ -600,13 +596,13 @@ export default function Home() {
 
           <div className="mt-10">
             <Button href="/how-it-works" variant="secondary">
-              Detailed walkthrough →
+              Detailed walkthrough &rarr;
             </Button>
           </div>
         </div>
       </Section>
 
-      {/* ─── OPEN BY DEFAULT ──────────────────────── */}
+      {/* OPEN BY DEFAULT */}
       <Section className="relative">
         <div className="max-w-4xl mx-auto">
           <div className="glass-card rounded-3xl p-10 md:p-14 border border-bawes-gold/20 relative overflow-hidden">
@@ -624,8 +620,8 @@ export default function Home() {
                 <span className="bawes-gradient-text">people-first</span>
               </h2>
               <p className="text-white/65 text-lg leading-relaxed mb-8 max-w-2xl">
-                BAWES is a fully open-source, social impact organization. Universe is the platform we\'re
-                building in public — where every person can network, grow, collaborate, and build their own
+                BAWES is a fully open-source, social impact organization. Universe is the platform we&apos;re
+                building in public &mdash; where every person can network, grow, collaborate, and build their own
                 universe. The code is open, the community is open, and the future is collaborative.
               </p>
               <div className="grid sm:grid-cols-3 gap-4 mb-8">
