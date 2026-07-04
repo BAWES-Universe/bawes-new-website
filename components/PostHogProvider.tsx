@@ -14,6 +14,9 @@ export default function PostHogProvider({ children }: { children: React.ReactNod
       return
     }
 
+    // Guard against double init (Strict Mode / Fast Refresh)
+    if (posthog.__loaded) return
+
     posthog.init(POSTHOG_KEY, {
       api_host: POSTHOG_HOST,
       cross_subdomain_cookie: true,

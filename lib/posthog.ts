@@ -2,6 +2,9 @@ import posthog from 'posthog-js'
 
 const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY
 
+/** The canonical Universe URL — single source of truth */
+export const UNIVERSE_URL = 'https://universe.bawes.net'
+
 // ─── Cross-domain identity bootstrap ───────────────────────────
 
 /**
