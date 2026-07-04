@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import Button from '@/components/ui/Button'
+import { captureEnterUniverse, getCrossDomainUrl } from '@/lib/posthog'
 
 interface Star {
   x: number
@@ -327,9 +328,10 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <motion.a
-                href="https://universe.bawes.net"
+                href={getCrossDomainUrl('https://universe.bawes.net')}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => captureEnterUniverse('hero')}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-300 relative overflow-hidden group px-8 py-4 text-base bg-gradient-to-r from-bawes-gold via-bawes-red to-bawes-orange text-white hover:shadow-lg hover:shadow-bawes-gold/30"

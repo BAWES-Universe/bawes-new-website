@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from 'next'
+import { Suspense } from 'react'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import PostHogProvider from '@/components/PostHogProvider'
+import PostHogPageView from '@/components/PostHogPageView'
 
 export const metadata: Metadata = {
   title: 'BAWES Universe - Build Your Own Universe',
@@ -54,11 +57,16 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-[#0a0a0a] text-white antialiased" style={{ width: '100%', margin: 0, padding: 0 }}>
-        <Navigation />
-        <main className="min-h-screen" style={{ width: '100%' }}>
-          {children}
-        </main>
-        <Footer />
+        <PostHogProvider>
+          <Suspense fallback={null}>
+            <PostHogPageView />
+          </Suspense>
+          <Navigation />
+          <main className="min-h-screen" style={{ width: '100%' }}>
+            {children}
+          </main>
+          <Footer />
+        </PostHogProvider>
       </body>
     </html>
   )
