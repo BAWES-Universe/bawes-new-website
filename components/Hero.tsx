@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import Button from '@/components/ui/Button'
-import { captureEnterUniverse, getCrossDomainUrl } from '@/lib/posthog'
+import { captureEnterUniverse, getCrossDomainUrl, captureCtaClick } from '@/lib/posthog'
 
 interface Star {
   x: number
@@ -344,7 +344,7 @@ export default function Hero() {
                 </span>
                 <span className="absolute inset-0 bg-gradient-to-r from-bawes-orange via-bawes-red to-bawes-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </motion.a>
-              <Button href="/how-it-works" variant="secondary" size="lg">
+              <Button href="/how-it-works" variant="secondary" size="lg" onClick={() => captureCtaClick('See how it works', 'hero')}>
                 See how it works
               </Button>
             </motion.div>

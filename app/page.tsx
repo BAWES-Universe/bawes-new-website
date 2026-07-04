@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Section from '@/components/Section'
 import Button from '@/components/ui/Button'
 import Hero from '@/components/Hero'
-import { captureEnterUniverse, getCrossDomainUrl } from '@/lib/posthog'
+import { captureEnterUniverse, getCrossDomainUrl, captureCtaClick } from '@/lib/posthog'
 
 const FeatureCard = ({ emoji, title, description, color, delay = 0 }: {
   emoji: string
@@ -331,7 +331,7 @@ export default function Home() {
               </span>
               <span className="absolute inset-0 bg-gradient-to-r from-bawes-orange via-bawes-red to-bawes-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.a>
-            <Button href="/contact" variant="secondary" size="lg">
+            <Button href="/contact" variant="secondary" size="lg" onClick={() => captureCtaClick('Talk to us', 'bottom-cta')}>
               Talk to us
             </Button>
           </motion.div>
