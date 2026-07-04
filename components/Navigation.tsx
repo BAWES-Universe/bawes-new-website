@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { captureDiscordClick, captureNavClick } from '@/lib/posthog'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -124,6 +125,7 @@ export default function Navigation() {
                 href="https://discord.gg/CXceJWnwNT"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => captureDiscordClick('nav-desktop')}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0 }}
@@ -146,6 +148,7 @@ export default function Navigation() {
                 >
                   <Link
                     href={link.href}
+                    onClick={() => captureNavClick(link.href, link.label)}
                     className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group whitespace-nowrap"
                   >
                     {link.label}
@@ -161,6 +164,7 @@ export default function Navigation() {
                 href="https://discord.gg/CXceJWnwNT"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => captureDiscordClick('nav-mobile')}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1 }}
@@ -227,7 +231,7 @@ export default function Navigation() {
                 >
                   <Link
                     href={link.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => { captureNavClick(link.href, link.label); setIsOpen(false); }}
                     className="text-3xl font-light text-white/80 hover:text-white transition-colors relative group"
                   >
                     {link.label}

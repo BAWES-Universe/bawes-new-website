@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { captureDiscordClick, captureExternalLink, captureNavClick, captureFooterLinkClick } from '@/lib/posthog'
 
 export default function Footer() {
   return (
@@ -44,6 +45,7 @@ export default function Footer() {
                 href="https://discord.gg/CXceJWnwNT" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                onClick={() => captureDiscordClick('footer-icon')}
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-bawes-gold/20 transition-colors group"
               >
                 <svg className="w-5 h-5 text-white/50 group-hover:text-bawes-gold transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -54,6 +56,7 @@ export default function Footer() {
                 href="https://github.com/BAWES-Universe" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                onClick={() => captureExternalLink('github', 'https://github.com/BAWES-Universe')}
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-bawes-gold/20 transition-colors group"
                 aria-label="GitHub"
               >
@@ -83,6 +86,7 @@ export default function Footer() {
                     <li key={item.label}>
                       <Link 
                         href={item.href} 
+                        onClick={() => captureNavClick(item.href, 'footer-' + item.label)}
                         className="text-white/50 hover:text-bawes-orange transition-colors text-sm"
                       >
                         {item.label}
@@ -96,12 +100,12 @@ export default function Footer() {
                 <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Philosophy</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/manifesto" className="text-white/50 hover:text-bawes-orange transition-colors text-sm">
+                    <Link href="/manifesto" onClick={() => captureNavClick('/manifesto', 'footer-Manifesto')} className="text-white/50 hover:text-bawes-orange transition-colors text-sm">
                       Manifesto
                     </Link>
                   </li>
                   <li>
-                    <Link href="/empty-seat" className="text-white/50 hover:text-bawes-orange transition-colors text-sm">
+                    <Link href="/empty-seat" onClick={() => captureNavClick('/empty-seat', 'footer-The Empty Seat')} className="text-white/50 hover:text-bawes-orange transition-colors text-sm">
                       The Empty Seat
                     </Link>
                   </li>
@@ -112,12 +116,12 @@ export default function Footer() {
                 <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Connect</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/contact" className="text-white/50 hover:text-bawes-orange transition-colors text-sm">
+                    <Link href="/contact" onClick={() => captureNavClick('/contact', 'footer-Contact')} className="text-white/50 hover:text-bawes-orange transition-colors text-sm">
                       Contact
                     </Link>
                   </li>
                   <li>
-                    <a href="https://discord.gg/CXceJWnwNT" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-bawes-orange transition-colors text-sm">
+                    <a href="https://discord.gg/CXceJWnwNT" target="_blank" rel="noopener noreferrer" onClick={() => captureDiscordClick('footer-link')} className="text-white/50 hover:text-bawes-orange transition-colors text-sm">
                       Discord
                     </a>
                   </li>
@@ -133,11 +137,11 @@ export default function Footer() {
               © {new Date().getFullYear()} BAWES Universe. Open by default.
             </p>
             <div className="flex items-center gap-3 text-xs text-white/30">
-              <Link href="/terms-of-use" className="hover:text-white/50 transition-colors">
+              <Link href="/terms-of-use" onClick={() => captureFooterLinkClick('Terms of Use', '/terms-of-use')} className="hover:text-white/50 transition-colors">
                 Terms of Use
               </Link>
               <span className="text-white/20">•</span>
-              <Link href="/privacy-policy" className="hover:text-white/50 transition-colors">
+              <Link href="/privacy-policy" onClick={() => captureFooterLinkClick('Privacy Policy', '/privacy-policy')} className="hover:text-white/50 transition-colors">
                 Privacy Policy
               </Link>
             </div>

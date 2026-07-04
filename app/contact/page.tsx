@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Section from '@/components/Section'
 import Button from '@/components/ui/Button'
+import { captureDiscordClick, captureContactSubmit } from '@/lib/posthog'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -72,12 +73,14 @@ export default function Contact() {
 
       setSubmitted(true)
       setFormData({ name: '', email: '', message: '', context: '' })
+      captureContactSubmit(true, Object.keys(formData).filter(k => formData[k as keyof typeof formData]))
       
       setTimeout(() => {
         setSubmitted(false)
       }, 3000)
     } catch (err) {
       console.error('Error sending message:', err)
+      captureContactSubmit(false)
       setError(true)
       setTimeout(() => {
         setError(false)
@@ -272,6 +275,7 @@ export default function Contact() {
               href="https://discord.gg/CXceJWnwNT"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => captureDiscordClick('contact-page')}
               className="inline-flex items-center gap-3 px-6 py-3 bg-[#5865F2] hover:bg-[#4752C4] text-white rounded-xl transition-colors group"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
