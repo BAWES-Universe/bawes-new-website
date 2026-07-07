@@ -80,17 +80,30 @@ export default function Footer() {
                 <ul className="space-y-3">
                   {[
                     { label: 'How It Works', href: '/how-it-works' },
+                    { label: 'Blog', href: 'https://blog.bawes.net', external: true },
                     { label: 'Market', href: '/market' },
                     { label: 'Components', href: '/work' }
                   ].map((item) => (
                     <li key={item.label}>
-                      <Link 
-                        href={item.href} 
-                        onClick={() => captureNavClick(item.href, 'footer-' + item.label)}
-                        className="text-white/50 hover:text-bawes-orange transition-colors text-sm"
-                      >
-                        {item.label}
-                      </Link>
+                      {item.external ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => captureExternalLink('blog', item.href)}
+                          className="text-white/50 hover:text-bawes-orange transition-colors text-sm"
+                        >
+                          {item.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          onClick={() => captureNavClick(item.href, 'footer-' + item.label)}
+                          className="text-white/50 hover:text-bawes-orange transition-colors text-sm"
+                        >
+                          {item.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

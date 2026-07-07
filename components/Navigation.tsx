@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
-import { captureDiscordClick, captureNavClick } from '@/lib/posthog'
+import { captureDiscordClick, captureExternalLink, captureNavClick } from '@/lib/posthog'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -63,6 +63,7 @@ export default function Navigation() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/how-it-works', label: 'How It Works' },
+    { href: 'https://blog.bawes.net', label: 'Blog', external: true },
     { href: '/market', label: 'Market' },
     { href: '/work', label: 'Components' },
     { href: '/manifesto', label: 'Manifesto' },
@@ -146,14 +147,27 @@ export default function Navigation() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: (index + 1) * 0.1 }}
                 >
-                  <Link
-                    href={link.href}
-                    onClick={() => captureNavClick(link.href, link.label)}
-                    className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group whitespace-nowrap"
-                  >
-                    {link.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-bawes-gold via-bawes-red to-bawes-orange group-hover:w-full transition-all duration-300" />
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => captureExternalLink('blog', link.href)}
+                      className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group whitespace-nowrap"
+                    >
+                      {link.label}
+                      <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-bawes-gold via-bawes-red to-bawes-orange group-hover:w-full transition-all duration-300" />
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={() => captureNavClick(link.href, link.label)}
+                      className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group whitespace-nowrap"
+                    >
+                      {link.label}
+                      <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-bawes-gold via-bawes-red to-bawes-orange group-hover:w-full transition-all duration-300" />
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -229,14 +243,27 @@ export default function Navigation() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + index * 0.05 }}
                 >
-                  <Link
-                    href={link.href}
-                    onClick={() => { captureNavClick(link.href, link.label); setIsOpen(false); }}
-                    className="text-3xl font-light text-white/80 hover:text-white transition-colors relative group"
-                  >
-                    {link.label}
-                    <span className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-bawes-gold via-bawes-red to-bawes-orange transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => { captureExternalLink('blog', link.href); setIsOpen(false); }}
+                      className="text-3xl font-light text-white/80 hover:text-white transition-colors relative group"
+                    >
+                      {link.label}
+                      <span className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-bawes-gold via-bawes-red to-bawes-orange transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={() => { captureNavClick(link.href, link.label); setIsOpen(false); }}
+                      className="text-3xl font-light text-white/80 hover:text-white transition-colors relative group"
+                    >
+                      {link.label}
+                      <span className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-bawes-gold via-bawes-red to-bawes-orange transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </motion.div>
