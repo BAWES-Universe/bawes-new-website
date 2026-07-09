@@ -4,6 +4,7 @@
 
 | Feature | Status | What it is |
 |---|---|---|
+| [avatar-platform](./avatar-platform/) | 🟢 LIVE | Avatar sets, entitlements, catalog management |
 | [maps](./maps/) | 🟢 LIVE | Tiled editor, WAM format, publishing options |
 | [inline-map-editor](./inline-map-editor/) | 🟢 LIVE | In-game map editing |
 | [area-zones](./area-zones/) | 🟢 LIVE | Entry/exit, silent, broadcast, restricted zones |

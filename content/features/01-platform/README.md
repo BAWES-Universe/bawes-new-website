@@ -8,3 +8,4 @@
 | [self-hosting](./self-hosting/) | 🟢 LIVE | Docker Compose, Coolify, env vars, Helm chart |
 | [oidc-auth](./oidc-auth/) | 🟢 LIVE | Authentication via OpenID Connect + Keycloak |
 | [admin-api](./admin-api/) | 🟢 LIVE | Next.js admin (room/bot/map CRUD, API key auth) |
+| [orbit](./orbit/) | 🟢 LIVE | Operator Admin dashboard — manage worlds, bots, avatars, members |

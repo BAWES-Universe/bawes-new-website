@@ -5,8 +5,8 @@
 
 ```
 features/
-├── 01-platform/         4 features — fork, infra, auth, admin
-├── 02-spatial-world/   13 features — maps, chat, avatars, scripting, zones
+├── 01-platform/         5 features — fork, infra, auth, admin, orbit
+├── 02-spatial-world/   14 features — maps, chat, avatars, scripting, zones, avatar platform
 ├── 03-ai-bots/          9 features — behaviors, streaming, tools, recursion
 ├── 04-mcp/              8 features — servers, auth, discovery, admin, encryption
 ├── 05-ecosystem/       10 features — live + inactive + coming soon
