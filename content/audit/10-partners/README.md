@@ -1,4 +1,4 @@
-# 10 — Partners & Ecosystem Context
+# 10 — Partners
 
 > Other platforms in the spatial computing ecosystem.
 
@@ -40,24 +40,7 @@
 - PostHog observability for AI traces
 - MCP OAuth with PKCE and auto-discovery
 
-## Gather (Market Context)
-
-- **Website:** gather.town
-- **What it is:** Virtual office for remote teams — "The Delightful Virtual Office"
-- **Positioning:** Built for spontaneous collaboration and "the moments in between" meetings
-- **Key features:**
-  - See who's free/focused/in meetings at a glance
-  - Walk up and talk — no links required
-  - Distraction control (Simplify View, Mini Mode, muted by default)
-  - AI meeting notes included
-- **Pricing:** Free 30-day trial, then paid plans
-- **Scale:** 5,000+ remote teams
-- **Customers:** Horaizon, hellobot, Pegasus, mutherboard, Tundr, awork
-- **Competitive note:** WorkAdventure positions itself as a Gather alternative ("Migrating from gather.town? Get a discount!")
-- **Relevance:** Similar market — virtual spatial environments for collaboration
-
-## Other Ecosystem Players
-
-- **Spatial Web / Metaverse platforms** — general market context
-- **MCP ecosystem** — growing network of MCP servers (Attio, Xero, Linear, etc.)
-- **Open source metaverse** — Universe differentiates by being open source + AI-native
+### How We Credit WorkAdventure
+- **On bawes.net:** Noted as built on WorkAdventure
+- **In blog posts:** "Universe is an open virtual world platform built on WorkAdventure" (Beyond the Avatar article)
+- **In audit:** This document exists to document what we inherited vs what we built

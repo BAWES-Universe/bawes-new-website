@@ -16,7 +16,7 @@
 | `07-lore-philosophy/` | Cultural layer — monkey lore, Banana Bank, Divine Compression, Soft Singularity |
 | `08-about/` | BAWES org — team, technology, manifesto, The Empty Seat, contact |
 | `09-content-media/` | Blog posts, Medium publication, thought pieces |
-| `10-partners/` | WorkAdventure (source fork), Gather (market context) |
+| `10-partners/` | WorkAdventure (source fork — what we inherited vs. what we built) |
 
 ## Sources Consulted
 
@@ -24,6 +24,5 @@
 - **`~/workadventure/workadventure-universe/docs/`** — Universe developer documentation
 - **`~/workadventure/workadventure-universe/play/src/`** — Frontend components (bot editors, chat, MCP UI)
 - **`blog.bawes.net`** — Medium publication (7 articles)
-- **`workadventu.re`** — WorkAdventure website (pricing, features, integrations)
-- **`www.gather.town`** — Gather website (market context)
+- **`workadventu.re`** — WorkAdventure website
 - **`github.com/thecodingmachine/workadventure`** — Upstream WorkAdventure README
