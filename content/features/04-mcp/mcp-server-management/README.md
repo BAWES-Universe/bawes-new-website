@@ -1,7 +1,22 @@
 # MCP Server Management
 
-> CRUD operations and status monitoring for MCP servers attached to bots.
+Add, configure, and monitor MCP servers attached to each bot. Every bot can have multiple servers, each exposing a set of tools.
 
-**Status:** 🟢 LIVE
+## What You Can Do
 
-Add/remove/edit MCP servers per bot. Status indicators: connected, error, testing. Tool count display, last-checked timestamp, connection log. Test connection with raw preview. 5 MCP servers per bot soft cap.
+- **Add** — name + URL, pick auth type ([OAuth](./mcp-oauth/), [bearer](./mcp-auth-bearer/), [API key](./mcp-auth-api-key/))
+- **Test** — test connection shows raw `tools/list` response
+- **Monitor** — status indicators per server: ✅ connected, ❌ error, 🕑 testing
+- **View** — tool count, last-checked timestamp, connection log
+
+## Limits
+
+- 5 servers per bot (soft cap)
+- Admin API write path only — no public creation
+
+## Related
+
+- [MCP admin UI](./mcp-admin-ui/) — the Orbit interface
+- [MCP tool discovery](./mcp-tool-discovery/) — how tools are listed
+- [Bot tool calling](../03-ai-bots/bot-tool-calling/) — using tools in conversation
+- `BotMcpServersEditor.svelte` in `play/src/front/external-modules/bots/components/`

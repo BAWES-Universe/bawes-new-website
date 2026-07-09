@@ -1,18 +1,23 @@
 # Admin API
 
-> Next.js management API for rooms, maps, bots, and MCP servers.
+Next.js REST API for managing rooms, maps, bots, and MCP servers. Separate repo from the main Universe fork.
 
-**Status:** 🟢 LIVE
+## Endpoints
 
-### What It Does
-- Room CRUD (create, read, update, delete)
-- Map CRUD (WAM file management)
-- Bot CRUD (AI provider, system prompt, behavior, avatar)
-- MCP server management (per-bot server configs)
-- Authentication via API keys
-- CORS via CORS_ALLOWED_ORIGINS env var
+- **Room CRUD** — create, read, update, delete rooms
+- **Map CRUD** — manage WAM file assignments per room/world
+- **Bot CRUD** — AI provider, system prompt, behavior ([bot-behaviors](../03-ai-bots/bot-behaviors/)), avatar ([bot-avatars](../03-ai-bots/bot-avatars/))
+- **MCP server management** — per-bot MCP server configs ([mcp-server-management](../04-mcp/mcp-server-management/))
+- **Auth:** API key headers + `CORS_ALLOWED_ORIGINS` env var
 
-### Repo
-- Source: github.com/BAWES-Universe/workadventure-universe-admin
-- Branch model: develop -> main
-- Tech stack: Prisma ORM, PostgreSQL, TypeScript, Next.js API routes
+## Repo
+
+`github.com/BAWES-Universe/workadventure-universe-admin` — `develop` → `main`
+
+Tech stack: Prisma ORM, PostgreSQL, TypeScript, Next.js API routes.
+
+## Related
+
+- [Orbit](./orbit/) — the admin UI that sits on top of this API
+- **[bot-provider-config](../03-ai-bots/bot-provider-config/)** — AI provider config through this API
+- Docs: `docs/others/self-hosting/adminAPI.md`

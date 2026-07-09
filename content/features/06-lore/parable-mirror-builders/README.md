@@ -1,7 +1,3 @@
 # Parable of the Mirror-Builders
 
-> An allegorical piece about creation and self-reflection.
-
-**Status:** 🟢 LIVE
-
-"Time: The Parable of the Mirror-Builders" — a short fable about the nature of creation and self-reflection. 2 min read.
+A short allegorical fable (2 min read) about the nature of creation and self-reflection. Published Sep 2025 on [blog.bawes.net](https://blog.bawes.net).

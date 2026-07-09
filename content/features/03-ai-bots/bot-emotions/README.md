@@ -1,7 +1,12 @@
 # Bot Emotions
 
-> Emotion block system for bot responses.
+Bots can express moods through `[EMOTION_UPDATE]` blocks in their output. These are parsed before display and routed to the backend for state tracking — not shown in the chat UI.
 
-**Status:** 🟢 LIVE
+## Purpose
 
-Bot output can contain [EMOTION_UPDATE] blocks. These are parsed from the response before display and routed to the backend for state tracking. Not shown in the chat UI. Enables bots to express internal state through their avatar without cluttering conversation.
+Lets bots have internal emotional state (happy, confused, thinking, surprised, sad) that affects their avatar animation or behavior without cluttering the conversation.
+
+## Related
+
+- [Bot streaming chat](./bot-streaming-chat/) — emotions parsed from the same stream
+- [Bot avatars](./bot-avatars/) — visual state could reflect emotions

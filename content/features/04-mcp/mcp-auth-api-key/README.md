@@ -1,7 +1,8 @@
 # MCP API Key Auth
 
-> API key header authentication for MCP servers.
+API key authentication for MCP servers. Key is sent in `x-api-key` or a custom header. Stored encrypted at rest ([mcp-encryption](./mcp-encryption/)).
 
-**Status:** 🟢 LIVE
+## Related
 
-Configure with an API key. Sent in x-api-key or custom header. Key stored encrypted at rest. Common for internal tools and custom MCP servers.
+- [MCP OAuth](./mcp-oauth/) — for services that need OAuth
+- [MCP bearer auth](./mcp-auth-bearer/) — simpler bearer token

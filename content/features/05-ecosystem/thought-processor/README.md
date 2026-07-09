@@ -2,4 +2,4 @@
 
 **Status:** 🟡 COMING SOON
 
-AI thought processing. Listed on bawes.net as a future component.
+AI-powered thought and idea processing. Listed on bawes.net as a planned future component.

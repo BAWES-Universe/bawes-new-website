@@ -1,7 +1,8 @@
 # Map Templates
 
-> Reusable room templates for building maps faster.
+Pre-built room layouts that can be reused across worlds. Speeds up map creation by providing common configurations (office, classroom, event hall, community hub).
 
-**Status:** 🟢 LIVE — inherited from WorkAdventure
+## Related
 
-Pre-built room layouts that can be reused across different maps and worlds. Speeds up map creation.
+- [Maps](./maps/) — creating custom maps
+- `docs/map-building/index.md`

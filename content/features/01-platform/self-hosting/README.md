@@ -1,24 +1,28 @@
 # Self-Hosting
 
-> How Universe is deployed and how others can self-host.
+How Universe is deployed and how others can run their own instance.
 
-**Status:** 🟢 LIVE
+## Production
 
-### Production
-- Hosting: Coolify on Hetzner
-- Containers: Docker Compose — admin-api, pusher, front, map-storage, uploader, Redis, Matrix, Traefik
-- Database: PostgreSQL
-- Auth: OIDC (production)
-- CI/CD: Release PRs from universe-develop -> universe
+- **Hosting:** Coolify on Hetzner (bare metal)
+- **Containers:** Docker Compose — admin-api, pusher, front, map-storage, uploader, Redis, Matrix, Traefik
+- **Database:** PostgreSQL (encrypted at rest for MCP credentials — see [mcp-encryption](../04-mcp/mcp-encryption/))
+- **Auth:** [OIDC](./oidc-auth/) provider (production) / Keycloak mock (dev)
 
-### Self-Hosting (for others)
-- Options: Docker Compose or Helm chart (Kubernetes)
-- Docs: docs/others/self-hosting/install.md
-- Env vars: Documented at docs/others/self-hosting/env-variables.md
-- Matrix: Optional Synapse container
-- Custom domain: White label / rebranding
+## For Others
 
-### Development
-- Local setup: docker compose up with .env.template
-- Local URLs: play.workadventure.localhost, oidc.workadventure.localhost, etc.
-- Hosts file: ~14 subdomains need /etc/hosts entries
+Two options documented in `docs/others/self-hosting/install.md`:
+- **Docker Compose** — standard setup
+- **Helm chart** — Kubernetes deployment
+
+Environment variables: `docs/others/self-hosting/env-variables.md`
+Matrix (optional): `docs/others/self-hosting/matrix.md`
+
+## Development
+
+`docker compose up` with `.env.template`. Requires ~14 subdomains in `/etc/hosts`. See [workadventure-fork](./workadventure-fork/) for the upstream README setup instructions.
+
+## Related
+
+- [Admin API](./admin-api/) — REST layer
+- [Orbit](./orbit/) — operator UI

@@ -1,7 +1,6 @@
 # The Team
 
-> The people behind BAWES Universe.
+**Khalid** — Founder and operator. "Operating the Universe. Recruiting talent, shipping weird things, and teaching monkeys how to build empires."
 
-**Status:** 🟢 LIVE
-
-Khalid — Founder and operator. "Operating the Universe, recruiting talent, shipping weird things, and teaching monkeys how to build empires." X: @khalidmnet, Medium: @enter-the-universe.
+- X: @khalidmnet
+- Medium: @enter-the-universe (31 followers, 45 following)

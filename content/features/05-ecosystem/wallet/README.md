@@ -2,4 +2,4 @@
 
 **Status:** 🟡 COMING SOON
 
-Digital wallet. Listed on bawes.net as a future component.
+Digital wallet/payment functionality. Listed on bawes.net as a planned future component.

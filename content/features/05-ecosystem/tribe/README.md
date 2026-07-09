@@ -2,4 +2,4 @@
 
 **Status:** 🟡 COMING SOON
 
-Community management. Listed on bawes.net as a future component.
+Group and community management within Universe. Listed on bawes.net as a planned future component.

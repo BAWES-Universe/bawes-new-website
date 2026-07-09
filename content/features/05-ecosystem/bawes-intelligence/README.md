@@ -1,5 +1,9 @@
-# Bawes Intelligence
+# BAWES Intelligence
 
 **Status:** 🟢 LIVE
 
-Live external site. Part of the Universe ecosystem.
+AI knowledge base that's part of the Universe ecosystem.
+
+## Related
+
+See [use-cases: Universities](../02-spatial-world/area-zones/) — StudentHub integration for campus worlds.

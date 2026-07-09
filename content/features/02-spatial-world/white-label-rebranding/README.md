@@ -1,7 +1,14 @@
 # White Label / Rebranding
 
-> Custom domain, logos, and brand identity for Universe deployments.
+Customize Universe with your own brand — logos, domain, and meta tags. Configured per-world in the map editor.
 
-**Status:** 🔵 INHERITED — from WorkAdventure upstream
+## What You Can Change
 
-Replace WorkAdventure logos with your own, use your own domain, customize meta tags. Configured in Map Editor world settings.
+- Replace WorkAdventure logos with your own
+- Use your own domain (e.g. play.yourcompany.com)
+- Customize meta tags for SEO
+
+## Related
+
+- [Self-hosting](../01-platform/self-hosting/) — DNS and domain setup
+- [Inline map editor](./inline-map-editor/) — configure via UI

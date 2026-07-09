@@ -2,4 +2,4 @@
 
 **Status:** 🟡 COMING SOON
 
-Developer sandbox. Listed on bawes.net as a future component.
+Developer testing and sandbox environment. Listed on bawes.net as a planned future component.

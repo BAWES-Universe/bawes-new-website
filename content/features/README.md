@@ -1,34 +1,34 @@
 # Features
 
-> Every feature, project, concept, and component in the Universe ecosystem.
-> Each folder = one unique thing. Browse the tree to see everything that exists.
+Every feature, project, concept, and component in the Universe ecosystem. Each folder describes one thing — what it is, where the code lives, how it works.
+
+## Sections
 
 ```
 features/
-├── 01-platform/         5 features — fork, infra, auth, admin, orbit
-├── 02-spatial-world/   14 features — maps, chat, avatars, scripting, zones, avatar platform
-├── 03-ai-bots/          9 features — behaviors, streaming, tools, recursion
-├── 04-mcp/              8 features — servers, auth, discovery, admin, encryption
-├── 05-ecosystem/       10 features — live + inactive + coming soon
-├── 06-lore/             8 features — stories, philosophy, manifesto
-├── 07-about/            4 features — team, tech, contact, legal
-├── 08-content/          1 feature  — blog + 7 articles
-└── 09-partners/         1 feature  — WorkAdventure (source fork credit)
-
-Total: 58 features
+├── 01-platform/         5 — fork, self-hosting, OIDC, admin API, Orbit admin
+├── 02-spatial-world/   14 — maps, zones, chat, avatars, scripting, megaphone
+├── 03-ai-bots/          9 — behaviors, streaming, tool calling, recursive bots
+├── 04-mcp/              8 — servers, auth, tool discovery, admin UI, encryption
+├── 05-ecosystem/       10 — live + inactive + coming-soon projects
+├── 06-lore/             8 — monkey lore, Banana Bank, Soft Singularity
+├── 07-about/            4 — team, tech stack, contact, legal
+├── 08-content/          1 — blog (7 Medium articles)
+└── 09-partners/         1 — WorkAdventure (source fork)
+                    ———
+                    60 features
 ```
 
-## Status Labels
+## Cross-References
 
-| Label | Meaning |
+Features link to related features throughout. `[bot-tool-calling]` → see the feature in `03-ai-bots/bot-tool-calling`.
+
+## Status
+
+| Badge | Meaning |
 |---|---|
 | 🟢 LIVE | Shipped and running |
 | ⚫ INACTIVE | Previously operated, currently down |
-| 🟡 COMING SOON | Planned / listed but not built |
+| 🟡 COMING SOON | Planned but not built |
+| 🟡 VISION | Conceptual, not implemented |
 | 🔵 INHERITED | From WorkAdventure upstream |
-| 🟡 VISION | Conceptual, not yet implemented |
-| 🔵 FORK SOURCE | Upstream fork credit |
-
-## How to add a feature
-
-Create a new folder under the right section with a `README.md` describing what it is, where the code/docs live, and its status.

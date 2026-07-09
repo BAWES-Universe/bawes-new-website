@@ -1,7 +1,15 @@
 # Phone Chat
 
-> Direct audio/video call between any two users.
+Direct audio/video call between any two users. Works across different rooms — not proximity-dependent.
 
-**Status:** 🟢 LIVE — inherited from WorkAdventure
+## How It Works
 
-Call any other user directly from the interface. Works across rooms, not proximity-dependent. Full audio/video.
+- Call any other user from the interface
+- Full audio/video, like a traditional video call
+- No proximity requirement (unlike [proximity-chat](./proximity-chat/))
+
+## Related
+
+- [Proximity chat](./proximity-chat/) — spontaneous, location-based
+- [Text chat](./text-chat/) — in-world messaging
+- `docs/user/phone-chat.md`

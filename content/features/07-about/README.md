@@ -1,10 +1,10 @@
 # 07 — About BAWES
 
-> The organization behind Universe.
+The organization behind Universe.
 
 | Feature | Status | What it is |
 |---|---|---|
-| [the-team](./the-team/) | 🟢 LIVE | Khalid and the BAWES org |
-| [technology-stack](./technology-stack/) | 🟢 LIVE | Tools and technologies we use |
+| [the-team](./the-team/) | 🟢 LIVE | Khalid and BAWES |
+| [technology-stack](./technology-stack/) | 🟢 LIVE | Tools and infrastructure |
 | [contact](./contact/) | 🟢 LIVE | How to reach us |
 | [legal](./legal/) | 🟢 LIVE | Terms of use + privacy policy |
