@@ -1,7 +1,18 @@
 # Woka Avatars
 
-> Pipoya-style sprite avatars for users.
+User avatars — pipoya-style 2D pixel-art sprites. The visual identity for every human in Universe.
 
-**Status:** 🟢 LIVE — inherited from WorkAdventure
+## Features
 
-2D pixel-art style avatars (pipoya sprites). Customizable appearance. Walk, sit, emote. Admin-managed avatar catalog and lifecycle.
+- Pipoya-style pixel art
+- Customizable appearance (clothing, accessories)
+- Walk, sit, emote animations
+- Admin-managed avatar catalog (see [avatar-platform](./avatar-platform/))
+
+## Bot Avatars
+
+Bots have their own visual identity, separate from user Wokas. See [bot-avatars](../03-ai-bots/bot-avatars/).
+
+## Docs
+
+`docs/others/self-hosting/wokas.md`

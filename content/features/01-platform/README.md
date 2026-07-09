@@ -1,11 +1,13 @@
 # 01 — Platform
 
-> Core platform layer — the fork, infrastructure, authentication, and management API.
+Core infrastructure — the fork, how it's deployed, auth, management APIs, and admin dashboard.
 
 | Feature | Status | What it is |
 |---|---|---|
-| [workadventure-fork](./workadventure-fork/) | 🔵 INHERITED | What we forked, what changed, what we inherited vs. built |
+| [workadventure-fork](./workadventure-fork/) | 🔵 INHERITED | What we forked from WorkAdventure, what changed |
 | [self-hosting](./self-hosting/) | 🟢 LIVE | Docker Compose, Coolify, env vars, Helm chart |
-| [oidc-auth](./oidc-auth/) | 🟢 LIVE | Authentication via OpenID Connect + Keycloak |
-| [admin-api](./admin-api/) | 🟢 LIVE | Next.js admin (room/bot/map CRUD, API key auth) |
-| [orbit](./orbit/) | 🟢 LIVE | Operator Admin dashboard — manage worlds, bots, avatars, members |
+| [oidc-auth](./oidc-auth/) | 🟢 LIVE | Authentication via OpenID Connect |
+| [admin-api](./admin-api/) | 🟢 LIVE | REST API for rooms, maps, bots, MCP servers |
+| [orbit](./orbit/) | 🟢 LIVE | Operator admin dashboard — the UI on top of admin-api |
+
+See also: [02-spatial-world](../02-spatial-world/), [03-ai-bots](../03-ai-bots/), [04-mcp](../04-mcp/)

@@ -1,7 +1,14 @@
 # Inline Map Editor
 
-> In-game map editing without the Tiled desktop app.
+Edit maps directly in the browser while inside the virtual world. No need for the Tiled desktop app for basic adjustments.
 
-**Status:** 🟢 LIVE — inherited from WorkAdventure
+## What You Can Do
 
-Edit maps directly in the browser while inside the virtual world. Configure rooms, zones, and properties without leaving the game.
+- Configure [area zones](./area-zones/) (entry/exit, silent, broadcast, meeting rooms)
+- Set [megaphone](./megaphone/) scope and access tags
+- Adjust room properties
+
+## Related
+
+- [Maps](./maps/) — for full map creation in Tiled
+- `docs/map-building/inline-editor/area-editor/index.md`

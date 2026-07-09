@@ -1,45 +1,28 @@
 # WorkAdventure Fork
 
-> Universe is a fork of WorkAdventure by TheCodingMachine.
-
-**Status:** 🔵 INHERITED
-
-## What We Forked
-
-An open-source (MIT) virtual world platform — proximity-based audio/video chat, Tiled maps, WAM format, scripting API, avatar system, self-hosting with Docker Compose or Helm.
-
-**Upstream:** github.com/thecodingmachine/workadventure
-**Website:** workadventu.re
+Universe is a fork of [WorkAdventure](https://workadventu.re) by TheCodingMachine — an open-source (MIT) virtual world platform. We extended it with AI agents, MCP integration, streaming conversations, encrypted storage, and a bot management system.
 
 ## What We Inherited
 
-- Proximity-based audio/video chat via WebRTC
-- Tiled map editor + WAM JSON format
-- Inline map editor (in-game)
-- Scripting API (WA.ui, WA.room, WA.player, WA.state)
-- Woka avatar system (pipoya sprites)
-- Area/zone system (entry/exit, meeting rooms, silent, broadcast)
-- Megaphone broadcast system
-- Matrix chat integration
-- OIDC authentication
-- Self-hosting via Docker Compose or Helm
-- White label / rebranding (custom domain, logos)
-- Jitsi/BBB meeting room integration
+From upstream WorkAdventure (`github.com/thecodingmachine/workadventure`):
 
-## What Universe Built (on top)
+- Proximity-based audio/video chat via WebRTC (backed by [LiveKit](../07-about/technology-stack.md))
+- Tiled map editor + WAM JSON format. See [maps](../02-spatial-world/maps/)
+- Inline [map editor](../02-spatial-world/inline-map-editor/) in-game
+- [Scripting API](../02-spatial-world/scripting-api/) — WA.ui, WA.room, WA.player, WA.state
+- [Woka avatars](../02-spatial-world/woka-avatars/) (pipoya sprites)
+- [Area zones](../02-spatial-world/area-zones/) — entry/exit, meeting rooms, silent, broadcast
+- [Megaphone](../02-spatial-world/megaphone/) broadcast system
+- [Matrix chat](../02-spatial-world/matrix-chat/) (optional Synapse)
+- [OIDC authentication](./oidc-auth/)
+- Docker Compose + Helm [self-hosting](./self-hosting/)
+- [White label](../02-spatial-world/white-label-rebranding/) — custom domain, logos
 
-- AI agent system with configurable behaviors (idle, patrol, social)
-- MCP server integration (streamable HTTP)
-- Streaming token-by-token bot conversations
-- Encrypted credential storage (AES-256-GCM per row)
-- Bot avatar system
-- Recursive self-architecture (bots spawning bots)
-- Admin API for bot/MCP management (separate repo)
-- PostHog + Sentry observability for AI traces
-- MCP OAuth with PKCE and auto-discovery
+## What We Built
 
-## Code
+Everything in [03-ai-bots](../03-ai-bots/) and [04-mcp](../04-mcp/), plus the [admin API](./admin-api/), [Orbit dashboard](./orbit/), and [avatar platform](../02-spatial-world/avatar-platform/).
 
-- Fork repo: github.com/BAWES-Universe/workadventure-universe
-- Branch model: universe-develop -> universe (production via release PRs)
-- Admin repo: github.com/BAWES-Universe/workadventure-universe-admin
+## Repos
+
+- **Fork:** `github.com/BAWES-Universe/workadventure-universe` (branch: `universe-develop` → `universe`)
+- **Admin:** `github.com/BAWES-Universe/workadventure-universe-admin` (branch: `develop` → `main`)

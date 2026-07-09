@@ -1,7 +1,8 @@
 # Manifesto
 
-> The BAWES philosophy document.
+The BAWES philosophy document on bawes.net. States the core principles: open, decentralized, AI-native spatial computing. The guiding ideas behind the Universe project.
 
-**Status:** 🟢 LIVE
+## Related
 
-Living document on bawes.net. Core philosophy: open, decentralized, AI-native spatial computing. Guiding principles behind the Universe project.
+- [The empty seat](./the-empty-seat/) — the invitation
+- [Soft singularity](./soft-singularity/) — the underlying philosophy

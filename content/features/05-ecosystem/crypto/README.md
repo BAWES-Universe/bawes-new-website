@@ -2,4 +2,4 @@
 
 **Status:** 🟡 COMING SOON
 
-Cryptocurrency integration. Listed on bawes.net as a future component.
+Cryptocurrency-related features. Listed on bawes.net as a planned future component.

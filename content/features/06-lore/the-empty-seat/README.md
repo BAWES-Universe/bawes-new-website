@@ -1,7 +1,8 @@
 # The Empty Seat
 
-> The invitation — a literal empty chair representing opportunity.
+A literal empty chair in the virtual world representing an open invitation. "There's always a seat at the table" — a call for new contributors, collaborators, and community members.
 
-**Status:** 🟢 LIVE
+## Related
 
-A literal empty chair in the virtual world. Philosophy: "There's always a seat at the table." Ongoing call for new contributors, collaborators, and community members.
+- [Manifesto](./manifesto/) — the broader philosophy
+- Dedicated section on bawes.net

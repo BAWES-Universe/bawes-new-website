@@ -1,28 +1,19 @@
-# Orbit
+# Orbit — Operator Admin
 
-> Operator Admin — Universe's management dashboard for operators.
-
-**Status:** 🟢 LIVE
-
-Orbit is the branded name for the operator admin dashboard. It's the UI layer on top of the admin API — the place where universe operators manage everything without touching code.
+Orbit is the brand name for the operator admin dashboard. It's the UI that universe operators use to manage everything without touching code — worlds, rooms, bots, avatar sets, members, and access rules.
 
 ## Capabilities
 
-- **Per-universe dashboard** — every universe gets its own Orbit admin panel
-- **World & room management** — create, edit, archive worlds and rooms. Set capacity, maps, bots, access rules
-- **Member & role system** — assign membership tags, control space access based on role
-- **Area permission editor** — define protected areas within maps
-- **Avatar set management** — create and assign avatar sets per world or universe
-- **Bot configuration** — set bot name, persona, model, memory settings, assigned avatar
-- **MCP server management** — add/edit MCP servers per bot with connection testing
+- **Per-universe dashboard** — every universe instance gets its own Orbit panel
+- **World & room management** — create, archive; set capacity, maps, bots, access rules
+- **Member & role system** — assign membership tags that gate rooms and avatar sets
+- **Area permission editor** — draw restricted zones on maps via UI (see [area-zones](../02-spatial-world/area-zones/))
+- **Avatar set management** — create and assign avatar sets per world, universe, or role (see [avatar-platform](../02-spatial-world/avatar-platform/))
+- **Bot configuration** — name, persona, model, memory, assigned avatar (see [bot-avatars](../03-ai-bots/bot-avatars/), [bot-provider-config](../03-ai-bots/bot-provider-config/))
+- **MCP server management** — add/edit servers per bot, test connections (see [mcp-admin-ui](../04-mcp/mcp-admin-ui/))
 - **Audit logs** — full action trail for governance
 
-## Difference from Admin API
+## Related
 
-The admin API (`01-platform/admin-api/`) is the REST API layer (Prisma + Next.js API routes). Orbit is the UI that operators use to interact with that API. They ship together but are separate concerns.
-
-## Code
-
-- **UI:** Components in `workadventure-universe/play/src/front/` (BotMcpServersEditor, BotDetailView, etc.)
-- **API:** `workadventure-universe-admin/` repo
-- **Docs:** `docs/others/self-hosting/adminAPI.md`
+- [Admin API](./admin-api/) — Orbit is the UI layer on top of this API
+- All [03-ai-bots](../03-ai-bots/) and [04-mcp](../04-mcp/) features

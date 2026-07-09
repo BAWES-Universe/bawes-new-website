@@ -1,6 +1,6 @@
 # 05 — Ecosystem
 
-> External platforms and services in the Universe ecosystem.
+External platforms and services in the Universe ecosystem — live projects, inactive platforms, and coming-soon concepts.
 
 | Feature | Status | What it is |
 |---|---|---|

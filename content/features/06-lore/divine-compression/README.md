@@ -1,7 +1,5 @@
 # Divine Compression Theory
 
-> "Pressure Creates Depth"
+*"Pressure Creates Depth"* — challenges and constraints create value. Like diamonds formed under pressure, the most valuable outcomes emerge from intense compression.
 
-**Status:** 🟢 LIVE
-
-Challenges and constraints create value. Like diamonds formed under pressure. 1 min read on blog.
+Published Aug 2025 (1 min read) on [blog.bawes.net](https://blog.bawes.net).

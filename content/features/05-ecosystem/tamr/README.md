@@ -2,4 +2,4 @@
 
 **Status:** 🟡 COMING SOON
 
-Arabic education platform. Listed on bawes.net as a future component.
+Arabic-language education platform. Listed on bawes.net as a planned future component.

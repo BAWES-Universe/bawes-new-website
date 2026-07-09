@@ -1,30 +1,24 @@
 # Bot Avatars
 
-> Visual identity for bots — NPC-only sets, custom assignment.
+Bots have their own visual identity, separate from user [Wokas](../02-spatial-world/woka-avatars/). This helps users immediately distinguish between people and AI agents.
 
-**Status:** 🟢 LIVE
+## NPC-Only Sets
 
-Bots have distinct visual identities separate from human user avatars. This helps users immediately distinguish between real people and AI agents.
-
-## NPC-Only Avatar Sets
-
-Bot avatars come from **NPC-only sets** — avatar collections that are hidden from the player avatar picker. Players can never accidentally select a bot avatar.
+Bot avatars come from **NPC-only** [avatar sets](../02-spatial-world/avatar-platform/). These are hidden from the user avatar picker — players can never accidentally become a bot.
 
 Examples:
-- A museum lion mascot bot assigned a lion avatar from the "Animal Guides" set
-- A branded store guide with a company-uniform avatar
-- A chef bot for a food hall
+- Museum lion mascot → lion avatar from "Animal Guides" set
+- Store guide → branded uniform avatar
+- Chef bot → chef avatar for food hall
 
 ## Features
 
-- Separate avatar catalog from user Wokas
-- Bot texture picker (PR #210 — fixed woka context fetching with `&context=bot`)
-- Visual status indicators (connected, thinking, idle)
-- Avatar assignment via Orbit admin (bot name, persona, model, avatar, memory settings)
-- NPC-only sets marked as bot-only — invisible to player picker
+- Separate catalog from user Wokas
+- Texture picker uses `&context=bot` URL param ([PR #210](https://github.com/BAWES-Universe/workadventure-universe/pull/210))
+- Status indicators (connected, thinking, idle)
+- Avatar assignment via [Orbit](../01-platform/orbit/) admin
 
-## Code
+## Related
 
-- `BotCard.svelte` — bot card display
-- `BotDetailView.svelte` — bot detail view with avatar picker
-- Texture fetching uses `&context=bot` to differentiate from user avatars
+- [Woka avatars](../02-spatial-world/woka-avatars/) — user avatar system
+- [Avatar platform](../02-spatial-world/avatar-platform/) — NPC-only set management

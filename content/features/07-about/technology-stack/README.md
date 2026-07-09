@@ -1,49 +1,31 @@
 # Technology Stack
 
-> The tools and technologies behind Universe.
-
-**Status:** 🟢 LIVE
-
 ## Frontend
-- **Framework:** Next.js 14 (marketing site), Phaser.js (virtual world)
-- **Styling:** Tailwind CSS
-- **Animation:** Framer Motion
-- **UI:** Svelte (in-game components like BotMcpServersEditor)
+- **Marketing site:** Next.js 14, Tailwind CSS, Framer Motion
+- **Virtual world:** Phaser.js
+- **In-game UI:** Svelte (BotMcpServersEditor, BotDetailView)
 
 ## Backend
 - **Runtime:** TypeScript/Node.js
-- **API:** Next.js API routes, WebSocket (Pusher)
+- **API:** Next.js API routes + WebSocket (Pusher)
 - **Database:** PostgreSQL (Prisma ORM)
 - **Cache:** Redis
 - **Chat:** Matrix / chat.bawes.net (optional)
-- **Auth:** OIDC, OAuth 2.0
 
 ## AI
-- **AI Providers:** OpenAI, Anthropic, Deepseek, LMStudio, Qwen 3B, any OpenAI-compatible
-- **Default model:** LMStudio + Qwen 3B (runs offline-capable)
+- **Models:** OpenAI, Anthropic, Deepseek, LMStudio, Qwen 3B (default)
 - **Protocol:** MCP (Model Context Protocol) — streamable HTTP
-- **Agent Framework:** Custom-built agent runtime
-- **Memory:** Per-bot persistent memory
+- **Agent runtime:** Custom-built
 
 ## Video/Audio
-- **Engine:** LiveKit (spatial audio & video via WebRTC)
-- **Proximity:** WebRTC-based audio/video bubbles
+- **Engine:** LiveKit (spatial audio/video via WebRTC)
 
 ## Infrastructure
 - **Hosting:** Coolify on Hetzner
-- **Containers:** Docker Compose
-- **Orchestration:** Helm chart (Kubernetes)
-- **Reverse Proxy:** Traefik
+- **Containers:** Docker Compose / Helm (Kubernetes)
+- **Proxy:** Traefik
 
 ## Observability
-- **Analytics:** PostHog
-- **Error Tracking:** Sentry
-- **AI Observability:** PostHog $ai_trace, $ai_generation
-
-## Source Control
-- **Repos:** BAWES-Universe (GitHub)
+- **Analytics:** PostHog ($ai_trace, $ai_generation)
+- **Error tracking:** Sentry
 - **CI/CD:** GitHub Actions + Release PRs
-
-## Commerce (Inactive)
-- **Platform:** Plugn (ecommerce — currently down)
-- **Integration:** Shopify connector (via Plugn, not currently active)

@@ -1,7 +1,6 @@
 # Legal
 
-> Terms of use and privacy policy.
+- **Terms of Use** — published on bawes.net
+- **Privacy Policy** — published on bawes.net
 
-**Status:** 🟢 LIVE
-
-Terms of Use and Privacy Policy published on bawes.net.
+Covers use of the Universe platform and bawes.net website.

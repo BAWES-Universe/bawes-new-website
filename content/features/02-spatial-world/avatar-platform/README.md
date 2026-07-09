@@ -1,41 +1,35 @@
 # Avatar Platform
 
-> Full avatar identity system — sets, entitlements, catalog management.
-
-**Status:** 🟢 LIVE (sets + catalog shipped), 🟡 PROPOSED (fashion clubs, drops from PR #1)
-
-Avatars are grouped into **Sets** — managed collections with scope, entitlement, and lifecycle. Not just a character picker.
+Full avatar identity system — not just a character picker. Avatars are grouped into **Sets**: managed collections with scope, entitlement type, and lifecycle.
 
 ## Set Types
 
-| Type | Who sees it |
+| Type | Who can use it |
 |---|---|
-| **Public** | Every visitor on the platform |
+| **Public** | Every visitor, any world |
 | **Universe-scoped** | Only inside a specific universe |
-| **World-scoped** | Only inside a specific world |
-| **Membership-gated** | Unlocked by tag, subscription tier, or email domain |
-| **User-granted** | Directly assigned to a specific user by admin |
-| **NPC / Bot-only** | Hidden from all players. Assigned exclusively to AI bots |
+| **World-scoped** | Only inside a single world |
+| **Membership-gated** | Requires a tag, subscription, or email domain |
+| **User-granted** | Admin-assigned to a specific user |
+| **NPC / Bot-only** | Hidden from all players — assigned to AI bots only |
 
 ## Entitlement Types
 
-- **Tag-gated** — requires a membership tag (e.g. "staff", "vip", "student")
-- **Subscription-gated** — behind a recurring subscription; expires when subscription ends
-- **Email-domain scoped** — restricted to verified email domains (@company.com)
-- **Direct grant** — admin assigns a specific set to a specific user
-- **Time-limited** — set start and end dates; seasonal drops unlock and expire automatically
+- **Tag-gated** — requires a membership tag ("staff", "vip", "student")
+- **Subscription-gated** — behind a recurring subscription; auto-expires
+- **Email-domain scoped** — only @company.com can see the set
+- **Direct grant** — admin assigns to a specific user
+- **Time-limited** — start and end dates; seasonal drops auto-unlock
 
-## Governance (Proposed — from PR #1)
+## Governance
 
-Features described in the PR but not confirmed shipped:
+- **Safe archive** — warns if anyone/bot is wearing a set before archiving
+- **Audit log** — every action tracked with timestamp and actor
+- **Versioned collections** — publish new season without touching live
 
-- **Safe archive flow** — shows every player/bot wearing a set before archiving
-- **Full audit log** — every action logged with timestamp and actor
-- **Versioned collections** — manage as versioned collections, publish new season without touching live set
-- **Effective access preview** — see exactly which sets a specific user can access
+## Related
 
-## Code
-
-- Avatar catalog seed + lifecycle management: PR #91, PR #103
-- Woka system: `docs/others/self-hosting/wokas.md`
-- Avatar set filtering fix: PR #103 (parsePlayUri, `_/` vs `@/` URL formats)
+- [Woka avatars](./woka-avatars/) — user avatar rendering
+- [Bot avatars](../03-ai-bots/bot-avatars/) — NPC-only sets
+- [Orbit](../01-platform/orbit/) — manage avatar sets via admin dashboard
+- [OIDC auth](../01-platform/oidc-auth/) — tags and roles for membership gating

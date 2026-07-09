@@ -1,16 +1,15 @@
 # OIDC Auth
 
-> Authentication via OpenID Connect.
+Authentication via OpenID Connect. Provides user login, session management, and tag-based access control.
 
-**Status:** 🟢 LIVE
+## How It Works
 
-### How It Works
-- OIDC provider integration for user authentication
-- Keycloak mock server in development environments
-- Production OIDC provider for live deployment
-- Tag-based access control for role management
+- **Production:** External OIDC provider handles login
+- **Development:** Keycloak mock server (user: "User1" / pass: "pwd"), auto-enabled in `docker compose up`
+- **Anonymous mode:** Use `docker-compose-no-oidc.yaml` to disable OIDC for testing
 
-### Development
-- OIDC mock server enabled by default in docker compose up
-- Can be disabled with docker-compose-no-oidc.yaml for anonymous access
-- Test user: "User1" / password: "pwd"
+## Related
+
+- [Self-hosting](./self-hosting/) — OIDC env vars
+- [Area zones](../02-spatial-world/area-zones/) — tag-gated access to rooms
+- [Avatar platform](../02-spatial-world/avatar-platform/) — membership-gated sets

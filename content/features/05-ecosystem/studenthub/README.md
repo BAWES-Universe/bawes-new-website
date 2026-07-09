@@ -1,5 +1,9 @@
-# Studenthub
+# StudentHub
 
 **Status:** 🟢 LIVE
 
-Live external site. Part of the Universe ecosystem.
+Education platform with multiple repos under github.com/BAWES-Universe/studenthub.
+
+## Related
+
+See [use-cases: Universities](../02-spatial-world/area-zones/) — StudentHub integration for campus worlds.

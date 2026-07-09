@@ -1,9 +1,21 @@
 # Soft Singularity
 
-> Intelligence as a utility — the compounding curve of AI progress.
+The AI philosophy behind Universe. Intelligence as a utility, the compounding curve, and spatial computing as the substrate.
 
-**Status:** 🟢 LIVE
+## Key Points
 
-"The Singularity is not an event. It's a process — one that started when an LLM wrote production code another LLM later improved."
+1. **Intelligence is a utility** — reasoning, planning, tool use are metered API calls (like kilowatt-hours)
+2. **Bottlenecks are now physical** — energy, silicon, latency
+3. **Humans shift from builder to curator** — set intent, define guardrails, govern outcomes
 
-Three premises: (1) Intelligence is a utility metered by token, (2) Bottlenecks are now physical, (3) Humans shift from builder to curator. Universe is the spatial substrate where AIs have bodies and MCP connects them to everything.
+> "The Singularity is not an event. It's a process — one that started the first time an LLM wrote production code that another LLM later improved."
+
+## Universe Connection
+
+Universe is where that loop meets space. AIs have bodies (virtual), coordinate through shared environments, and the same MCP protocol that connects to a database today will connect to a factory floor tomorrow.
+
+## Related
+
+- [Recursive bots](../03-ai-bots/recursive-bots/) — the practical expression
+- [MCP integration](../04-mcp/) — the protocol layer
+- [Beyond the Avatar](https://blog.bawes.net/beyond-the-avatar-why-spatial-computing-and-mcp-belong-together-1addca64cd77) — full article

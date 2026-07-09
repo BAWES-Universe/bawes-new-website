@@ -1,7 +1,17 @@
 # Matrix Chat
 
-> Persistent chat history via Matrix/Synapse.
+Optional persistent chat via Matrix/Synapse. Gives every room a permanent chat history across sessions.
 
-**Status:** 🟡 OPTIONAL — inherited from WorkAdventure
+## How It Works
 
-Optional Synapse container provides persistent chat history across sessions. Configurable via environment variables. Not required for basic functionality.
+- Synapse container runs alongside the main stack
+- Chat history persists when users leave and re-enter
+- Federates with the broader Matrix network
+
+## When to Use
+
+Skip if you only need per-session [proximity chat](./proximity-chat/) and ephemeral [text chat](./text-chat/). Enable if users need to revisit conversations from previous sessions.
+
+## Docs
+
+`docs/others/self-hosting/matrix.md`
