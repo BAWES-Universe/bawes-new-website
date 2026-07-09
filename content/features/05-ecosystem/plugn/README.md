@@ -1,5 +1,7 @@
 # Plugn
 
-**Status:** 🟢 LIVE
+> Ecommerce platform — previously operated, currently down.
 
-Live external site. Part of the Universe ecosystem.
+**Status:** ⚫ INACTIVE
+
+An ecommerce platform we used to run. Currently down but the code is available on GitHub and may be brought back later.

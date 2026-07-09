@@ -6,7 +6,7 @@
 |---|---|---|
 | [bawes-intelligence](./bawes-intelligence/) | 🟢 LIVE | AI knowledge base |
 | [studenthub](./studenthub/) | 🟢 LIVE | Education platform |
-| [plugn](./plugn/) | 🟢 LIVE | Plugin marketplace |
+| [plugn](./plugn/) | ⚫ INACTIVE | Ecommerce platform (down, may return) |
 | [thought-processor](./thought-processor/) | 🟡 COMING SOON | AI thought processing |
 | [tribe](./tribe/) | 🟡 COMING SOON | Community management |
 | [tamr](./tamr/) | 🟡 COMING SOON | Arabic education platform |
