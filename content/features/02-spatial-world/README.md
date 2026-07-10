@@ -11,7 +11,7 @@ Virtual environment features — maps, zones, communication tools, avatars, edit
 | [bot-editor](./bot-editor/) | 🟢 LIVE | Place, configure, and manage bots on the map |
 | [proximity-chat](./proximity-chat/) | 🟢 LIVE | Audio/video bubbles via LiveKit WebRTC + Coturn. P2P → LiveKit scaling |
 | [text-chat](./text-chat/) | 🟢 LIVE | In-world text + bot streaming |
-| [phone-chat](./phone-chat/) | 🟢 LIVE | Direct calls between any two users |
+| [phone-chat](./phone-chat/) | 🟡 PLANNED | Direct calls between any two users (not yet implemented) |
 | [screen-sharing](./screen-sharing/) | 🟢 LIVE | Share screen in conversation bubbles |
 | [follow](./follow/) | 🟢 LIVE | Follow another player through the map |
 | [megaphone](./megaphone/) | 🔵 INHERITED | Broadcast audio/video to room or world |
