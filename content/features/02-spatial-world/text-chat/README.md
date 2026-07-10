@@ -15,6 +15,6 @@ AI bot responses stream token-by-token into the chat bubble in real time. See [b
 ## Related
 
 - [Proximity chat](./proximity-chat/) — voice alternative
-- [Phone chat](./phone-chat/) — direct call
+- [Phone chat](./phone-chat/) — direct call (planned, not yet implemented)
 - [Matrix chat](./matrix-chat/) — persistent history across sessions
 - `docs/user/chat.md`
