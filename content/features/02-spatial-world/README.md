@@ -10,9 +10,9 @@ Virtual environment features — maps, zones, communication tools, avatars, edit
 | [entity-editor](./entity-editor/) | 🟢 LIVE | Place and configure interactive objects on maps |
 | [bot-editor](./bot-editor/) | 🟢 LIVE | Place, configure, and manage bots on the map |
 | [teleport](./teleport/) | 🟢 LIVE | Teleport between universes/worlds/rooms via area property |
-| [proximity-chat](./proximity-chat/) | 🟢 LIVE | Audio/video bubbles via LiveKit WebRTC + Coturn. P2P → LiveKit scaling |
+| [proximity-chat](./proximity-chat/) | 🟢 LIVE | P2P WebRTC by default, auto-scales to LiveKit at 4+ users. Coturn TURN/STUN |
 | [text-chat](./text-chat/) | 🟢 LIVE | In-world text + bot streaming |
-| [phone-chat](./phone-chat/) | 🟡 PLANNED | Direct calls between any two users (not yet implemented) |
+
 | [screen-sharing](./screen-sharing/) | 🟢 LIVE | Share screen in conversation bubbles |
 | [follow](./follow/) | 🟢 LIVE | Follow another player through the map |
 | [lock-discussion](./lock-discussion/) | 🟢 LIVE | Lock conversation bubble to prevent others joining |

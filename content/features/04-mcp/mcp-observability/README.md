@@ -19,4 +19,4 @@ Spans and errors for:
 ## Related
 
 - [MCP tool discovery](./mcp-tool-discovery/) — what gets monitored
-- [Technology stack](../07-about/technology-stack/) — observability infrastructure
+- [Technology stack](../05-about/technology-stack/) — observability infrastructure

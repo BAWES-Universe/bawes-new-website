@@ -25,4 +25,4 @@ Provider credentials are encrypted at rest — see [mcp-encryption](../04-mcp/mc
 
 - [MCP encryption](../04-mcp/mcp-encryption/) — credential storage
 - [Recursive bots](./recursive-bots/) — spawned bots get their own provider config
-- [Technology stack](../07-about/technology-stack/) — full list of supported models
+- [Technology stack](../05-about/technology-stack/) — full list of supported models
