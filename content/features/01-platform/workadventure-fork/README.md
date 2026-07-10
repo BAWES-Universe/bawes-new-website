@@ -6,7 +6,7 @@ Universe is a fork of [WorkAdventure](https://workadventu.re) by TheCodingMachin
 
 From upstream WorkAdventure (`github.com/thecodingmachine/workadventure`):
 
-- Proximity-based audio/video chat via WebRTC (backed by [LiveKit](../07-about/technology-stack.md))
+- Proximity-based audio/video chat via WebRTC (backed by [LiveKit](../05-about/technology-stack/))
 - Tiled map editor + WAM JSON format. See [maps](../02-spatial-world/maps/)
 - Inline [map editor](../02-spatial-world/inline-map-editor/) in-game
 - [Scripting API](../02-spatial-world/scripting-api/) — WA.ui, WA.room, WA.player, WA.state

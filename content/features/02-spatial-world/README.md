@@ -12,7 +12,7 @@ Virtual environment features — maps, zones, communication tools, avatars, edit
 | [teleport](./teleport/) | 🟢 LIVE | Teleport between universes/worlds/rooms via area property |
 | [proximity-chat](./proximity-chat/) | 🟢 LIVE | Audio/video bubbles via LiveKit WebRTC + Coturn. P2P → LiveKit scaling |
 | [text-chat](./text-chat/) | 🟢 LIVE | In-world text + bot streaming |
-| [phone-chat](./phone-chat/) | 🟡 PLANNED | Direct calls between any two users (not yet implemented) |
+
 | [screen-sharing](./screen-sharing/) | 🟢 LIVE | Share screen in conversation bubbles |
 | [follow](./follow/) | 🟢 LIVE | Follow another player through the map |
 | [lock-discussion](./lock-discussion/) | 🟢 LIVE | Lock conversation bubble to prevent others joining |

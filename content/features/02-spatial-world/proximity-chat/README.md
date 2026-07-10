@@ -19,4 +19,4 @@ Audio/video communication triggered by spatial proximity. Powered by LiveKit (We
 - **Follow** — Click to follow another person (API: `WA.player.proximityMeeting.followMe()`)
 - [Text chat](./text-chat/) — in-world messaging
 - [Megaphone](./megaphone/) — one-to-many broadcast
-- [Technology stack](../07-about/technology-stack/) — LiveKit + Coturn integration
+- [Technology stack](../05-about/technology-stack/) — LiveKit + Coturn integration
