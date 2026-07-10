@@ -16,4 +16,5 @@ Orbit is the brand name for the operator admin dashboard. It's the UI that unive
 ## Related
 
 - [Admin API](./admin-api/) — Orbit is the UI layer on top of this API
+- [Orbit Model](./orbit-model/) — the conceptual community gravity framework (separate from the dashboard; they share the "Orbit" name)
 - All [03-ai-bots](../03-ai-bots/) and [04-mcp](../04-mcp/) features

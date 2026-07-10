@@ -9,5 +9,6 @@ Core infrastructure — the fork, how it's deployed, auth, management APIs, and 
 | [oidc-auth](./oidc-auth/) | 🟢 LIVE | Authentication via OpenID Connect |
 | [admin-api](./admin-api/) | 🟢 LIVE | REST API for rooms, maps, bots, MCP servers |
 | [orbit](./orbit/) | 🟢 LIVE | Operator admin dashboard — the UI on top of admin-api |
+| [orbit-model](./orbit-model/) | 🟢 LIVE | Community gravity framework — Love × Reach, adapted for Universe |
 
 See also: [02-spatial-world](../02-spatial-world/), [03-ai-bots](../03-ai-bots/), [04-mcp](../04-mcp/)
