@@ -83,11 +83,11 @@ export default function ProximityChatPage() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to talk in spatial audio?</h2>
           <p className="text-white/60 mb-8">Experience voice chat that feels as natural as being in the same room.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-all">
+            <Link href="/" className="gradient-cta text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200">
               <span className="material-symbols-outlined text-lg">arrow_forward</span>
               Explore the Universe
             </Link>
-            <Link href="/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+            <Link href="/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
               See all features →
             </Link>
           </div>

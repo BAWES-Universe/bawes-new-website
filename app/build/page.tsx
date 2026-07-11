@@ -1,10 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
 import Link from 'next/link'
 import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
 
 const features = [
   { title: 'Maps', icon: 'map', description: 'Design and build custom interactive maps for your universe.' },
@@ -33,18 +31,13 @@ const featureSlugs: Record<string, string> = {
 }
 
 export default function Build() {
-  const heroRef = useRef(null)
-
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section
-        ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
-      >
+      <section className="min-h-[50vh] flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-blue-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-purple-600/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-accent-purple/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-accent-amber/10 rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-4xl mx-auto text-center px-4">
@@ -53,9 +46,8 @@ export default function Build() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Badge pill */}
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-accent-purple mb-8"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
@@ -64,11 +56,11 @@ export default function Build() {
               Creator Tools 02
             </motion.div>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-white">Build &amp; Create</span>
+            <h1 className="font-display text-5xl md:text-7xl font-bold text-white mb-6 tracking-[-0.03em]">
+              Build &amp; Create
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg text-text-muted leading-relaxed max-w-2xl mx-auto">
               Everything you need to build, shape, and expand your universe.
               Maps, entities, scripts, and more — all at your fingertips.
             </p>
@@ -77,27 +69,27 @@ export default function Build() {
       </section>
 
       {/* Feature Grid */}
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-
+      <Section className="relative">
         <div className="max-w-7xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {features.map((feature, i) => (
-              <Link key={feature.title} href={featureSlugs[feature.title]}>
+              <Link key={feature.title} href={featureSlugs[feature.title]} className="group">
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-pointer"
+                className="bento-card h-full pb-14"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                  <span className="material-symbols-outlined text-2xl text-purple-300">
-                    {feature.icon}
-                  </span>
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(167,139,250,0.12)' }}>
+                  <span className="material-symbols-outlined text-xl text-accent-purple">{feature.icon}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{feature.description}</p>
+                <h3 className="font-headline-card text-headline-card text-white mb-2">{feature.title}</h3>
+                <p className="text-sm text-text-muted leading-relaxed">{feature.description}</p>
+                <div className="bento-card-hover-cta">
+                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  Learn more
+                </div>
               </motion.div>
               </Link>
             ))}
@@ -107,26 +99,15 @@ export default function Build() {
 
       {/* CTA */}
       <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-gradient-radial from-purple-600/15 to-transparent rounded-full blur-3xl" />
-        </div>
-
         <div className="text-center">
-          <motion.p
-            className="text-2xl md:text-3xl font-bold text-white mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Build your universe
-          </motion.p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Build your universe</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" size="lg">
+            <Link href="/contact" className="gradient-cta text-white px-8 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200">
               Start Creating
-            </Button>
-            <Button href="/features-overview" variant="ghost" size="lg" className="glass-card border border-white/10 hover:border-white/20">
+            </Link>
+            <Link href="/features-overview" className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
               See all features
-            </Button>
+            </Link>
           </div>
         </div>
       </Section>

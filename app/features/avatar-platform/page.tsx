@@ -22,7 +22,7 @@ export default function AvatarPlatformPage() {
             The Avatar Platform powers cross-world identity. Your character, your items, your presence — persistent across every universe you visit.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
-            <Button className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white px-8 py-4 rounded-full font-bold shadow-lg active:scale-95 transition-all flex items-center gap-2">
+            <Button className="bg-gradient-to-r from-accent-purple to-accent-amber text-white px-8 py-4 rounded-full font-bold shadow-lg active:scale-95 transition-all flex items-center gap-2">
               Launch Avatar Platform
               <span className="material-symbols-outlined">arrow_forward</span>
             </Button>
