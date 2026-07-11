@@ -51,7 +51,7 @@ export default function Platform() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">cloud</span>
-              Infrastructure 03
+              Infrastructure
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
@@ -111,7 +111,7 @@ export default function Platform() {
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button href="/contact" size="lg">
-              Deploy Now
+              Talk to us
             </Button>
             <Button href="/work" variant="ghost" size="lg" className="glass-card border border-white/10 hover:border-white/20">
               View Documentation

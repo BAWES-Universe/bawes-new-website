@@ -41,7 +41,7 @@ export default function BotAvatars() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">face</span>
-              AI Agents 06
+              Avatars
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">

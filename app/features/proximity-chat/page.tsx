@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 
 export default function ProximityChatPage() {
   return (
@@ -39,7 +40,7 @@ export default function ProximityChatPage() {
                 <span className="material-symbols-outlined text-2xl text-purple-300">volume_up</span>
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Spatial Audio</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Volume and directionality map to real-world positions, creating natural conversations that feel like面对面 interactions.</p>
+              <p className="text-sm text-white/60 leading-relaxed">Volume and directionality map to real-world positions, creating natural conversations that feel like face-to-face interactions.</p>
             </div>
 
             <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
@@ -75,14 +76,14 @@ export default function ProximityChatPage() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Experience spatial communication</h2>
           <p className="text-white/60 mb-8">Jump back to the Communication Hub to explore more features.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
+            <Link href="/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
               <span className="material-symbols-outlined text-lg">arrow_back</span>
               Back to Communication Hub
-            </a>
-            <a href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+            </Link>
+            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
               <span className="material-symbols-outlined text-lg">explore</span>
               Explore the Universe
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -15,8 +15,8 @@ const details = [
     desc: 'Features are grouped into intuitive categories: AI Bots, Build Tools, Communication, Platform Infrastructure, and more. Find what you need fast.',
   },
   {
-    title: 'Search & Filter',
-    desc: 'Search across all features by keyword or filter by category. Instantly locate the capability you need without digging through documentation.',
+    title: 'Browse the Full Catalog',
+    desc: 'Explore the complete feature catalog across all categories. Every capability links to its dedicated detail page for in-depth information.',
   },
   {
     title: 'Deep Dive Detail Pages',

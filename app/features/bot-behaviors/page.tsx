@@ -41,7 +41,7 @@ export default function BotBehaviors() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">psychology</span>
-              AI Agents 02
+              Behaviors
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">

@@ -41,7 +41,7 @@ export default function RecursiveBots() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">device_hub</span>
-              AI Agents 10
+              Recursive
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">

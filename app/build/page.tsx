@@ -125,7 +125,7 @@ export default function Build() {
               Start Creating
             </Button>
             <Button href="/work" variant="ghost" size="lg" className="glass-card border border-white/10 hover:border-white/20">
-              Explore Templates
+              Browse Templates
             </Button>
           </div>
         </div>

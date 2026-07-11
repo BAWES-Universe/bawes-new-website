@@ -41,7 +41,7 @@ export default function BotMemory() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">memory</span>
-              AI Agents 03
+              Persistent Memory
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">

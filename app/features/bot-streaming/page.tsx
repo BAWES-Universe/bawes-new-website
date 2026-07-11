@@ -41,7 +41,7 @@ export default function BotStreaming() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">message</span>
-              AI Agents 04
+              Streaming
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">

@@ -41,7 +41,7 @@ export default function BotProviderConfig() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">settings</span>
-              AI Agents 09
+              Provider Config
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">

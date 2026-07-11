@@ -51,7 +51,7 @@ export default function WhiteLabelPage() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">palette</span>
-              Infrastructure 03
+              Branding
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">

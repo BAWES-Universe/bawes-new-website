@@ -41,7 +41,7 @@ export default function BotGreetings() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">waving_hand</span>
-              AI Agents 08
+              Greetings
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">

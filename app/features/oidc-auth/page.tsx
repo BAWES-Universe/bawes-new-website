@@ -51,7 +51,7 @@ export default function OIDCAuthPage() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">vpn_key</span>
-              Infrastructure 03
+              Authentication
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">

@@ -41,7 +41,7 @@ export default function BotEditor() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">edit</span>
-              AI Agents 11
+              Bot Editor
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">

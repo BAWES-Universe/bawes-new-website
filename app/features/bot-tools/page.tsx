@@ -41,7 +41,7 @@ export default function BotTools() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">handyman</span>
-              AI Agents 05
+              Tool Calling
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">

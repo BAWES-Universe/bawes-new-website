@@ -41,7 +41,7 @@ export default function BotEmotions() {
               transition={{ delay: 0.2 }}
             >
               <span className="material-symbols-outlined text-lg">favorite</span>
-              AI Agents 07
+              Emotional AI
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
