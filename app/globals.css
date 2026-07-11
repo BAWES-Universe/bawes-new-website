@@ -202,6 +202,7 @@
   .tag-amber { background: rgba(245,158,11,0.15); color: #fbbf24; }
   .tag-green { background: rgba(16,185,129,0.15); color: #34d399; }
   .tag-blue { background: rgba(59,130,246,0.15); color: #93c5fd; }
+  .tag-cyan { background: rgba(6,182,212,0.15); color: #67e8f9; }
 
   /* ─── CLICKABLE CARD ARROW (always visible) ─── */
   .card-arrow {

@@ -162,38 +162,42 @@ export default function HowItWorksPage() {
             </p>
           </div>
           <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <Link href="/features/maps" className="group cursor-pointer">
-              <div className="relative aspect-video rounded-2xl overflow-hidden glass-card border border-white/10 mb-4">
-                <div className="w-full h-full bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                  <span className="material-symbols-outlined text-5xl text-primary/30">business</span>
-                </div>
+            <div className="rounded-2xl overflow-hidden glass-card border border-white/10 mb-4">
+              <div className="aspect-video bg-surface-container-high flex items-center justify-center">
+                <span className="material-symbols-outlined text-5xl text-primary/30">business</span>
               </div>
-              <h4 className="font-headline-card text-headline-card text-white">Office Layout</h4>
-            </Link>
-            <Link href="/features/map-templates" className="group cursor-pointer">
-              <div className="relative aspect-video rounded-2xl overflow-hidden glass-card border border-white/10 mb-4">
-                <div className="w-full h-full bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                  <span className="material-symbols-outlined text-5xl text-secondary/30">school</span>
-                </div>
+              <div className="p-4">
+                <h4 className="font-headline-card text-headline-card text-white">Office Layout</h4>
+                <p className="text-xs text-text-muted mt-1">Cubicles, meeting rooms, break areas</p>
               </div>
-              <h4 className="font-headline-card text-headline-card text-white">Classroom Layout</h4>
-            </Link>
-            <Link href="/features/map-templates" className="group cursor-pointer">
-              <div className="relative aspect-video rounded-2xl overflow-hidden glass-card border border-white/10 mb-4">
-                <div className="w-full h-full bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                  <span className="material-symbols-outlined text-5xl text-tertiary/30">theater_comedy</span>
-                </div>
+            </div>
+            <div className="rounded-2xl overflow-hidden glass-card border border-white/10 mb-4">
+              <div className="aspect-video bg-surface-container-high flex items-center justify-center">
+                <span className="material-symbols-outlined text-5xl text-secondary/30">school</span>
               </div>
-              <h4 className="font-headline-card text-headline-card text-white">Event Hall Layout</h4>
-            </Link>
-            <Link href="/features/maps" className="group cursor-pointer">
-              <div className="relative aspect-video rounded-2xl overflow-hidden glass-card border border-white/10 mb-4">
-                <div className="w-full h-full bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                  <span className="material-symbols-outlined text-5xl text-primary/30">diversity_3</span>
-                </div>
+              <div className="p-4">
+                <h4 className="font-headline-card text-headline-card text-white">Classroom Layout</h4>
+                <p className="text-xs text-text-muted mt-1">Lecture halls, study zones</p>
               </div>
-              <h4 className="font-headline-card text-headline-card text-white">Community Hub</h4>
-            </Link>
+            </div>
+            <div className="rounded-2xl overflow-hidden glass-card border border-white/10 mb-4">
+              <div className="aspect-video bg-surface-container-high flex items-center justify-center">
+                <span className="material-symbols-outlined text-5xl text-tertiary/30">theater_comedy</span>
+              </div>
+              <div className="p-4">
+                <h4 className="font-headline-card text-headline-card text-white">Event Hall Layout</h4>
+                <p className="text-xs text-text-muted mt-1">Stage + audience, broadcasting</p>
+              </div>
+            </div>
+            <div className="rounded-2xl overflow-hidden glass-card border border-white/10 mb-4">
+              <div className="aspect-video bg-surface-container-high flex items-center justify-center">
+                <span className="material-symbols-outlined text-5xl text-primary/30">diversity_3</span>
+              </div>
+              <div className="p-4">
+                <h4 className="font-headline-card text-headline-card text-white">Community Hub</h4>
+                <p className="text-xs text-text-muted mt-1">Social lounges, gaming areas</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

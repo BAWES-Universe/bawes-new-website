@@ -34,11 +34,20 @@ const useCases = [
   {
     emoji: '🌐',
     title: 'For Commerce',
-    desc: 'Marketplaces where shoppers browse together. Service portals with AI concierges. Conference venues with sponsor rooms, networking zones, and main stages. Turn browsing into an experience people want to come back to.',
-    highlights: ['Shoppable worlds', 'AI concierge bots', 'Sponsor & expo halls', 'Ticketed events'],
+    desc: 'Marketplaces where shoppers browse together. Service portals with AI concierges. Turn browsing into an experience people want to come back to.',
+    highlights: ['Shoppable worlds', 'AI concierge bots', 'Digital storefronts', 'Real-world transactions'],
     href: '/market',
-    tag: 'Marketplaces & Events',
+    tag: 'Marketplaces',
     tagColor: 'blue',
+  },
+  {
+    emoji: '🌐',
+    title: 'For Events',
+    desc: 'Conference halls, broadcasting stages, sponsor rooms, and main stages for thousands. Create live events that stream audio and video across the entire universe.',
+    highlights: ['World-wide audio broadcasting', 'Stage & audience zones', 'Event scheduling', 'Sponsor & expo halls'],
+    href: '/features/broadcasting',
+    tag: 'Conferences & Events',
+    tagColor: 'cyan',
   },
 ]
 

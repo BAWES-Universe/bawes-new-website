@@ -29,7 +29,7 @@ export default function MapTemplatesPage() {
                 <p className="text-white/60">Cubicles, meeting rooms, break areas optimized for professional collaboration and team focus.</p>
               </div>
               <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center opacity-60">
-                <span className="text-xs uppercase tracking-wider text-white/60">12 Varieties</span>
+                <span className="text-xs uppercase tracking-wider text-white/60">Pre-built</span>
                 <span className="material-symbols-outlined text-primary">arrow_forward</span>
               </div>
             </div>
@@ -40,7 +40,7 @@ export default function MapTemplatesPage() {
                 <p className="text-white/60">Stage + audience layouts, stage zones, and broadcasting ready configurations for virtual summits.</p>
               </div>
               <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center opacity-60">
-                <span className="text-xs uppercase tracking-wider text-white/60">8 Varieties</span>
+                <span className="text-xs uppercase tracking-wider text-white/60">Pre-built</span>
                 <span className="material-symbols-outlined text-primary">arrow_forward</span>
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function MapTemplatesPage() {
                 <p className="text-white/60">Casual seating, interactive chat areas, and high-engagement community hubs for networking.</p>
               </div>
               <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center opacity-60">
-                <span className="text-xs uppercase tracking-wider text-white/60">15 Varieties</span>
+                <span className="text-xs uppercase tracking-wider text-white/60">Pre-built</span>
                 <span className="material-symbols-outlined text-primary">arrow_forward</span>
               </div>
             </div>

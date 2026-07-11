@@ -36,6 +36,7 @@ const dropdowns: NavDropdown[] = [
       { label: 'For Learning', href: '/use-cases/learning', description: 'Study rooms, AI teaching assistants' },
       { label: 'For Community', href: '/use-cases/community', description: 'Events, gaming, welcome bots' },
       { label: 'For Commerce', href: '/market', description: 'Marketplaces, shops, services' },
+      { label: 'For Events', href: '/features/broadcasting', description: 'Live events, broadcasts, conference rooms' },
     ],
   },
   {
