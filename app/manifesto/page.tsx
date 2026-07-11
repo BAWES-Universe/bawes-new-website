@@ -90,10 +90,10 @@ export default function ManifestoPage() {
           <p className="font-body-md text-body-md max-w-2xl mx-auto text-text-secondary mb-12">
             The Empty Seat is an open invitation. Contribute, collaborate, or just be part of the community. The seat exists, but no one rules forever.
           </p>
-          <Button className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white px-10 py-4 rounded-full font-headline-card hover:scale-105 active:scale-95 transition-all flex items-center gap-3 mx-auto">
+          <Link href="/contact" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white px-10 py-4 rounded-full font-headline-card hover:scale-105 active:scale-95 transition-all flex items-center gap-3 mx-auto w-fit">
             Join the conversation
             <span className="material-symbols-outlined">arrow_forward</span>
-          </Button>
+          </Link>
         </div>
       </section>
     </main>

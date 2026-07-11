@@ -319,9 +319,9 @@ export default function HowItWorksPage() {
               <Link href="/contact" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-bold px-12 py-5 rounded-full text-lg shadow-lg shadow-purple-500/30 hover:scale-105 active:scale-95 transition-all inline-block">
                 Get Started
               </Link>
-              <Button className="glass-card text-white font-bold px-12 py-5 rounded-full text-lg border border-white/20 hover:bg-white/10 active:scale-95 transition-all">
+              <Link href="/contact" className="glass-card text-white font-bold px-12 py-5 rounded-full text-lg border border-white/20 hover:bg-white/10 active:scale-95 transition-all inline-block">
                 Request Demo
-              </Button>
+              </Link>
             </div>
           </div>
         </div>

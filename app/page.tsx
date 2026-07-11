@@ -218,17 +218,17 @@ export default function Home() {
             className="flex flex-wrap gap-4"
           >
             <Link
-              href="/communication"
+              href="https://universe.bawes.net"
               className="gradient-cta text-white px-8 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
             >
-              Walk in now
+              Enter the Universe
               <span className="material-symbols-outlined text-lg">arrow_forward</span>
             </Link>
             <Link
-              href="/features-overview"
+              href="/how-it-works"
               className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200"
             >
-              See what&apos;s inside →
+              How it works →
             </Link>
           </motion.div>
         </div>

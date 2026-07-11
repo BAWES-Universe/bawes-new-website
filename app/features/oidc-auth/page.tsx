@@ -23,12 +23,12 @@ export default function OidcAuthPage() {
             OpenID Connect authentication. Connect your existing SSO — Google, GitHub, Microsoft, or custom OIDC providers. Secure, decentralized, and seamless.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button className="bg-gradient-primary text-white font-label-navigation px-8 py-4 rounded-full neon-glow-purple active:scale-95 transition-all">
+            <Link href="/contact" className="bg-gradient-primary text-white font-label-navigation px-8 py-4 rounded-full neon-glow-purple active:scale-95 transition-all inline-block">
               Start Integrating
-            </Button>
-            <Button className="bg-surface-glass border border-white/20 text-on-surface font-label-navigation px-8 py-4 rounded-full hover:bg-white/10 active:scale-95 transition-all">
+            </Link>
+            <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="bg-surface-glass border border-white/20 text-on-surface font-label-navigation px-8 py-4 rounded-full hover:bg-white/10 active:scale-95 transition-all inline-block">
               View Docs
-            </Button>
+            </a>
           </div>
         </div>
         <div className="relative">
@@ -158,7 +158,7 @@ export default function OidcAuthPage() {
             <p className="text-text-secondary max-w-xl mx-auto mb-10">Join 5,000+ developers building the future of decentralized identity on the BAWES Universe protocol.</p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
               <input className="w-full md:w-80 bg-surface-container border border-border-purple rounded-full px-6 py-4 focus:ring-2 focus:ring-primary focus:outline-none text-white" placeholder="Enter your email" type="email" />
-              <Button className="w-full md:w-auto bg-gradient-primary text-white font-label-navigation px-10 py-4 rounded-full neon-glow-purple whitespace-nowrap active:scale-95 transition-all">Get Started Free</Button>
+              <Link href="/contact" className="w-full md:w-auto bg-gradient-primary text-white font-label-navigation px-10 py-4 rounded-full neon-glow-purple whitespace-nowrap active:scale-95 transition-all inline-block text-center">Get Started Free</Link>
             </div>
           </div>
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>

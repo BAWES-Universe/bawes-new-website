@@ -22,13 +22,13 @@ export default function AvatarPlatformPage() {
             The Avatar Platform powers cross-world identity. Your character, your items, your presence — persistent across every universe you visit.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
-            <Button className="bg-gradient-to-r from-accent-purple to-accent-amber text-white px-8 py-4 rounded-full font-bold shadow-lg active:scale-95 transition-all flex items-center gap-2">
+            <Link href="/contact" className="bg-gradient-to-r from-accent-purple to-accent-amber text-white px-8 py-4 rounded-full font-bold shadow-lg active:scale-95 transition-all flex items-center gap-2">
               Launch Avatar Platform
               <span className="material-symbols-outlined">arrow_forward</span>
-            </Button>
-            <Button className="glass-card text-on-surface px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-all">
+            </Link>
+            <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="glass-card text-on-surface px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-all inline-block">
               View Documentation
-            </Button>
+            </a>
           </div>
         </div>
         <div className="relative group">

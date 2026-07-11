@@ -18,12 +18,12 @@ export default function MarketPage() {
             Universe supports commerce as a spatial experience. People explore shops, services, and marketplaces together inside shared environments, while transactions connect to the real world.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
-            <Button className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-label-navigation px-8 py-4 rounded-full shadow-lg active:scale-95 transition-all">
+            <Link href="/features-overview" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-label-navigation px-8 py-4 rounded-full shadow-lg active:scale-95 transition-all inline-block">
               Launch Market
-            </Button>
-            <Button className="font-label-navigation px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all">
+            </Link>
+            <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="font-label-navigation px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all inline-block">
               Documentation
-            </Button>
+            </a>
           </div>
         </div>
         <div className="flex-1 w-full relative">
@@ -68,9 +68,9 @@ export default function MarketPage() {
                 Universe does not replace your commerce tools. Connect what already works: Shopify, custom commerce systems, booking platforms, ticketing tools, payment providers, your existing infrastructure.
               </p>
               <div className="pt-4">
-                <Button className="font-label-navigation px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all">
+                <Link href="/contact" className="font-label-navigation px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all inline-block">
                   Get help with commerce integration
-                </Button>
+                </Link>
               </div>
             </div>
             <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -154,12 +154,12 @@ export default function MarketPage() {
               Ready to bring commerce into your universe?
             </h2>
             <div className="flex flex-wrap justify-center gap-6">
-              <Button className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-label-navigation px-10 py-5 rounded-full shadow-lg active:scale-95 transition-all text-lg">
+              <Link href="/contact" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-label-navigation px-10 py-5 rounded-full shadow-lg active:scale-95 transition-all text-lg inline-block">
                 Set up your shop
-              </Button>
-              <Button className="font-label-navigation px-10 py-5 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all text-lg">
+              </Link>
+              <Link href="/contact" className="font-label-navigation px-10 py-5 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all text-lg inline-block">
                 Talk to us
-              </Button>
+              </Link>
             </div>
           </div>
         </div>

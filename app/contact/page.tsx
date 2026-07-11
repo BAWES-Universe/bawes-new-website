@@ -50,9 +50,9 @@ export default function ContactPage() {
               <textarea className="w-full bg-surface-container-lowest border border-border-purple rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-text-low-emphasis resize-none" placeholder="Timeline, budget range, or specific needs..." rows={3}></textarea>
             </div>
             <div className="pt-4 flex flex-col md:flex-row items-center justify-between gap-6">
-              <Button className="bg-gradient-to-r from-[#a078ff] to-[#d0bcff] text-on-primary-container px-12 py-4 rounded-full font-bold text-lg active:scale-95 transition-transform w-full md:w-auto shadow-lg" type="submit">
+            <button type="submit" className="bg-gradient-to-r from-[#a078ff] to-[#d0bcff] text-on-primary-container px-12 py-4 rounded-full font-bold text-lg active:scale-95 transition-transform w-full md:w-auto shadow-lg">
                 Send message
-              </Button>
+              </button>
               <div className="flex items-center gap-4 text-text-secondary">
                 <span className="text-caption font-caption">Prefer to connect another way?</span>
                 <Link href="#" className="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full border border-border-purple hover:bg-surface-container-high transition-colors">
@@ -74,9 +74,9 @@ export default function ContactPage() {
             <p className="text-text-secondary mb-8 font-body-md">
               Our bots and team members are on Universe daily. If you&apos;re already in a universe, just ask a bot for help or look for a team member. We&apos;re happy to assist with anything — setup, custom use cases, deployment, or just a chat.
             </p>
-            <Button className="w-full bg-gradient-to-r from-[#a078ff] to-[#d0bcff] text-on-primary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform shadow-lg">
+            <a href="https://universe.bawes.net" target="_blank" rel="noopener noreferrer" className="w-full bg-gradient-to-r from-[#a078ff] to-[#d0bcff] text-on-primary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform shadow-lg inline-block text-center">
               Enter the Universe
-            </Button>
+            </a>
           </div>
           <div className="glass-card rounded-2xl p-8 hover:translate-y-[-2px] transition-transform group border-white/5">
             <div className="flex items-center gap-3 mb-4">
@@ -86,9 +86,9 @@ export default function ContactPage() {
             <p className="text-text-secondary mb-8 font-body-md">
               Universe can be self-hosted, white-labeled, or extended for specific use cases. If your usage grows beyond fair usage, we&apos;ll work with you on a pricing model that fits — whether that&apos;s token consumption or infra needs.
             </p>
-            <Button className="w-full bg-transparent border border-white/30 text-on-surface px-6 py-3 rounded-full font-bold hover:border-white/60 transition-colors active:scale-95">
+            <Link href="/contact" className="w-full bg-transparent border border-white/30 text-on-surface px-6 py-3 rounded-full font-bold hover:border-white/60 transition-colors active:scale-95 inline-block text-center">
               Request Assistance
-            </Button>
+            </Link>
           </div>
         </div>
       </section>

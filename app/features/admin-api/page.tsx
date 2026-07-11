@@ -23,13 +23,13 @@ export default function AdminApiPage() {
             REST API for managing users, worlds, rooms, and bots programmatically. Automate your universe with robust endpoints and low-latency synchronization.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
-            <Button className="bg-gradient-neon text-white px-8 py-4 rounded-full font-headline-card text-body-md neon-glow-primary hover:scale-105 transition-transform flex items-center gap-2">
+            <Link href="/contact" className="bg-gradient-neon text-white px-8 py-4 rounded-full font-headline-card text-body-md neon-glow-primary hover:scale-105 transition-transform flex items-center gap-2">
               Explore API Docs
               <span className="material-symbols-outlined">arrow_forward</span>
-            </Button>
-            <Button className="glass-card text-on-surface px-8 py-4 rounded-full font-headline-card text-body-md hover:bg-white/5 transition-colors">
+            </Link>
+            <Link href="/contact" className="glass-card text-on-surface px-8 py-4 rounded-full font-headline-card text-body-md hover:bg-white/5 transition-colors inline-block">
               Get API Key
-            </Button>
+            </Link>
           </div>
         </div>
         <div className="relative group">

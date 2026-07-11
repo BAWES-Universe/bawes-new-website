@@ -18,13 +18,11 @@ export default function TeamPage() {
             A small team with a big vision. We build Universe because we believe in open, AI-powered collaboration.
           </p>
           <div className="flex gap-4">
-            <Button className="bg-primary text-on-primary px-8 py-3 rounded-full font-label-navigation font-bold neon-glow-purple active:scale-95 transition-transform">
+            <Link href="/team" className="bg-primary text-on-primary px-8 py-3 rounded-full font-label-navigation font-bold neon-glow-purple active:scale-95 transition-transform inline-block">
               Meet the Core
-            </Button>
-            <Link href="/manifesto">
-              <Button className="glass-card px-8 py-3 rounded-full font-label-navigation text-on-surface active:scale-95 transition-transform">
-                Read Manifesto
-              </Button>
+            </Link>
+            <Link href="/manifesto" className="glass-card px-8 py-3 rounded-full font-label-navigation text-on-surface active:scale-95 transition-transform inline-block">
+              Read Manifesto
             </Link>
           </div>
         </div>

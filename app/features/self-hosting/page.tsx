@@ -22,14 +22,14 @@ export default function SelfHostingPage() {
             Self-host the entire BAWES Universe stack on your infrastructure. Experience total sovereignty with full control over your data, privacy, and performance.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
-            <Button className="px-8 py-4 rounded-full font-label-navigation text-label-navigation bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-bold text-lg neon-glow-purple flex items-center gap-3 active:scale-95 transition-transform">
+            <Link href="/features/self-hosting" className="px-8 py-4 rounded-full font-label-navigation text-label-navigation bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-bold text-lg neon-glow-purple flex items-center gap-3 active:scale-95 transition-transform">
               Launch Self-Host Guide
               <span className="material-symbols-outlined">arrow_forward</span>
-            </Button>
-            <Button className="px-8 py-4 rounded-full font-label-navigation text-label-navigation border border-border-purple text-on-surface hover:bg-surface-glass flex items-center gap-3 transition-all">
+            </Link>
+            <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-label-navigation text-label-navigation border border-border-purple text-on-surface hover:bg-surface-glass flex items-center gap-3 transition-all inline-block">
               <span className="material-symbols-outlined">code</span>
               View on GitHub
-            </Button>
+            </a>
           </div>
           <div className="flex items-center gap-8 pt-8">
             <div className="flex flex-col">
@@ -183,8 +183,8 @@ export default function SelfHostingPage() {
             <h2 className="font-headline-section text-headline-section text-white">Ready to deploy?</h2>
             <p className="text-text-secondary max-w-xl mx-auto">Join thousands of developers hosting their own sovereign digital worlds. Our documentation will guide you every step of the way.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button className="px-8 py-4 rounded-full font-label-navigation text-label-navigation bg-white text-background font-bold hover:bg-opacity-90 transition-all active:scale-95">Read the Docs</Button>
-              <Button className="px-8 py-4 rounded-full font-label-navigation text-label-navigation border border-white/20 text-white font-bold hover:bg-white/5 transition-all">Join the Discord</Button>
+              <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-label-navigation text-label-navigation bg-white text-background font-bold hover:bg-opacity-90 transition-all active:scale-95 inline-block">Read the Docs</a>
+              <a href="https://discord.gg/CXceJWnwNT" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-label-navigation text-label-navigation border border-white/20 text-white font-bold hover:bg-white/5 transition-all inline-block">Join the Discord</a>
             </div>
           </div>
         </div>
