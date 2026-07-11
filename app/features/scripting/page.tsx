@@ -11,7 +11,12 @@ export default function ScriptingApiPage() {
       {/* Hero Section */}
       <section className="min-h-[819px] flex flex-col md:flex-row items-center justify-between py-section-padding-lg gap-stack-lg">
         <div className="w-full md:w-1/2 space-y-stack-md">
-          <h1 className="font-display-hero text-display-hero leading-tight text-white">
+          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span>/</span>
+          <span className="text-primary">Scripting API</span>
+        </div>
+        <h1 className="font-display-hero text-display-hero leading-tight text-white">
             Code That <span className="text-primary">Shapes</span> Worlds.
           </h1>
           <p className="font-body-lg text-body-lg text-text-secondary max-w-xl">

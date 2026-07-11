@@ -15,7 +15,12 @@ export default function SelfHostingPage() {
             <span className="material-symbols-outlined text-[18px] text-tertiary" style={{ fontVariationSettings: "'FILL' 1" }}>terminal</span>
             <span className="text-caption font-caption text-tertiary uppercase tracking-widest">Self-Hosting Stack v4.2.0</span>
           </div>
-          <h1 className="font-display-hero text-display-hero text-white tracking-tight leading-none">
+          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span>/</span>
+          <span className="text-primary">Self-Hosting</span>
+        </div>
+        <h1 className="font-display-hero text-display-hero text-white tracking-tight leading-none">
             Run Your Own <br /><span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Universe.</span>
           </h1>
           <p className="font-body-md text-text-secondary max-w-xl text-lg">

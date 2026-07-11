@@ -14,7 +14,12 @@ export default function WhiteLabelPage() {
           <span className="inline-block px-4 py-1 rounded-full border border-purple text-primary text-caption mb-6 bg-surface-glass">
             White-Label Solution
           </span>
-          <h1 className="font-display-hero text-display-hero mb-6 text-white max-w-4xl leading-tight">
+          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span>/</span>
+          <span className="text-primary">White Label</span>
+        </div>
+        <h1 className="font-display-hero text-display-hero mb-6 text-white max-w-4xl leading-tight">
             Your Brand. <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Your Universe.</span>
           </h1>
           <p className="font-body-md text-body-md text-text-secondary max-w-2xl mb-10">

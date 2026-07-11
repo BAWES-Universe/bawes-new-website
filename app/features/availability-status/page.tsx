@@ -8,7 +8,12 @@ export default function AvailabilityStatusPage() {
       {/* Hero */}
       <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span>/</span>
+          <span className="text-primary">Availability Status</span>
+        </div>
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
             Let Them Know <span className="text-primary">You're Busy.</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">

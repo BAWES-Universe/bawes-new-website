@@ -11,7 +11,12 @@ export default function TechStackPage() {
       {/* Hero Section */}
       <Section className="max-w-container-max mx-auto px-gutter mb-section-padding-v text-center md:text-left grid md:grid-cols-2 items-center gap-12">
         <div className="relative z-10">
-          <h1 className="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero mb-6 text-on-surface">
+          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span>/</span>
+          <span className="text-primary">Tech Stack</span>
+        </div>
+        <h1 className="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero mb-6 text-on-surface">
             The Stack Behind <br /><span className="text-primary">the Universe.</span>
           </h1>
           <p className="text-text-secondary max-w-lg text-lg mb-8">

@@ -15,7 +15,12 @@ export default function OidcAuthPage() {
             <span className="material-symbols-outlined text-primary text-[18px]">verified_user</span>
             <span className="font-caption text-caption uppercase tracking-widest text-primary">OIDC Protocol Enabled</span>
           </div>
-          <h1 className="font-display-hero text-display-hero">
+          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span>/</span>
+          <span className="text-primary">OIDC Auth</span>
+        </div>
+        <h1 className="font-display-hero text-display-hero">
             Your Identity. <br />
             <span className="text-gradient">Your Way.</span>
           </h1>

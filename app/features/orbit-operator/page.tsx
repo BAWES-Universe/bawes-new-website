@@ -15,7 +15,12 @@ export default function OrbitOperatorPage() {
             <span className="material-symbols-outlined text-sm text-primary">space_dashboard</span>
             <span className="text-caption font-label-navigation uppercase tracking-widest text-primary">Orbit Operator Console</span>
           </div>
-          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">
+          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span>/</span>
+          <span className="text-primary">Orbit Operator</span>
+        </div>
+        <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">
             Your Universe, <span className="text-gradient">In Command.</span>
           </h1>
           <p className="text-body-md text-text-secondary max-w-xl">
