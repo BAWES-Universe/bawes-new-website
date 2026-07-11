@@ -36,14 +36,13 @@ const dropdowns: NavDropdown[] = [
       { label: 'For Learning', href: '/use-cases/learning', description: 'Study rooms, AI teaching assistants' },
       { label: 'For Community', href: '/use-cases/community', description: 'Events, gaming, welcome bots' },
       { label: 'For Commerce', href: '/market', description: 'Marketplaces, shops, services' },
-      { label: 'See All', href: '/features-overview', description: 'Browse everything you can build' },
+      { label: 'See All', href: '/use-cases', description: 'Browse everything Universe is built for' },
     ],
   },
   {
     label: 'Developers',
     icon: 'code',
     items: [
-      { label: 'How It Works', href: '/how-it-works', description: 'Platform architecture deep dive' },
       { label: 'Technology Stack', href: '/features/tech-stack', description: 'Built on open source' },
       { label: 'Scripting API', href: '/features/scripting', description: 'Extend with custom logic' },
       { label: 'MCP Integration', href: '/mcp-integration', description: 'Model Context Protocol' },
@@ -64,10 +63,34 @@ const dropdowns: NavDropdown[] = [
   },
 ]
 
+const standaloneLinks = [
+  { label: 'How It Works', href: '/how-it-works', icon: 'explore' },
+]
+
 const topLinks = [
   { label: 'Blog', href: 'https://blog.bawes.net', external: true },
   { label: 'Contact', href: '/contact' },
 ]
+
+const getHubHref = (label: string) => {
+  switch (label) {
+    case 'Features': return '/features-overview'
+    case 'Use Cases': return '/use-cases'
+    case 'Developers': return '/open-source'
+    case 'About': return '/about'
+    default: return '/'
+  }
+}
+
+const getViewAllText = (label: string) => {
+  switch (label) {
+    case 'Features': return 'View all features'
+    case 'Use Cases': return 'View all use cases'
+    case 'Developers': return 'View all developer resources'
+    case 'About': return 'View all about BAWES'
+    default: return 'View all'
+  }
+}
 
 export default function Navigation() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
@@ -142,6 +165,19 @@ export default function Navigation() {
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-1">
+              {/* Standalone links (How It Works) */}
+              {standaloneLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
+                >
+                  <span className="material-symbols-outlined text-base">{link.icon}</span>
+                  {link.label}
+                </Link>
+              ))}
+
+              {/* Dropdown nav items */}
               {dropdowns.map((dd) => (
                 <div
                   key={dd.label}
@@ -149,19 +185,36 @@ export default function Navigation() {
                   onMouseEnter={() => handleMouseEnter(dd.label)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <button
-                    className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  <div
+                    className={`flex items-center gap-0 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                       openDropdown === dd.label
                         ? 'text-white bg-white/10'
                         : 'text-white/70 hover:text-white hover:bg-white/5'
                     }`}
                   >
-                    <span className="material-symbols-outlined text-base">{dd.icon}</span>
-                    {dd.label}
-                    <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === dd.label ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
+                    <Link
+                      href={getHubHref(dd.label)}
+                      onClick={() => setOpenDropdown(null)}
+                      className="flex items-center gap-1.5"
+                    >
+                      <span className="material-symbols-outlined text-base">{dd.icon}</span>
+                      {dd.label}
+                    </Link>
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        setOpenDropdown(openDropdown === dd.label ? null : dd.label)
+                      }}
+                      className="flex items-center justify-center p-0.5 ml-0.5 cursor-pointer"
+                      aria-label={`Toggle ${dd.label} menu`}
+                      tabIndex={0}
+                    >
+                      <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === dd.label ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                  </div>
 
                   <AnimatePresence>
                     {openDropdown === dd.label && (
@@ -187,7 +240,7 @@ export default function Navigation() {
                             >
                               <div className="flex-1 min-w-0">
                                 <div className="text-sm font-medium text-white/80 group-hover/link:text-white transition-colors">
-                                  {item.label === 'Overview' ? (
+                                  {item.label === 'See All' ? (
                                     <span className="flex items-center gap-1.5">
                                       <span className="material-symbols-outlined text-base text-purple-400">explore</span>
                                       {item.label}
@@ -202,25 +255,16 @@ export default function Navigation() {
                           ))}
                         </div>
                         {/* Hub quick link */}
-                        {(() => {
-                          const hubHref =
-                            dd.label === 'Features' ? '/features-overview' :
-                            dd.label === 'Use Cases' ? '/features-overview' :
-                            dd.label === 'Developers' ? '/how-it-works' :
-                            dd.label === 'About' ? '/about' : `/${dd.label.toLowerCase()}`
-                          return (
                         <Link
-                          href={hubHref}
+                          href={getHubHref(dd.label)}
                           onClick={() => setOpenDropdown(null)}
                           className="flex items-center justify-between mt-1 px-3 py-2.5 rounded-xl bg-gradient-to-r from-purple-600/10 to-blue-600/10 hover:from-purple-600/20 hover:to-blue-600/20 transition-colors border border-purple-500/10"
                         >
                           <span className="text-sm font-medium text-purple-300">
-                            View all {dd.label.toLowerCase()} features
+                            {getViewAllText(dd.label)}
                           </span>
                           <span className="material-symbols-outlined text-sm text-purple-400">arrow_forward</span>
                         </Link>
-                          )
-                        })()}
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -306,12 +350,31 @@ export default function Navigation() {
             exit={{ opacity: 0 }}
           >
             <div className="flex-1 pt-24 pb-8 px-4 overflow-y-auto">
+              {/* How It Works — standalone at top of mobile menu */}
+              <div className="mb-6">
+                <Link
+                  href="/how-it-works"
+                  onClick={() => setIsMobileOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"
+                >
+                  <span className="material-symbols-outlined text-purple-400 text-lg">explore</span>
+                  <div className="flex-1">
+                    <div className="text-sm font-medium text-white/80">How It Works</div>
+                    <p className="text-xs text-white/40 mt-0.5">Platform deep dive</p>
+                  </div>
+                </Link>
+              </div>
+
               {dropdowns.map((dd) => (
                 <div key={dd.label} className="mb-6">
-                  <div className="flex items-center gap-2 px-3 py-2 mb-2">
+                  <Link
+                    href={getHubHref(dd.label)}
+                    onClick={() => setIsMobileOpen(false)}
+                    className="flex items-center gap-2 px-3 py-2 mb-2"
+                  >
                     <span className="material-symbols-outlined text-purple-400 text-lg">{dd.icon}</span>
                     <span className="text-sm font-semibold text-white/60 uppercase tracking-wider">{dd.label}</span>
-                  </div>
+                  </Link>
                   <div className="grid gap-0.5">
                     {dd.items.map((item) => (
                       <Link
