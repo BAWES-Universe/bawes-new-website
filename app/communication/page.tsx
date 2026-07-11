@@ -124,8 +124,8 @@ export default function Communication() {
             <Button href="/contact" size="lg">
               Get Started
             </Button>
-            <Button href="/work" variant="ghost" size="lg" className="glass-card border border-white/10 hover:border-white/20">
-              Explore Components
+            <Button href="/features-overview" variant="ghost" size="lg" className="glass-card border border-white/10 hover:border-white/20">
+              See all features
             </Button>
           </div>
         </div>

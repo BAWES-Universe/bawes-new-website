@@ -19,10 +19,10 @@ export default function UseCaseCommunityPage() {
               Hangouts, gaming groups, fan communities, meetups — build a space where people actually want to spend time.
             </p>
             <div className="flex gap-4 pt-4">
-              <Button className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] px-8 py-4 rounded-full font-label-navigation text-white shadow-lg transition-transform hover:scale-105">
+              <Button href="/contact" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] px-8 py-4 rounded-full font-label-navigation text-white shadow-lg transition-transform hover:scale-105">
                 Create Your Space
               </Button>
-              <Button className="px-8 py-4 rounded-full font-label-navigation border border-white/30 text-white hover:bg-white/5 transition-all">
+              <Button href="/how-it-works" className="px-8 py-4 rounded-full font-label-navigation border border-white/30 text-white hover:bg-white/5 transition-all">
                 View Demo
               </Button>
             </div>

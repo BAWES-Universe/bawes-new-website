@@ -202,8 +202,15 @@ export default function Navigation() {
                           ))}
                         </div>
                         {/* Hub quick link */}
+                        {(() => {
+                          const hubHref =
+                            dd.label === 'Features' ? '/features-overview' :
+                            dd.label === 'Use Cases' ? '/features-overview' :
+                            dd.label === 'Developers' ? '/how-it-works' :
+                            dd.label === 'About' ? '/about' : `/${dd.label.toLowerCase()}`
+                          return (
                         <Link
-                          href={`/${dd.label.toLowerCase()}`}
+                          href={hubHref}
                           onClick={() => setOpenDropdown(null)}
                           className="flex items-center justify-between mt-1 px-3 py-2.5 rounded-xl bg-gradient-to-r from-purple-600/10 to-blue-600/10 hover:from-purple-600/20 hover:to-blue-600/20 transition-colors border border-purple-500/10"
                         >
@@ -212,6 +219,8 @@ export default function Navigation() {
                           </span>
                           <span className="material-symbols-outlined text-sm text-purple-400">arrow_forward</span>
                         </Link>
+                          )
+                        })()}
                       </motion.div>
                     )}
                   </AnimatePresence>

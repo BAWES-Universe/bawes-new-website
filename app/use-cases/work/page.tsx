@@ -19,10 +19,10 @@ export default function UseCaseWorkPage() {
             Replace the endless Slack threads and Zoom links with a spatial office. Walk into a room, see who&apos;s there, and start working.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] px-8 py-4 rounded-full font-label-navigation text-white hover:opacity-90 transition-all">
+            <Button href="/contact" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] px-8 py-4 rounded-full font-label-navigation text-white hover:opacity-90 transition-all">
               Build Your Workspace
             </Button>
-            <Button className="px-8 py-4 rounded-full border border-white/30 font-label-navigation text-white hover:bg-white/5 transition-all">
+            <Button href="/how-it-works" className="px-8 py-4 rounded-full border border-white/30 font-label-navigation text-white hover:bg-white/5 transition-all">
               View Demo
             </Button>
           </div>

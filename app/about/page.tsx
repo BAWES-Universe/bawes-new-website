@@ -7,22 +7,29 @@ import Section from '@/components/Section'
 import Button from '@/components/ui/Button'
 
 const features = [
-  { title: 'The Team', icon: 'groups', description: 'Meet the people building the BAWES universe — creators, engineers, and visionaries.', isEmoji: false },
-  { title: 'Open Source', icon: '📖', description: 'Our code is open and transparent. Contribute, audit, and build with us.', isEmoji: true },
-  { title: 'WorkAdventure Fork', icon: '🔧', description: 'Built on the foundation of WorkAdventure, extended for the universe.', isEmoji: true },
-  { title: 'Legal', icon: '⚖️', description: 'Terms of service, privacy policy, and legal framework for the platform.', isEmoji: true },
-  { title: 'Contact', icon: '✉️', description: 'Get in touch with the team for support, partnerships, or general inquiries.', isEmoji: true },
+  { title: 'How It Works', icon: 'psychology', description: 'Platform architecture and the philosophy behind spatial intelligence.' },
+  { title: 'The Team', icon: 'groups', description: 'Meet the people building the BAWES universe.' },
+  { title: 'Manifesto', icon: 'auto_awesome', description: 'Our philosophy, vision, and the future we are building.' },
+  { title: 'Open Source', icon: 'code', description: 'MIT licensed. Contribute, audit, and build with us.' },
+  { title: 'WorkAdventure Fork', icon: 'fork_right', description: 'Built on WorkAdventure, extended for the universe.' },
+  { title: 'MCP Integration', icon: 'hub', description: 'Model Context Protocol — connect any tool or service.' },
+  { title: 'Technology Stack', icon: 'layers', description: 'Built on proven open-source technologies.' },
+  { title: 'The Empty Seat', icon: 'event_seat', description: 'A thought experiment on presence and absence.' },
+  { title: 'Legal', icon: 'gavel', description: 'Terms of service, privacy policy, and legal framework.' },
+  { title: 'Contact', icon: 'mail', description: 'Get in touch for support, partnerships, or inquiries.' },
 ]
 
 const featureSlugs: Record<string, string> = {
+  'How It Works': '/how-it-works',
   'The Team': '/team',
   'Manifesto': '/manifesto',
   'Open Source': '/open-source',
-  'MCP Integration': '/mcp-integration',
   'WorkAdventure Fork': '/workadventure-fork',
+  'MCP Integration': '/mcp-integration',
+  'Technology Stack': '/features/tech-stack',
   'The Empty Seat': '/empty-seat',
-  'How It Works': '/how-it-works',
   'Legal': '/legal',
+  'Contact': '/contact',
 }
 
 export default function About() {
@@ -33,7 +40,7 @@ export default function About() {
       {/* Hero */}
       <section
         ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
+        className="min-h-[50vh] flex items-center justify-center relative overflow-hidden"
       >
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl" />
@@ -46,7 +53,6 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Badge pill */}
             <motion.div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -74,25 +80,21 @@ export default function About() {
       <Section className="relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern -z-10" />
 
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {features.map((feature, i) => (
-              <Link key={feature.title} href={featureSlugs[feature.title] || '#'}>
+              <Link key={feature.title} href={featureSlugs[feature.title]}>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: i * 0.05 }}
                 className="glass-card rounded-2xl p-6 hover-lift group cursor-pointer"
               >
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300`}>
-                  {feature.isEmoji ? (
-                    <span className="text-xl">{feature.icon}</span>
-                  ) : (
-                    <span className="material-symbols-outlined text-2xl text-purple-300">
-                      {feature.icon}
-                    </span>
-                  )}
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
+                  <span className="material-symbols-outlined text-2xl text-purple-300">
+                    {feature.icon}
+                  </span>
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
                 <p className="text-sm text-white/60 leading-relaxed">{feature.description}</p>

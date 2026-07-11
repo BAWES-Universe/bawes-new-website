@@ -124,8 +124,8 @@ export default function Build() {
             <Button href="/contact" size="lg">
               Start Creating
             </Button>
-            <Button href="/work" variant="ghost" size="lg" className="glass-card border border-white/10 hover:border-white/20">
-              Browse Templates
+            <Button href="/features-overview" variant="ghost" size="lg" className="glass-card border border-white/10 hover:border-white/20">
+              See all features
             </Button>
           </div>
         </div>

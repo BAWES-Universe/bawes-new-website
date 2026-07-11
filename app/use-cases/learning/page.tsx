@@ -19,10 +19,10 @@ export default function UseCaseLearningPage() {
               Digital campuses, study rooms, and mentorship spaces. Walk into a lecture, join a study group, or meet your mentor in their virtual office.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] px-10 py-4 rounded-full font-label-navigation text-white text-lg shadow-lg">
+              <Button href="/contact" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] px-10 py-4 rounded-full font-label-navigation text-white text-lg shadow-lg">
                 Build Your Campus
               </Button>
-              <Button className="px-10 py-4 rounded-full font-label-navigation border border-white/30 text-white hover:border-white/60 transition-all flex items-center gap-2">
+              <Button href="/how-it-works" className="px-10 py-4 rounded-full font-label-navigation border border-white/30 text-white hover:border-white/60 transition-all flex items-center gap-2">
                 <span className="material-symbols-outlined">play_circle</span>
                 View Demo
               </Button>
