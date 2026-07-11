@@ -170,8 +170,7 @@ export default function Home() {
             {...fadeUp(0.1)}
             className="font-display-hero text-display-hero text-white mb-6"
           >
-            Enter the{' '}
-            <span className="text-gradient">Universe</span>
+            Enter the <span className="text-gradient">Universe</span>
           </motion.h1>
 
           {/* Sub */}
