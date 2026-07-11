@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
+import Link from 'next/link'
 import Section from '@/components/Section'
 import Button from '@/components/ui/Button'
 
