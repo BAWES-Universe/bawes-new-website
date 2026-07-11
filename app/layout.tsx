@@ -38,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="icon" href="/images/bawes-logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/images/bawes-logo.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1" />
       </head>
       <body className="bg-[#0a0a14] text-[#e7e0ed] antialiased">
         <PostHogProvider>
