@@ -85,13 +85,22 @@ const dropdowns: NavDropdown[] = [
     ],
   },
   {
+    label: 'Use Cases',
+    icon: 'cases',
+    items: [
+      { label: 'Overview', href: '/features-overview', description: 'What you can build with Universe' },
+      { label: 'For Work', href: '/use-cases/work', description: 'Team spaces, focus rooms, collaboration' },
+      { label: 'For Learning', href: '/use-cases/learning', description: 'Study rooms, digital campuses' },
+      { label: 'For Community', href: '/use-cases/community', description: 'Events, gaming, casual meetups' },
+      { label: 'For Commerce', href: '/market', description: 'Shops, services, marketplaces' },
+    ],
+  },
+  {
     label: 'About',
     icon: 'info',
     items: [
       { label: 'Overview', href: '/about', description: 'About BAWES Universe' },
       { label: 'How It Works', href: '/how-it-works', description: 'Platform deep dive' },
-      { label: 'Features Overview', href: '/features-overview', description: 'Complete feature catalog' },
-      { label: 'Use Cases', href: '/use-cases/learning', description: 'What you can build' },
       { label: 'The Team', href: '/team', description: 'Meet the creators' },
       { label: 'Manifesto', href: '/manifesto', description: 'Our philosophy' },
       { label: 'Open Source', href: '/open-source', description: 'MIT license & repos' },
@@ -103,7 +112,7 @@ const dropdowns: NavDropdown[] = [
 ]
 
 const topLinks = [
-  { label: 'Market', href: '/market' },
+  { label: 'Blog', href: 'https://blog.bawes.net', external: true },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -257,13 +266,25 @@ export default function Navigation() {
               ))}
 
               {topLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
-                >
-                  {link.label}
-                </Link>
+                link.external ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                )
               ))}
 
               {/* Discord Button */}
@@ -351,14 +372,27 @@ export default function Navigation() {
 
               <div className="border-t border-white/10 pt-6 mt-6">
                 {topLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsMobileOpen(false)}
-                    className="block px-4 py-3 rounded-xl text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all"
-                  >
-                    {link.label}
-                  </Link>
+                  link.external ? (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsMobileOpen(false)}
+                      className="block px-4 py-3 rounded-xl text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsMobileOpen(false)}
+                      className="block px-4 py-3 rounded-xl text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all"
+                    >
+                      {link.label}
+                    </Link>
+                  )
                 ))}
               </div>
             </div>
