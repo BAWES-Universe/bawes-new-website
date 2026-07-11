@@ -96,13 +96,12 @@ export default function BotStreamingPage() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to see AI think in real-time?</h2>
           <p className="text-white/60 mb-8">Enable streaming on your bots through the provider config.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/features/ai-bots" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
-              <span className="material-symbols-outlined text-lg">arrow_back</span>
-              Back to AI Bots
-            </Link>
-            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
-              <span className="material-symbols-outlined text-lg">explore</span>
+            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-all">
+              <span className="material-symbols-outlined text-lg">arrow_forward</span>
               Explore the Universe
+            </Link>
+            <Link href="/ai-bots" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+              See all features →
             </Link>
           </div>
         </div>

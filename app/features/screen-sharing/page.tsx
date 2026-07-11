@@ -87,13 +87,12 @@ export default function ScreenSharingPage() {
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Ready to expand your universe?</h2>
             <p className="text-white/60 mb-10">Join thousands of pioneers already building, collaborating, and exploring in the BAWES Universe.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/features/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
-                <span className="material-symbols-outlined text-lg">arrow_back</span>
-                Back to Communication
-              </Link>
-              <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
-                <span className="material-symbols-outlined text-lg">explore</span>
+              <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-all">
+                <span className="material-symbols-outlined text-lg">arrow_forward</span>
                 Explore the Universe
+              </Link>
+              <Link href="/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+                See all features →
               </Link>
             </div>
           </div>
