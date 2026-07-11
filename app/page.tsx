@@ -46,7 +46,7 @@ const showcases = [
   { emoji: '🏢', title: 'Company Universe', desc: 'Team rooms, focus pods, standup bots, and a watercooler that actually works.', tag: 'For Work', tagColor: 'purple', href: '/use-cases/work' },
   { emoji: '🎓', title: 'Campus Universe', desc: 'Lecture halls, study groups, AI teaching assistants available 24/7.', tag: 'For Learning', tagColor: 'amber', href: '/use-cases/learning' },
   { emoji: '🎮', title: 'Community Universe', desc: 'Event halls, gaming rooms, welcome bots that greet every new member by name.', tag: 'For Community', tagColor: 'green', href: '/use-cases/community' },
-  { emoji: '🌐', title: 'Conference Universe', desc: 'Sponsor rooms, networking zones, main stages for thousands.', tag: 'For Events', tagColor: 'blue', href: '/features/broadcasting' },
+  { emoji: '🌐', title: 'Conference Universe', desc: 'Sponsor rooms, networking zones, main stages for thousands.', tag: 'For Events', tagColor: 'blue', href: '/use-cases/events' },
 ]
 
 /* ─── COMPONENTS ─── */

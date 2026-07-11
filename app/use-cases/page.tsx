@@ -32,20 +32,29 @@ const useCases = [
     tagColor: 'green',
   },
   {
-    emoji: '🌐',
-    title: 'For Commerce',
-    desc: 'Marketplaces where shoppers browse together. Service portals with AI concierges. Turn browsing into an experience people want to come back to.',
-    highlights: ['Shoppable worlds', 'AI concierge bots', 'Digital storefronts', 'Real-world transactions'],
-    href: '/market',
-    tag: 'Marketplaces',
+    emoji: '🛍️',
+    title: 'For Market',
+    desc: 'Brand showrooms, mall experiences, pop-up shops. People browse together, discover products, and explore shoppable worlds — social shopping that feels like the real thing.',
+    highlights: ['Brand showrooms & pop-ups', 'Social shopping together', 'Shoppable worlds', 'Digital storefronts'],
+    href: '/use-cases/market',
+    tag: 'Brands & Retail',
     tagColor: 'blue',
+  },
+  {
+    emoji: '💰',
+    title: 'For Commerce',
+    desc: 'Sell subscriptions, tickets, and services from inside your Universe. Monetize access, gate premium content, and connect your existing payment stack.',
+    highlights: ['Subscriptions & memberships', 'Ticketed events & access', 'Payment provider integration', 'Revenue automation'],
+    href: '/use-cases/commerce',
+    tag: 'Monetization',
+    tagColor: 'purple',
   },
   {
     emoji: '🌐',
     title: 'For Events',
     desc: 'Conference halls, broadcasting stages, sponsor rooms, and main stages for thousands. Create live events that stream audio and video across the entire universe.',
     highlights: ['World-wide audio broadcasting', 'Stage & audience zones', 'Event scheduling', 'Sponsor & expo halls'],
-    href: '/features/broadcasting',
+    href: '/use-cases/events',
     tag: 'Conferences & Events',
     tagColor: 'cyan',
   },
@@ -72,7 +81,7 @@ export default function UseCasesPage() {
             </span>
           </h1>
           <p className="text-lg text-text-muted leading-relaxed max-w-[540px]">
-            Work, school, community, commerce — Universe adapts to what you&apos;re building. Pick your path and see what&apos;s possible.
+            Work, school, community, market, commerce — Universe adapts to what you&apos;re building. Pick your path and see what&apos;s possible.
           </p>
         </motion.div>
       </section>
