@@ -344,31 +344,49 @@ export default function Navigation() {
             exit={{ opacity: 0 }}
           >
             <div className="flex-1 pt-24 pb-8 px-4 overflow-y-auto">
-              {dropdowns.map((dd) => (
-                <div key={dd.label} className="mb-6">
-                  <div className="flex items-center gap-2 px-3 py-2 mb-2">
-                    <span className="material-symbols-outlined text-purple-400 text-lg">{dd.icon}</span>
-                    <span className="text-sm font-semibold text-white/60 uppercase tracking-wider">{dd.label}</span>
+              {dropdowns.map((dd) => {
+                const hubRoute = `/${dd.label.toLowerCase().replace(' ', '-')}`
+                return (
+                  <div key={dd.label} className="mb-4">
+                    <Link
+                      href={hubRoute}
+                      onClick={() => setIsMobileOpen(false)}
+                      className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-gradient-to-r from-purple-600/10 to-blue-600/10 hover:from-purple-600/20 hover:to-blue-600/20 transition-all border border-purple-500/10 mb-1"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="material-symbols-outlined text-purple-400 text-xl">{dd.icon}</span>
+                        <span className="text-base font-semibold text-white">{dd.label}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 text-purple-300 text-xs font-medium">
+                        <span>{dd.items.length} features</span>
+                        <span className="material-symbols-outlined text-sm">chevron_right</span>
+                      </div>
+                    </Link>
+                    <div className="flex overflow-x-auto gap-2 px-1 pb-2 -mx-1 snap-x snap-mandatory scrollbar-hide">
+                      {dd.items.slice(0, 5).map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setIsMobileOpen(false)}
+                          className="flex-shrink-0 snap-start px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5 min-w-[130px]"
+                        >
+                          <div className="text-sm font-medium text-white/80 whitespace-nowrap">{item.label}</div>
+                        </Link>
+                      ))}
+                      {dd.items.length > 5 && (
+                        <Link
+                          href={hubRoute}
+                          onClick={() => setIsMobileOpen(false)}
+                          className="flex-shrink-0 snap-start px-3.5 py-2.5 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 transition-colors border border-purple-500/20 flex items-center gap-1 min-w-[100px]"
+                        >
+                          <span className="text-sm font-medium text-purple-300 whitespace-nowrap">View all</span>
+                          <span className="material-symbols-outlined text-sm text-purple-400">arrow_forward</span>
+                        </Link>
+                      )}
+                    </div>
                   </div>
-                  <div className="grid gap-0.5">
-                    {dd.items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => setIsMobileOpen(false)}
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"
-                      >
-                        <div className="flex-1">
-                          <div className="text-sm font-medium text-white/80">{item.label}</div>
-                          {item.description && (
-                            <p className="text-xs text-white/40 mt-0.5">{item.description}</p>
-                          )}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
+                )
+              })}
 
               <div className="border-t border-white/10 pt-6 mt-6">
                 {topLinks.map((link) => (

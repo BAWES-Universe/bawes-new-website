@@ -229,9 +229,11 @@ export default function Home() {
         <SectionHeader>
           Walk in. See who&apos;s around. <span className="text-gradient">Talk naturally.</span>
         </SectionHeader>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:overflow-visible pb-4 md:pb-0 -mx-gutter px-gutter md:mx-0 md:px-0">
           {communicationCards.map((card) => (
-            <IconCard key={card.title} {...card} />
+            <div key={card.title} className="flex-shrink-0 w-[280px] md:w-auto snap-start">
+              <IconCard key={card.title} {...card} />
+            </div>
           ))}
         </div>
         <div className="text-center mt-12">
@@ -248,9 +250,11 @@ export default function Home() {
         <SectionHeader>
           AI that <span className="text-gradient">actually lives here.</span>
         </SectionHeader>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:overflow-visible pb-4 md:pb-0 -mx-gutter px-gutter md:mx-0 md:px-0">
           {aiBotsCards.map((card) => (
-            <IconCard key={card.title} {...card} />
+            <div key={card.title} className="flex-shrink-0 w-[280px] md:w-auto snap-start">
+              <IconCard key={card.title} {...card} />
+            </div>
           ))}
         </div>
         <div className="text-center mt-12">
@@ -267,9 +271,11 @@ export default function Home() {
         <SectionHeader>
           Build anything. <span className="text-gradient">Change anything.</span>
         </SectionHeader>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:overflow-visible pb-4 md:pb-0 -mx-gutter px-gutter md:mx-0 md:px-0">
           {buildToolsCards.map((card) => (
-            <IconCard key={card.title} {...card} />
+            <div key={card.title} className="flex-shrink-0 w-[280px] md:w-auto snap-start">
+              <IconCard key={card.title} {...card} />
+            </div>
           ))}
         </div>
         <div className="text-center mt-12">
