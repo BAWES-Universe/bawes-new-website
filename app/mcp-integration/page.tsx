@@ -1,109 +1,138 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
-import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
-
-const details = [
-  {
-    title: 'MCP Protocol Support',
-    desc: 'BAWES integrates with the Model Context Protocol, allowing AI agents to interact with your spatial worlds through a standardized API.',
-  },
-  {
-    title: 'Agent-Driven Automation',
-    desc: 'Let AI agents manage maps, bots, users, and events programmatically. Automate moderation, spawn bots, and orchestrate complex workflows.',
-  },
-  {
-    title: 'Extensible Tool System',
-    desc: 'Extend BAWES with custom MCP servers and tools. Add your own capabilities that AI agents can discover and use within your universe.',
-  },
-  {
-    title: 'Developer-Friendly API',
-    desc: 'Well-documented API endpoints and TypeScript types make integration straightforward. Build custom MCP clients and servers with minimal friction.',
-  },
-]
+import React from 'react';
+import Section from '@/components/Section';
+import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
 export default function McpIntegrationPage() {
-  const heroRef = useRef(null)
-
   return (
-    <div className="pt-20">
-      <section
-        ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
+    <main className="relative pt-20">
+      {/* Hero */}
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
+        <div className="space-y-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-border-purple">
+            <span className="material-symbols-outlined text-sm text-primary">hub</span>
+            <span className="text-caption font-caption uppercase tracking-widest text-primary">MCP Protocol v1.0</span>
+          </div>
+          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">
+            Connect <span className="text-gradient">Everything.</span>
+          </h1>
+          <p className="font-body-md text-body-md text-text-secondary max-w-xl">
+            Model Context Protocol (MCP) integration lets your bots connect to any tool, API, or data source. Give your AI agents real-time access to calendars, databases, ticketing systems, and more — all from inside your universe.
+          </p>
+          <div className="flex flex-wrap gap-4 pt-4">
+            <button className="primary-gradient text-white px-8 py-4 rounded-full font-bold neon-glow-purple active:scale-95 transition-all flex items-center gap-2">
+              View MCP Servers
+              <span className="material-symbols-outlined">arrow_forward</span>
+            </button>
+            <button className="glass-card text-on-surface px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-all">
+              Documentation
+            </button>
+          </div>
         </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">cable</span>
-              Integration
-            </motion.div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-gradient">MCP Integration</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Connect AI agents to your BAWES universe through the Model Context Protocol. Automate, extend, and supercharge your spatial worlds with AI-driven tooling.
-            </p>
-          </motion.div>
+        <div className="relative">
+          <div className="glass-card rounded-2xl p-8 overflow-hidden border-purple/30">
+            <div className="flex items-center gap-2 mb-6 border-b border-divider pb-4">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
+              </div>
+              <div className="ml-4 text-caption text-text-low-emphasis font-mono">mcp-config.json</div>
+            </div>
+            <pre className="font-mono text-sm leading-relaxed text-primary overflow-x-auto">{`{
+  "mcpServers": {
+    "calendar": {
+      "url": "https://mcp.bawes.io/calendar",
+      "tools": ["list_events", "create_event"]
+    },
+    "ticketing": {
+      "url": "https://mcp.bawes.io/jira",
+      "tools": ["search_issues", "create_ticket"]
+    }
+  }
+}`}</pre>
+            <div className="absolute -bottom-10 -right-10 opacity-10">
+              <span className="material-symbols-outlined text-[200px]">hub</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-6">
-            {details.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-default"
-              >
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+      {/* Features Grid */}
+      <section className="bg-surface-container-low py-section-padding-v">
+        <div className="max-w-container-max mx-auto px-gutter">
+          <div className="text-center mb-16">
+            <h2 className="font-headline-section text-headline-section text-on-surface">Extend Bot Intelligence</h2>
+            <p className="text-text-secondary max-w-xl mx-auto mt-4">MCP turns your bots from conversational agents into capable assistants that can act on your behalf.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="glass-card p-card-padding rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-primary">api</span>
+              </div>
+              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">MCP Protocol Support</h3>
+              <p className="text-text-secondary">BAWES integrates with the Model Context Protocol, allowing AI agents to interact with your spatial worlds through a standardized API.</p>
+            </div>
+            <div className="glass-card p-card-padding rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-secondary">smart_toy</span>
+              </div>
+              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Agent-Driven Automation</h3>
+              <p className="text-text-secondary">Let AI agents manage maps, bots, users, and events programmatically. Automate moderation, spawn bots, and orchestrate complex workflows.</p>
+            </div>
+            <div className="glass-card p-card-padding rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-tertiary">build</span>
+              </div>
+              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Extensible Tool System</h3>
+              <p className="text-text-secondary">Extend BAWES with custom MCP servers and tools. Add your own capabilities that AI agents can discover and use within your universe.</p>
+            </div>
+            <div className="glass-card p-card-padding rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-primary">code</span>
+              </div>
+              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Developer-Friendly API</h3>
+              <p className="text-text-secondary">Well-documented API endpoints and TypeScript types make integration straightforward. Build custom MCP clients and servers with minimal friction.</p>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-purple-600/15 to-transparent rounded-full blur-3xl" />
+      {/* Deep Dives */}
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
+        <h2 className="font-headline-section text-headline-section text-on-surface mb-12 text-center">Related Features</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Link href="/features/bot-tools" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
+            <span className="material-symbols-outlined text-primary mb-4 text-3xl">handyman</span>
+            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-primary transition-colors">Bot Tool Calling</h3>
+            <p className="text-text-secondary text-sm">Bots invoke tools inside conversations to perform real-world actions.</p>
+          </Link>
+          <Link href="/features/bot-behaviors" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
+            <span className="material-symbols-outlined text-secondary mb-4 text-3xl">psychology</span>
+            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-secondary transition-colors">Bot Behaviors</h3>
+            <p className="text-text-secondary text-sm">Define complex behavioral patterns and personality-driven AI responses.</p>
+          </Link>
+          <Link href="/features/scripting" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
+            <span className="material-symbols-outlined text-tertiary mb-4 text-3xl">terminal</span>
+            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-tertiary transition-colors">Scripting API</h3>
+            <p className="text-text-secondary text-sm">Write custom in-world logic with JS/TS for complete control.</p>
+          </Link>
         </div>
-        <div className="text-center">
-          <motion.p
-            className="text-2xl md:text-3xl font-bold text-white mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            AI meets spatial collaboration
-          </motion.p>
-          <Button href="/build" size="lg">
-            Back to Build Tools
-          </Button>
+      </section>
+
+      {/* CTA */}
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v text-center">
+        <div className="glass-card p-12 rounded-3xl relative overflow-hidden">
+          <h2 className="font-headline-section text-headline-section text-on-surface mb-6">Ready to connect your bots?</h2>
+          <p className="text-text-secondary max-w-xl mx-auto mb-10">Give your AI agents the power to act. MCP integration unlocks a new dimension of bot capabilities.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="primary-gradient text-white px-10 py-4 rounded-full font-bold neon-glow-purple active:scale-95 transition-all">Get Started with MCP</button>
+            <button className="glass-card text-on-surface px-10 py-4 rounded-full font-bold hover:bg-white/5 transition-all">View Documentation</button>
+          </div>
         </div>
-      </Section>
-    </div>
-  )
+      </section>
+    </main>
+  );
 }

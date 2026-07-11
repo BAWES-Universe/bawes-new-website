@@ -1,122 +1,119 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
-import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
+import Link from 'next/link'
 
-const features = [
-  { title: 'Personalized Welcome', icon: 'waving_hand', description: 'Configure unique welcome messages for each user, incorporating their name, preferences, and history.' },
-  { title: 'Context-Aware Greetings', icon: 'lightbulb', description: 'Greetings adapt based on time of day, user mood, recent activity, and the bot\'s current emotional state.' },
-  { title: 'Multi-Channel Greetings', icon: 'speaker_notes', description: 'Deploy different greeting styles across chat, voice, and spatial proximity triggers simultaneously.' },
-  { title: 'Greeting Schedules', icon: 'calendar_month', description: 'Schedule time-based greetings — morning routines, event reminders, or seasonal messages that run on autopilot.' },
-]
-
-export default function BotGreetings() {
-  const heroRef = useRef(null)
-
+export default function BotGreetingsPage() {
   return (
-    <div className="pt-20">
-      {/* Hero */}
-      <section
-        ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Badge pill */}
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">waving_hand</span>
-              Greetings
-            </motion.div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-white">Bot Greetings</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Personalized welcome messages and greeting behaviors. Make every interaction start on the right note with context-aware greetings.
-            </p>
-          </motion.div>
+    <div className="pt-20 relative min-h-screen overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            First <span className="text-gradient">Impressions</span> Matter.
+          </h1>
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Custom greeting messages that play when someone approaches a bot. Make your bots welcoming, helpful, or delightfully mysterious.
+          </p>
         </div>
       </section>
 
-      {/* Key Features */}
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-white text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Key Features
-          </motion.h2>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, i) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-default"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                  <span className="material-symbols-outlined text-2xl text-purple-300">
-                    {feature.icon}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{feature.description}</p>
-              </motion.div>
-            ))}
+      {/* Core Components */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Core Components</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="glass-card p-8 rounded-xl flex flex-col items-center text-center">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 border border-primary/20">
+                <span className="material-symbols-outlined text-primary text-3xl">edit_note</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Custom Messages</h3>
+              <p className="text-white/60">Set any greeting text for your bots with support for dynamic variables and multi-language strings.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl flex flex-col items-center text-center">
+              <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mb-6 border border-secondary/20">
+                <span className="material-symbols-outlined text-secondary text-3xl">sensors</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Proximity-Triggered</h3>
+              <p className="text-white/60">Greeting plays automatically when a user enters the defined approach radius within the universe.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl flex flex-col items-center text-center">
+              <div className="w-16 h-16 rounded-full bg-tertiary/10 flex items-center justify-center mb-6 border border-tertiary/20">
+                <span className="material-symbols-outlined text-tertiary text-3xl">psychology</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Personality</h3>
+              <p className="text-white/60">Match the greeting tone and style to the bot's unique personality profile for deep immersion.</p>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
+
+      {/* Technical Section */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="glass-card p-8 md:p-12 rounded-2xl">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Under the Hood</h2>
+                <p className="text-white/60 mb-6">Integration is simple. Our API uses standard JSON configurations to define interaction boundaries and response logic. Deploy in seconds.</p>
+                <ul className="space-y-4">
+                  <li className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-primary">check_circle</span>
+                    <span>Lightweight WebSocket triggers</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-primary">check_circle</span>
+                    <span>Low-latency proximity checks</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-primary">check_circle</span>
+                    <span>Cross-platform event hooks</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-black/40 border border-white/10 rounded-xl p-6 font-mono text-sm">
+                <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/10">
+                  <span className="text-white/40">greeting_config.json</span>
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+                  </div>
+                </div>
+                <pre className="text-purple-200 leading-relaxed">
+{'{'}
+  <span className="text-orange-400">{'"bot_id"'}</span>: <span className="text-blue-400">{'"nexus_guard_04"'}</span>,
+  <span className="text-orange-400">{'"proximity_radius"'}</span>: <span className="text-white">3</span>,
+  <span className="text-orange-400">{'"message"'}</span>: <span className="text-blue-400">{'"Welcome to the Nexus!"'}</span>,
+  <span className="text-orange-400">{'"trigger"'}</span>: <span className="text-blue-400">{'"on_approach"'}</span>,
+  <span className="text-orange-400">{'"cooldown"'}</span>: <span className="text-white">300</span>,
+  <span className="text-orange-400">{'"animations"'}</span>: [
+    <span className="text-blue-400">{'"wave"'}</span>,
+    <span className="text-blue-400">{'"glow_pulse"'}</span>
+  ]
+{'}'}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-purple-600/15 to-transparent rounded-full blur-3xl" />
-        </div>
-
-        <div className="text-center">
-          <motion.p
-            className="text-2xl md:text-3xl font-bold text-white mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Explore all bot capabilities
-          </motion.p>
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to create a greeting?</h2>
+          <p className="text-white/60 mb-8">Make your bots welcoming from the very first encounter.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/ai-bots" size="lg">
+            <Link href="/features/ai-bots" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
+              <span className="material-symbols-outlined text-lg">arrow_back</span>
               Back to AI Bots
-            </Button>
-            <Button href="/contact" variant="ghost" size="lg" className="glass-card border border-white/10 hover:border-white/20">
-              Get Started
-            </Button>
+            </Link>
+            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+              <span className="material-symbols-outlined text-lg">explore</span>
+              Explore the Universe
+            </Link>
           </div>
         </div>
-      </Section>
+      </section>
     </div>
   )
 }

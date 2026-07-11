@@ -1,182 +1,101 @@
-'use client'
+'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
-import Image from 'next/image'
-import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
+import React from 'react';
+import Section from '@/components/Section';
+import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
-export default function Manifesto() {
-  const heroRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start'],
-  })
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-
+export default function ManifestoPage() {
   return (
-    <div className="pt-20">
-      {/* Hero */}
-      <motion.section 
-        ref={heroRef}
-        className="min-h-[80vh] flex items-center justify-center relative overflow-hidden"
-        style={{ opacity }}
-      >
-        {/* Dramatic background */}
-        <motion.div 
-          className="absolute inset-0 -z-10"
-          style={{ scale }}
-        >
-          <div className="absolute inset-0 bg-gradient-radial from-bawes-gold/20 via-black to-black" />
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-bawes-red/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-bawes-orange/10 rounded-full blur-3xl" />
-        </motion.div>
-        
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <motion.div 
-              className="inline-block mb-8 p-4 bg-gradient-to-r from-bawes-gold/20 via-bawes-red/20 to-bawes-orange/20 rounded-2xl backdrop-blur-sm border border-white/10"
-              animate={{ rotate: [0, 5, -5, 0] }}
-              transition={{ duration: 8, repeat: Infinity }}
-            >
-              <div className="w-16 h-16 relative">
-                <Image src="/images/bawes-logo.png" alt="BAWES" fill className="object-contain" />
-              </div>
-            </motion.div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold mb-8">
-              <span className="text-white">The BAWES Universe</span>
-              <br />
-              <span className="bawes-gradient-text text-glow">Manifesto</span>
-            </h1>
-          </motion.div>
+    <main className="pt-32">
+      {/* Hero Section */}
+      <section className="relative max-w-container-max mx-auto px-gutter mb-section-padding-v text-center">
+        <h1 className="font-display-hero text-display-hero md:text-display-hero text-display-hero-mobile font-bold tracking-tight mb-12">
+          The BAWES Universe Manifesto
+        </h1>
+        <div className="max-w-4xl mx-auto mb-16">
+          <p className="font-headline-section text-headline-section md:text-headline-section text-headline-section leading-tight text-on-background/90">
+            We are not building an app. We are building a universe. A people-first environment designed to help ideas turn into action, faster, smarter, and with less friction.
+          </p>
         </div>
-      </motion.section>
+        <div className="glass-card p-10 rounded-2xl max-w-2xl mx-auto border-purple inline-block">
+          <p className="font-headline-card text-headline-card italic text-primary">
+            &ldquo;We don&apos;t just support execution. We are execution.&rdquo;
+          </p>
+        </div>
+      </section>
 
-      {/* Main content */}
-      <Section className="relative">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100%_24px]" />
+      {/* Core Principles */}
+      <section className="max-w-container-max mx-auto px-gutter mb-section-padding-v">
+        <div className="mb-16">
+          <h2 className="font-headline-section text-headline-section mb-4">Core Principles</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] rounded-full"></div>
         </div>
-        
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="text-3xl md:text-5xl font-bold space-y-4">
-              <p className="text-white">We are not building an app.</p>
-              <p className="bawes-gradient-text text-glow">We are building a universe.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+          <div className="glass-card p-8 rounded-xl hover:-translate-y-2 transition-transform duration-300">
+            <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-primary/10 mb-6">
+              <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>public</span>
             </div>
-          </motion.div>
-
-          <motion.p 
-            className="text-xl md:text-2xl text-white/70 text-center leading-relaxed mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            A people-first environment designed to help ideas turn into action, faster, smarter, and with less friction.
-          </motion.p>
-
-          <motion.div 
-            className="p-10 glass-card rounded-3xl border border-bawes-gold/30 mb-16 relative overflow-hidden"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            {/* Animated gradient background */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-bawes-gold/10 via-bawes-red/10 to-bawes-orange/10 -z-10"
-              animate={{
-                backgroundPosition: ['0% 0%', '100% 100%'],
-              }}
-              transition={{
-                duration: 10,
-                repeat: Infinity,
-                repeatType: 'reverse',
-              }}
-              style={{ backgroundSize: '200% 200%' }}
-            />
-            
-            <p className="text-2xl md:text-3xl font-bold text-center text-white mb-4">
-              We don&apos;t just support execution.
-            </p>
-            <p className="text-2xl md:text-3xl font-bold text-center bawes-gradient-text">
-              We are execution.
-            </p>
-          </motion.div>
-        </div>
-      </Section>
-
-      {/* Principles */}
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-        
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">
-            Core <span className="bawes-gradient-text">Principles</span>
-          </h2>
-          
-          <div className="grid sm:grid-cols-2 gap-6">
-            {[
-              {
-                title: 'Open by Default',
-                description: 'Universes are interoperable and accessible. We build in the open, not behind walls.',
-                color: 'bawes-gold'
-              },
-              {
-                title: 'Spatial, Not Hierarchical',
-                description: 'Presence and context shape experience. Navigation is orientation, not control.',
-                color: 'bawes-red'
-              },
-              {
-                title: 'Tool-Agnostic',
-                description: "We don't lock you in. Connect what works. Build what you need.",
-                color: 'bawes-orange'
-              },
-              {
-                title: 'Execution Over Promise',
-                description: 'Real work, real systems, real progress. We build, not just plan.',
-                color: 'bawes-gold'
-              }
-            ].map((principle, i) => (
-              <motion.div
-                key={principle.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ scale: 1.02 }}
-                className={`p-6 glass-card rounded-xl border-l-4 border-${principle.color}`}
-              >
-                <h3 className={`text-xl font-bold mb-3 text-${principle.color}`}>{principle.title}</h3>
-                <p className="text-white/60">{principle.description}</p>
-              </motion.div>
-            ))}
+            <h3 className="font-headline-card text-headline-card mb-4">Open by Default</h3>
+            <p className="text-text-secondary">Universes are interoperable and accessible. We build in the open, not behind walls.</p>
+          </div>
+          <div className="glass-card p-8 rounded-xl hover:-translate-y-2 transition-transform duration-300">
+            <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-secondary/10 mb-6">
+              <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>layers</span>
+            </div>
+            <h3 className="font-headline-card text-headline-card mb-4">Spatial, Not Hierarchical</h3>
+            <p className="text-text-secondary">Presence and context shape experience. Navigation is orientation, not control.</p>
+          </div>
+          <div className="glass-card p-8 rounded-xl hover:-translate-y-2 transition-transform duration-300">
+            <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-primary/10 mb-6">
+              <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>settings_input_component</span>
+            </div>
+            <h3 className="font-headline-card text-headline-card mb-4">Tool-Agnostic</h3>
+            <p className="text-text-secondary">We don&apos;t lock you in. Connect what works. Build what you need.</p>
+          </div>
+          <div className="glass-card p-8 rounded-xl hover:-translate-y-2 transition-transform duration-300">
+            <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-secondary/10 mb-6">
+              <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>bolt</span>
+            </div>
+            <h3 className="font-headline-card text-headline-card mb-4">Execution Over Promise</h3>
+            <p className="text-text-secondary">Real work, real systems, real progress. We build, not just plan.</p>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* CTA */}
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-bawes-gold/15 via-bawes-red/10 to-transparent rounded-full blur-3xl" />
+      {/* Who we are */}
+      <section className="max-w-container-max mx-auto px-gutter mb-section-padding-v">
+        <div className="glass-card p-12 rounded-3xl overflow-hidden relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div>
+              <h2 className="font-headline-section text-headline-section mb-6">Who we are</h2>
+              <div className="space-y-6 text-text-secondary font-body-md text-lg leading-relaxed">
+                <p>BAWES was founded by <span className="text-on-surface font-bold">Khalid Almutawa</span>. We build and operate shared digital environments — universes, worlds, and rooms — where people work, learn, trade, and collaborate in real time.</p>
+                <p>Universe is a fork of <span className="text-secondary">WorkAdventure</span> by TheCodingMachine, extended with AI agents, MCP integration, and spatial presence features to create a truly connected digital frontier.</p>
+              </div>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-border-purple shadow-2xl rotate-3 bg-surface-container-high flex items-center justify-center aspect-video">
+              <span className="material-symbols-outlined text-6xl text-primary/30">public</span>
+            </div>
+          </div>
+          <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
         </div>
-        
-        <div className="text-center">
-          <Button href="/contact" size="lg">
+      </section>
+
+      {/* Join the Movement */}
+      <section className="max-w-container-max mx-auto px-gutter mb-section-padding-v text-center">
+        <div className="py-20 px-10 glass-card rounded-[40px] border-primary/20 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+          <h2 className="font-headline-section text-headline-section mb-6">There&apos;s always a seat at the table</h2>
+          <p className="font-body-md text-body-md max-w-2xl mx-auto text-text-secondary mb-12">
+            The Empty Seat is an open invitation. Contribute, collaborate, or just be part of the community. The seat exists, but no one rules forever.
+          </p>
+          <Button className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white px-10 py-4 rounded-full font-headline-card hover:scale-105 active:scale-95 transition-all flex items-center gap-3 mx-auto">
             Join the conversation
+            <span className="material-symbols-outlined">arrow_forward</span>
           </Button>
         </div>
-      </Section>
-    </div>
-  )
+      </section>
+    </main>
+  );
 }

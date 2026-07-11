@@ -1,85 +1,101 @@
 'use client'
+
 import Link from 'next/link'
 
 export default function ScreenSharingPage() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Background Orbs */}
-            {/* Hero Section */}
+      {/* Hero */}
       <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
-            <span className="material-symbols-outlined text-lg">present_to_all</span>
-            Communication Feature
+            <span className="material-symbols-outlined text-sm">auto_awesome</span>
+            New Feature Release
           </div>
-
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Screen Sharing
+            Share Your Screen. <br/>
+            <span className="text-primary">Stay in the Room.</span>
           </h1>
-
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto mb-4">
-            Share your screen with anyone in the room — no separate app needed. Present slides, demo software, or collaborate on documents in real-time.
-          </p>
-          <p className="text-lg text-white/50 leading-relaxed max-w-3xl mx-auto">
-            Screen sharing is built directly into the platform, allowing any user to broadcast their display to others in the same room or meeting. Choose between sharing your entire screen, a specific window, or a browser tab.
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Share your screen with everyone in your conversation bubble. No separate app, no link to click — just a button. Experience seamless spatial collaboration.
           </p>
         </div>
       </section>
 
-      {/* Key Features */}
+      {/* Features */}
       <section className="relative z-10 py-24 px-4">
-        <div className="max-w-container-max mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">Key Features</h2>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">monitor</span>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Unmatched Presence</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="glass-card p-8 rounded-2xl flex flex-col gap-6">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20">
+                <span className="material-symbols-outlined text-primary text-2xl">group_work</span>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Full Screen &amp; Window Sharing</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Share your entire display, a specific application window, or a single browser tab.</p>
+              <h3 className="text-xl font-semibold text-white mb-3">In-Bubble Sharing</h3>
+              <p className="text-white/60">Share with everyone in your proximity bubble automatically. No need to manage participants manually; proximity is your permissions layer.</p>
             </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">stream</span>
+            <div className="glass-card p-8 rounded-2xl flex flex-col gap-6">
+              <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center border border-tertiary/20">
+                <span className="material-symbols-outlined text-tertiary text-2xl">meeting_room</span>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Real-Time Streaming</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Low-latency streaming ensures viewers see changes as they happen — ideal for demos and collaboration.</p>
+              <h3 className="text-xl font-semibold text-white mb-3">Meeting Rooms</h3>
+              <p className="text-white/60">Share in walk-in meeting zones. Everyone in the zone sees your screen on the wall or in their personal viewport instantly.</p>
             </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">groups</span>
+            <div className="glass-card p-8 rounded-2xl flex flex-col gap-6">
+              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center border border-secondary/20">
+                <span className="material-symbols-outlined text-secondary text-2xl">bolt</span>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Multi-Viewer Support</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Any number of users in the room can view the shared screen simultaneously.</p>
+              <h3 className="text-xl font-semibold text-white mb-3">One-Click</h3>
+              <p className="text-white/60">Activate instantly with the screenShareButton in the main action bar. Zero friction, total presence, no context switching.</p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">control_camera</span>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Presenter Controls</h3>
-              <p className="text-sm text-white/60 leading-relaxed">The presenter controls who sees what — start and stop sharing at any time with a single click.</p>
+      {/* Stats */}
+      <section className="relative z-10 py-24 px-4 bg-white/5">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 text-center">
+            <div>
+              <span className="material-symbols-outlined text-primary mb-2">speed</span>
+              <div className="text-4xl font-bold text-white mb-1">20ms</div>
+              <div className="text-sm text-white/40 uppercase tracking-widest">Latency</div>
+            </div>
+            <div>
+              <span className="material-symbols-outlined text-primary mb-2">hd</span>
+              <div className="text-4xl font-bold text-white mb-1">4K</div>
+              <div className="text-sm text-white/40 uppercase tracking-widest">Resolution</div>
+            </div>
+            <div>
+              <span className="material-symbols-outlined text-primary mb-2">security</span>
+              <div className="text-4xl font-bold text-white mb-1">AES</div>
+              <div className="text-sm text-white/40 uppercase tracking-widest">Encrypted</div>
+            </div>
+            <div>
+              <span className="material-symbols-outlined text-primary mb-2">groups</span>
+              <div className="text-4xl font-bold text-white mb-1">∞</div>
+              <div className="text-sm text-white/40 uppercase tracking-widest">Participants</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="relative z-10 min-h-[40vh] flex items-center justify-center px-4">
-        <div className="glass-card rounded-3xl p-10 max-w-2xl mx-auto text-center border border-purple-500/15">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Share what you see</h2>
-          <p className="text-white/60 mb-8">Jump back to the Communication Hub to explore more features.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
-              <span className="material-symbols-outlined text-lg">arrow_back</span>
-              Back to Communication Hub
-            </Link>
-            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
-              <span className="material-symbols-outlined text-lg">explore</span>
-              Explore the Universe
-            </Link>
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="glass-card py-20 px-8 rounded-[32px]">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Ready to expand your universe?</h2>
+            <p className="text-white/60 mb-10">Join thousands of pioneers already building, collaborating, and exploring in the BAWES Universe.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/features/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
+                <span className="material-symbols-outlined text-lg">arrow_back</span>
+                Back to Communication
+              </Link>
+              <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+                <span className="material-symbols-outlined text-lg">explore</span>
+                Explore the Universe
+              </Link>
+            </div>
           </div>
         </div>
       </section>

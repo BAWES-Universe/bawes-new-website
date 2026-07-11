@@ -1,88 +1,99 @@
-'use client'
-import Link from 'next/link'
+'use client';
+
+import React from 'react';
+import Section from '@/components/Section';
+import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
 export default function AvatarPlatformPage() {
   return (
-    <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Background Orbs */}
-            {/* Hero Section */}
-      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
-            <span className="material-symbols-outlined text-lg">face</span>
-            Build Feature
+    <main className="relative pt-20">
+      {/* Hero Section */}
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
+        <div className="space-y-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-border-purple">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span className="text-caption font-caption uppercase tracking-widest text-primary">Avatar Infrastructure</span>
           </div>
-
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Avatar Platform
+          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">
+            Identity <span className="text-gradient">Across Worlds.</span>
           </h1>
-
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto mb-4">
-            Create, customize, and collect avatars that represent your identity across the BAWES Universe. Your look is your identity.
+          <p className="font-body-md text-body-md text-text-secondary max-w-lg">
+            The Avatar Platform powers cross-world identity. Your character, your items, your presence — persistent across every universe you visit.
           </p>
-          <p className="text-lg text-white/50 leading-relaxed max-w-3xl mx-auto">
-            The Avatar Platform is a full-featured system for designing and managing digital identities. From simple customizations to exclusive collectible avatars, express yourself in ways that go beyond a flat profile picture.
-          </p>
+          <div className="flex flex-wrap gap-4 pt-4">
+            <Button className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white px-8 py-4 rounded-full font-bold shadow-lg active:scale-95 transition-all flex items-center gap-2">
+              Launch Avatar Platform
+              <span className="material-symbols-outlined">arrow_forward</span>
+            </Button>
+            <Button className="glass-card text-on-surface px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-all">
+              View Documentation
+            </Button>
+          </div>
         </div>
-      </section>
-
-      {/* Key Features */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-container-max mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">Key Features</h2>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">brush</span>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Custom Avatar Creation</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Deep customization tools — choose outfits, accessories, hairstyles, colors, and more. Build a look that truly represents you.</p>
-            </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">store</span>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Avatar Marketplace</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Browse and purchase exclusive avatar designs, premium accessories, and limited-edition items created by the community and BAWES team.</p>
-            </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">collections_bookmark</span>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">NFT / Gallery Support</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Showcase your collection in a personal gallery. Support for verifiable digital ownership and displaying proof-of-collectible items in your profile.</p>
-            </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">public</span>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Cross-Universe Avatars</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Your avatar travels with you across all BAWES worlds. One identity, one look — consistent presence everywhere you go.</p>
+        <div className="relative group">
+          <div className="glass-card rounded-2xl p-4 overflow-hidden border-purple/30">
+            <div className="aspect-video rounded-xl bg-surface-container-high flex items-center justify-center">
+              <span className="material-symbols-outlined text-7xl text-primary/30" style={{ fontVariationSettings: "'FILL' 1" }}>view_in_ar</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative z-10 min-h-[40vh] flex items-center justify-center px-4">
-        <div className="glass-card rounded-3xl p-10 max-w-2xl mx-auto text-center border border-purple-500/15">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Design your identity</h2>
-          <p className="text-white/60 mb-8">Jump back to the Build Hub to explore more features.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/build" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
-              <span className="material-symbols-outlined text-lg">arrow_back</span>
-              Back to Build Hub
-            </Link>
-            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
-              <span className="material-symbols-outlined text-lg">explore</span>
-              Explore the Universe
-            </Link>
+      {/* Features */}
+      <section className="bg-surface-container-low py-section-padding-v">
+        <div className="max-w-container-max mx-auto px-gutter">
+          <div className="text-center mb-16">
+            <h2 className="font-headline-section text-headline-section text-on-surface">Platform Capabilities</h2>
+            <p className="text-text-secondary max-w-xl mx-auto mt-4">The infrastructure layer that connects identity across the entire BAWES ecosystem.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="glass-card p-card-padding rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-primary">badge</span>
+              </div>
+              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Cross-World Identity</h3>
+              <p className="text-text-secondary">Your avatar, items, and settings persist across every universe. One identity for the entire BAWES ecosystem.</p>
+            </div>
+            <div className="glass-card p-card-padding rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-secondary">sync</span>
+              </div>
+              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Real-Time Sync</h3>
+              <p className="text-text-secondary">Sub-10ms state synchronization ensures your avatar position and appearance updates instantly across all connected worlds.</p>
+            </div>
+            <div className="glass-card p-card-padding rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-tertiary">extension</span>
+              </div>
+              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Extensible System</h3>
+              <p className="text-text-secondary">Integrate with external avatar systems or build custom rendering pipelines. The platform is designed for maximum flexibility.</p>
+            </div>
           </div>
         </div>
       </section>
-    </div>
-  )
+
+      {/* Related */}
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
+        <h2 className="font-headline-section text-headline-section text-on-surface mb-12 text-center">Related Features</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Link href="/features/woka-avatars" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
+            <span className="material-symbols-outlined text-primary mb-4 text-3xl">face</span>
+            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-primary transition-colors">Woka Avatars</h3>
+            <p className="text-text-secondary text-sm">Pixel art avatar system with deep customization options and Pipoya aesthetics.</p>
+          </Link>
+          <Link href="/features/proximity-chat" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
+            <span className="material-symbols-outlined text-secondary mb-4 text-3xl">spatial_audio</span>
+            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-secondary transition-colors">Proximity Chat</h3>
+            <p className="text-text-secondary text-sm">Spatial audio that brings your avatar to life with natural voice presence.</p>
+          </Link>
+          <Link href="/build" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
+            <span className="material-symbols-outlined text-tertiary mb-4 text-3xl">build</span>
+            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-tertiary transition-colors">Build & Create</h3>
+            <p className="text-text-secondary text-sm">Design worlds and place objects with our full creation toolkit.</p>
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
 }

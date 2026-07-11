@@ -1,114 +1,92 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
-import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
-
-const details = [
-  {
-    title: 'Pre-Built Layouts',
-    desc: 'Start from proven room layouts designed for common use cases — meeting rooms, classrooms, social hubs, game arenas, and more.',
-  },
-  {
-    title: 'Remix & Customize',
-    desc: 'Take any template and make it your own. Swap tiles, adjust zones, add entities, and tweak permissions without starting from scratch.',
-  },
-  {
-    title: 'Community Gallery',
-    desc: 'Browse hundreds of templates shared by the community. Filter by category, popularity, or complexity to find your perfect starting point.',
-  },
-  {
-    title: 'Version History',
-    desc: 'Every template keeps a version history. Roll back changes, fork from any point, or publish your own curated template packs.',
-  },
-]
+import Link from 'next/link'
 
 export default function MapTemplatesPage() {
-  const heroRef = useRef(null)
-
   return (
-    <div className="pt-20">
+    <div className="pt-20 relative min-h-screen overflow-hidden">
       {/* Hero */}
-      <section
-        ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">content_copy</span>
-              Build 02
-            </motion.div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-gradient">Map Templates</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Start fast with pre-built map templates. Customize, remix, and share — no need to build every room from scratch.
-            </p>
-          </motion.div>
+      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Start with a Blueprint.<br/><span className="text-primary">Build from There.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Pre-built room layouts for common use cases — office floors, conference rooms, auditoriums, lounges, and event spaces. Extend or customize.
+          </p>
         </div>
       </section>
 
-      {/* Feature Grid */}
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-6">
-            {details.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-default"
-              >
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+      {/* Templates */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16">Foundation Blueprints</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="glass-card p-8 rounded-2xl flex flex-col justify-between h-full">
+              <div>
+                <span className="material-symbols-outlined text-primary text-4xl mb-6 block">corporate_fare</span>
+                <h3 className="text-xl font-semibold text-white mb-3">Office Layouts</h3>
+                <p className="text-white/60">Cubicles, meeting rooms, break areas optimized for professional collaboration and team focus.</p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center opacity-60">
+                <span className="text-xs uppercase tracking-wider text-white/60">12 Varieties</span>
+                <span className="material-symbols-outlined text-primary">arrow_forward</span>
+              </div>
+            </div>
+            <div className="glass-card p-8 rounded-2xl flex flex-col justify-between h-full">
+              <div>
+                <span className="material-symbols-outlined text-primary text-4xl mb-6 block">theater_comedy</span>
+                <h3 className="text-xl font-semibold text-white mb-3">Event Spaces</h3>
+                <p className="text-white/60">Stage + audience layouts, stage zones, and broadcasting ready configurations for virtual summits.</p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center opacity-60">
+                <span className="text-xs uppercase tracking-wider text-white/60">8 Varieties</span>
+                <span className="material-symbols-outlined text-primary">arrow_forward</span>
+              </div>
+            </div>
+            <div className="glass-card p-8 rounded-2xl flex flex-col justify-between h-full">
+              <div>
+                <span className="material-symbols-outlined text-primary text-4xl mb-6 block">nightlife</span>
+                <h3 className="text-xl font-semibold text-white mb-3">Social Lounges</h3>
+                <p className="text-white/60">Casual seating, interactive chat areas, and high-engagement community hubs for networking.</p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center opacity-60">
+                <span className="text-xs uppercase tracking-wider text-white/60">15 Varieties</span>
+                <span className="material-symbols-outlined text-primary">arrow_forward</span>
+              </div>
+            </div>
+            <div className="glass-card p-8 rounded-2xl flex flex-col justify-between h-full border-primary/30 bg-primary/5">
+              <div>
+                <span className="material-symbols-outlined text-primary text-4xl mb-6 block">edit_square</span>
+                <h3 className="text-xl font-semibold text-white mb-3">Customizable</h3>
+                <p className="text-white/60">Extend any template, change tile textures, and add custom interaction zones with our no-code editor.</p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center opacity-60">
+                <span className="text-xs uppercase tracking-wider text-white/60">Infinite Possibilities</span>
+                <span className="material-symbols-outlined text-primary">arrow_forward</span>
+              </div>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* CTA */}
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-purple-600/15 to-transparent rounded-full blur-3xl" />
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to start building?</h2>
+          <p className="text-white/60 mb-8">Browse the template library and customize your space.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/features/build" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
+              <span className="material-symbols-outlined text-lg">arrow_back</span>
+              Back to Build
+            </Link>
+            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+              <span className="material-symbols-outlined text-lg">explore</span>
+              Explore the Universe
+            </Link>
+          </div>
         </div>
-
-        <div className="text-center">
-          <motion.p
-            className="text-2xl md:text-3xl font-bold text-white mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Find your perfect starting point
-          </motion.p>
-          <Button href="/build" size="lg">
-            Back to Build Tools
-          </Button>
-        </div>
-      </Section>
+      </section>
     </div>
   )
 }

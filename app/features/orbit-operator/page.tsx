@@ -1,96 +1,131 @@
-'use client'
-import Link from 'next/link'
+'use client';
+
+import React from 'react';
+import Section from '@/components/Section';
+import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
 export default function OrbitOperatorPage() {
   return (
-    <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Background Orbs */}
-            {/* Hero Section */}
-      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
-            <span className="material-symbols-outlined text-lg">dashboard_customize</span>
-            Platform Feature
+    <main className="pt-32 max-w-screen-xl mx-auto px-6">
+      {/* Hero Section */}
+      <section className="max-w-container-max mx-auto px-gutter mb-section-padding-v grid md:grid-cols-2 gap-16 items-center">
+        <div className="space-y-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-border-purple">
+            <span className="material-symbols-outlined text-sm text-primary">space_dashboard</span>
+            <span className="text-caption font-label-navigation uppercase tracking-widest text-primary">Orbit Operator Console</span>
           </div>
-
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Orbit Operator
+          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">
+            Your Universe, <span className="text-gradient">In Command.</span>
           </h1>
-
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto mb-4">
-            Full command center for your spatial universe. Monitor, manage, and optimize every aspect of your BAWES deployment from one powerful dashboard.
+          <p className="text-body-md text-text-secondary max-w-xl">
+            Orbit Operator gives you manual control over your universe. Review logs, manage worlds, monitor performance, and control bots — all from a single dashboard.
           </p>
-          <p className="text-lg text-white/50 leading-relaxed max-w-3xl mx-auto">
-            Orbit Operator gives administrators real-time insights into usage, users, bots, and system health. Whether you&apos;re running a small community or a global enterprise deployment, the Operator keeps you in control.
-          </p>
+          <div className="flex flex-wrap gap-4 pt-4">
+            <button className="neon-gradient px-8 py-4 rounded-full text-white font-bold flex items-center gap-2 active:scale-95 transition-transform">
+              Launch Dashboard
+              <span className="material-symbols-outlined">open_in_new</span>
+            </button>
+            <button className="glass-card px-8 py-4 rounded-full text-on-surface font-bold hover:bg-surface-glass transition-all">
+              View Documentation
+            </button>
+          </div>
+        </div>
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all"></div>
+          <div className="relative glass-card rounded-2xl overflow-hidden border border-white/10 aspect-video">
+            <div className="w-full h-full bg-surface-container-high flex items-center justify-center">
+              <span className="material-symbols-outlined text-6xl text-primary/30">dashboard</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Key Features */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-container-max mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">Key Features</h2>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">monitoring</span>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Usage Analytics</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Real-time dashboards showing active users, popular maps, peak hours, and retention trends. Make data-driven decisions about your community.</p>
+      {/* Features Grid */}
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
+        <div className="text-center mb-16">
+          <h2 className="font-headline-section text-headline-section text-on-surface mb-4">Everything at your fingertips</h2>
+          <p className="text-text-secondary max-w-xl mx-auto">Manage every aspect of your universe from a single, unified dashboard designed for operators.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="glass-card p-card-padding rounded-2xl space-y-4">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <span className="material-symbols-outlined text-primary">monitor_heart</span>
             </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">group</span>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">User Management</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Browse, search, and manage users. Assign roles, apply permissions, suspend accounts, and view detailed activity histories.</p>
-            </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">smart_toy</span>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Bot Monitoring</h3>
-              <p className="text-sm text-white/60 leading-relaxed">See all active bots at a glance — health status, conversation volumes, token usage, and error rates across your entire AI ecosystem.</p>
-            </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">map</span>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Map Performance</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Track map load times, concurrent users per room, and performance metrics. Identify bottlenecks and optimize your world layouts.</p>
-            </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">notifications_active</span>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">System Alerts</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Configure thresholds and receive proactive alerts for unusual activity, server load, or system errors — before they impact your users.</p>
-            </div>
+            <h3 className="font-headline-card text-headline-card text-on-surface">Live Monitoring</h3>
+            <p className="text-text-secondary">Real-time metrics on server load, concurrent users, and resource utilization across all worlds.</p>
           </div>
+          <div className="glass-card p-card-padding rounded-2xl space-y-4">
+            <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
+              <span className="material-symbols-outlined text-secondary">manage_accounts</span>
+            </div>
+            <h3 className="font-headline-card text-headline-card text-on-surface">User Management</h3>
+            <p className="text-text-secondary">Review active sessions, moderate users, and manage roles across your entire universe hierarchy.</p>
+          </div>
+          <div className="glass-card p-card-padding rounded-2xl space-y-4">
+            <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center">
+              <span className="material-symbols-outlined text-tertiary">description</span>
+            </div>
+            <h3 className="font-headline-card text-headline-card text-on-surface">Audit Logs</h3>
+            <p className="text-text-secondary">Complete activity trail for every administrative action. Track changes, permissions, and world modifications.</p>
+          </div>
+          <div className="glass-card p-card-padding rounded-2xl space-y-4">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <span className="material-symbols-outlined text-primary">smart_toy</span>
+            </div>
+            <h3 className="font-headline-card text-headline-card text-on-surface">Bot Control</h3>
+            <p className="text-text-secondary">Deploy, configure, and manage AI bots across your worlds. Start, stop, or relocate agents live.</p>
+          </div>
+          <div className="glass-card p-card-padding rounded-2xl space-y-4">
+            <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
+              <span className="material-symbols-outlined text-secondary">map</span>
+            </div>
+            <h3 className="font-headline-card text-headline-card text-on-surface">World Management</h3>
+            <p className="text-text-secondary">Create, duplicate, archive, and delete worlds. Manage map assignments and room configurations.</p>
+          </div>
+          <div className="glass-card p-card-padding rounded-2xl space-y-4">
+            <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center">
+              <span className="material-symbols-outlined text-tertiary">api</span>
+            </div>
+            <h3 className="font-headline-card text-headline-card text-on-surface">API Access</h3>
+            <p className="text-text-secondary">Generate and manage API tokens for programmatic access. Configure webhooks and integration endpoints.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Deep Dives */}
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v border-t border-divider">
+        <h2 className="font-headline-section text-headline-section text-on-surface mb-12 text-center">Related Tools</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Link href="/features/admin-api" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
+            <span className="material-symbols-outlined text-primary mb-4 text-3xl">code</span>
+            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-primary transition-colors">Admin API</h3>
+            <p className="text-text-secondary text-sm">Programmatic access to the same powerful operations via our REST API.</p>
+          </Link>
+          <Link href="/features/self-hosting" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
+            <span className="material-symbols-outlined text-secondary mb-4 text-3xl">dns</span>
+            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-secondary transition-colors">Self-Hosting</h3>
+            <p className="text-text-secondary text-sm">Run the BAWES stack on your own infrastructure with full control.</p>
+          </Link>
+          <Link href="/features/scripting" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
+            <span className="material-symbols-outlined text-tertiary mb-4 text-3xl">terminal</span>
+            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-tertiary transition-colors">Scripting API</h3>
+            <p className="text-text-secondary text-sm">Write custom behaviors and in-world logic with our JS/TS SDK.</p>
+          </Link>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="relative z-10 min-h-[40vh] flex items-center justify-center px-4">
-        <div className="glass-card rounded-3xl p-10 max-w-2xl mx-auto text-center border border-purple-500/15">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Command your universe</h2>
-          <p className="text-white/60 mb-8">Jump back to the Platform Hub to explore more features.</p>
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v text-center">
+        <div className="glass-card p-12 rounded-[2rem] relative overflow-hidden">
+          <h2 className="font-headline-section text-headline-section text-on-surface mb-6">Ready to take command?</h2>
+          <p className="text-text-secondary max-w-xl mx-auto mb-10">Get instant access to the Orbit Operator dashboard and start managing your universe like a pro.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/platform" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
-              <span className="material-symbols-outlined text-lg">arrow_back</span>
-              Back to Platform Hub
-            </Link>
-            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
-              <span className="material-symbols-outlined text-lg">explore</span>
-              Explore the Universe
-            </Link>
+            <button className="neon-gradient px-10 py-4 rounded-full text-white font-bold active:scale-95 transition-transform">Launch Dashboard</button>
+            <button className="glass-card px-10 py-4 rounded-full text-on-surface font-bold hover:bg-surface-glass transition-all">Talk to Sales</button>
           </div>
         </div>
       </section>
-    </div>
-  )
+    </main>
+  );
 }

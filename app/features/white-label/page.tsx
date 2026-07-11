@@ -1,109 +1,153 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
-import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
-
-const details = [
-  {
-    title: 'Custom Theming',
-    desc: 'Customize colors, fonts, logos, and UI components to match your brand. Full control over the look and feel of every page and interface.',
-  },
-  {
-    title: 'Custom Domains',
-    desc: 'Serve your universe from your own domain with automatic HTTPS. Full DNS and SSL management built in — no manual certificate handling.',
-  },
-  {
-    title: 'Branded Emails & Notifications',
-    desc: 'Custom email templates, notification styling, and sender identity. Every communication from your universe carries your brand.',
-  },
-  {
-    title: 'Remove BAWES Branding',
-    desc: 'Fully remove BAWES references from the interface, documentation, and codebase. Your users see only your brand — no attribution required.',
-  },
-]
+import React from 'react';
+import Section from '@/components/Section';
+import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
 export default function WhiteLabelPage() {
-  const heroRef = useRef(null)
-
   return (
-    <div className="pt-20">
-      <section
-        ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">palette</span>
-              Branding
-            </motion.div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-gradient">White Label</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Brand the platform as your own with custom theming, domains, and identity. Your users see only your brand — no attribution required.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-6">
-            {details.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-default"
-              >
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+    <main>
+      {/* Hero Section */}
+      <Section className="relative pt-40 pb-section-padding-v px-gutter max-w-container-max mx-auto text-center">
+        <div className="flex flex-col items-center">
+          <span className="inline-block px-4 py-1 rounded-full border border-purple text-primary text-caption mb-6 bg-surface-glass">
+            White-Label Solution
+          </span>
+          <h1 className="font-display-hero text-display-hero mb-6 text-white max-w-4xl leading-tight">
+            Your Brand. <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Your Universe.</span>
+          </h1>
+          <p className="font-body-md text-body-md text-text-secondary max-w-2xl mb-10">
+            Custom domain, logos, and branding for your universe instance. White-label the entire experience — your users see your brand, not ours.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 mb-20">
+            <button className="neon-gradient px-8 py-4 rounded-full font-label-navigation text-lg text-white">
+              Launch Your Brand
+            </button>
+            <button className="glass-card px-8 py-4 rounded-full font-label-navigation text-lg text-on-surface hover:bg-white/5">
+              View Documentation
+            </button>
+          </div>
+          <div className="w-full relative glass-card rounded-2xl overflow-hidden aspect-[1.79] max-w-[1000px] mx-auto border-purple shadow-2xl">
+            <div className="w-full h-full bg-surface-container-high flex items-center justify-center aspect-video">
+              <span className="material-symbols-outlined text-7xl text-primary/30">palette</span>
+            </div>
+            <div className="absolute top-8 left-8 glass-card px-4 py-2 rounded-lg flex items-center gap-3">
+              <span className="material-symbols-outlined text-primary">domain</span>
+              <span className="text-caption font-bold">your-universe.com</span>
+            </div>
+            <div className="absolute bottom-8 right-8 glass-card p-6 rounded-xl flex flex-col items-start gap-2 max-w-[200px]">
+              <div className="w-10 h-10 rounded bg-gradient-to-br from-tertiary to-primary mb-2"></div>
+              <span className="text-caption opacity-60">Identity Applied</span>
+              <div className="h-1 w-full bg-surface-variant rounded-full overflow-hidden">
+                <div className="h-full bg-primary w-[85%]"></div>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
 
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-purple-600/15 to-transparent rounded-full blur-3xl" />
-        </div>
-        <div className="text-center">
-          <motion.p
-            className="text-2xl md:text-3xl font-bold text-white mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Make it yours
-          </motion.p>
-          <Button href="/platform" size="lg">
-            Back to Platform
-          </Button>
+      {/* Features Grid */}
+      <Section className="py-section-padding-v px-gutter max-w-container-max mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="glass-card p-card-padding rounded-2xl">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined text-primary text-3xl">language</span>
+            </div>
+            <h3 className="font-headline-card text-headline-card mb-4 text-white">Custom Domain</h3>
+            <p className="font-body-md text-body-md text-text-secondary">Host your universe at your own URL like your-universe.com for a seamless brand experience.</p>
+          </div>
+          <div className="glass-card p-card-padding rounded-2xl">
+            <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined text-secondary text-3xl">category</span>
+            </div>
+            <h3 className="font-headline-card text-headline-card mb-4 text-white">Custom Logos</h3>
+            <p className="font-body-md text-body-md text-text-secondary">Brand the entire interface. Replace all platform icons and marks with your own identity.</p>
+          </div>
+          <div className="glass-card p-card-padding rounded-2xl">
+            <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined text-tertiary text-3xl">visibility_off</span>
+            </div>
+            <h3 className="font-headline-card text-headline-card mb-4 text-white">Full White Label</h3>
+            <p className="font-body-md text-body-md text-text-secondary">No BAWES branding visible. From the loading screens to the dashboard, it's 100% yours.</p>
+          </div>
+          <div className="glass-card p-card-padding rounded-2xl">
+            <div className="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined text-primary-container text-3xl">dns</span>
+            </div>
+            <h3 className="font-headline-card text-headline-card mb-4 text-white">Self-Hosted Option</h3>
+            <p className="font-body-md text-body-md text-text-secondary">Run the entire stack on your infrastructure for maximum control and data sovereignty.</p>
+          </div>
         </div>
       </Section>
-    </div>
-  )
+
+      {/* Enterprise Section */}
+      <Section className="py-section-padding-v px-gutter max-w-container-max mx-auto">
+        <div className="relative rounded-3xl overflow-hidden glass-card p-12 md:p-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-headline-section text-headline-section mb-8 text-white">Built for Enterprise</h2>
+              <div className="space-y-6">
+                <p className="font-body-md text-body-md text-text-secondary">Our rebranding layer isn't just a skin — it's an architectural abstraction built over the spatial core. Control every hex code, typography choice, and iconography set through our central manifest.</p>
+                <p className="font-body-md text-body-md text-text-secondary">Engineered for high-compliance environments, the white-label instance ensures that your corporate identity remains front and center, while we handle the heavy lifting of spatial physics and RTC protocols.</p>
+              </div>
+              <div className="mt-10 flex gap-4">
+                <div className="flex flex-col">
+                  <span className="text-4xl font-bold text-white">100%</span>
+                  <span className="text-caption uppercase tracking-widest text-text-low-emphasis">Unbranded</span>
+                </div>
+                <div className="w-[1px] h-12 bg-divider"></div>
+                <div className="flex flex-col">
+                  <span className="text-4xl font-bold text-white">&lt;50ms</span>
+                  <span className="text-caption uppercase tracking-widest text-text-low-emphasis">Global Latency</span>
+                </div>
+              </div>
+            </div>
+            <div className="relative aspect-square">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-full h-full border border-purple rounded-full animate-[spin_20s_linear_infinite] opacity-30"></div>
+                <div className="absolute w-3/4 h-3/4 border border-secondary rounded-full animate-[spin_15s_linear_infinite_reverse] opacity-20"></div>
+                <div className="w-64 h-64 glass-card rounded-2xl flex items-center justify-center text-primary-container">
+                  <span className="material-symbols-outlined text-[80px]" style={{ fontVariationSettings: "'FILL' 1" }}>layers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Deep Dives */}
+      <Section className="py-section-padding-v px-gutter max-w-container-max mx-auto mb-20">
+        <div className="flex justify-between items-end mb-12">
+          <div>
+            <h2 className="font-headline-section text-headline-section text-white mb-2">Related Deep Dives</h2>
+            <p className="font-body-md text-body-md text-text-low-emphasis">Explore the technical foundations of the universe.</p>
+          </div>
+          <Link href="/features" className="hidden md:flex items-center gap-2 text-primary font-label-navigation hover:gap-3 transition-all">
+            Explore All Docs <span className="material-symbols-outlined">arrow_forward</span>
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <Link href="/features/self-hosting" className="group glass-card p-8 rounded-2xl flex items-start gap-6 cursor-pointer">
+            <div className="w-16 h-16 shrink-0 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+              <span className="material-symbols-outlined text-primary">dns</span>
+            </div>
+            <div>
+              <h4 className="font-headline-card text-headline-card mb-2 text-white group-hover:text-primary transition-colors">Self-Hosting</h4>
+              <p className="font-body-md text-body-md text-text-secondary">Learn how to deploy on your own servers and maintain complete data sovereignty for your organization.</p>
+            </div>
+          </Link>
+          <Link href="/workadventure-fork" className="group glass-card p-8 rounded-2xl flex items-start gap-6 cursor-pointer">
+            <div className="w-16 h-16 shrink-0 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
+              <span className="material-symbols-outlined text-secondary">fork_left</span>
+            </div>
+            <div>
+              <h4 className="font-headline-card text-headline-card mb-2 text-white group-hover:text-secondary transition-colors">WorkAdventure Fork</h4>
+              <p className="font-body-md text-body-md text-text-secondary">Extend the core platform with custom code. Documentation for developers looking to modify the engine.</p>
+            </div>
+          </Link>
+        </div>
+      </Section>
+    </main>
+  );
 }

@@ -1,122 +1,113 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
-import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
+import Link from 'next/link'
 
-const features = [
-  { title: 'Multi-Provider Support', icon: 'cloud', description: 'Connect OpenAI, Anthropic, Google, local models via Ollama, and custom endpoints — all from one interface.' },
-  { title: 'Model Routing', icon: 'alt_route', description: 'Route different bot behaviors to different models — lightweight tasks to fast models, complex reasoning to powerful ones.' },
-  { title: 'Key Management', icon: 'key', description: 'Securely manage API keys, rotate credentials, and set per-provider usage limits from a centralized dashboard.' },
-  { title: 'Fallback Chains', icon: 'swap_horiz', description: 'Configure fallback chains — if one provider is down or rate-limited, automatically failover to another provider.' },
-]
-
-export default function BotProviderConfig() {
-  const heroRef = useRef(null)
-
+export default function BotProviderConfigPage() {
   return (
-    <div className="pt-20">
-      {/* Hero */}
-      <section
-        ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Badge pill */}
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">settings</span>
-              Provider Config
-            </motion.div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-white">Bot Provider Config</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Configure AI providers — OpenAI, Anthropic, local models, and more. Manage keys, route models, and set fallback chains from one dashboard.
-            </p>
-          </motion.div>
+    <div className="pt-20 relative min-h-screen overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Choose Your <br/>
+            <span className="text-gradient">Bot's Brain.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Configure which AI model powers each bot. OpenAI, Anthropic, open-source models — pick what fits your use case. Build a diverse ecosystem of specialized intelligence.
+          </p>
         </div>
       </section>
 
-      {/* Key Features */}
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-white text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Key Features
-          </motion.h2>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, i) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-default"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                  <span className="material-symbols-outlined text-2xl text-purple-300">
-                    {feature.icon}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{feature.description}</p>
-              </motion.div>
-            ))}
+      {/* Features */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Intelligent Model Control</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-primary text-3xl">hub</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Multi-Provider</h3>
+              <p className="text-white/60">Seamless support for OpenAI, Anthropic, and open-source models like Llama 3 and Mistral. Never be locked into a single ecosystem.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-secondary text-3xl">precision_manufacturing</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Per-Bot Config</h3>
+              <p className="text-white/60">Assign different models to different bots based on their role. A fast model for chat, a reasoning model for logic.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 bg-tertiary/20 rounded-lg flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-tertiary text-3xl">speed</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Model Selection</h3>
+              <p className="text-white/60">Optimize for capability, latency, or cost. Our selection engine helps you choose the perfect balance for your spatial intelligence.</p>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
+
+      {/* Seamless Integration */}
+      <section className="relative z-10 py-24 px-4 bg-white/5 border-y border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Seamless Integration</h2>
+              <p className="text-white/60 mb-8">Under the hood, the BAWES Universe uses a provider-agnostic abstraction layer. Swapping a bot's brain is as simple as updating a single JSON key.</p>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-primary">check_circle</span>
+                  <span className="font-semibold text-white">Unified API Surface</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-primary">check_circle</span>
+                  <span className="font-semibold text-white">Automatic Token Truncation</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-primary">check_circle</span>
+                  <span className="font-semibold text-white">Fallback Model Logic</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-black/40 rounded-2xl overflow-hidden border border-white/10">
+              <div className="p-4 border-b border-white/10 flex items-center justify-between bg-white/5">
+                <span className="text-xs font-mono text-white/40 uppercase tracking-widest">provider_orchestrator.ts</span>
+              </div>
+              <pre className="p-8 font-mono text-sm leading-relaxed text-white/70">
+                <span className="text-blue-400">async</span> <span className="text-purple-400">function</span> <span className="text-orange-400">updateBotBrain</span>(botId, config) {'{'}{'\n'}
+                {'  '}<span className="text-blue-400">const</span> provider = <span className="text-blue-400">await</span> Registry.get(config.provider);{'\n'}
+                {'\n'}
+                {'  '}<span className="text-white/40">// Hot-swaps the model without rebooting the bot</span>{'\n'}
+                {'  '}<span className="text-blue-400">return</span> <span className="text-blue-400">await</span> provider.reconfigure({{'{'}}{'\n'}
+                {'    '}id: botId,{'\n'}
+                {'    '}model: config.model,{'\n'}
+                {'    '}spatialContext: <span className="text-purple-400">true</span>{'\n'}
+                {'  '});{'\n'}
+                {'}'}
+              </pre>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-purple-600/15 to-transparent rounded-full blur-3xl" />
-        </div>
-
-        <div className="text-center">
-          <motion.p
-            className="text-2xl md:text-3xl font-bold text-white mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Explore all bot capabilities
-          </motion.p>
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to configure your bot's brain?</h2>
+          <p className="text-white/60 mb-8">Pick the perfect model for every use case.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/ai-bots" size="lg">
+            <Link href="/features/ai-bots" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
+              <span className="material-symbols-outlined text-lg">arrow_back</span>
               Back to AI Bots
-            </Button>
-            <Button href="/contact" variant="ghost" size="lg" className="glass-card border border-white/10 hover:border-white/20">
-              Get Started
-            </Button>
+            </Link>
+            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+              <span className="material-symbols-outlined text-lg">explore</span>
+              Explore the Universe
+            </Link>
           </div>
         </div>
-      </Section>
+      </section>
     </div>
   )
 }

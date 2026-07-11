@@ -1,114 +1,73 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
-import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
-
-const details = [
-  {
-    title: 'Live In-Browser Editing',
-    desc: 'Edit maps directly in your browser — no external tools or downloads required. Changes appear instantly for everyone in the room.',
-  },
-  {
-    title: 'Draw & Paint Tools',
-    desc: 'Draw walls, paint floors, place tiles, and sculpt terrain with intuitive brush tools. Undo and redo support for worry-free experimentation.',
-  },
-  {
-    title: 'Object Placement',
-    desc: 'Drag and drop furniture, decorations, interactive objects, and spawn points. Position, rotate, and scale with precision controls.',
-  },
-  {
-    title: 'Real-Time Collaboration',
-    desc: 'Edit maps together with your team. See cursor positions, changes, and suggestions from other builders in real time.',
-  },
-]
+import Link from 'next/link'
 
 export default function MapEditorPage() {
-  const heroRef = useRef(null)
-
   return (
-    <div className="pt-20">
+    <div className="pt-20 relative min-h-screen overflow-hidden">
       {/* Hero */}
-      <section
-        ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">edit_square</span>
-              Build 02
-            </motion.div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-gradient">Inline Map Editor</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Edit maps live in-browser without leaving your universe. Draw, paint, place — see changes instantly.
-            </p>
-          </motion.div>
+      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
+            <span className="material-symbols-outlined text-lg">architecture</span>
+            World Building Tools
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Build Your World <span className="text-gradient">in Real-Time.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Live map editing tools in the browser. Modify tiles, add zones, place entities, and see changes instantly — no reload needed. Direct feedback loop for creators.
+          </p>
         </div>
       </section>
 
-      {/* Feature Grid */}
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-6">
-            {details.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-default"
-              >
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+      {/* Features */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Editor Capabilities</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-primary">edit_square</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Tile Editing</h3>
+              <p className="text-white/60">Paint, erase, and swap tiles on your map grid. Modify terrain, walls, and floors with intuitive brush tools.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-secondary">grid_view</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Zone Drawing</h3>
+              <p className="text-white/60">Draw rectangular or polygonal zones directly on the map. Assign properties and triggers to each zone in real-time.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-tertiary">visibility</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Live Preview</h3>
+              <p className="text-white/60">See your changes reflected immediately. Walk through your edited space without leaving the editor or reloading the page.</p>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* CTA */}
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-purple-600/15 to-transparent rounded-full blur-3xl" />
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to edit your world?</h2>
+          <p className="text-white/60 mb-8">Open the inline map editor and start building.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/features/build" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
+              <span className="material-symbols-outlined text-lg">arrow_back</span>
+              Back to Build
+            </Link>
+            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+              <span className="material-symbols-outlined text-lg">explore</span>
+              Explore the Universe
+            </Link>
+          </div>
         </div>
-
-        <div className="text-center">
-          <motion.p
-            className="text-2xl md:text-3xl font-bold text-white mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Shape your environment live
-          </motion.p>
-          <Button href="/build" size="lg">
-            Back to Build Tools
-          </Button>
-        </div>
-      </Section>
+      </section>
     </div>
   )
 }

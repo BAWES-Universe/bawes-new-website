@@ -1,109 +1,99 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
-import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
-
-const details = [
-  {
-    title: 'Lock Discussion Threads',
-    desc: 'Moderators can lock any discussion thread to prevent new replies. Keep conversations on topic and prevent spam or harassment in real-time.',
-  },
-  {
-    title: 'Emoji Reactions',
-    desc: 'React to messages and discussions with a wide range of emojis. Quick, expressive feedback without cluttering the chat with text replies.',
-  },
-  {
-    title: 'Reaction Permissions',
-    desc: 'Control who can react to messages at the role and user level. Restrict reactions in formal announcements or enable them freely in social spaces.',
-  },
-  {
-    title: 'Visual Feedback',
-    desc: 'Reactions appear as animated badges on messages. Users see real-time reaction counts and can hover to see who reacted — all without page refreshes.',
-  },
-]
+import Link from 'next/link'
 
 export default function LockDiscussPage() {
-  const heroRef = useRef(null)
-
   return (
-    <div className="pt-20">
-      <section
-        ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">verified_user</span>
-              Moderation
-            </motion.div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-gradient">Lock Discussion &amp; Emoji Reactions</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Keep conversations constructive and expressive. Lock threads when needed, and let users react with emojis for quick, fun feedback.
-            </p>
-          </motion.div>
+    <div className="pt-20 relative min-h-screen overflow-hidden">
+      {/* Hero */}
+      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
+            <span className="material-symbols-outlined text-[14px]">lock</span>
+            New Privacy Control
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Lock In. <span className="text-gradient">Focus Up.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Lock your conversation bubble to prevent others from joining. When you need a private conversation in a crowded room, just lock the bubble.
+          </p>
         </div>
       </section>
 
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-6">
-            {details.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-default"
-              >
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+      {/* How It Works */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Seamless Privacy Control</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="glass-card p-10 rounded-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-6 text-8xl opacity-5 text-white pointer-events-none">1</div>
+              <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-primary text-3xl">touch_app</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Click Lock</h3>
+              <p className="text-white/60">Click the lock icon on your active conversation bubble to immediately secure your current session.</p>
+            </div>
+            <div className="glass-card p-10 rounded-xl relative overflow-hidden border-primary/40 bg-white/5 scale-105">
+              <div className="absolute top-0 right-0 p-6 text-8xl opacity-5 text-white pointer-events-none">2</div>
+              <div className="w-14 h-14 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-secondary text-3xl">shield_person</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Stay Private</h3>
+              <p className="text-white/60">New people cannot join the bubble while it is locked. Your conversation remains exclusive to existing participants.</p>
+            </div>
+            <div className="glass-card p-10 rounded-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-6 text-8xl opacity-5 text-white pointer-events-none">3</div>
+              <div className="w-14 h-14 rounded-full bg-tertiary/10 border border-tertiary/20 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-tertiary text-3xl">lock_open</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Open Again</h3>
+              <p className="text-white/60">Simply click unlock whenever you're ready to allow others to join and expand the conversation dynamic.</p>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-purple-600/15 to-transparent rounded-full blur-3xl" />
+      {/* Use Cases */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+              <span className="text-tertiary text-sm uppercase tracking-widest font-semibold">Contexts</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Built for Modern Flow</h2>
+            </div>
+            <p className="text-white/60 max-w-md">Whether you are collaborating on a global project or catching up 1:1, BAWES Lock adapts to your rhythm.</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="glass-card p-8 rounded-2xl">
+              <h3 className="text-xl font-semibold text-white mb-4">Private 1:1s</h3>
+              <p className="text-white/60">Have confidential 1:1 meetings even in the middle of a busy campus or room without interruptions.</p>
+            </div>
+            <div className="glass-card p-8 rounded-2xl">
+              <h3 className="text-xl font-semibold text-white mb-4">Focused Group Work</h3>
+              <p className="text-white/60">Block out distractions and prevent accidental walk-ins during deep-work team sessions in shared hubs.</p>
+            </div>
+          </div>
         </div>
-        <div className="text-center">
-          <motion.p
-            className="text-2xl md:text-3xl font-bold text-white mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Moderate and engage
-          </motion.p>
-          <Button href="/platform" size="lg">
-            Back to Platform
-          </Button>
+      </section>
+
+      {/* CTA */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to lock in and focus?</h2>
+          <p className="text-white/60 mb-8">Secure your conversations with one click.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/features/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
+              <span className="material-symbols-outlined text-lg">arrow_back</span>
+              Back to Communication
+            </Link>
+            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+              <span className="material-symbols-outlined text-lg">explore</span>
+              Explore the Universe
+            </Link>
+          </div>
         </div>
-      </Section>
+      </section>
     </div>
   )
 }

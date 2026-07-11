@@ -1,79 +1,91 @@
 'use client'
+
 import Link from 'next/link'
 
 export default function ProximityChatPage() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
             <span className="material-symbols-outlined text-lg">spatial_audio</span>
-            Communication Feature
+            Spatial Voice Technology
           </div>
-
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Proximity Chat
+            Talk Like You're <span className="text-gradient">In the Same Room.</span>
           </h1>
-
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto mb-4">
-            Voice chat that respects distance and presence in the spatial world. Walk closer to hear someone louder, move away and their voice naturally fades — just like real life.
-          </p>
-          <p className="text-lg text-white/50 leading-relaxed max-w-3xl mx-auto">
-            Proximity chat creates immersive audio experiences by dynamically adjusting volume based on the spatial distance between users. No menus, no channels — just natural conversation that flows through physical space.
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Proximity-based spatial voice chat with WebRTC. Walk closer to hear better, walk away to fade out. Powered by LiveKit for ultra-low latency.
           </p>
         </div>
       </section>
 
-      {/* Key Features */}
+      {/* Features */}
       <section className="relative z-10 py-24 px-4">
-        <div className="max-w-container-max mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">Key Features</h2>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">volume_up</span>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Voice Features</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-primary">spatial_audio</span>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Spatial Audio</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Volume and directionality map to real-world positions, creating natural conversations that feel like face-to-face interactions.</p>
+              <h3 className="text-xl font-semibold text-white mb-3">Spatial Audio</h3>
+              <p className="text-white/60">3D positional audio that makes voices sound like they're coming from the right direction and distance.</p>
             </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">distance</span>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-secondary">graphic_eq</span>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Distance-Based Fade</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Audio automatically fades in and out as users move closer or farther apart — zero configuration required.</p>
+              <h3 className="text-xl font-semibold text-white mb-3">Distance Attenuation</h3>
+              <p className="text-white/60">Volume naturally decreases with distance. Whispers up close, muffled from across the room — just like real life.</p>
             </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">mic</span>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-tertiary">mic</span>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Push-to-Talk &amp; Voice Modes</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Choose between open mic, push-to-talk, or voice activity detection for flexible communication styles.</p>
+              <h3 className="text-xl font-semibold text-white mb-3">Push-to-Talk</h3>
+              <p className="text-white/60">Optional PTT mode for cleaner audio environments. Configurable keybindings for advanced workflows.</p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">groups</span>
+      {/* Technical */}
+      <section className="relative z-10 py-24 px-4 bg-white/5">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Powered by LiveKit</h2>
+              <p className="text-white/60 mb-8">All proximity voice runs on top of LiveKit's battle-tested WebRTC infrastructure, ensuring high-quality audio and smooth scaling from 2 to 2000 participants.</p>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Ultra-low latency WebRTC</li>
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Self-hostable SFU servers</li>
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Opus codec for crisp voice</li>
+              </ul>
+            </div>
+            <div className="glass-card p-8 rounded-2xl bg-black/40 border border-white/10">
+              <h4 className="text-lg font-semibold text-white mb-4">Audio Stack</h4>
+              <div className="space-y-3 text-white/60">
+                <div className="flex justify-between"><span>Codec</span><span className="text-primary">Opus</span></div>
+                <div className="flex justify-between"><span>Latency</span><span className="text-primary">&lt;50ms</span></div>
+                <div className="flex justify-between"><span>SFU</span><span className="text-primary">LiveKit</span></div>
+                <div className="flex justify-between"><span>Spatial</span><span className="text-primary">HRTF 3D</span></div>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Group Dynamics</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Clusters of users talking together naturally form conversation groups based on who is within earshot.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="relative z-10 min-h-[40vh] flex items-center justify-center px-4">
-        <div className="glass-card rounded-3xl p-10 max-w-2xl mx-auto text-center border border-purple-500/15">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Experience spatial communication</h2>
-          <p className="text-white/60 mb-8">Jump back to the Communication Hub to explore more features.</p>
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to talk in spatial audio?</h2>
+          <p className="text-white/60 mb-8">Experience voice chat that feels as natural as being in the same room.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
+            <Link href="/features/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
               <span className="material-symbols-outlined text-lg">arrow_back</span>
-              Back to Communication Hub
+              Back to Communication
             </Link>
             <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
               <span className="material-symbols-outlined text-lg">explore</span>

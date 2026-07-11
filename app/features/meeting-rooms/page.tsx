@@ -1,80 +1,112 @@
 'use client'
+
 import Link from 'next/link'
 
 export default function MeetingRoomsPage() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Background Orbs */}
-            {/* Hero Section */}
+      {/* Hero */}
       <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
-            <span className="material-symbols-outlined text-lg">video_chat</span>
-            Communication Feature
-          </div>
-
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Meeting Rooms
+            Walk In. Talk.<br/>Walk Out.
           </h1>
-
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto mb-4">
-            Dedicated video conferencing rooms with spatial audio support. Host private gatherings or public meetings with full audio and video capabilities.
-          </p>
-          <p className="text-lg text-white/50 leading-relaxed max-w-3xl mx-auto">
-            Meeting rooms provide persistent or on-demand video spaces within your universe. Configure rooms as private, public, or invite-only, with features like screen sharing, recording, and spatial audio for a natural meeting experience.
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Designate areas on the map as meeting rooms. Walk in to auto-join — no invites, no links, no scheduling friction.
           </p>
         </div>
       </section>
 
-      {/* Key Features */}
+      {/* How They Work */}
       <section className="relative z-10 py-24 px-4">
-        <div className="max-w-container-max mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">Key Features</h2>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">videocam</span>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">How They Work</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-lg primary-gradient flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-white">map</span>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">HD Video Conferencing</h3>
-              <p className="text-sm text-white/60 leading-relaxed">High-quality video calls with support for multiple simultaneous participants in any room.</p>
+              <h3 className="text-xl font-semibold text-white mb-4">Zone-Based</h3>
+              <p className="text-white/60">Meeting rooms are area zones on the map. Walk into the zone to auto-join. Your audio and video stream only to those inside.</p>
             </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">visibility</span>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-lg primary-gradient flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-white">present_to_all</span>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Privacy Modes</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Rooms can be public, private, password-protected, or invite-only — full control over who joins.</p>
+              <h3 className="text-xl font-semibold text-white mb-4">Screen Sharing</h3>
+              <p className="text-white/60">Share your screen within the meeting room. Everyone in the zone sees it automatically on their primary viewport or local displays.</p>
             </div>
-
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">fiber_manual_record</span>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-lg primary-gradient flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-white">hub</span>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Session Recording</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Record meetings and events for later playback — accessible to authorized users.</p>
+              <h3 className="text-xl font-semibold text-white mb-4">Seamless</h3>
+              <p className="text-white/60">Handled through your P2P and LiveKit infrastructure. No external service setup needed — it's native to the spatial experience.</p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="glass-card rounded-2xl p-6 hover-lift group cursor-default">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                <span className="material-symbols-outlined text-2xl text-purple-300">headphones</span>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Spatial Audio Support</h3>
-              <p className="text-sm text-white/60 leading-relaxed">Integrated spatial audio creates natural conversation positioning, just like proximity chat in meeting contexts.</p>
+      {/* Room Variations */}
+      <section className="relative z-10 py-24 px-4 bg-white/5">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Room Variations</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="glass-card p-10 rounded-2xl">
+              <h3 className="text-3xl font-bold text-white mb-6">Spontaneous Rooms</h3>
+              <p className="text-white/60 mb-8">Walk in and start talking. No calendar, no invite. Perfect for quick huddles and rapid decision making during the flow of work.</p>
+              <ul className="space-y-3 mb-8 text-white/60">
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary text-sm">check_circle</span> Zero friction entry</li>
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary text-sm">check_circle</span> Visual status indicators</li>
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary text-sm">check_circle</span> Public availability</li>
+              </ul>
+            </div>
+            <div className="glass-card p-10 rounded-2xl">
+              <h3 className="text-3xl font-bold text-white mb-6">Scheduled Sessions</h3>
+              <p className="text-white/60 mb-8">Book the room ahead of time. Calendar integration available. Great for recurring meetings, classes, or formal office hours.</p>
+              <ul className="space-y-3 mb-8 text-white/60">
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-secondary text-sm">check_circle</span> Google/Outlook Sync</li>
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-secondary text-sm">check_circle</span> Room locking logic</li>
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-secondary text-sm">check_circle</span> Guest access codes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16">Built for Every Use Case</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="glass-card p-8 rounded-xl border-l-4 border-l-primary">
+              <span className="material-symbols-outlined text-primary text-4xl mb-6">groups</span>
+              <h4 className="text-xl font-semibold text-white mb-4">Team Standups</h4>
+              <p className="text-white/60">Walk into the team room at 9am. Everyone's there already. No Zoom links to find or click.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl border-l-4 border-l-secondary">
+              <span className="material-symbols-outlined text-secondary text-4xl mb-6">handshake</span>
+              <h4 className="text-xl font-semibold text-white mb-4">Client Meetings</h4>
+              <p className="text-white/60">Set up a private meeting room. Share your screen, walk through a demo, and offer a premium experience.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl border-l-4 border-l-tertiary">
+              <span className="material-symbols-outlined text-tertiary text-4xl mb-6">school</span>
+              <h4 className="text-xl font-semibold text-white mb-4">Classrooms</h4>
+              <p className="text-white/60">Teacher in the room zone, students in audience. Raise hand zones for questions and breakout areas.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="relative z-10 min-h-[40vh] flex items-center justify-center px-4">
-        <div className="glass-card rounded-3xl p-10 max-w-2xl mx-auto text-center border border-purple-500/15">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Meet face-to-face in your universe</h2>
-          <p className="text-white/60 mb-8">Jump back to the Communication Hub to explore more features.</p>
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to walk in and talk?</h2>
+          <p className="text-white/60 mb-8">Set up your first meeting room in minutes.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
+            <Link href="/features/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
               <span className="material-symbols-outlined text-lg">arrow_back</span>
-              Back to Communication Hub
+              Back to Communication
             </Link>
             <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
               <span className="material-symbols-outlined text-lg">explore</span>

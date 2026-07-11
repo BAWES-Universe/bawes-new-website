@@ -1,109 +1,75 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
-import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
-
-const details = [
-  {
-    title: 'Browse & Discover Users',
-    desc: 'Browse users across your universe with rich profiles showing status, location, interests, and activity. Find collaborators, friends, and mentors.',
-  },
-  {
-    title: 'Presence & Activity',
-    desc: 'See who is online, what room they are in, and what they are doing. Real-time presence indicators make the universe feel alive.',
-  },
-  {
-    title: 'Connections & Friends',
-    desc: 'Send connection requests, build your network, and see mutual connections. Follow users to stay updated on their activity and creations.',
-  },
-  {
-    title: 'Privacy Controls',
-    desc: 'Give users granular control over their visibility — from fully public profiles to invisible mode. Define who can see your location and activity.',
-  },
-]
+import Link from 'next/link'
 
 export default function UserDirectoryPage() {
-  const heroRef = useRef(null)
-
   return (
-    <div className="pt-20">
-      <section
-        ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">group</span>
-              Build 02
-            </motion.div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-gradient">User Directory</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Browse and connect with users across your universe. Discover people, see who is around, and build your community.
-            </p>
-          </motion.div>
+    <div className="pt-20 relative min-h-screen overflow-hidden">
+      {/* Hero */}
+      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            See Who's Around. <span className="text-gradient">Find Anyone.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Browse users, see their status, and locate them on the map. Know who's online across your universe in real-time with zero friction.
+          </p>
         </div>
       </section>
 
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-6">
-            {details.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-default"
-              >
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+      {/* Features */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="glass-card p-8 rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
+                <span className="material-symbols-outlined">groups</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Browse Users</h3>
+              <p className="text-white/60 text-sm">See all members and filter by group or world with advanced tagging.</p>
+            </div>
+            <div className="glass-card p-8 rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6 text-secondary">
+                <span className="material-symbols-outlined">sensors</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Status Indicators</h3>
+              <p className="text-white/60 text-sm">Real-time Online, Busy, and Away status with synchronized color coding.</p>
+            </div>
+            <div className="glass-card p-8 rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-6 text-tertiary">
+                <span className="material-symbols-outlined">location_on</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Locate on Map</h3>
+              <p className="text-white/60 text-sm">Jump directly to anyone's location with one-click map tracking and pathing.</p>
+            </div>
+            <div className="glass-card p-8 rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-6 text-red-400">
+                <span className="material-symbols-outlined">sync</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Cross-Platform Sync</h3>
+              <p className="text-white/60 text-sm">Automatic status synchronization with Discord, Matrix, and BAWES Kernel.</p>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-purple-600/15 to-transparent rounded-full blur-3xl" />
+      {/* CTA */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to find your team?</h2>
+          <p className="text-white/60 mb-8">Browse the directory and locate your fellow explorers.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/features/communication" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
+              <span className="material-symbols-outlined text-lg">arrow_back</span>
+              Back to Communication
+            </Link>
+            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+              <span className="material-symbols-outlined text-lg">explore</span>
+              Explore the Universe
+            </Link>
+          </div>
         </div>
-        <div className="text-center">
-          <motion.p
-            className="text-2xl md:text-3xl font-bold text-white mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Connect with your universe
-          </motion.p>
-          <Button href="/build" size="lg">
-            Back to Build Tools
-          </Button>
-        </div>
-      </Section>
+      </section>
     </div>
   )
 }

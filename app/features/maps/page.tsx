@@ -1,116 +1,73 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
-import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
-
-const details = [
-  {
-    title: 'Visual Map Builder',
-    desc: 'Design maps using an intuitive drag-and-drop interface. Place walls, floors, furniture, and decorations with real-time preview.',
-  },
-  {
-    title: 'Layer System',
-    desc: 'Work with multiple layers — ground, objects, interactive zones, and overlays — to build rich, multi-dimensional environments.',
-  },
-  {
-    title: 'Tile & Asset Library',
-    desc: 'Choose from a growing library of tiles, sprites, and props. Import your own assets or remix community creations.',
-  },
-  {
-    title: 'Export & Share',
-    desc: 'Export maps as shareable files, publish them to your universe, or submit them to the community template gallery.',
-  },
-]
+import Link from 'next/link'
 
 export default function MapsPage() {
-  const heroRef = useRef(null)
-
   return (
-    <div className="pt-20">
+    <div className="pt-20 relative min-h-screen overflow-hidden">
       {/* Hero */}
-      <section
-        ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Badge pill */}
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">map</span>
-              Build 02
-            </motion.div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-gradient">Maps</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Design and build custom interactive maps for your universe.
-              Every room starts with a map — make yours unforgettable.
-            </p>
-          </motion.div>
+      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
+            <span className="material-symbols-outlined text-lg">map</span>
+            Spatial Infrastructure
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Every Space Has <span className="text-gradient">a Place.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Maps are the structural foundation of the BAWES Universe. Upload your own pixel-art maps, organize them into worlds and rooms, and create complex spatial hierarchies.
+          </p>
         </div>
       </section>
 
-      {/* Feature Grid */}
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-6">
-            {details.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-default"
-              >
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+      {/* Features */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Map Architecture</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-primary">map</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Custom Uploads</h3>
+              <p className="text-white/60">Upload your own tile maps in standard formats. BAWES supports Tiled JSON maps, PNG exports, and various pixel-art formats.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-secondary">layers</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">World Hierarchy</h3>
+              <p className="text-white/60">Organize maps into worlds and rooms. Create nested spatial structures that mirror real or fantastical geographies.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-tertiary">edit_square</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Live Editing</h3>
+              <p className="text-white/60">Modify maps in real-time using the inline editor. Add zones, move entities, and update environments without redeployment.</p>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* CTA */}
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-purple-600/15 to-transparent rounded-full blur-3xl" />
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to build your world?</h2>
+          <p className="text-white/60 mb-8">Upload your first map and start creating spatial experiences.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/features/build" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
+              <span className="material-symbols-outlined text-lg">arrow_back</span>
+              Back to Build
+            </Link>
+            <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+              <span className="material-symbols-outlined text-lg">explore</span>
+              Explore the Universe
+            </Link>
+          </div>
         </div>
-
-        <div className="text-center">
-          <motion.p
-            className="text-2xl md:text-3xl font-bold text-white mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Start building your world
-          </motion.p>
-          <Button href="/build" size="lg">
-            Back to Build Tools
-          </Button>
-        </div>
-      </Section>
+      </section>
     </div>
   )
 }

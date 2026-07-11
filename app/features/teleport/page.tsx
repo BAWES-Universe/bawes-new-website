@@ -1,109 +1,104 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
-import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
-
-const details = [
-  {
-    title: 'Instant Teleportation',
-    desc: 'Teleport users between maps, rooms, and worlds instantly. No loading screens — just seamless transitions between any connected spaces.',
-  },
-  {
-    title: 'Portal Entities',
-    desc: 'Place visual portals on your maps that players can walk through. Style them as doors, arches, wormholes, or magical gateways.',
-  },
-  {
-    title: 'Navigation Hubs',
-    desc: 'Build central hub rooms with teleport pads that branch to multiple destinations. Create intuitive navigation without complex UI.',
-  },
-  {
-    title: 'Targeted & Conditional Teleports',
-    desc: 'Teleport players to specific coordinates, facing directions, or with custom states. Conditional rules let you control who can go where.',
-  },
-]
+import Link from 'next/link'
 
 export default function TeleportPage() {
-  const heroRef = useRef(null)
-
   return (
-    <div className="pt-20">
-      <section
-        ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">near_me</span>
-              Build 02
-            </motion.div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-gradient">Teleport</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Teleport users between maps, zones, and universes instantly. Link your worlds together with seamless portals and navigation hubs.
-            </p>
-          </motion.div>
+    <div className="pt-20 relative min-h-screen overflow-hidden">
+      {/* Hero */}
+      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
+            <span className="material-symbols-outlined text-sm">auto_awesome</span>
+            Next-Gen Spatial Travel
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Jump Between Worlds <span className="text-primary">Instantly</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Teleport between universes, worlds, and rooms via area zone property. Set a destination coordinate on any zone — walk in and arrive somewhere else.
+          </p>
         </div>
       </section>
 
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-6">
-            {details.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-default"
-              >
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+      {/* Features */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Spatial Capabilities</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="glass-card p-8 rounded-2xl flex flex-col gap-6">
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/30">
+                <span className="material-symbols-outlined text-primary text-3xl">language</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white">Universal Teleport</h3>
+              <p className="text-white/60">Teleport between any universe, world, or room in the digital frontier without restrictions.</p>
+            </div>
+            <div className="glass-card p-8 rounded-2xl flex flex-col gap-6">
+              <div className="w-14 h-14 rounded-xl bg-tertiary/10 flex items-center justify-center border border-tertiary/30">
+                <span className="material-symbols-outlined text-tertiary text-3xl">target</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white">Zone-Triggered</h3>
+              <p className="text-white/60">Configured directly as an area zone property in the editor for precise behavioral control.</p>
+            </div>
+            <div className="glass-card p-8 rounded-2xl flex flex-col gap-6">
+              <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center border border-secondary/30">
+                <span className="material-symbols-outlined text-secondary text-3xl">bolt</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white">Seamless</h3>
+              <p className="text-white/60">Instant transition with zero loading screens for a truly immersive and fluid spatial feel.</p>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-purple-600/15 to-transparent rounded-full blur-3xl" />
+      {/* Configuration */}
+      <section className="relative z-10 py-24 px-4 bg-white/5">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="glass-card rounded-2xl overflow-hidden border border-primary/20">
+                <div className="bg-white/5 h-8 flex items-center px-4 gap-1.5 border-b border-white/10">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-orange-400"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-blue-400"></div>
+                </div>
+                <div className="aspect-video bg-black/40 flex items-center justify-center p-4">
+                  <span className="text-white/60 text-sm">Teleport Zone Editor</span>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Master the Spatial Triggers</h2>
+              <p className="text-white/60">Every zone can be a gateway to another world. Our inline map editor gives you surgical precision over teleportation properties, allowing you to create complex web-like connections between disparate spatial environments.</p>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Pixel-perfect coordinate mapping</li>
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Cross-universe destination support</li>
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Programmable arrival orientations</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className="text-center">
-          <motion.p
-            className="text-2xl md:text-3xl font-bold text-white mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Link your worlds together
-          </motion.p>
-          <Button href="/build" size="lg">
-            Back to Build Tools
-          </Button>
+      </section>
+
+      {/* CTA */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="glass-card rounded-[2rem] p-12 md:p-20 text-center border-primary/30">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Ready to Teleport?</h2>
+            <p className="text-white/60 mb-8">The frontier is waiting. Start building your interconnected spatial experience today.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/features/build" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition-opacity">
+                <span className="material-symbols-outlined text-lg">arrow_back</span>
+                Back to Build
+              </Link>
+              <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass-card border border-white/10 hover:border-white/20 text-white font-semibold transition-all duration-300">
+                <span className="material-symbols-outlined text-lg">explore</span>
+                Explore the Universe
+              </Link>
+            </div>
+          </div>
         </div>
-      </Section>
+      </section>
     </div>
   )
 }
