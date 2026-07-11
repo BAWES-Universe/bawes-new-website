@@ -5,19 +5,21 @@ import Link from 'next/link'
 export default function RecursiveBotsPage() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
-            <span className="material-symbols-outlined text-[14px]">psychology</span>
+            <span className="material-symbols-outlined text-lg">psychology</span>
             Next-Gen Autonomy
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Bots That <br/>
-            <span className="text-gradient">Build Bots.</span>
+            Bots That <span className="text-gradient">Build Bots.</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
             Bots can spawn other bots. Each spawned bot gets its own provider config, behavior, and memory. Self-architecting AI systems designed for infinite scalability.
+          </p>
+          <p className="text-base text-white/40 max-w-2xl mx-auto mt-6">
+            Parent bots pass context, instructions, and state to child bots via the BAWES Scripting API. This enables specialized intelligence delegation with dynamic provider switching for cost-optimized subtask execution.
           </p>
         </div>
       </section>
@@ -27,44 +29,38 @@ export default function RecursiveBotsPage() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Architectural Primitives</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="glass-card p-8 rounded-3xl flex flex-col gap-6">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/20 flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary">account_tree</span>
+            <div className="glass-card p-8 rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 text-primary">
+                <span className="material-symbols-outlined text-3xl">account_tree</span>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-3">Bot Spawning</h3>
-                <p className="text-white/60">Bots can create new bots. Dynamically expand your agent workforce based on real-world triggers, events, or logical conditions.</p>
-              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Bot Spawning</h3>
+              <p className="text-white/60 text-sm">Bots can create new bots. Dynamically expand your agent workforce based on real-world triggers, events, or logical conditions.</p>
             </div>
-            <div className="glass-card p-8 rounded-3xl flex flex-col gap-6">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/20 flex items-center justify-center">
-                <span className="material-symbols-outlined text-secondary">settings_input_component</span>
+            <div className="glass-card p-8 rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 border border-secondary/30 text-secondary">
+                <span className="material-symbols-outlined text-3xl">settings_input_component</span>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-3">Config Inheritance</h3>
-                <p className="text-white/60">Spawned bots get their own settings. Customize LLM providers, temperature, and specific toolsets for every child bot in the tree.</p>
-              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Config Inheritance</h3>
+              <p className="text-white/60 text-sm">Spawned bots get their own settings. Customize LLM providers, temperature, and specific toolsets for every child bot in the tree.</p>
             </div>
-            <div className="glass-card p-8 rounded-3xl flex flex-col gap-6">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/20 flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary">schema</span>
+            <div className="glass-card p-8 rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 text-primary">
+                <span className="material-symbols-outlined text-3xl">schema</span>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-3">Self-Architecting</h3>
-                <p className="text-white/60">Build complex bot hierarchies. Create trees of intelligence that handle multi-step workflows autonomously with zero human oversight.</p>
-              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Self-Architecting</h3>
+              <p className="text-white/60 text-sm">Build complex bot hierarchies. Create trees of intelligence that handle multi-step workflows autonomously with zero human oversight.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Technical */}
-      <section className="relative z-10 py-24 px-4 bg-black/20">
+      {/* Technical - simple description without code */}
+      <section className="relative z-10 py-24 px-4 bg-white/5">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <h2 className="text-3xl md:text-4xl font-bold text-white">The Recursion Protocol</h2>
-              <p className="text-white/60 text-lg">Parent bots can pass context and specific instructions to child bots via the BAWES Scripting API. This allows for specialized intelligence delegating tasks to more efficient micro-agents.</p>
+              <p className="text-white/60 text-lg">Parent bots can pass context and specific instructions to child bots via the BAWES Scripting API. This allows specialized intelligence delegating tasks to more efficient micro-agents.</p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-4">
                   <span className="material-symbols-outlined text-primary mt-1">check_circle</span>
@@ -80,34 +76,34 @@ export default function RecursiveBotsPage() {
                     <span className="text-white/40 text-sm">Switch from GPT-4 to Llama-3 mid-workflow for cost-optimized subtasks.</span>
                   </div>
                 </li>
+                <li className="flex items-start gap-4">
+                  <span className="material-symbols-outlined text-primary mt-1">check_circle</span>
+                  <div>
+                    <span className="font-semibold text-white block">Memory Isolation</span>
+                    <span className="text-white/40 text-sm">Each spawned bot maintains its own memory context for task-focused reasoning.</span>
+                  </div>
+                </li>
               </ul>
             </div>
-            <div className="glass-card rounded-3xl p-1 bg-black/40 border border-white/10">
-              <div className="flex items-center gap-2 px-6 py-4 border-b border-white/10 bg-white/5">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-                </div>
-                <span className="text-xs text-white/40 ml-4">recursion_protocol.js</span>
+            <div className="glass-card p-8 rounded-2xl">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="material-symbols-outlined text-primary text-3xl">psychology</span>
+                <span className="text-white font-semibold">How Spawning Works</span>
               </div>
-              <pre className="p-8 text-sm text-white/70">
-                <span className="text-purple-400">const</span> orchestrator = WA.bot.init(<span className="text-orange-400">'parent_v1'</span>);{'\n\n'}
-                <span className="text-white/40">// Detect high-volume data request</span>{'\n'}
-                orchestrator.on(<span className="text-orange-400">'data_burst'</span>, <span className="text-purple-400">async</span> (event) =&gt; {'{'}{'\n'}
-                {'  '}<span className="text-white/40">// Spawn specialized worker bot</span>{'\n'}
-                {'  '}<span className="text-purple-400">const</span> worker = <span className="text-purple-400">await</span> WA.bot.spawn({{'{'}}{'\n'}
-                {'    '}behavior: <span className="text-orange-400">'data_processor'</span>,{'\n'}
-                {'    '}provider: {{'{'}}{'\n'}
-                {'      '}model: <span className="text-orange-400">'claude-3-haiku'</span>,{'\n'}
-                {'      '}temp: <span className="text-blue-300">0.2</span>{'\n'}
-                {'    '}{'}'},{'\n'}
-                {'    '}memory: event.context_id,{'\n'}
-                {'    '}instructions: <span className="text-orange-400">'Analyze logs and summarize.'</span>{'\n'}
-                {'  '});{'\n\n'}
-                {'  '}worker.send(<span className="text-orange-400">'Start processing batch_id: '</span> + event.id);{'\n'}
-                {'}'});
-              </pre>
+              <ol className="space-y-4 text-white/60 text-sm">
+                <li className="flex gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">1</span>
+                  <span>Parent bot detects a workload that can be delegated, such as a data burst or document analysis request.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">2</span>
+                  <span>Parent calls the spawn API with behavior definition, provider config, memory scope, and task instructions.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">3</span>
+                  <span>Child bot processes the assigned task independently and returns results to the parent when complete.</span>
+                </li>
+              </ol>
             </div>
           </div>
         </div>

@@ -98,7 +98,7 @@ export default function BotEditorPage() {
                 </div>
                 <div className="font-mono text-sm leading-relaxed text-white/80">
                   <div className="text-primary">Bot Editor v2.4</div>
-                  <div className="text-white/40 mt-2">// Visual configuration mode</div>
+                  <div className="text-white/40 mt-2">{'//'} Visual configuration mode</div>
                   <div className="mt-4 space-y-1">
                     <div><span className="text-primary">Behavior:</span> <span className="text-blue-400">Patrol</span></div>
                     <div><span className="text-primary">Personality:</span> <span className="text-blue-400">Friendly Guide</span></div>

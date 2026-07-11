@@ -18,6 +18,9 @@ export default function PlayAudioPage() {
           <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
             Configure areas to trigger audio files when someone walks in. Perfect for entrance music, announcement chimes, or ambient atmosphere.
           </p>
+          <p className="text-base text-white/40 max-w-2xl mx-auto mt-6">
+            The spatial audio engine dynamically processes zone-triggered sound with automatic culling, distance-based attenuation, and decentralized asset storage — keeping your soundscapes performant and persistent.
+          </p>
         </div>
       </section>
 
@@ -58,7 +61,7 @@ export default function PlayAudioPage() {
         </div>
       </section>
 
-      {/* Technical */}
+      {/* Technical - simple description without code */}
       <section className="relative z-10 py-24 px-4 bg-white/5">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -68,41 +71,35 @@ export default function PlayAudioPage() {
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full border border-primary/40 flex items-center justify-center text-primary font-bold text-xs">01</div>
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Culling & Optimization</h4>
-                    <p className="text-white/60 text-sm">Our engine only processes active audio sources within the user's vicinity, ensuring high performance even in crowded spaces.</p>
+                    <h4 className="font-semibold text-white mb-1">Culling and Optimization</h4>
+                    <p className="text-white/60 text-sm">The engine only processes active audio sources within the user vicinity, ensuring high performance even in crowded spaces.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full border border-primary/40 flex items-center justify-center text-primary font-bold text-xs">02</div>
                   <div>
                     <h4 className="font-semibold text-white mb-1">Spatial Attenuation</h4>
-                    <p className="text-white/60 text-sm">Volume and frequency response adjust dynamically based on the distance and orientation between the listener and the trigger zone.</p>
+                    <p className="text-white/60 text-sm">Volume and frequency response adjust dynamically based on distance and orientation between the listener and the trigger zone.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full border border-primary/40 flex items-center justify-center text-primary font-bold text-xs">03</div>
                   <div>
                     <h4 className="font-semibold text-white mb-1">Decentralized Storage</h4>
-                    <p className="text-white/60 text-sm">Audio assets are stored on decentralized protocols, guaranteeing that your soundscapes remain online and accessible forever.</p>
+                    <p className="text-white/60 text-sm">Audio assets are stored on decentralized protocols, guaranteeing that soundscapes remain online and accessible forever.</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="glass-card p-1 overflow-hidden rounded-3xl">
-              <div className="bg-black/40 rounded-2xl p-8">
-                <div className="font-mono text-xs text-primary/60 mb-6 flex justify-between items-center border-b border-white/5 pb-2">
-                  <span>// AUDIO_CORE_LOGIC.TS</span>
+            <div className="glass-card p-8 rounded-2xl">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="material-symbols-outlined text-primary text-4xl">spatial_audio</span>
+                <div>
+                  <h4 className="text-white font-semibold">Core Engine</h4>
+                  <p className="text-white/40 text-sm">Powered by Web Audio API</p>
                 </div>
-                <pre className="text-sm font-mono text-white/60">
-                  <span className="text-blue-400">const</span> <span className="text-primary">audioEngine</span> = <span className="text-blue-400">new</span> SpatialEngine();{'\n'}
-                  <span className="text-blue-400">audioEngine</span>.<span className="text-white">setZone</span>({{'{'}}{'\n'}
-                  {'  '}id: <span className="text-orange-400">"entrance_01"</span>,{'\n'}
-                  {'  '}trigger: <span className="text-orange-400">"on_entry"</span>,{'\n'}
-                  {'  '}file: <span className="text-orange-400">"ipfs://Qm...welcome.wav"</span>,{'\n'}
-                  {'  '}attenuation: <span className="text-orange-400">"linear"</span>{'\n'}
-                  {'}'});
-                </pre>
               </div>
+              <p className="text-white/60 text-sm">The spatial audio core initializes a dedicated AudioContext, manages zone triggers as spatial nodes, and applies distance-based gain and filter curves for natural 3D audio positioning. All configuration is handled through the BAWES editor interface — no code required.</p>
             </div>
           </div>
         </div>

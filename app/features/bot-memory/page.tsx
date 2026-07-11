@@ -88,7 +88,7 @@ export default function BotMemoryPage() {
                 {'}'});<br/>
                 <br/>
                 <span className="text-purple-400">if</span> (memory.length &gt; 0) {'{'}<br/>
-                {'  '}<span className="text-blue-300">// Bot recalls user's preference</span><br/>
+                {'  '}<span className="text-blue-300">{'//'} Bot recalls user's preference</span><br/>
                 {'  '}<span className="text-purple-400">return</span> `I remember you like $<span className="text-orange-300">{'{memory[0].value}'}</span>`;<br/>
                 {'}'}
               </pre>

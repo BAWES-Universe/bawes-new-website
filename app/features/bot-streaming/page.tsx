@@ -83,7 +83,7 @@ export default function BotStreamingPage() {
                 {'    '}bubble.append(token);{'\n'}
                 {'  '}{'}'},{'\n'}
                 {'}'});{'\n\n'}
-                <span className="text-white/40">// Each token appears in the bubble instantly</span>
+                <span className="text-white/40">{'//'} Each token appears in the bubble instantly</span>
               </pre>
             </div>
           </div>
