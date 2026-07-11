@@ -11,7 +11,7 @@
     font-family: 'Inter', sans-serif;
     background-color: #0a0814;
     color: #e7e0ed;
-    overflow-x: hidden;
+    overflow-x: hidden; overflow-y: auto;
   }
   ::selection {
     background-color: rgba(167,139,250,0.3);

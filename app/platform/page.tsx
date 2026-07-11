@@ -33,8 +33,8 @@ export default function Platform() {
         className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
       >
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/3 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-blue-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/3 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-purple-600/10 rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-4xl mx-auto text-center px-4">
@@ -97,7 +97,7 @@ export default function Platform() {
       {/* CTA */}
       <Section className="relative min-h-[40vh] flex items-center justify-center">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-blue-500/15 to-transparent rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-gradient-radial from-blue-500/15 to-transparent rounded-full blur-3xl" />
         </div>
 
         <div className="text-center">
