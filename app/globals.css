@@ -55,12 +55,13 @@
     position: fixed;
     pointer-events: none;
     z-index: 0;
+    border-radius: 50%;
   }
   .bg-orb-purple {
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(10, 10, 20, 0) 70%);
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(10, 10, 20, 0) 70%);
   }
   .bg-orb-blue {
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(10, 10, 20, 0) 70%);
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(10, 10, 20, 0) 70%);
   }
 
   /* MATERIAL SYMBOLS */
