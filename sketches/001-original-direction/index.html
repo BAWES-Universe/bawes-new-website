@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universe — Design Direction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: #0a0814;
+      color: rgba(255,255,255,0.8);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4 { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+
+    /* ─── ORBITAL BACKGROUNDS ─── */
+    .bg-orbital {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bg-orbital-1 {
+      width: 90vw;
+      height: 90vw;
+      top: -30%;
+      left: -20%;
+      background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
+      animation: orbit-drift 40s ease-in-out infinite alternate;
+    }
+    .bg-orbital-2 {
+      width: 70vw;
+      height: 70vw;
+      bottom: -20%;
+      right: -15%;
+      background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+      animation: orbit-drift 50s ease-in-out infinite alternate-reverse;
+    }
+    .bg-orbital-3 {
+      width: 50vw;
+      height: 50vw;
+      top: 40%;
+      left: 30%;
+      background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
+      animation: orbit-drift 35s ease-in-out infinite alternate;
+    }
+    @keyframes orbit-drift {
+      0% { transform: translate(0,0) scale(1); }
+      100% { transform: translate(60px, -40px) scale(1.1); }
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 32px;
+      background: rgba(10,8,20,0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(139,92,246,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo-mark {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #8b5cf6, #f59e0b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      color: #fff;
+    }
+    .nav-logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #fff;
+    }
+    .nav-logo-text span {
+      color: rgba(139,92,246,0.6);
+      font-weight: 400;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      padding: 8px 20px;
+      border-radius: 100px;
+      background: linear-gradient(135deg, #8b5cf6, #a855f7);
+      color: #fff !important;
+      font-weight: 600 !important;
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+    .nav-cta:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 30px rgba(139,92,246,0.3);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 32px 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+      gap: 60px;
+    }
+    .hero-left {
+      flex: 1;
+      max-width: 600px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px 6px 6px;
+      border-radius: 100px;
+      background: rgba(139,92,246,0.1);
+      border: 1px solid rgba(139,92,246,0.2);
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 32px;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; box-shadow: 0 0 6px rgba(34,197,94,0.5); }
+      50% { opacity: 0.6; box-shadow: 0 0 12px rgba(34,197,94,0.8); }
+    }
+    .hero h1 {
+      font-size: clamp(48px, 6vw, 80px);
+      line-height: 1.05;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+    .hero h1 .word-gradient {
+      background: linear-gradient(135deg, #a78bfa 0%, #f59e0b 50%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: shimmer 6s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%,100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.5);
+      max-width: 480px;
+      margin-bottom: 40px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-cta-primary {
+      padding: 14px 32px;
+      border-radius: 100px;
+      background: linear-gradient(135deg, #8b5cf6, #a855f7);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .hero-cta-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(139,92,246,0.35);
+    }
+    .hero-cta-secondary {
+      padding: 14px 32px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+    .hero-cta-secondary:hover {
+      border-color: rgba(255,255,255,0.3);
+      color: #fff;
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* ─── HERO VISUAL ─── */
+    .hero-right {
+      flex: 1.1;
+      position: relative;
+      min-height: 500px;
+    }
+    .hero-scene {
+      position: relative;
+      width: 100%;
+      padding-top: 75%;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(20,16,40,0.8), rgba(10,8,20,0.9));
+      border: 1px solid rgba(139,92,246,0.15);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    }
+    .scene-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .scene-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(139,92,246,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,92,246,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .scene-avatar {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      position: absolute;
+      transition: transform 0.1s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .scene-avatar-1 { top: 22%; left: 18%; background: linear-gradient(135deg, #7c3aed, #6d28d9); animation: float 6s ease-in-out infinite; }
+    .scene-avatar-2 { top: 35%; right: 20%; background: linear-gradient(135deg, #f59e0b, #d97706); animation: float 7s ease-in-out infinite 1s; }
+    .scene-avatar-3 { bottom: 28%; left: 30%; background: linear-gradient(135deg, #3b82f6, #2563eb); animation: float 5s ease-in-out infinite 0.5s; }
+    .scene-avatar-4 { top: 15%; right: 35%; background: linear-gradient(135deg, #10b981, #059669); animation: float 8s ease-in-out infinite 2s; }
+    .scene-avatar-5 { bottom: 20%; right: 15%; background: linear-gradient(135deg, #ec4899, #db2777); animation: float 6.5s ease-in-out infinite 1.5s; }
+    @keyframes float {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    .scene-bot-speech {
+      position: absolute;
+      bottom: 38%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(139,92,246,0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(139,92,246,0.2);
+      border-radius: 16px;
+      padding: 16px 24px;
+      max-width: 260px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      animation: fade-in-up 0.8s ease-out;
+    }
+    .scene-bot-speech::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid rgba(139,92,246,0.15);
+    }
+    .scene-bot-speech strong {
+      color: #a78bfa;
+    }
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    .scene-connection-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .scene-connection-lines svg {
+      width: 100%;
+      height: 100%;
+    }
+    .scene-glare {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 40%, rgba(139,92,246,0.04) 50%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 32px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: rgba(139,92,246,0.04);
+      border-top: 1px solid rgba(139,92,246,0.08);
+      border-bottom: 1px solid rgba(139,92,246,0.08);
+    }
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+    }
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #a78bfa, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 4px;
+    }
+
+    /* ─── SECTION ─── */
+    .section {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 32px;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(139,92,246,0.6);
+      margin-bottom: 20px;
+    }
+    .section-label::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: rgba(139,92,246,0.3);
+    }
+    .section-title {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      max-width: 600px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      max-width: 500px;
+      margin-bottom: 60px;
+    }
+
+    /* ─── BENTO GRID ─── */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .bento-card {
+      border-radius: 20px;
+      padding: 32px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .bento-card:hover {
+      background: rgba(139,92,246,0.06);
+      border-color: rgba(139,92,246,0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .bento-card-wide {
+      grid-column: span 2;
+    }
+    .bento-card-highlight {
+      background: linear-gradient(145deg, rgba(139,92,246,0.08), rgba(245,158,11,0.04));
+      border-color: rgba(139,92,246,0.15);
+    }
+    .bento-card-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    .bento-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .bento-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+    }
+    .bento-card-hover-content {
+      position: absolute;
+      bottom: -80px;
+      left: 32px;
+      right: 32px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #a78bfa;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    .bento-card:hover .bento-card-hover-content {
+      opacity: 1;
+      bottom: 28px;
+    }
+    .bento-card-hover-content .material-symbols-outlined {
+      font-size: 16px;
+      transition: transform 0.3s;
+    }
+    .bento-card:hover .bento-card-hover-content .material-symbols-outlined {
+      transform: translateX(4px);
+    }
+    .bento-card-image {
+      width: 100%;
+      height: 140px;
+      border-radius: 12px;
+      margin-top: 16px;
+      background: rgba(139,92,246,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .bento-card-image-inner {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(245,158,11,0.05));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      opacity: 0.6;
+    }
+    .mini-avatars {
+      display: flex;
+      gap: -4px;
+    }
+    .mini-avatar {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      border: 2px solid rgba(10,8,20,0.8);
+      margin-left: -6px;
+    }
+    .mini-avatar:first-child { margin-left: 0; }
+
+    /* ─── SHOWCASE ─── */
+    .showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .showcase-card {
+      border-radius: 20px;
+      padding: 48px 40px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.4s;
+    }
+    .showcase-card:hover {
+      background: rgba(139,92,246,0.05);
+      border-color: rgba(139,92,246,0.15);
+      transform: translateY(-3px);
+    }
+    .showcase-emoji {
+      font-size: 40px;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .showcase-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .showcase-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+    }
+    .showcase-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+    .tag-purple { background: rgba(139,92,246,0.15); color: #a78bfa; }
+    .tag-amber { background: rgba(245,158,11,0.15); color: #fbbf24; }
+    .tag-green { background: rgba(16,185,129,0.15); color: #34d399; }
+    .tag-blue { background: rgba(59,130,246,0.15); color: #93c5fd; }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 32px;
+      text-align: center;
+    }
+    .cta-card {
+      padding: 80px 40px;
+      border-radius: 32px;
+      background: linear-gradient(145deg, rgba(139,92,246,0.06), rgba(245,158,11,0.03));
+      border: 1px solid rgba(139,92,246,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-card-bg {
+      position: absolute;
+      width: 500px; height: 500px;
+      top: -200px; right: -100px;
+      background: radial-gradient(circle, rgba(139,92,246,0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .cta-card h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-card p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.45);
+      max-width: 480px;
+      margin: 0 auto 32px;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 32px 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    footer p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; gap: 40px; text-align: center; padding: 100px 24px 60px; }
+      .hero-left { max-width: 100%; }
+      .hero-sub { margin: 0 auto 32px; }
+      .hero-ctas { justify-content: center; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .bento { grid-template-columns: 1fr; }
+      .bento-card-wide { grid-column: span 1; }
+      .showcase { grid-template-columns: 1fr; }
+      .hero-right { min-height: 300px; }
+      nav { padding: 12px 20px; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: 1fr 1fr; gap: 0; }
+      .stat-item { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background -->
+  <div class="bg-orbital bg-orbital-1"></div>
+  <div class="bg-orbital bg-orbital-2"></div>
+  <div class="bg-orbital bg-orbital-3"></div>
+  <div class="noise"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-mark">U</div>
+      <div class="nav-logo-text">Universe <span>beta</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#">Features</a>
+      <a href="#">Use Cases</a>
+      <a href="#">Developers</a>
+      <a href="#">About</a>
+      <a href="#">Blog</a>
+      <a href="#" class="nav-cta">Enter the Universe</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Live with 10,000+ active rooms
+      </div>
+      <h1>
+        A world where<br>
+        <span class="word-gradient">people and AI</span><br>
+        actually live together.
+      </h1>
+      <p class="hero-sub">
+        Not a chat app. Not a game. Rooms where you walk in, see who's around, 
+        and talk naturally — with people and bots that have memories, feelings, 
+        and real tools to help.
+      </p>
+      <div class="hero-ctas">
+        <a href="#" class="hero-cta-primary">
+          Walk in now
+          <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+        </a>
+        <a href="#" class="hero-cta-secondary">See what's inside →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-scene">
+        <div class="scene-grid"></div>
+        <div class="scene-inner">
+          <!-- Connection lines -->
+          <div class="scene-connection-lines">
+            <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M80 66 C120 120, 180 80, 220 50" stroke="rgba(139,92,246,0.15)" stroke-width="1.5" fill="none" stroke-dasharray="4 4">
+                <animate attributeName="stroke-dashoffset" from="0" to="100" dur="8s" repeatCount="indefinite"/>
+              </path>
+              <path d="M320 105 C270 150, 200 160, 150 140" stroke="rgba(245,158,11,0.15)" stroke-width="1.5" fill="none" stroke-dasharray="4 4">
+                <animate attributeName="stroke-dashoffset" from="0" to="100" dur="6s" repeatCount="indefinite"/>
+              </path>
+              <path d="M120 210 C160 180, 200 190, 240 170" stroke="rgba(59,130,246,0.15)" stroke-width="1" fill="none" stroke-dasharray="3 3">
+                <animate attributeName="stroke-dashoffset" from="0" to="100" dur="10s" repeatCount="indefinite"/>
+              </path>
+            </svg>
+          </div>
+          <!-- Avatars -->
+          <div class="scene-avatar scene-avatar-1">👤</div>
+          <div class="scene-avatar scene-avatar-2">🤖</div>
+          <div class="scene-avatar scene-avatar-3">👥</div>
+          <div class="scene-avatar scene-avatar-4">🎨</div>
+          <div class="scene-avatar scene-avatar-5">💬</div>
+          <!-- Bot speech bubble -->
+          <div class="scene-bot-speech">
+            <strong>Hermes</strong> — Hey Khalid, I remember we were working on the landing page. Want me to show you the new designs?
+          </div>
+        </div>
+        <div class="scene-glare"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-number">10,000+</div>
+      <div class="stat-label">Active rooms</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">50,000+</div>
+      <div class="stat-label">Community members</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">1,000+</div>
+      <div class="stat-label">AI bots</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">80+</div>
+      <div class="stat-label">Open source repos</div>
+    </div>
+  </div>
+
+  <!-- What makes Universe different -->
+  <section class="section">
+    <div class="section-label">What makes it different</div>
+    <h2 class="section-title">Not a tool.<br>Not a game. A <em style="background: linear-gradient(135deg,#a78bfa,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal;">living space</em>.</h2>
+    <p class="section-sub">The rooms are social. The bots remember you. The world changes based on what you build.</p>
+    
+    <div class="bento">
+      <div class="bento-card bento-card-wide bento-card-highlight">
+        <div class="bento-card-icon" style="background: rgba(139,92,246,0.15);">
+          <span class="material-symbols-outlined" style="color:#a78bfa">spatial_audio</span>
+        </div>
+        <h3>Walk in, hear people</h3>
+        <p>Proximity voice activates when you're near someone. Walk closer — hear them better. Step away — fade out. Meeting rooms, auditoriums, and quiet zones all have real spatial audio.</p>
+        <div class="bento-card-image">
+          <div class="bento-card-image-inner">
+            <div class="mini-avatars">
+              <div class="mini-avatar" style="background:linear-gradient(135deg,#7c3aed,#6d28d9)">👤</div>
+              <div class="mini-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706)">🤖</div>
+              <div class="mini-avatar" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">👥</div>
+              <div class="mini-avatar" style="background:linear-gradient(135deg,#10b981,#059669)">💬</div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-card-hover-content">
+          Explore proximity chat <span class="material-symbols-outlined">arrow_forward</span>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-card-icon" style="background: rgba(245,158,11,0.15);">
+          <span class="material-symbols-outlined" style="color:#fbbf24">psychology</span>
+        </div>
+        <h3>Bots with memory</h3>
+        <p>They remember your name, what you talked about last time, your preferences. Walk up to a bot — it greets you like an old friend.</p>
+        <div class="bento-card-hover-content">
+          See bot features <span class="material-symbols-outlined">arrow_forward</span>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-card-icon" style="background: rgba(59,130,246,0.15);">
+          <span class="material-symbols-outlined" style="color:#93c5fd">edit_square</span>
+        </div>
+        <h3>Edit the world live</h3>
+        <p>Drag a map tile, place an entity, change the lighting — all without leaving the room. The world updates for everyone instantly.</p>
+        <div class="bento-card-hover-content">
+          Explore build tools <span class="material-symbols-outlined">arrow_forward</span>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-card-icon" style="background: rgba(16,185,129,0.15);">
+          <span class="material-symbols-outlined" style="color:#34d399">device_hub</span>
+        </div>
+        <h3>Bots build bots</h3>
+        <p>Drop a bot into a room. Give it tools. Let it spawn other bots with their own personalities. Self-architecting AI systems inside your space.</p>
+        <div class="bento-card-hover-content">
+          Learn about recursive bots <span class="material-symbols-outlined">arrow_forward</span>
+        </div>
+      </div>
+
+      <div class="bento-card bento-card-wide">
+        <div class="bento-card-icon" style="background: rgba(139,92,246,0.15);">
+          <span class="material-symbols-outlined" style="color:#a78bfa">code</span>
+        </div>
+        <h3>Built in the open. MIT license.</h3>
+        <p>80+ repos. Fork of WorkAdventure. You can host it, modify it, redistribute it — it's yours. We don't lock you in.</p>
+        <div class="bento-card-hover-content">
+          View on GitHub <span class="material-symbols-outlined">arrow_forward</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What people build -->
+  <section class="section">
+    <div class="section-label">What people build</div>
+    <h2 class="section-title">Universes for work,<br>school, and play.</h2>
+    <p class="section-sub">Companies, classrooms, communities, and creators are already building their own worlds.</p>
+
+    <div class="showcase">
+      <div class="showcase-card">
+        <span class="showcase-emoji">🏢</span>
+        <h3>Company Universe</h3>
+        <p>Team rooms, focus pods, standup bots, and a watercooler that actually works. Distributed teams feel like they're in the same building.</p>
+        <span class="showcase-tag tag-purple">For Work</span>
+      </div>
+      <div class="showcase-card">
+        <span class="showcase-emoji">🎓</span>
+        <h3>Campus Universe</h3>
+        <p>Lecture halls, study groups, AI teaching assistants available 24/7. Walk into a professor's virtual office without scheduling.</p>
+        <span class="showcase-tag tag-amber">For Learning</span>
+      </div>
+      <div class="showcase-card">
+        <span class="showcase-emoji">🎮</span>
+        <h3>Community Universe</h3>
+        <p>Event halls, gaming rooms, welcome bots that greet every new member by name. Your community's digital home.</p>
+        <span class="showcase-tag tag-green">For Community</span>
+      </div>
+      <div class="showcase-card">
+        <span class="showcase-emoji">🌐</span>
+        <h3>Conference Universe</h3>
+        <p>Sponsor rooms, networking zones, main stages for thousands. Virtual events that don't feel like a video call.</p>
+        <span class="showcase-tag tag-blue">For Events</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-card">
+      <div class="cta-card-bg"></div>
+      <h2>Step into a universe<br>that's waiting for you.</h2>
+      <p>No credit card. No commitment. Build, invite, and watch your world come alive.</p>
+      <div class="cta-buttons">
+        <a href="#" class="hero-cta-primary">
+          Enter the Universe
+          <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+        </a>
+        <a href="#" class="hero-cta-secondary">Talk to us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 BAWES Universe. Open by default.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">GitHub</a>
+      <a href="#">Discord</a>
+    </div>
+  </footer>
+
+</body>
+</html>
