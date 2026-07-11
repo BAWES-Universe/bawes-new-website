@@ -87,21 +87,18 @@ export default function OpenSourcePage() {
       </Section>
 
       <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-gradient-radial from-accent-purple/15 to-transparent rounded-full blur-3xl" />
-        </div>
         <div className="text-center">
-          <motion.p
-            className="text-2xl md:text-3xl font-bold text-white mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Code with us
-          </motion.p>
-          <Button href="/about" size="lg">
-            Back to About
-          </Button>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Built in the open.</h2>
+          <p className="text-sm text-text-muted mb-8">Every line of code is yours to see, fork, and improve.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="gradient-cta text-white px-8 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200">
+              <span className="material-symbols-outlined text-lg">code</span>
+              View on GitHub
+            </a>
+            <Link href="/features-overview" className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
+              Explore features
+            </Link>
+          </div>
         </div>
       </Section>
     </div>
