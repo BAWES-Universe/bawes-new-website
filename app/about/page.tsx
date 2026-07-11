@@ -80,14 +80,14 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="bento-card h-full pb-14"
+                className="bento-card h-full"
               >
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(167,139,250,0.12)' }}>
                   <span className="material-symbols-outlined text-xl text-accent-purple">{feature.icon}</span>
                 </div>
                 <h3 className="font-headline-card text-headline-card text-white mb-2">{feature.title}</h3>
                 <p className="text-sm text-text-muted leading-relaxed">{feature.description}</p>
-                <div className="bento-card-hover-cta">
+                <div className="bento-card-arrow">
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
                   Learn more
                 </div>

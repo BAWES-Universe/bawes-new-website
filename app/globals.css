@@ -97,6 +97,7 @@
   .bento-card {
     border-radius: 20px;
     padding: 2rem;
+    padding-bottom: 3.5rem;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
     backdrop-filter: blur(12px);
@@ -115,23 +116,27 @@
     background: linear-gradient(145deg, rgba(139,92,246,0.08), rgba(245,158,11,0.04));
     border-color: rgba(139,92,246,0.15);
   }
-  .bento-card-hover-cta {
+  .bento-card-arrow {
     position: absolute;
-    bottom: -80px;
-    left: 2rem;
-    right: 2rem;
+    bottom: 1.25rem;
+    right: 1.5rem;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
+    gap: 6px;
+    font-size: 12px;
     font-weight: 500;
     color: #a78bfa;
-    opacity: 0;
     transition: all 0.3s;
   }
-  .bento-card:hover .bento-card-hover-cta {
-    opacity: 1;
-    bottom: 1.75rem;
+  .bento-card:hover .bento-card-arrow {
+    gap: 10px;
+  }
+  .bento-card-arrow .material-symbols-outlined {
+    font-size: 16px;
+    transition: transform 0.3s;
+  }
+  .bento-card:hover .bento-card-arrow .material-symbols-outlined {
+    transform: translateX(4px);
   }
 
   /* ─── MATERIAL SYMBOLS ─── */

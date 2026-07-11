@@ -145,7 +145,7 @@ function Bentocard({ icon, iconColor, title, desc, href, wide, highlight }: {
         </div>
         <h3 className="font-headline-card text-headline-card text-white mb-2">{title}</h3>
         <p className="text-sm text-text-muted leading-relaxed">{desc}</p>
-        <div className="bento-card-hover-cta">
+        <div className="bento-card-arrow">
           Learn more <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
         </div>
       </motion.div>
