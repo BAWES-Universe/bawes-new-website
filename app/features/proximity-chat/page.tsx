@@ -4,11 +4,6 @@ import Link from 'next/link'
 export default function ProximityChatPage() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Background Orbs */}
-      <div className="bg-orb bg-orb-purple top-[-10%] left-[-10%] w-[500px] h-[500px]" />
-      <div className="bg-orb bg-orb-purple bottom-[-10%] right-[-10%] w-[600px] h-[600px]" />
-      <div className="bg-orb bg-orb-blue top-1/3 right-1/4 w-[400px] h-[400px]" />
-
       {/* Hero Section */}
       <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">

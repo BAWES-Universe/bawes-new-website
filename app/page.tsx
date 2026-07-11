@@ -146,7 +146,7 @@ const useCaseCards = [
 export default function Home() {
   return (
     <div className="relative bg-[#0a0a14]">
-      {/* ─── Fixed background orbs ─── */}
+      {/* ─── Blurred background orbs ─── */}
       <div className="bg-orb bg-orb-purple w-[600px] h-[600px] top-[-200px] right-[-200px]" />
       <div className="bg-orb bg-orb-blue w-[500px] h-[500px] bottom-[20%] left-[-150px]" />
       <div className="bg-orb bg-orb-purple w-[400px] h-[400px] top-[40%] left-[10%]" />

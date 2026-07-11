@@ -5,11 +5,7 @@ export default function OrbitOperatorPage() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
       {/* Background Orbs */}
-      <div className="bg-orb bg-orb-purple top-[-10%] left-[-10%] w-[500px] h-[500px]" />
-      <div className="bg-orb bg-orb-purple bottom-[-10%] right-[-10%] w-[600px] h-[600px]" />
-      <div className="bg-orb bg-orb-blue top-1/3 right-1/4 w-[400px] h-[400px]" />
-
-      {/* Hero Section */}
+            {/* Hero Section */}
       <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
