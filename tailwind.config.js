@@ -80,13 +80,13 @@ module.exports = {
       },
       spacing: {
         'section-padding-v': '100px',
-        'container-max': '1200px',
+        'container-max': '1280px',
         'gutter': '24px',
         'margin-mobile': '16px',
         'card-padding': '2rem',
       },
       maxWidth: {
-        'container-max': '1200px',
+        'container-max': '1280px',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

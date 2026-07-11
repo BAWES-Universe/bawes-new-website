@@ -180,7 +180,7 @@ export default function Home() {
     <div className="relative z-10">
 
       {/* ═══ 1. HERO ═══ */}
-      <section className="max-w-[1400px] mx-auto pt-32 md:pt-40 pb-20 px-4 md:px-8 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+      <section className="max-w-7xl mx-auto pt-32 md:pt-40 pb-20 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10 md:gap-16">
         <div className="flex-1 max-w-[600px]">
           {/* Badge */}
           <motion.div
@@ -244,7 +244,7 @@ export default function Home() {
 
       {/* ═══ 2. STATS ═══ */}
       <div className="border-y border-[rgba(139,92,246,0.08)] bg-[rgba(139,92,246,0.03)]">
-        <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0">
           {stats.map((stat) => (
             <motion.div
               key={stat.label}
@@ -302,7 +302,7 @@ export default function Home() {
       </Section>
 
       {/* ═══ 5. CTA ═══ */}
-      <Section className="pb-32">
+      <Section className="!pb-32">
         <motion.div
           {...fadeUp(0)}
           className="relative rounded-[32px] p-12 md:p-20 text-center overflow-hidden"
