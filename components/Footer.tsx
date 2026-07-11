@@ -80,8 +80,9 @@ export default function Footer() {
                     { label: 'How It Works', href: '/how-it-works' },
                   ].map((item) => (
                     <li key={item.label}>
-                      <Link href={item.href} className="text-white/50 hover:text-purple-400 transition-colors text-sm">
+                      <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
                         {item.label}
+                        <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
                       </Link>
                     </li>
                   ))}
@@ -100,12 +101,14 @@ export default function Footer() {
                   ].map((item) => (
                     <li key={item.label}>
                       {item.external ? (
-                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-blue-400 transition-colors text-sm">
+                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1.5 text-white/50 hover:text-blue-400 transition-colors text-sm">
                           {item.label}
+                          <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-blue-400 transition-all duration-200">open_in_new</span>
                         </a>
                       ) : (
-                        <Link href={item.href} className="text-white/50 hover:text-blue-400 transition-colors text-sm">
+                        <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-blue-400 transition-colors text-sm">
                           {item.label}
+                          <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
                         </Link>
                       )}
                     </li>
@@ -123,8 +126,9 @@ export default function Footer() {
                     { label: 'Legal', href: '/legal' },
                   ].map((item) => (
                     <li key={item.label}>
-                      <Link href={item.href} className="text-white/50 hover:text-purple-400 transition-colors text-sm">
+                      <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
                         {item.label}
+                        <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
                       </Link>
                     </li>
                   ))}
@@ -140,12 +144,14 @@ export default function Footer() {
               © {new Date().getFullYear()} BAWES Universe. Open by default.
             </p>
             <div className="flex items-center gap-3 text-xs text-white/30">
-              <Link href="/terms-of-use" className="hover:text-white/50 transition-colors">
+              <Link href="/terms-of-use" className="group inline-flex items-center gap-1 hover:text-white/50 transition-colors">
                 Terms of Use
+                <span className="material-symbols-outlined text-[12px] text-white/20 group-hover:text-white/50 transition-colors">chevron_right</span>
               </Link>
               <span className="text-white/20">•</span>
-              <Link href="/privacy-policy" className="hover:text-white/50 transition-colors">
+              <Link href="/privacy-policy" className="group inline-flex items-center gap-1 hover:text-white/50 transition-colors">
                 Privacy Policy
+                <span className="material-symbols-outlined text-[12px] text-white/20 group-hover:text-white/50 transition-colors">chevron_right</span>
               </Link>
             </div>
           </div>

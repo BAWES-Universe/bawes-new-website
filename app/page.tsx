@@ -196,7 +196,7 @@ export default function Home() {
             {...fadeUp(0.05)}
             className="font-display text-5xl md:text-7xl lg:text-[80px] leading-[1.05] font-bold text-white mb-6 tracking-[-0.03em]"
           >
-            A world where<br />
+            A Universe where<br />
             <span className="bg-[length:200%_200%] animate-shimmer bg-clip-text text-transparent"
               style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa 0%, #f59e0b 50%, #a78bfa 100%)' }}>
               people and AI

@@ -204,6 +204,51 @@
   .tag-green { background: rgba(16,185,129,0.15); color: #34d399; }
   .tag-blue { background: rgba(59,130,246,0.15); color: #93c5fd; }
 
+  /* ─── CLICKABLE CARD ARROW (always visible) ─── */
+  .card-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #a78bfa;
+    margin-top: auto;
+    transition: gap 0.3s;
+    pointer-events: none;
+  }
+  .card-arrow .material-symbols-outlined {
+    font-size: 14px;
+    transition: transform 0.3s;
+  }
+  .glass-card:hover .card-arrow .material-symbols-outlined {
+    transform: translateX(4px);
+  }
+  .glass-card:hover .card-arrow {
+    gap: 10px;
+  }
+  .glass-card.is-hovered .card-arrow .material-symbols-outlined {
+    transform: translateX(4px);
+  }
+  .glass-card.is-hovered .card-arrow {
+    gap: 10px;
+  }
+
+  /* ─── NON-CLICKABLE INFO CARD ─── */
+  .info-card {
+    border-radius: 20px;
+    padding: 2rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.04);
+    backdrop-filter: blur(12px);
+  }
+  .info-card .card-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(167,139,250,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
   /* ─── HOVER STYLES — APPLIED TO DESKTOP (real hover) AND MOBILE (via JS touch class) ─── */
   .bento-card.is-hovered {
     background: rgba(139,92,246,0.06);
