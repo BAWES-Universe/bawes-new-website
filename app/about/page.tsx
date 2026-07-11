@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
+import Link from 'next/link'
 import Section from '@/components/Section'
 import Button from '@/components/ui/Button'
 
@@ -12,6 +13,17 @@ const features = [
   { title: 'Legal', icon: '⚖️', description: 'Terms of service, privacy policy, and legal framework for the platform.', isEmoji: true },
   { title: 'Contact', icon: '✉️', description: 'Get in touch with the team for support, partnerships, or general inquiries.', isEmoji: true },
 ]
+
+const featureSlugs: Record<string, string> = {
+  'The Team': '/team',
+  'Manifesto': '/manifesto',
+  'Open Source': '/open-source',
+  'MCP Integration': '/mcp-integration',
+  'WorkAdventure Fork': '/workadventure-fork',
+  'The Empty Seat': '/empty-seat',
+  'How It Works': '/how-it-works',
+  'Legal': '/legal',
+}
 
 export default function About() {
   const heroRef = useRef(null)
@@ -65,13 +77,13 @@ export default function About() {
         <div className="max-w-5xl mx-auto">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, i) => (
+              <Link key={feature.title} href={featureSlugs[feature.title] || '#'}>
               <motion.div
-                key={feature.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-default"
+                className="glass-card rounded-2xl p-6 hover-lift group cursor-pointer"
               >
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300`}>
                   {feature.isEmoji ? (
@@ -85,6 +97,7 @@ export default function About() {
                 <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
                 <p className="text-sm text-white/60 leading-relaxed">{feature.description}</p>
               </motion.div>
+              </Link>
             ))}
           </div>
         </div>

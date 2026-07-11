@@ -34,38 +34,48 @@ interface IconCardProps {
   icon: string
   title: string
   desc: string
+  href: string
   iconBg?: string
   link?: string
 }
 
-function IconCard({ icon, title, desc, iconBg = 'bg-orb-purple', link = 'Learn more' }: IconCardProps) {
+function IconCard({ icon, title, desc, href, iconBg = 'bg-orb-purple', link = 'Learn more' }: IconCardProps) {
   return (
-    <motion.div
-      {...fadeUp(0.05)}
-      className="glass-card rounded-2xl p-card-padding hover-lift group relative overflow-hidden"
-    >
-      <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ background: iconBg === 'bg-orb-purple' ? 'rgba(139,92,246,0.15)' : 'rgba(59,130,246,0.15)' }}>
-        <span className="material-symbols-outlined text-2xl text-primary">{icon}</span>
-      </div>
-      <h3 className="font-headline-card text-headline-card text-white mb-3">{title}</h3>
-      <p className="font-body-md text-body-md text-text-secondary mb-5">{desc}</p>
-      <Link href="#" className="font-label-navigation text-label-navigation text-primary hover:underline">
-        {link} →
-      </Link>
-    </motion.div>
+    <Link href={href} className="block group">
+      <motion.div
+        {...fadeUp(0.05)}
+        className="glass-card rounded-2xl p-card-padding hover-lift group/card relative overflow-hidden cursor-pointer"
+      >
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ background: iconBg === 'bg-orb-purple' ? 'rgba(139,92,246,0.15)' : 'rgba(59,130,246,0.15)' }}>
+          <span className="material-symbols-outlined text-2xl text-primary">{icon}</span>
+        </div>
+        <h3 className="font-headline-card text-headline-card text-white mb-3 group-hover/card:text-transparent group-hover/card:bg-clip-text group-hover/card:bg-gradient-to-r group-hover/card:from-purple-300 group-hover/card:to-blue-300 transition-all">{title}</h3>
+        <p className="font-body-md text-body-md text-text-secondary mb-5">{desc}</p>
+        <span className="font-label-navigation text-label-navigation text-primary">{link} →</span>
+      </motion.div>
+    </Link>
   )
 }
 
-function SimpleCard({ icon, title, desc }: { icon: string; title: string; desc: string }) {
+interface SimpleCardProps {
+  icon: string
+  title: string
+  desc: string
+  href: string
+}
+
+function SimpleCard({ icon, title, desc, href }: SimpleCardProps) {
   return (
-    <motion.div
-      {...fadeUp(0.05)}
-      className="glass-card rounded-2xl p-card-padding hover-lift group text-center"
-    >
-      <span className="material-symbols-outlined text-3xl text-primary mb-4 block">{icon}</span>
-      <h3 className="font-headline-card text-headline-card text-white mb-3">{title}</h3>
-      <p className="font-body-md text-body-md text-text-secondary">{desc}</p>
-    </motion.div>
+    <Link href={href} className="block group">
+      <motion.div
+        {...fadeUp(0.05)}
+        className="glass-card rounded-2xl p-card-padding hover-lift group/card text-center cursor-pointer"
+      >
+        <span className="material-symbols-outlined text-3xl text-primary mb-4 block group-hover/card:text-transparent group-hover/card:bg-clip-text group-hover/card:bg-gradient-to-r group-hover/card:from-purple-300 group-hover/card:to-blue-300 transition-all">{icon}</span>
+        <h3 className="font-headline-card text-headline-card text-white mb-3">{title}</h3>
+        <p className="font-body-md text-body-md text-text-secondary">{desc}</p>
+      </motion.div>
+    </Link>
   )
 }
 
@@ -83,50 +93,50 @@ const stats = [
    Communication cards data
    ────────────────────────────────────────────── */
 const communicationCards = [
-  { icon: 'spatial_audio', title: 'Proximity Chat', desc: 'Hear people as you move closer. Walk away and their voice fades — just like real life.', iconBg: 'bg-orb-purple' },
-  { icon: 'chat', title: 'Text Chat', desc: 'Instant messaging in rooms, direct messages, and group conversations.', iconBg: 'bg-orb-blue' },
-  { icon: 'hub', title: 'Matrix Chat', desc: 'Federated chat that bridges Matrix communities directly into your room.', iconBg: 'bg-orb-purple' },
-  { icon: 'campaign', title: 'Megaphone', desc: 'Broadcast announcements to everyone in a world or to specific zones.', iconBg: 'bg-orb-blue' },
-  { icon: 'video_chat', title: 'Meeting Rooms', desc: 'Private and public video rooms with screen sharing and recording.', iconBg: 'bg-orb-purple' },
-  { icon: 'present_to_all', title: 'Screen Sharing', desc: 'Share your screen with anyone in the room — no separate app needed.', iconBg: 'bg-orb-blue' },
-  { icon: 'podcasts', title: 'Broadcasting & Events', desc: 'Stream live events, presentations, and performances to thousands.', iconBg: 'bg-orb-purple' },
-  { icon: 'music_note', title: 'Play Audio', desc: 'Play music, sound effects, or ambient audio that everyone in the room hears.', iconBg: 'bg-orb-blue' },
+  { icon: 'spatial_audio', title: 'Proximity Chat', desc: 'Hear people as you move closer. Walk away and their voice fades — just like real life.', href: '/features/proximity-chat', iconBg: 'bg-orb-purple' },
+  { icon: 'chat', title: 'Text Chat', desc: 'Instant messaging in rooms, direct messages, and group conversations.', href: '/features/text-chat', iconBg: 'bg-orb-blue' },
+  { icon: 'hub', title: 'Matrix Chat', desc: 'Federated chat that bridges Matrix communities directly into your room.', href: '/features/matrix-chat', iconBg: 'bg-orb-purple' },
+  { icon: 'campaign', title: 'Megaphone', desc: 'Broadcast announcements to everyone in a world or to specific zones.', href: '/features/megaphone', iconBg: 'bg-orb-blue' },
+  { icon: 'video_chat', title: 'Meeting Rooms', desc: 'Private and public video rooms with screen sharing and recording.', href: '/features/meeting-rooms', iconBg: 'bg-orb-purple' },
+  { icon: 'present_to_all', title: 'Screen Sharing', desc: 'Share your screen with anyone in the room — no separate app needed.', href: '/features/screen-sharing', iconBg: 'bg-orb-blue' },
+  { icon: 'podcasts', title: 'Broadcasting & Events', desc: 'Stream live events, presentations, and performances to thousands.', href: '/features/broadcasting', iconBg: 'bg-orb-purple' },
+  { icon: 'music_note', title: 'Play Audio', desc: 'Play music, sound effects, or ambient audio that everyone in the room hears.', href: '/features/play-audio', iconBg: 'bg-orb-blue' },
 ]
 
 /* ──────────────────────────────────────────────
    AI Bots cards data
    ────────────────────────────────────────────── */
 const aiBotsCards = [
-  { icon: 'psychology', title: 'Watch Them Think', desc: 'See their reasoning in real-time as they process your requests and context.', iconBg: 'bg-orb-purple' },
-  { icon: 'memory', title: 'They Remember You', desc: 'Past conversations, preferences, and relationships persist across sessions.', iconBg: 'bg-orb-blue' },
-  { icon: 'favorite', title: 'They Have Feelings', desc: 'Moods, personality, and emotional states that evolve through interaction.', iconBg: 'bg-orb-purple' },
-  { icon: 'waving_hand', title: 'They Greet You', desc: 'Bots recognize when you enter a room and initiate natural conversation.', iconBg: 'bg-orb-blue' },
-  { icon: 'handyman', title: 'They Do Things', desc: 'Bots can execute actions: moderate, welcome, guide, automate workflows.', iconBg: 'bg-orb-purple' },
-  { icon: 'settings', title: 'Choose Their Brain', desc: 'Swap AI providers — OpenAI, Anthropic, local models, or custom inference.', iconBg: 'bg-orb-blue' },
-  { icon: 'device_hub', title: 'Bots Build Bots', desc: 'Authorized bots can spawn and manage other bots to distribute tasks.', iconBg: 'bg-orb-purple' },
-  { icon: 'edit', title: 'Place Them Anywhere', desc: 'Drag bots into any room, world, or zone. Each placement changes their context.', iconBg: 'bg-orb-blue' },
+  { icon: 'psychology', title: 'Watch Them Think', desc: 'See their reasoning in real-time as they process your requests and context.', href: '/features/bot-streaming', iconBg: 'bg-orb-purple' },
+  { icon: 'memory', title: 'They Remember You', desc: 'Past conversations, preferences, and relationships persist across sessions.', href: '/features/bot-memory', iconBg: 'bg-orb-blue' },
+  { icon: 'favorite', title: 'They Have Feelings', desc: 'Moods, personality, and emotional states that evolve through interaction.', href: '/features/bot-emotions', iconBg: 'bg-orb-purple' },
+  { icon: 'waving_hand', title: 'They Greet You', desc: 'Bots recognize when you enter a room and initiate natural conversation.', href: '/features/bot-greetings', iconBg: 'bg-orb-blue' },
+  { icon: 'handyman', title: 'They Do Things', desc: 'Bots can execute actions: moderate, welcome, guide, automate workflows.', href: '/features/bot-behaviors', iconBg: 'bg-orb-purple' },
+  { icon: 'settings', title: 'Choose Their Brain', desc: 'Swap AI providers — OpenAI, Anthropic, local models, or custom inference.', href: '/features/bot-provider-config', iconBg: 'bg-orb-blue' },
+  { icon: 'device_hub', title: 'Bots Build Bots', desc: 'Authorized bots can spawn and manage other bots to distribute tasks.', href: '/features/recursive-bots', iconBg: 'bg-orb-purple' },
+  { icon: 'edit', title: 'Place Them Anywhere', desc: 'Drag bots into any room, world, or zone. Each placement changes their context.', href: '/features/bot-editor', iconBg: 'bg-orb-blue' },
 ]
 
 /* ──────────────────────────────────────────────
    Build tools cards data
    ────────────────────────────────────────────── */
 const buildToolsCards = [
-  { icon: 'map', title: 'Maps & Templates', desc: 'Start from a blank canvas or remix community templates.' },
-  { icon: 'edit_square', title: 'Inline Map Editor', desc: 'Edit maps live — draw walls, place objects, change terrain in real-time.' },
-  { icon: 'widgets', title: 'Area Zones', desc: 'Define interactive zones that trigger actions when people walk through them.' },
-  { icon: 'view_in_ar', title: 'Entity Editor', desc: 'Place and configure entities: doors, portals, signs, objects, and scripts.' },
-  { icon: 'code', title: 'Scripting API', desc: 'Full scripting API for custom behaviors, game logic, and integrations.' },
-  { icon: 'near_me', title: 'Teleport & Portals', desc: 'Link rooms and worlds with teleporters, portals, and navigation hubs.' },
+  { icon: 'map', title: 'Maps & Templates', desc: 'Start from a blank canvas or remix community templates.', href: '/features/maps', link: 'Explore maps' },
+  { icon: 'edit_square', title: 'Inline Map Editor', desc: 'Edit maps live — draw walls, place objects, change terrain in real-time.', href: '/features/map-editor', link: 'Try the editor' },
+  { icon: 'widgets', title: 'Area Zones', desc: 'Define interactive zones that trigger actions when people walk through them.', href: '/features/area-zones', link: 'Learn about zones' },
+  { icon: 'view_in_ar', title: 'Entity Editor', desc: 'Place and configure entities: doors, portals, signs, objects, and scripts.', href: '/features/entity-editor', link: 'Edit entities' },
+  { icon: 'code', title: 'Scripting API', desc: 'Full scripting API for custom behaviors, game logic, and integrations.', href: '/features/scripting', link: 'Read the docs' },
+  { icon: 'near_me', title: 'Teleport & Portals', desc: 'Link rooms and worlds with teleporters, portals, and navigation hubs.', href: '/features/teleport', link: 'Set up portals' },
 ]
 
 /* ──────────────────────────────────────────────
    What people build data
    ────────────────────────────────────────────── */
 const useCaseCards = [
-  { icon: 'work', title: 'Work', desc: 'Team spaces, focus rooms, spontaneous collaboration, real execution.' },
-  { icon: 'school', title: 'Learning', desc: 'Personal study rooms, group learning, mentorship, digital campuses.' },
-  { icon: 'diversity_3', title: 'Community', desc: 'Hangouts, gaming groups, events, casual meetups.' },
-  { icon: 'store', title: 'Commerce', desc: 'Shops, services, and marketplaces embedded into shared spaces.' },
+  { icon: 'work', title: 'Work', desc: 'Team spaces, focus rooms, spontaneous collaboration, real execution.', href: '/use-cases/work' },
+  { icon: 'school', title: 'Learning', desc: 'Personal study rooms, group learning, mentorship, digital campuses.', href: '/use-cases/learning' },
+  { icon: 'diversity_3', title: 'Community', desc: 'Hangouts, gaming groups, events, casual meetups.', href: '/use-cases/community' },
+  { icon: 'store', title: 'Commerce', desc: 'Shops, services, and marketplaces embedded into shared spaces.', href: '/market' },
 ]
 
 /* ══════════════════════════════════════════════
@@ -178,13 +188,13 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-20"
           >
             <Link
-              href="#"
+              href="/communication"
               className="primary-gradient neon-glow-purple text-white px-8 py-4 rounded-full font-headline-card hover:scale-105 transition-all inline-block"
             >
               Explore the Universe
             </Link>
             <Link
-              href="#"
+              href="/features-overview"
               className="glass-card border-white/30 text-white font-headline-card px-8 py-4 rounded-full hover:bg-white/10 transition-all inline-block"
             >
               See what&apos;s inside
@@ -215,7 +225,7 @@ export default function Home() {
           <p className="font-body-md text-body-md text-text-secondary mb-6 leading-relaxed">
             Universe is a shared digital environment built from rooms and worlds. People move through spaces, see who&apos;s around, and interact naturally — no app switching, no context loss. AI bots live alongside humans, portals connect distant worlds, and everything is open for you to build on.
           </p>
-          <Link href="#" className="font-label-navigation text-label-navigation text-primary hover:underline inline-block mt-4">
+          <Link href="/build" className="font-label-navigation text-label-navigation text-primary hover:underline inline-block mt-4">
             Explore what you can build →
           </Link>
         </motion.div>
@@ -232,7 +242,7 @@ export default function Home() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link href="#" className="font-label-navigation text-label-navigation text-primary hover:underline">
+          <Link href="/communication" className="font-label-navigation text-label-navigation text-primary hover:underline">
             See all communication features →
           </Link>
         </div>
@@ -249,7 +259,7 @@ export default function Home() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link href="#" className="font-label-navigation text-label-navigation text-primary hover:underline">
+          <Link href="/ai-bots" className="font-label-navigation text-label-navigation text-primary hover:underline">
             See all bot features →
           </Link>
         </div>
@@ -266,7 +276,7 @@ export default function Home() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link href="#" className="font-label-navigation text-label-navigation text-primary hover:underline">
+          <Link href="/build" className="font-label-navigation text-label-navigation text-primary hover:underline">
             See all build tools →
           </Link>
         </div>
@@ -296,12 +306,14 @@ export default function Home() {
           <p className="font-body-md text-body-md text-text-secondary mb-8">
             Released under the MIT license. A fork of WorkAdventure. 80+ open source repositories spanning maps, bots, infrastructure, SDKs, and tooling.
           </p>
-          <Link
-            href="#"
+          <a
+            href="https://github.com/BAWES-Universe"
+            target="_blank"
+            rel="noopener noreferrer"
             className="primary-gradient neon-glow-purple text-white px-8 py-4 rounded-full font-headline-card hover:scale-105 transition-all inline-block"
           >
             View on GitHub
-          </Link>
+          </a>
         </motion.div>
       </SectionWrapper>
 
@@ -314,13 +326,13 @@ export default function Home() {
           <p className="font-body-md text-body-md text-text-secondary mb-10">No credit card required.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="#"
+              href="/communication"
               className="primary-gradient neon-glow-purple text-white px-8 py-4 rounded-full font-headline-card hover:scale-105 transition-all"
             >
               Explore the Universe
             </Link>
             <Link
-              href="#"
+              href="/contact"
               className="glass-card border border-purple/30 text-white font-headline-card px-8 py-4 rounded-full hover:bg-white/10 transition-all"
             >
               Talk to us

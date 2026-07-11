@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
+import Link from 'next/link'
 import Section from '@/components/Section'
 import Button from '@/components/ui/Button'
 
@@ -17,6 +18,19 @@ const features = [
   { title: 'Recursive Bots', icon: 'device_hub', description: 'Bots that spawn and coordinate other bots for complex tasks.' },
   { title: 'Bot Editor', icon: 'edit', description: 'Visual editor to create, tweak, and manage your bot fleet.' },
 ]
+
+const featureSlugs: Record<string, string> = {
+  'Bot Avatars': '/features/bot-avatars',
+  'Bot Greetings': '/features/bot-greetings',
+  'Bot Editor': '/features/bot-editor',
+  'Bot Emotions': '/features/bot-emotions',
+  'Bot Memory': '/features/bot-memory',
+  'Bot Behaviors': '/features/bot-behaviors',
+  'Bot Tool Calling': '/features/bot-tools',
+  'Bot Provider Config': '/features/bot-provider-config',
+  'Bot Streaming Chat': '/features/bot-streaming',
+  'Recursive Bots': '/features/recursive-bots',
+}
 
 export default function AiBots() {
   const heroRef = useRef(null)
@@ -88,13 +102,13 @@ export default function AiBots() {
         <div className="max-w-7xl mx-auto">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {features.map((feature, i) => (
+              <Link key={feature.title} href={featureSlugs[feature.title]}>
               <motion.div
-                key={feature.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="glass-card rounded-2xl p-6 hover-lift group cursor-default"
+                className="glass-card rounded-2xl p-6 hover-lift group cursor-pointer"
               >
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all duration-300">
                   <span className="material-symbols-outlined text-2xl text-purple-300">
@@ -104,6 +118,7 @@ export default function AiBots() {
                 <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
                 <p className="text-sm text-white/60 leading-relaxed">{feature.description}</p>
               </motion.div>
+              </Link>
             ))}
           </div>
         </div>
