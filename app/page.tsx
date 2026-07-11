@@ -1,332 +1,333 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import Image from 'next/image'
-import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
-import { captureCtaClick } from '@/lib/posthog'
-import Hero from '@/components/Hero'
-import EnterUniverseButton from '@/components/EnterUniverseButton'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
 
-const FeatureCard = ({ emoji, title, description, color, delay = 0 }: {
-  emoji: string
+/* ──────────────────────────────────────────────
+   Reusable sub-components
+   ────────────────────────────────────────────── */
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6, delay },
+})
+
+function SectionWrapper({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  return (
+    <section className={`py-section-padding-v px-gutter ${className}`}>
+      <div className="max-w-container-max mx-auto">{children}</div>
+    </section>
+  )
+}
+
+function SectionHeader({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  return (
+    <h2 className={`font-headline-section text-headline-section text-on-surface text-center mb-16 ${className}`}>
+      {children}
+    </h2>
+  )
+}
+
+interface IconCardProps {
+  icon: string
   title: string
-  description: string
-  color: string
-  delay?: number
-}) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  desc: string
+  iconBg?: string
+  link?: string
+}
 
+function IconCard({ icon, title, desc, iconBg = 'bg-orb-purple', link = 'Learn more' }: IconCardProps) {
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.6, delay }}
-      whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className={`relative p-8 rounded-2xl glass-card hover:border-${color}/40 transition-all duration-500 group overflow-hidden`}
+      {...fadeUp(0.05)}
+      className="glass-card rounded-2xl p-card-padding hover-lift group relative overflow-hidden"
     >
-      {/* Gradient background on hover */}
-      <div className={`absolute inset-0 bg-gradient-to-br from-${color}/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-      
-      <div className="relative z-10">
-        <motion.div 
-          className="text-5xl mb-6"
-          whileHover={{ scale: 1.2, rotate: 10 }}
-          transition={{ type: 'spring', stiffness: 400 }}
-        >
-          {emoji}
-        </motion.div>
-        <h3 className="text-2xl font-bold mb-4 text-white">{title}</h3>
-        <p className="text-white/60 leading-relaxed">{description}</p>
+      <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ background: iconBg === 'bg-orb-purple' ? 'rgba(139,92,246,0.15)' : 'rgba(59,130,246,0.15)' }}>
+        <span className="material-symbols-outlined text-2xl text-primary">{icon}</span>
       </div>
+      <h3 className="font-headline-card text-headline-card text-white mb-3">{title}</h3>
+      <p className="font-body-md text-body-md text-text-secondary mb-5">{desc}</p>
+      <Link href="#" className="font-label-navigation text-label-navigation text-primary hover:underline">
+        {link} →
+      </Link>
     </motion.div>
   )
 }
 
+function SimpleCard({ icon, title, desc }: { icon: string; title: string; desc: string }) {
+  return (
+    <motion.div
+      {...fadeUp(0.05)}
+      className="glass-card rounded-2xl p-card-padding hover-lift group text-center"
+    >
+      <span className="material-symbols-outlined text-3xl text-primary mb-4 block">{icon}</span>
+      <h3 className="font-headline-card text-headline-card text-white mb-3">{title}</h3>
+      <p className="font-body-md text-body-md text-text-secondary">{desc}</p>
+    </motion.div>
+  )
+}
+
+/* ──────────────────────────────────────────────
+   Stats bar data
+   ────────────────────────────────────────────── */
+const stats = [
+  { number: '10,000+', label: 'Active Rooms' },
+  { number: '50,000+', label: 'Community Members' },
+  { number: '1,000+', label: 'AI Bots' },
+  { number: '80+', label: 'Open Source Repos' },
+]
+
+/* ──────────────────────────────────────────────
+   Communication cards data
+   ────────────────────────────────────────────── */
+const communicationCards = [
+  { icon: 'spatial_audio', title: 'Proximity Chat', desc: 'Hear people as you move closer. Walk away and their voice fades — just like real life.', iconBg: 'bg-orb-purple' },
+  { icon: 'chat', title: 'Text Chat', desc: 'Instant messaging in rooms, direct messages, and group conversations.', iconBg: 'bg-orb-blue' },
+  { icon: 'hub', title: 'Matrix Chat', desc: 'Federated chat that bridges Matrix communities directly into your room.', iconBg: 'bg-orb-purple' },
+  { icon: 'campaign', title: 'Megaphone', desc: 'Broadcast announcements to everyone in a world or to specific zones.', iconBg: 'bg-orb-blue' },
+  { icon: 'video_chat', title: 'Meeting Rooms', desc: 'Private and public video rooms with screen sharing and recording.', iconBg: 'bg-orb-purple' },
+  { icon: 'present_to_all', title: 'Screen Sharing', desc: 'Share your screen with anyone in the room — no separate app needed.', iconBg: 'bg-orb-blue' },
+  { icon: 'podcasts', title: 'Broadcasting & Events', desc: 'Stream live events, presentations, and performances to thousands.', iconBg: 'bg-orb-purple' },
+  { icon: 'music_note', title: 'Play Audio', desc: 'Play music, sound effects, or ambient audio that everyone in the room hears.', iconBg: 'bg-orb-blue' },
+]
+
+/* ──────────────────────────────────────────────
+   AI Bots cards data
+   ────────────────────────────────────────────── */
+const aiBotsCards = [
+  { icon: 'psychology', title: 'Watch Them Think', desc: 'See their reasoning in real-time as they process your requests and context.', iconBg: 'bg-orb-purple' },
+  { icon: 'memory', title: 'They Remember You', desc: 'Past conversations, preferences, and relationships persist across sessions.', iconBg: 'bg-orb-blue' },
+  { icon: 'favorite', title: 'They Have Feelings', desc: 'Moods, personality, and emotional states that evolve through interaction.', iconBg: 'bg-orb-purple' },
+  { icon: 'waving_hand', title: 'They Greet You', desc: 'Bots recognize when you enter a room and initiate natural conversation.', iconBg: 'bg-orb-blue' },
+  { icon: 'handyman', title: 'They Do Things', desc: 'Bots can execute actions: moderate, welcome, guide, automate workflows.', iconBg: 'bg-orb-purple' },
+  { icon: 'settings', title: 'Choose Their Brain', desc: 'Swap AI providers — OpenAI, Anthropic, local models, or custom inference.', iconBg: 'bg-orb-blue' },
+  { icon: 'device_hub', title: 'Bots Build Bots', desc: 'Authorized bots can spawn and manage other bots to distribute tasks.', iconBg: 'bg-orb-purple' },
+  { icon: 'edit', title: 'Place Them Anywhere', desc: 'Drag bots into any room, world, or zone. Each placement changes their context.', iconBg: 'bg-orb-blue' },
+]
+
+/* ──────────────────────────────────────────────
+   Build tools cards data
+   ────────────────────────────────────────────── */
+const buildToolsCards = [
+  { icon: 'map', title: 'Maps & Templates', desc: 'Start from a blank canvas or remix community templates.' },
+  { icon: 'edit_square', title: 'Inline Map Editor', desc: 'Edit maps live — draw walls, place objects, change terrain in real-time.' },
+  { icon: 'widgets', title: 'Area Zones', desc: 'Define interactive zones that trigger actions when people walk through them.' },
+  { icon: 'view_in_ar', title: 'Entity Editor', desc: 'Place and configure entities: doors, portals, signs, objects, and scripts.' },
+  { icon: 'code', title: 'Scripting API', desc: 'Full scripting API for custom behaviors, game logic, and integrations.' },
+  { icon: 'near_me', title: 'Teleport & Portals', desc: 'Link rooms and worlds with teleporters, portals, and navigation hubs.' },
+]
+
+/* ──────────────────────────────────────────────
+   What people build data
+   ────────────────────────────────────────────── */
+const useCaseCards = [
+  { icon: 'work', title: 'Work', desc: 'Team spaces, focus rooms, spontaneous collaboration, real execution.' },
+  { icon: 'school', title: 'Learning', desc: 'Personal study rooms, group learning, mentorship, digital campuses.' },
+  { icon: 'diversity_3', title: 'Community', desc: 'Hangouts, gaming groups, events, casual meetups.' },
+  { icon: 'store', title: 'Commerce', desc: 'Shops, services, and marketplaces embedded into shared spaces.' },
+]
+
+/* ══════════════════════════════════════════════
+   PAGE COMPONENT
+   ══════════════════════════════════════════════ */
+
 export default function Home() {
   return (
-    <div>
-      <Hero />
+    <div className="relative bg-[#0a0a14]">
+      {/* ─── Fixed background orbs ─── */}
+      <div className="bg-orb bg-orb-purple w-[600px] h-[600px] top-[-200px] right-[-200px]" />
+      <div className="bg-orb bg-orb-blue w-[500px] h-[500px] bottom-[20%] left-[-150px]" />
+      <div className="bg-orb bg-orb-purple w-[400px] h-[400px] top-[40%] left-[10%]" />
 
-      {/* What is Universe? */}
-      <Section id="universe" className="relative">
-        {/* Background decoration */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-bawes-gold/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-bawes-orange/5 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center">
+      {/* ═══════════════════════════════════════
+         1. HERO
+         ═══════════════════════════════════════ */}
+      <section className="min-h-screen flex flex-col justify-center items-center px-gutter relative z-10">
+        <div className="max-w-container-max mx-auto text-center">
+          {/* Badge pill */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-block mb-6 p-3 bg-gradient-to-r from-bawes-gold/20 via-bawes-red/20 to-bawes-orange/20 rounded-2xl backdrop-blur-sm border border-white/10"
+            {...fadeUp(0)}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-purple/20 text-sm font-label-navigation text-text-secondary mb-8"
           >
-            <div className="w-14 h-14 relative">
-              <Image 
-                src="/images/bawes-logo.png" 
-                alt="BAWES" 
-                fill 
-                className="object-contain"
-              />
-            </div>
+            <span className="material-symbols-outlined text-base">rocket</span>
+            <span>Platform 06 — Open Beta</span>
           </motion.div>
-          
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            What is <span className="bawes-gradient-text">Universe</span>?
-          </h2>
-          
-          <div className="space-y-6 text-lg md:text-xl text-white/70 leading-relaxed">
-            <p>
-              Universe is a shared digital environment made of <span className="text-bawes-gold font-semibold">spaces</span>, not apps or pages.
-            </p>
-            <p>
-              People move through rooms and worlds, see who&apos;s around, and work together naturally, whether they&apos;re collaborating, studying, building, shopping, or just hanging out.
-            </p>
-          </div>
-          
-          <div className="mt-12 p-8 glass-card rounded-2xl">
-            <p className="text-2xl md:text-3xl font-semibold text-white mb-4">
-              You don&apos;t switch tools.
-            </p>
-            <p className="text-2xl md:text-3xl font-semibold bawes-gradient-text">
-              The space adapts to what you&apos;re doing.
-            </p>
-          </div>
-        </div>
-      </Section>
 
-      {/* What people use it for */}
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern -z-10" />
-        
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            What people use it for
-          </h2>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto">
-            Universe adapts to different modes of activity without forcing context switches.
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <FeatureCard
-            emoji="🤝"
-            title="Work"
-            description="Team spaces, focus rooms, spontaneous collaboration, real execution."
-            color="bawes-gold"
-            delay={0}
-          />
-          <FeatureCard
-            emoji="📚"
-            title="Learning"
-            description="Personal study rooms, group learning, mentorship, digital campuses."
-            color="bawes-red"
-            delay={0.1}
-          />
-          <FeatureCard
-            emoji="🛍️"
-            title="Commerce"
-            description="Shops, services, and marketplaces embedded into shared spaces, connected to real-world tools."
-            color="bawes-orange"
-            delay={0.2}
-          />
-          <FeatureCard
-            emoji="🎮"
-            title="Community"
-            description="Hangouts, gaming groups, events, casual meetups."
-            color="bawes-gold"
-            delay={0.3}
-          />
-        </div>
-      </Section>
-
-      {/* Shared markets & commerce */}
-      <Section className="relative">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-radial from-bawes-gold/10 to-transparent" />
-        </div>
-        
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            Shared markets & <span className="bawes-gradient-text">commerce</span>
-          </h2>
-          
-          <p className="text-xl text-white/70 mb-6 leading-relaxed">
-            Universe supports shared market experiences where people discover products, services, and opportunities together, not in isolation.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <div className="p-6 glass-card rounded-xl text-left">
-              <p className="text-lg text-white/80 mb-2 font-semibold">Commerce is tool-agnostic.</p>
-              <p className="text-white/60">
-                Shops and marketplaces can connect to whatever stack fits: Shopify, custom systems, booking tools, or existing infrastructure.
-              </p>
-            </div>
-            <div className="p-6 glass-card rounded-xl text-left">
-              <p className="text-lg text-white/80 mb-2 font-semibold">BAWES helps design and integrate</p>
-              <p className="text-white/60">
-                these experiences when needed. We don&apos;t just provide tools; we help you build.
-              </p>
-            </div>
-          </div>
-          
-          <Button href="/market" variant="secondary">
-            Learn about markets in Universe
-          </Button>
-        </div>
-      </Section>
-
-      {/* Get help when you need it */}
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 noise-overlay" />
-        
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            Get help when you need it
-          </h2>
-          
-          <p className="text-xl text-white/70 mb-8 leading-relaxed">
-            You can ask the Universe for help (guidance, people, or execution), and your request is routed to the right place.
-          </p>
-          
-          <div className="space-y-4 mb-12">
-            <motion.p 
-              className="text-3xl font-bold text-white"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              Real humans.
-            </motion.p>
-            <motion.p 
-              className="text-3xl font-bold text-white"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              Real work.
-            </motion.p>
-            <motion.p 
-              className="text-3xl font-bold bawes-gradient-text"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              Real progress.
-            </motion.p>
-          </div>
-          
-          <div className="p-8 glass-card rounded-2xl border border-bawes-gold/20">
-            <p className="text-lg text-white/70 mb-4">
-              Universe doesn&apos;t promise answers to everything.
-            </p>
-            <p className="text-xl font-semibold text-white">
-              It promises a <span className="bawes-gradient-text">path forward</span> for anything.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* Work with Universe Components */}
-      <Section className="relative">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-bawes-gold/30 to-transparent" />
-        </div>
-        
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Work with <span className="bawes-gradient-text">Universe Components</span>
-          </h2>
-          <p className="text-xl text-white/70 mb-4">
-            Universe is built from modular components that work together seamlessly.
-          </p>
-          <p className="text-lg text-white/50 mb-12">
-            Each component serves a specific purpose while integrating naturally with the broader ecosystem.
-          </p>
-          <Button href="/work">
-            Explore components
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Button>
-        </div>
-      </Section>
-
-      {/* Open by default */}
-      <Section className="relative">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Open by <span className="bawes-gradient-text">default</span>
-          </h2>
-          <p className="text-xl text-white/70 mb-12">
-            BAWES operates in the open.
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {['Open-source projects', 'Public community', 'Transparent systems'].map((item, i) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-6 glass-card rounded-xl"
-              >
-                <p className="text-lg font-semibold text-white">{item}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* Closing CTA */}
-      <Section className="relative min-h-[60vh] flex items-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-bawes-gold/10 via-bawes-red/5 to-transparent rounded-full blur-3xl" />
-        </div>
-        
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h2 
-            className="text-4xl md:text-6xl font-bold mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          {/* Headline */}
+          <motion.h1
+            {...fadeUp(0.1)}
+            className="font-display-hero text-display-hero text-white mb-6"
           >
-            You don&apos;t need to understand everything to start.
-          </motion.h2>
-          <motion.p 
-            className="text-2xl text-white/70 mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            Enter the{' '}
+            <span className="text-gradient">Universe</span>
+          </motion.h1>
+
+          {/* Sub */}
+          <motion.p
+            {...fadeUp(0.2)}
+            className="font-body-md text-body-md text-text-secondary max-w-2xl mx-auto mb-12"
           >
-            You just need a place where things <span className="bawes-gradient-text font-semibold">move forward</span>.
+            Walk into rooms full of people. Real-time voice and video. AI that remembers you. Build anything, go anywhere.
           </motion.p>
-          
+
+          {/* Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            {...fadeUp(0.3)}
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-20"
           >
-            <EnterUniverseButton source="bottom-cta">
-              Enter the Universe
-            </EnterUniverseButton>
-            <Button href="/contact" variant="secondary" size="lg" onClick={() => captureCtaClick('Talk to us', 'bottom-cta')}>
-              Talk to us
-            </Button>
+            <Link
+              href="#"
+              className="primary-gradient neon-glow-purple text-white px-8 py-4 rounded-full font-headline-card hover:scale-105 transition-all inline-block"
+            >
+              Explore the Universe
+            </Link>
+            <Link
+              href="#"
+              className="glass-card border-white/30 text-white font-headline-card px-8 py-4 rounded-full hover:bg-white/10 transition-all inline-block"
+            >
+              See what&apos;s inside
+            </Link>
+          </motion.div>
+
+          {/* Stats bar */}
+          <motion.div
+            {...fadeUp(0.4)}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-8 border-t border-divider pt-12"
+          >
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="font-headline-section text-headline-section text-white">{stat.number}</p>
+                <p className="font-label-navigation text-label-navigation text-text-low-emphasis mt-1">{stat.label}</p>
+              </div>
+            ))}
           </motion.div>
         </div>
-      </Section>
+      </section>
+
+      {/* ═══════════════════════════════════════
+         2. WHAT IS UNIVERSE
+         ═══════════════════════════════════════ */}
+      <SectionWrapper>
+        <motion.div {...fadeUp(0)} className="text-center max-w-3xl mx-auto">
+          <SectionHeader>What is Universe?</SectionHeader>
+          <p className="font-body-md text-body-md text-text-secondary mb-6 leading-relaxed">
+            Universe is a shared digital environment built from rooms and worlds. People move through spaces, see who&apos;s around, and interact naturally — no app switching, no context loss. AI bots live alongside humans, portals connect distant worlds, and everything is open for you to build on.
+          </p>
+          <Link href="#" className="font-label-navigation text-label-navigation text-primary hover:underline inline-block mt-4">
+            Explore what you can build →
+          </Link>
+        </motion.div>
+      </SectionWrapper>
+
+      {/* ═══════════════════════════════════════
+         3. COMMUNICATION
+         ═══════════════════════════════════════ */}
+      <SectionWrapper>
+        <SectionHeader>Walk in. See who&apos;s around. Talk naturally.</SectionHeader>
+        <div className="grid md:grid-cols-2 gap-6">
+          {communicationCards.map((card) => (
+            <IconCard key={card.title} {...card} />
+          ))}
+        </div>
+        <div className="text-center mt-12">
+          <Link href="#" className="font-label-navigation text-label-navigation text-primary hover:underline">
+            See all communication features →
+          </Link>
+        </div>
+      </SectionWrapper>
+
+      {/* ═══════════════════════════════════════
+         4. AI BOTS
+         ═══════════════════════════════════════ */}
+      <SectionWrapper>
+        <SectionHeader>AI that actually lives here.</SectionHeader>
+        <div className="grid md:grid-cols-2 gap-6">
+          {aiBotsCards.map((card) => (
+            <IconCard key={card.title} {...card} />
+          ))}
+        </div>
+        <div className="text-center mt-12">
+          <Link href="#" className="font-label-navigation text-label-navigation text-primary hover:underline">
+            See all bot features →
+          </Link>
+        </div>
+      </SectionWrapper>
+
+      {/* ═══════════════════════════════════════
+         5. BUILD TOOLS
+         ═══════════════════════════════════════ */}
+      <SectionWrapper>
+        <SectionHeader>Build anything. Change anything.</SectionHeader>
+        <div className="grid md:grid-cols-3 gap-6">
+          {buildToolsCards.map((card) => (
+            <IconCard key={card.title} {...card} />
+          ))}
+        </div>
+        <div className="text-center mt-12">
+          <Link href="#" className="font-label-navigation text-label-navigation text-primary hover:underline">
+            See all build tools →
+          </Link>
+        </div>
+      </SectionWrapper>
+
+      {/* ═══════════════════════════════════════
+         6. WHAT PEOPLE BUILD
+         ═══════════════════════════════════════ */}
+      <SectionWrapper>
+        <SectionHeader>What people build</SectionHeader>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {useCaseCards.map((card) => (
+            <SimpleCard key={card.title} {...card} />
+          ))}
+        </div>
+      </SectionWrapper>
+
+      {/* ═══════════════════════════════════════
+         7. OPEN SOURCE
+         ═══════════════════════════════════════ */}
+      <SectionWrapper>
+        <motion.div {...fadeUp(0)} className="text-center max-w-2xl mx-auto">
+          <div className="w-20 h-20 rounded-full bg-orb-purple flex items-center justify-center mx-auto mb-8">
+            <span className="material-symbols-outlined text-4xl text-primary">code</span>
+          </div>
+          <h2 className="font-headline-section text-headline-section text-white mb-6">Built in the open.</h2>
+          <p className="font-body-md text-body-md text-text-secondary mb-8">
+            Released under the MIT license. A fork of WorkAdventure. 80+ open source repositories spanning maps, bots, infrastructure, SDKs, and tooling.
+          </p>
+          <Link
+            href="#"
+            className="primary-gradient neon-glow-purple text-white px-8 py-4 rounded-full font-headline-card hover:scale-105 transition-all inline-block"
+          >
+            View on GitHub
+          </Link>
+        </motion.div>
+      </SectionWrapper>
+
+      {/* ═══════════════════════════════════════
+         8. FREE TO START
+         ═══════════════════════════════════════ */}
+      <SectionWrapper className="pb-24">
+        <motion.div {...fadeUp(0)} className="text-center max-w-2xl mx-auto">
+          <h2 className="font-headline-section text-headline-section text-white mb-4">Free to explore. Free to build.</h2>
+          <p className="font-body-md text-body-md text-text-secondary mb-10">No credit card required.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="#"
+              className="primary-gradient neon-glow-purple text-white px-8 py-4 rounded-full font-headline-card hover:scale-105 transition-all"
+            >
+              Explore the Universe
+            </Link>
+            <Link
+              href="#"
+              className="glass-card border border-purple/30 text-white font-headline-card px-8 py-4 rounded-full hover:bg-white/10 transition-all"
+            >
+              Talk to us
+            </Link>
+          </div>
+        </motion.div>
+      </SectionWrapper>
     </div>
   )
 }

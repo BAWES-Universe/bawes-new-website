@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,52 +9,53 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-        },
-        // BAWES brand colors
-        bawes: {
-          gold: '#9F7E2F',
-          brown: '#5C4A1F',
-          red: '#F03E2F',
-          orange: '#F7941D',
-        },
+        'surface-tint': '#d0bcff',
+        'on-surface': '#e7e0ed',
+        'border-purple': 'rgba(139, 92, 246, 0.2)',
+        'background': '#15121b',
+        'orb-purple': 'rgba(139, 92, 246, 0.15)',
+        'orb-blue': 'rgba(59, 130, 246, 0.1)',
+        'primary': '#d0bcff',
+        'primary-container': '#a078ff',
+        'on-primary': '#3c0091',
+        'secondary': '#adc6ff',
+        'secondary-container': '#0566d9',
+        'tertiary': '#ffb869',
+        'tertiary-container': '#ca801e',
+        'text-secondary': 'rgba(255, 255, 255, 0.7)',
+        'text-low-emphasis': 'rgba(255, 255, 255, 0.4)',
+        'divider': 'rgba(255, 255, 255, 0.06)',
+        'surface-glass': 'rgba(255, 255, 255, 0.04)',
+        'background-page': '#0a0a14',
+        'surface': '#15121b',
+        'surface-dim': '#15121b',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        'display-hero': ['Inter'],
+        'headline-section': ['Inter'],
+        'headline-card': ['Inter'],
+        'body-md': ['Inter'],
+        'label-navigation': ['Inter'],
+        'caption': ['Inter'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
-      keyframes: {
-        'fade-in': {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        'slide-up': {
-          '0%': { transform: 'translateY(100%)' },
-          '100%': { transform: 'translateY(0)' },
-        },
-        'slide-down': {
-          '0%': { transform: 'translateY(-100%)' },
-          '100%': { transform: 'translateY(0)' },
-        },
-        'float': {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
+      fontSize: {
+        'display-hero': ['64px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'headline-section': ['40px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'headline-card': ['24px', { lineHeight: '1.2', letterSpacing: '0', fontWeight: '600' }],
+        'body-md': ['16px', { lineHeight: '1.6', letterSpacing: '0', fontWeight: '400' }],
+        'label-navigation': ['14px', { lineHeight: '1.4', letterSpacing: '0.02em', fontWeight: '600' }],
+        'caption': ['12px', { lineHeight: '1.4', letterSpacing: '0', fontWeight: '400' }],
       },
-      animation: {
-        'fade-in': 'fade-in 0.6s ease-out',
-        'slide-up': 'slide-up 0.6s ease-out',
-        'slide-down': 'slide-down 0.6s ease-out',
-        'float': 'float 3s ease-in-out infinite',
+      spacing: {
+        'section-padding-v': '90px',
+        'container-max': '1200px',
+        'gutter': '24px',
+        'margin-mobile': '16px',
+        'card-padding': '2rem',
+      },
+      maxWidth: {
+        'container-max': '1200px',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -62,4 +64,3 @@ module.exports = {
   },
   plugins: [],
 }
-

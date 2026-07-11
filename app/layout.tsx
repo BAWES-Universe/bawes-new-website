@@ -7,31 +7,21 @@ import PostHogProvider from '@/components/PostHogProvider'
 import PostHogPageView from '@/components/PostHogPageView'
 
 export const metadata: Metadata = {
-  title: 'BAWES Universe - Build Your Own Universe',
-  description: 'We are not building an app. We are building a universe. A fully integrated, people-first universe designed to help you think, act, build, and grow.',
-  keywords: ['BAWES', 'Universe', 'digital environments', 'collaboration', 'spaces', 'build your own universe'],
+  title: 'BAWES Universe — Build Your Own Universe',
+  description: 'Build and explore shared digital environments where people, AI agents, and communities work, learn, and connect in real time.',
+  keywords: ['BAWES', 'Universe', 'digital environments', 'collaboration', 'spaces', 'AI bots', 'virtual worlds'],
   authors: [{ name: 'BAWES' }],
-  icons: {
-    icon: '/images/bawes-logo.png',
-    apple: '/images/bawes-logo.png',
-  },
+  icons: { icon: '/images/bawes-logo.png', apple: '/images/bawes-logo.png' },
   openGraph: {
-    title: 'BAWES Universe - Build Your Own Universe',
-    description: 'We are not building an app. We are building a universe.',
+    title: 'BAWES Universe — Build Your Own Universe',
+    description: 'Build and explore shared digital environments where people, AI agents, and communities work, learn, and connect.',
     type: 'website',
-    images: [
-      {
-        url: '/images/enter-univ.png',
-        width: 1200,
-        height: 630,
-        alt: 'BAWES Universe',
-      },
-    ],
+    images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BAWES Universe - Build Your Own Universe',
-    description: 'We are not building an app. We are building a universe.',
+    title: 'BAWES Universe — Build Your Own Universe',
+    description: 'Build and explore shared digital environments where people, AI agents, and communities work, learn, and connect.',
     images: ['/images/enter-univ.png'],
   },
 }
@@ -42,29 +32,20 @@ export const viewport: Viewport = {
   maximumScale: 5,
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark" style={{ width: '100%', margin: 0, padding: 0 }}>
+    <html lang="en" className="dark">
       <head>
         <link rel="icon" href="/images/bawes-logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/images/bawes-logo.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </head>
-      <body className="bg-[#0a0a0a] text-white antialiased" style={{ width: '100%', margin: 0, padding: 0 }}>
+      <body className="bg-[#0a0a14] text-[#e7e0ed] antialiased">
         <PostHogProvider>
           <Suspense fallback={null}>
             <PostHogPageView />
           </Suspense>
           <Navigation />
-          <main className="min-h-screen" style={{ width: '100%' }}>
-            {children}
-          </main>
+          <main className="min-h-screen">{children}</main>
           <Footer />
         </PostHogProvider>
       </body>
