@@ -160,7 +160,7 @@ function ShowcaseCard({ emoji, title, desc, tag, tagColor, href }: {
     <Link href={href}>
       <motion.div
         {...fadeUp(0.05)}
-        className="rounded-bento p-10 md:p-12 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] hover:bg-[rgba(139,92,246,0.05)] hover:border-accent/15 hover:-translate-y-1 transition-all duration-400"
+        className="rounded-bento p-10 md:p-12 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] active:bg-[rgba(139,92,246,0.08)] transition-all duration-400"
       >
         <span className="text-4xl mb-6 block">{emoji}</span>
         <h3 className="font-headline-card text-headline-card text-white mb-2">{title}</h3>

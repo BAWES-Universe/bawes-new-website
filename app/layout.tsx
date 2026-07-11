@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Suspense } from 'react'
 import './globals.css'
 import Navigation from '@/components/Navigation'
+import TouchHoverHandler from '@/components/TouchHoverHandler'
 import Footer from '@/components/Footer'
 import PostHogProvider from '@/components/PostHogProvider'
 import PostHogPageView from '@/components/PostHogPageView'
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Suspense fallback={null}>
             <PostHogPageView />
           </Suspense>
+          <TouchHoverHandler />
           <Navigation />
           <main className="min-h-screen">{children}</main>
           <Footer />
