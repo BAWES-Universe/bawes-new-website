@@ -17,7 +17,7 @@ const stats = [
 const features = [
   {
     icon: 'spatial_audio', iconColor: '#a78bfa', title: 'Walk in, meet people',
-    desc: 'Voice and video activate when you are near someone — walk closer, see and hear them better. Meeting rooms, auditoriums, quiet zones — spatial presence that feels real.',
+    desc: 'Walk up to start talking, walk away for privacy. Audio fades with distance naturally. Step into a meeting room for face-to-face video and screen sharing — all without scheduling a call.',
     href: '/features/proximity-chat', wide: true, highlight: true,
   },
   {
