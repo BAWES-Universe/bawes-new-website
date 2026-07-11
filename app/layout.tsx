@@ -46,9 +46,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-surface text-on-surface antialiased relative min-h-screen">
         <div className="noise-overlay" />
-        <div className="bg-orb bg-orb-purple w-[90vw] h-[90vw] top-[-30%] left-[-20%]" />
-        <div className="bg-orb bg-orb-amber w-[70vw] h-[70vw] bottom-[-20%] right-[-15%]" style={{ animationDuration: '50s', animationDirection: 'alternate-reverse' }} />
-        <div className="bg-orb bg-orb-purple w-[50vw] h-[50vw] top-[40%] left-[30%]" style={{ animationDuration: '35s' }} />
+        <div className="bg-orb bg-orb-purple w-[min(90vw,500px)] h-[min(90vw,500px)] top-[-30%] left-[-20%]" />
+        <div className="bg-orb bg-orb-amber w-[min(70vw,400px)] h-[min(70vw,400px)] bottom-[-20%] right-[-15%]" style={{ animationDuration: '50s', animationDirection: 'alternate-reverse' }} />
+        <div className="bg-orb bg-orb-purple w-[min(50vw,350px)] h-[min(50vw,350px)] top-[40%] left-[30%]" style={{ animationDuration: '35s' }} />
         <PostHogProvider>
           <Suspense fallback={null}>
             <PostHogPageView />
