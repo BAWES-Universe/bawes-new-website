@@ -16,12 +16,7 @@ export default function WokaAvatarsPage() {
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
               <span className="text-caption font-label-navigation text-on-surface-variant">V2.0 Avatar Engine Live</span>
             </div>
-            <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span>/</span>
-          <span className="text-primary">Woka Avatars</span>
-        </div>
-        <h1 className="font-display-hero text-display-hero mb-6 text-on-surface">
+            <h1 className="font-display-hero text-display-hero mb-6 text-on-surface">
               Pixel Art. <br />
               <span className="text-gradient">Infinite Personalities.</span>
             </h1>

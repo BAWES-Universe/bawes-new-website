@@ -8,6 +8,14 @@ import Link from 'next/link';
 export default function OidcAuthPage() {
   return (
     <main className="relative z-10 pt-32">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">OIDC Auth</span>
+        </div>
+      </div>
       {/* Hero Section */}
       <Section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
         <div className="space-y-8">
@@ -15,12 +23,7 @@ export default function OidcAuthPage() {
             <span className="material-symbols-outlined text-primary text-[18px]">verified_user</span>
             <span className="font-caption text-caption uppercase tracking-widest text-primary">OIDC Protocol Enabled</span>
           </div>
-          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span>/</span>
-          <span className="text-primary">OIDC Auth</span>
-        </div>
-        <h1 className="font-display-hero text-display-hero">
+          <h1 className="font-display-hero text-display-hero">
             Your Identity. <br />
             <span className="text-gradient">Your Way.</span>
           </h1>

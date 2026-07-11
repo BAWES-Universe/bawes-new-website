@@ -8,6 +8,14 @@ import Link from 'next/link';
 export default function SelfHostingPage() {
   return (
     <main className="pt-32">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">Self-Hosting</span>
+        </div>
+      </div>
       {/* Hero Section */}
       <Section className="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[716px] mb-section-padding-v">
         <div className="space-y-8">
@@ -15,12 +23,7 @@ export default function SelfHostingPage() {
             <span className="material-symbols-outlined text-[18px] text-tertiary" style={{ fontVariationSettings: "'FILL' 1" }}>terminal</span>
             <span className="text-caption font-caption text-tertiary uppercase tracking-widest">Self-Hosting Stack v4.2.0</span>
           </div>
-          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span>/</span>
-          <span className="text-primary">Self-Hosting</span>
-        </div>
-        <h1 className="font-display-hero text-display-hero text-white tracking-tight leading-none">
+          <h1 className="font-display-hero text-display-hero text-white tracking-tight leading-none">
             Run Your Own <br /><span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Universe.</span>
           </h1>
           <p className="font-body-md text-text-secondary max-w-xl text-lg">

@@ -8,7 +8,7 @@ export default function EntityEditorPage() {
       {/* Hero */}
       <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 mb-4 text-xs text-text-muted">
+          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted w-full justify-start">
         <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
         <span>/</span>
         <span className="text-primary">Entity Editor</span>

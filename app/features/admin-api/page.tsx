@@ -8,6 +8,14 @@ import Link from 'next/link';
 export default function AdminApiPage() {
   return (
     <main className="relative">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">Admin API</span>
+        </div>
+      </div>
       {/* Hero Section */}
       <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-12 items-center min-h-[819px]">
         <div className="space-y-8">
@@ -15,12 +23,7 @@ export default function AdminApiPage() {
             <span className="material-symbols-outlined text-[14px] text-primary">terminal</span>
             <span className="text-caption font-caption uppercase tracking-widest text-primary">v2.4 Released</span>
           </div>
-          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span>/</span>
-          <span className="text-primary">Admin API</span>
-        </div>
-        <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">
+          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">
             Administer <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">at Scale.</span>
           </h1>
