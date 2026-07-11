@@ -155,28 +155,30 @@ export default function Home() {
       {/* ═══════════════════════════════════════
          1. HERO
          ═══════════════════════════════════════ */}
-      <section className="min-h-screen flex flex-col justify-center items-center px-gutter relative z-10">
+      <section className="relative z-10 py-32 md:py-40 px-gutter">
         <div className="max-w-container-max mx-auto text-center">
           {/* Headline */}
           <motion.h1
             {...fadeUp(0)}
-            className="font-display-hero text-display-hero text-white mb-6"
+            className="font-display-hero text-display-hero text-white mb-6 max-w-4xl mx-auto"
           >
-            Enter the <span className="text-gradient">Universe</span>
+            A shared world where people, AI, and communities{' '}
+            <span className="text-gradient">come together.</span>
           </motion.h1>
 
           {/* Sub */}
           <motion.p
             {...fadeUp(0.1)}
-            className="font-body-md text-body-md text-text-secondary max-w-2xl mx-auto mb-12"
+            className="font-body-md text-body-md text-text-secondary max-w-2xl mx-auto mb-10 text-lg"
           >
-            Walk into rooms full of people. Real-time voice and video. AI that remembers you. Build anything, go anywhere.
+            Real-time voice and video. AI agents with memory and tools.
+            Build anything in rooms and worlds that feel alive.
           </motion.p>
 
           {/* Buttons */}
           <motion.div
             {...fadeUp(0.2)}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-20"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
             <Link
               href="/communication"
@@ -195,12 +197,12 @@ export default function Home() {
           {/* Stats bar */}
           <motion.div
             {...fadeUp(0.3)}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-8 border-t border-divider pt-12"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 border-t border-divider pt-12 max-w-3xl mx-auto"
           >
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="font-headline-section text-headline-section text-white">{stat.number}</p>
-                <p className="font-label-navigation text-label-navigation text-text-low-emphasis mt-1">{stat.label}</p>
+                <p className="text-3xl md:text-4xl font-bold text-white">{stat.number}</p>
+                <p className="text-sm text-text-low-emphasis mt-1">{stat.label}</p>
               </div>
             ))}
           </motion.div>
