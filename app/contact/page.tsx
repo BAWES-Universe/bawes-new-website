@@ -86,9 +86,9 @@ export default function ContactPage() {
             <p className="text-text-secondary mb-8 font-body-md">
               Universe can be self-hosted, white-labeled, or extended for specific use cases. If your usage grows beyond fair usage, we&apos;ll work with you on a pricing model that fits — whether that&apos;s token consumption or infra needs.
             </p>
-            <Link href="/contact" className="w-full bg-transparent border border-white/30 text-on-surface px-6 py-3 rounded-full font-bold hover:border-white/60 transition-colors active:scale-95 inline-block text-center">
+            <a href="mailto:hello@bawes.net" className="w-full bg-transparent border border-white/30 text-on-surface px-6 py-3 rounded-full font-bold hover:border-white/60 transition-colors active:scale-95 inline-block text-center">
               Request Assistance
-            </Link>
+            </a>
           </div>
         </div>
       </section>
