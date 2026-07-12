@@ -6,7 +6,7 @@ export default function AvailabilityStatusPage() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
       {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-24 pb-0">
+      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
         <div className="flex items-center gap-2 text-xs text-text-muted">
           <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
           <span className="text-white/20">/</span>

@@ -9,7 +9,7 @@ export default function TechStackPage() {
   return (
     <main className="relative">
       {/* Breadcrumb */}
-      <div className="max-w-container-max mx-auto px-gutter pt-24 pb-0">
+      <div className="max-w-container-max mx-auto px-gutter pt-0 pb-2">
         <div className="flex items-center gap-2 text-xs text-text-muted">
           <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
           <span className="text-white/20">/</span>
