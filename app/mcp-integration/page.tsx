@@ -8,16 +8,17 @@ import Link from 'next/link';
 export default function McpIntegrationPage() {
   return (
     <main className="relative pt-20">
-      {/* Hero */}
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0">
         <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="Developers" className="hover:text-primary transition-colors">/developers</Link>
+          <Link href="/developers" className="hover:text-primary transition-colors">Developers</Link>
           <span className="text-white/20">/</span>
           <span className="text-primary">MCP Integration</span>
         </div>
       </div>
-            <section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
+
+      {/* Hero */}
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
         <div className="space-y-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-border-purple">
             <span className="material-symbols-outlined text-sm text-primary">hub</span>
@@ -30,13 +31,24 @@ export default function McpIntegrationPage() {
             Model Context Protocol (MCP) integration lets your bots connect to any tool, API, or data source. Give your AI agents real-time access to calendars, databases, ticketing systems, and more — all from inside your universe.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
-            <button className="primary-gradient text-white px-8 py-4 rounded-full font-bold neon-glow-purple active:scale-95 transition-all flex items-center gap-2">
+            <a
+              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-bold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
+            >
               View MCP Servers
               <span className="material-symbols-outlined">arrow_forward</span>
-            </button>
-            <button className="glass-card text-on-surface px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-all">
+            </a>
+            <a
+              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card text-on-surface px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-all inline-flex items-center gap-2"
+            >
+              <span className="material-symbols-outlined text-base">code</span>
               Documentation
-            </button>
+            </a>
           </div>
         </div>
         <div className="relative">
@@ -68,43 +80,210 @@ export default function McpIntegrationPage() {
         </div>
       </section>
 
-      {/* Features Grid */}
+      {/* How It Works */}
       <section className="bg-surface-container-low py-section-padding-v">
         <div className="max-w-container-max mx-auto px-gutter">
           <div className="text-center mb-16">
-            <h2 className="font-headline-section text-headline-section text-on-surface">Extend Bot Intelligence</h2>
-            <p className="text-text-secondary max-w-xl mx-auto mt-4">MCP turns your bots from conversational agents into capable assistants that can act on your behalf.</p>
+            <h2 className="font-headline-section text-headline-section text-on-surface">How MCP Works</h2>
+            <p className="text-text-secondary max-w-xl mx-auto mt-4">Bots discover and call tools via the Model Context Protocol over HTTP.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="glass-card p-card-padding rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary">api</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="glass-card p-6 rounded-xl text-center">
+              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 border border-primary/20">
+                <span className="material-symbols-outlined text-primary">search</span>
               </div>
-              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">MCP Protocol Support</h3>
-              <p className="text-text-secondary">BAWES integrates with the Model Context Protocol, allowing AI agents to interact with your spatial worlds through a standardized API.</p>
+              <h3 className="font-bold text-white mb-2">1. Discover Tools</h3>
+              <p className="text-text-secondary text-sm">On startup and every hour, the bot calls <code className="text-primary text-xs">tools/list</code> on each MCP server to discover available capabilities.</p>
             </div>
-            <div className="glass-card p-card-padding rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-secondary">smart_toy</span>
+            <div className="glass-card p-6 rounded-xl text-center">
+              <div className="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-4 border border-secondary/20">
+                <span className="material-symbols-outlined text-secondary">psychology</span>
               </div>
-              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Agent-Driven Automation</h3>
-              <p className="text-text-secondary">Let AI agents manage maps, bots, users, and events programmatically. Automate moderation, spawn bots, and orchestrate complex workflows.</p>
+              <h3 className="font-bold text-white mb-2">2. AI Chooses</h3>
+              <p className="text-text-secondary text-sm">During conversation, the AI model selects the right tool based on the player&apos;s request and the tool&apos;s schema.</p>
             </div>
-            <div className="glass-card p-card-padding rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-tertiary">build</span>
+            <div className="glass-card p-6 rounded-xl text-center">
+              <div className="w-14 h-14 rounded-full bg-tertiary/10 flex items-center justify-center mx-auto mb-4 border border-tertiary/20">
+                <span className="material-symbols-outlined text-tertiary">call_made</span>
               </div>
-              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Extensible Tool System</h3>
-              <p className="text-text-secondary">Extend BAWES with custom MCP servers and tools. Add your own capabilities that AI agents can discover and use within your universe.</p>
-            </div>
-            <div className="glass-card p-card-padding rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary">code</span>
-              </div>
-              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Developer-Friendly API</h3>
-              <p className="text-text-secondary">Well-documented API endpoints and TypeScript types make integration straightforward. Build custom MCP clients and servers with minimal friction.</p>
+              <h3 className="font-bold text-white mb-2">3. Execute & Respond</h3>
+              <p className="text-text-secondary text-sm">The bot sends <code className="text-tertiary text-xs">tools/call</code> to the MCP server and feeds the result back to the AI for the final response.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Registration */}
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <h2 className="font-headline-section text-headline-section text-on-surface">Registering an MCP Server</h2>
+            <p className="text-text-secondary">In the in-game bot editor, under <strong>MCP Servers</strong>, you can add, edit, test, and remove servers. Each server requires:</p>
+            <div className="glass-card p-6 rounded-xl">
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="material-symbols-outlined text-primary text-sm flex-shrink-0 mt-0.5">badge</span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">Name</p>
+                    <p className="text-xs text-text-secondary">Label for the server (e.g. &ldquo;Knowledge Base&rdquo;)</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="material-symbols-outlined text-primary text-sm flex-shrink-0 mt-0.5">link</span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">Server URL</p>
+                    <p className="text-xs text-text-secondary">Full URL of the MCP-over-HTTP endpoint</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="material-symbols-outlined text-primary text-sm flex-shrink-0 mt-0.5">key</span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">Auth Type</p>
+                    <p className="text-xs text-text-secondary">None, Bearer Token, or API Key (stored encrypted)</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="material-symbols-outlined text-primary text-sm flex-shrink-0 mt-0.5">list</span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">Headers</p>
+                    <p className="text-xs text-text-secondary">Optional custom headers sent with every request</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="glass-card rounded-2xl p-6 border border-purple/20">
+            <div className="flex items-center gap-2 mb-4 border-b border-divider pb-3">
+              <span className="material-symbols-outlined text-primary">check_circle</span>
+              <span className="text-sm font-semibold text-white">Test Connection</span>
+            </div>
+            <p className="text-text-secondary text-sm mb-4">After saving, click <strong>Test Connection</strong> to verify the <code className="text-primary text-xs">tools/list</code> response and see which tools are exposed by your server.</p>
+            <div className="bg-surface-container-high rounded-lg p-3">
+              <pre className="font-mono text-xs text-primary">{`POST /mcp
+Content-Type: application/json
+
+{
+  "jsonrpc": "2.0",
+  "id": "test",
+  "method": "tools/list"
+}`}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Transport Details */}
+      <section className="bg-surface-container-low py-section-padding-v">
+        <div className="max-w-container-max mx-auto px-gutter">
+          <div className="text-center mb-16">
+            <h2 className="font-headline-section text-headline-section text-on-surface">Transport Contract</h2>
+            <p className="text-text-secondary max-w-xl mx-auto mt-4">MCP over Streamable HTTP — the same protocol used by Claude Code and other MCP clients.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="glass-card rounded-xl p-6">
+              <h3 className="font-bold text-white mb-4 flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary">handshake</span>
+                Initialize
+              </h3>
+              <p className="text-text-secondary text-sm mb-4">Sent before any method call. The server can return a <code className="text-primary text-xs">Mcp-Session-Id</code> header for stateful sessions.</p>
+              <div className="bg-surface-container-high rounded-lg p-3">
+                <pre className="font-mono text-xs text-primary overflow-x-auto">{`{
+  "jsonrpc": "2.0",
+  "id": "init",
+  "method": "initialize",
+  "params": {
+    "protocolVersion": "2024-11-05",
+    "capabilities": {},
+    "clientInfo": {
+      "name": "workadventure-mcp-bot",
+      "version": "1.0.0",
+      "player_id": "<player-uuid>"
+    }
+  }
+}`}</pre>
+              </div>
+            </div>
+            <div className="glass-card rounded-xl p-6">
+              <h3 className="font-bold text-white mb-4 flex items-center gap-2">
+                <span className="material-symbols-outlined text-secondary">call</span>
+                tools/call
+              </h3>
+              <p className="text-text-secondary text-sm mb-4">When the AI selects a tool, the bot sends a <code className="text-secondary text-xs">tools/call</code> request with the chosen arguments.</p>
+              <div className="bg-surface-container-high rounded-lg p-3">
+                <pre className="font-mono text-xs text-secondary overflow-x-auto">{`{
+  "jsonrpc": "2.0",
+  "id": "exec",
+  "method": "tools/call",
+  "params": {
+    "name": "my_tool",
+    "arguments": {
+      "query": "latest updates"
+    }
+  }
+}`}</pre>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 text-center">
+            <p className="text-text-secondary text-sm max-w-xl mx-auto">
+              Timeout: <strong className="text-white">10 seconds</strong>. Requests exceeding this are discarded and the AI receives an error.
+              All tool requests are sent with <code className="text-primary text-xs">player_id</code> for per-user session tracking.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Example Server */}
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
+        <div className="glass-card rounded-2xl p-8 md:p-12 border border-purple/20">
+          <h2 className="font-headline-section text-headline-section text-on-surface mb-4">Minimal MCP Server (Node.js)</h2>
+          <p className="text-text-secondary mb-8">A complete, runnable example to get started with your own MCP server.</p>
+          <pre className="font-mono text-sm leading-relaxed text-primary bg-surface-container-high rounded-xl p-6 overflow-x-auto"><code>{`import express from 'express';
+const app = express();
+app.use(express.json());
+
+app.post('/mcp', (req, res) => {
+  const { method, params } = req.body;
+
+  if (method === 'initialize') {
+    return res.json({
+      jsonrpc: '2.0', id: req.body.id,
+      result: { protocolVersion: '2024-11-05',
+        capabilities: {},
+        serverInfo: { name: 'example-mcp', version: '1.0.0' },
+      },
+    });
+  }
+
+  if (method === 'tools/list') {
+    return res.json({
+      jsonrpc: '2.0', id: req.body.id,
+      result: { tools: [{
+        name: 'my_query',
+        description: 'Query knowledge about a topic',
+        inputSchema: {
+          type: 'object',
+          properties: { topic: { type: 'string' } },
+        },
+      }]},
+    });
+  }
+
+  if (method === 'tools/call') {
+    const result = \`You asked about: \${params.arguments.topic}\`;
+    return res.json({
+      jsonrpc: '2.0', id: req.body.id,
+      result: { content: [{ type: 'text', text: result }] },
+    });
+  }
+
+  res.status(400).json({
+    jsonrpc: '2.0', id: req.body.id,
+    error: { code: -32601, message: 'Method not found' },
+  });
+});
+
+app.listen(3001);`}</code></pre>
         </div>
       </section>
 
@@ -136,8 +315,23 @@ export default function McpIntegrationPage() {
           <h2 className="font-headline-section text-headline-section text-on-surface mb-6">Ready to connect your bots?</h2>
           <p className="text-text-secondary max-w-xl mx-auto mb-10">Give your AI agents the power to act. MCP integration unlocks a new dimension of bot capabilities.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="primary-gradient text-white px-10 py-4 rounded-full font-bold neon-glow-purple active:scale-95 transition-all">Get Started with MCP</button>
-            <button className="glass-card text-on-surface px-10 py-4 rounded-full font-bold hover:bg-white/5 transition-all">View Documentation</button>
+            <a
+              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-10 py-4 rounded-full font-bold inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
+            >
+              Get Started with MCP
+            </a>
+            <a
+              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card text-on-surface px-10 py-4 rounded-full font-bold hover:bg-white/5 transition-all inline-flex items-center gap-2"
+            >
+              <span className="material-symbols-outlined text-base">open_in_new</span>
+              View Documentation
+            </a>
           </div>
         </div>
       </section>

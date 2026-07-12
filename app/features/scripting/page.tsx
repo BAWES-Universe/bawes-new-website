@@ -1,162 +1,285 @@
-'use client';
+'use client'
 
-import React from 'react';
-import Section from '@/components/Section';
-import Button from '@/components/ui/Button';
-import Link from 'next/link';
+import Link from 'next/link'
 
 export default function ScriptingApiPage() {
   return (
-    <main className="relative z-10 max-w-container-max mx-auto px-gutter">
+    <div className="pt-20 relative min-h-screen overflow-hidden">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 pt-24 pb-0 text-xs text-text-muted">
-        <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+      <div className="max-w-7xl mx-auto px-4 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
           <span className="text-white/20">/</span>
           <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
-        <span className="text-white/20">/</span>
-        <span className="text-primary">Scripting API</span>
-      </div>
-      {/* Hero Section */}
-      <section className="min-h-[819px] flex flex-col md:flex-row items-center justify-between py-section-padding-lg gap-stack-lg">
-        <div className="w-full md:w-1/2 space-y-stack-md">
-          <h1 className="font-display-hero text-display-hero leading-tight text-white">
-            Code That <span className="text-primary">Shapes</span> Worlds.
-          </h1>
-          <p className="font-body-lg text-body-lg text-text-secondary max-w-xl">
-            <span className="api-token">WA.ui</span>, <span className="api-token">WA.room</span>, <span className="api-token">WA.player</span>, <span className="api-token">WA.state</span> — the scripting API from WorkAdventure. Control rooms, players, state, and UI elements from your map scripts.
-          </p>
-          <div className="flex gap-stack-md pt-stack-md">
-            <button className="accent-gradient-bg px-8 py-4 rounded-full font-label-sm text-label-sm text-white accent-glow hover:brightness-110 transition-all">
-              View API Reference
-            </button>
-            <button className="glass px-8 py-4 rounded-full font-label-sm text-label-sm text-white hover:bg-glass-surface/10 transition-all">
-              Examples
-            </button>
-          </div>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">Scripting API</span>
         </div>
-        <div className="w-full md:w-1/2 h-[500px] glass rounded-xl relative overflow-hidden flex items-center justify-center p-card-padding">
-          <div className="relative z-10 w-full">
-            <div className="glass p-stack-md rounded-lg mb-stack-md border-l-4 border-primary">
-              <pre className="font-code-block text-code-block text-link-purple"><code>{`WA.room.onEnterZone('zone-1', () => {
-  WA.ui.openModal({
-    title: "Welcome to BAWES",
-    content: "The gateway is now open."
-  });
-});`}</code></pre>
-            </div>
-            <div className="absolute -right-4 -bottom-4 w-48 h-48">
-              <div className="w-full h-full glass rounded-xl flex items-center justify-center rotate-3 animate-pulse">
-                <span className="material-symbols-outlined text-primary text-6xl">terminal</span>
-              </div>
-            </div>
+      </div>
+
+      {/* Hero */}
+      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
+            <span className="material-symbols-outlined text-lg">code</span>
+            Map Scripting
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Code That <span className="text-gradient">Shapes</span> Worlds.
+          </h1>
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            <code className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-lg font-mono">WA.ui</code>,{' '}
+            <code className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-lg font-mono">WA.room</code>,{' '}
+            <code className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-lg font-mono">WA.player</code>,{' '}
+            <code className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-lg font-mono">WA.state</code>
+            — the scripting API from WorkAdventure. Control rooms, players, state, and UI from your map scripts.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center mt-8">
+            <a
+              href="https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer/map-scripting"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
+            >
+              <span className="material-symbols-outlined text-lg">code</span>
+              Scripting Docs
+            </a>
+            <a
+              href="https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer/map-scripting/references"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 rounded-full border border-white/30 text-white font-semibold text-sm inline-flex items-center gap-2 hover:bg-white/5 hover:-translate-y-0.5 transition-all duration-200"
+            >
+              <span className="material-symbols-outlined text-lg">menu_book</span>
+              API Reference
+            </a>
           </div>
         </div>
       </section>
 
       {/* API Pillars */}
-      <section className="py-section-padding-lg">
-        <div className="mb-stack-lg">
-          <h2 className="font-headline-lg text-headline-lg text-white mb-stack-sm">API Pillars</h2>
-          <p className="text-text-secondary">Core modules for environment manipulation.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-stack-lg">
-          <div className="glass p-card-padding rounded-xl hover-card flex flex-col gap-stack-md">
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-primary">web_asset</span>
-            </div>
-            <h3 className="font-headline-md text-headline-md text-white">WA.ui</h3>
-            <p className="text-text-secondary">Create UI elements, buttons, and high-fidelity modals directly within the world canvas.</p>
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">API Pillars</h2>
+            <p className="text-white/60 max-w-xl mx-auto">Core modules for environment manipulation.</p>
           </div>
-          <div className="glass p-card-padding rounded-xl hover-card flex flex-col gap-stack-md">
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-primary">meeting_room</span>
-            </div>
-            <h3 className="font-headline-md text-headline-md text-white">WA.room</h3>
-            <p className="text-text-secondary">Control room properties, layer visibility, and spatial triggers with precision.</p>
-          </div>
-          <div className="glass p-card-padding rounded-xl hover-card flex flex-col gap-stack-md">
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-primary">person_play</span>
-            </div>
-            <h3 className="font-headline-md text-headline-md text-white">WA.player</h3>
-            <p className="text-text-secondary">Manage player position, custom avatars, and transient state data during sessions.</p>
-          </div>
-          <div className="glass p-card-padding rounded-xl hover-card flex flex-col gap-stack-md">
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-primary">database</span>
-            </div>
-            <h3 className="font-headline-md text-headline-md text-white">WA.state</h3>
-            <p className="text-text-secondary">Handle persistent room variables and synchronization across multiple users.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Events Section */}
-      <section className="py-section-padding-lg grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
-        <div className="order-2 md:order-1">
-          <div className="w-full rounded-2xl glass shadow-2xl aspect-video bg-surface-container-high flex items-center justify-center">
-            <span className="material-symbols-outlined text-6xl text-primary/30">code</span>
-          </div>
-        </div>
-        <div className="order-1 md:order-2 space-y-stack-md pl-0 md:pl-stack-lg">
-          <h2 className="font-headline-lg text-headline-lg text-white">Scripting Events</h2>
-          <p className="text-text-secondary mb-stack-md">Reactive patterns to build living environments.</p>
-          <div className="space-y-stack-md">
-            <div className="flex items-center gap-stack-md group">
-              <div className="w-10 h-10 rounded-full border border-glass-border flex items-center justify-center group-hover:border-primary transition-colors">
-                <span className="material-symbols-outlined text-primary">login</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="glass-card p-6 rounded-xl">
+              <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
+                <span className="material-symbols-outlined text-purple-400">web_asset</span>
               </div>
-              <div>
-                <span className="api-token text-lg">onEnter</span>
-                <p className="text-text-muted text-sm">Fires when a player enters the map or a specific zone.</p>
+              <h3 className="text-lg font-bold text-white mb-2">WA.ui</h3>
+              <p className="text-white/50 text-sm">Create UI elements, buttons, and modals within the world canvas. Open modal windows, add action bar buttons, and build custom interfaces.</p>
+              <div className="mt-4 pt-4 border-t border-white/5">
+                <code className="text-xs text-purple-300 font-mono">WA.ui.openModal()</code>
+                <span className="text-white/30 mx-1">·</span>
+                <code className="text-xs text-purple-300 font-mono">WA.ui.actionBar.addButton()</code>
               </div>
             </div>
-            <div className="flex items-center gap-stack-md group">
-              <div className="w-10 h-10 rounded-full border border-glass-border flex items-center justify-center group-hover:border-primary transition-colors">
-                <span className="material-symbols-outlined text-primary">logout</span>
+            <div className="glass-card p-6 rounded-xl">
+              <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
+                <span className="material-symbols-outlined text-purple-400">meeting_room</span>
               </div>
-              <div>
-                <span className="api-token text-lg">onLeave</span>
-                <p className="text-text-muted text-sm">Trigger actions when a user departs a defined spatial area.</p>
+              <h3 className="text-lg font-bold text-white mb-2">WA.room</h3>
+              <p className="text-white/50 text-sm">Control room properties, layer visibility, and spatial triggers. Hide/show layers, enter/leave zones, and manage the room state.</p>
+              <div className="mt-4 pt-4 border-t border-white/5">
+                <code className="text-xs text-purple-300 font-mono">WA.room.onEnterZone()</code>
+                <span className="text-white/30 mx-1">·</span>
+                <code className="text-xs text-purple-300 font-mono">WA.room.hideLayer()</code>
               </div>
             </div>
-            <div className="flex items-center gap-stack-md group">
-              <div className="w-10 h-10 rounded-full border border-glass-border flex items-center justify-center group-hover:border-primary transition-colors">
-                <span className="material-symbols-outlined text-primary">bolt</span>
+            <div className="glass-card p-6 rounded-xl">
+              <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
+                <span className="material-symbols-outlined text-purple-400">person_play</span>
               </div>
-              <div>
-                <span className="api-token text-lg">onEvent</span>
-                <p className="text-text-muted text-sm">The generic listener for custom inter-script messaging.</p>
+              <h3 className="text-lg font-bold text-white mb-2">WA.player</h3>
+              <p className="text-white/50 text-sm">Manage player position, avatars, and session data. Move players between maps, set custom avatars, and access user profile information.</p>
+              <div className="mt-4 pt-4 border-t border-white/5">
+                <code className="text-xs text-purple-300 font-mono">WA.player.moveTo()</code>
+                <span className="text-white/30 mx-1">·</span>
+                <code className="text-xs text-purple-300 font-mono">WA.player.setPlayerBadge()</code>
+              </div>
+            </div>
+            <div className="glass-card p-6 rounded-xl">
+              <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
+                <span className="material-symbols-outlined text-purple-400">database</span>
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">WA.state</h3>
+              <p className="text-white/50 text-sm">Handle persistent room variables and cross-user synchronization. Store, retrieve, and share state across all players in a room.</p>
+              <div className="mt-4 pt-4 border-t border-white/5">
+                <code className="text-xs text-purple-300 font-mono">WA.state.saveVariable()</code>
+                <span className="text-white/30 mx-1">·</span>
+                <code className="text-xs text-purple-300 font-mono">WA.state.onVariableChange()</code>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Related Deep Dives */}
-      <section className="py-section-padding-lg">
-        <h2 className="font-headline-lg text-headline-lg text-white mb-stack-lg text-center">Related Deep Dives</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
-          <Link href="/features/map-editor" className="relative group h-64 rounded-2xl overflow-hidden glass hover-card cursor-pointer">
-            <div className="absolute inset-0 bg-surface-container-high transition-transform duration-500 group-hover:scale-110 opacity-40"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a14] via-transparent to-transparent"></div>
-            <div className="absolute bottom-0 left-0 p-card-padding">
-              <span className="label-sm px-3 py-1 rounded bg-primary/20 text-primary mb-stack-sm inline-block">Advanced Tooling</span>
-              <h3 className="font-headline-md text-headline-md text-white">Inline Map Editor</h3>
-              <p className="text-text-secondary text-sm">Modify your universe in real-time with our browser-based editor.</p>
+      {/* Code Example */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="glass-card rounded-2xl overflow-hidden border border-purple-500/20">
+            <div className="flex items-center gap-2 px-6 py-3 border-b border-white/5 bg-white/5">
+              <div className="flex gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+              </div>
+              <span className="ml-4 text-xs text-white/40 font-mono">script.ts</span>
             </div>
-          </Link>
-          <Link href="/features/area-zones" className="relative group h-64 rounded-2xl overflow-hidden glass hover-card cursor-pointer">
-            <div className="absolute inset-0 bg-surface-container-high transition-transform duration-500 group-hover:scale-110 opacity-40"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a14] via-transparent to-transparent"></div>
-            <div className="absolute bottom-0 left-0 p-card-padding">
-              <span className="label-sm px-3 py-1 rounded bg-secondary/20 text-secondary mb-stack-sm inline-block">Architecture</span>
-              <h3 className="font-headline-md text-headline-md text-white">Area Zones</h3>
-              <p className="text-text-secondary text-sm">Define interactions based on geographic proximity and room logic.</p>
-            </div>
-          </Link>
+            <pre className="p-6 font-mono text-sm leading-relaxed text-purple-300 overflow-x-auto"><code>{`// Listen for zone entry
+WA.room.onEnterZone('welcome-zone', () => {
+  // Open a welcome modal
+  WA.ui.openModal({
+    title: "Welcome!",
+    content: "<p>You've entered the BAWES Universe.</p>"
+  });
+  
+  // Move player to a specific position
+  WA.player.moveTo(200, 300);
+});
+
+// Save state across sessions
+WA.state.saveVariable('visitor_count', 42, {
+  public: true,
+  persist: true
+});`}</code></pre>
+          </div>
+          <div className="text-center mt-6">
+            <a
+              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/map-scripting/events.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-purple-400 font-semibold text-sm inline-flex items-center gap-2 hover:text-purple-300 transition-colors"
+            >
+              Browse full scripting documentation
+              <span className="material-symbols-outlined text-base">open_in_new</span>
+            </a>
+          </div>
         </div>
       </section>
-    </main>
-  );
+
+      {/* Events */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <div className="glass-card rounded-2xl aspect-video flex items-center justify-center border border-purple-500/10">
+                <span className="material-symbols-outlined text-6xl text-purple-400/30">cable</span>
+              </div>
+            </div>
+            <div className="order-1 md:order-2 space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Scripting Events</h2>
+              <p className="text-white/60">Reactive patterns to build living environments.</p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full glass-card flex items-center justify-center flex-shrink-0">
+                    <span className="material-symbols-outlined text-purple-400 text-lg">login</span>
+                  </div>
+                  <div>
+                    <code className="text-purple-300 font-mono font-bold">onEnter</code>
+                    <p className="text-white/50 text-sm mt-0.5">Fires when a player enters a map or a specific zone. Great for welcome messages, tutorials, and entrance effects.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full glass-card flex items-center justify-center flex-shrink-0">
+                    <span className="material-symbols-outlined text-purple-400 text-lg">logout</span>
+                  </div>
+                  <div>
+                    <code className="text-purple-300 font-mono font-bold">onLeave</code>
+                    <p className="text-white/50 text-sm mt-0.5">Trigger cleanup actions when a user departs a defined spatial area.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full glass-card flex items-center justify-center flex-shrink-0">
+                    <span className="material-symbols-outlined text-purple-400 text-lg">bolt</span>
+                  </div>
+                  <div>
+                    <code className="text-purple-300 font-mono font-bold">onEvent</code>
+                    <p className="text-white/50 text-sm mt-0.5">The generic listener for custom inter-script messaging. Send targeted events between scripts.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Variables */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Persistent Variables</h2>
+              <p className="text-white/60">Store and synchronize state across all players in a room. Variables persist between sessions and can be public or private.</p>
+              <div className="glass-card p-4 rounded-xl">
+                <pre className="font-mono text-sm text-purple-300"><code>{`// Save a public variable
+WA.state.saveVariable('score', 100, {
+  public: true,
+  persist: true
+});
+
+// Listen for changes
+WA.state.onVariableChange('score')
+  .subscribe((newValue) => {
+    console.log('Score:', newValue);
+  });`}</code></pre>
+              </div>
+            </div>
+            <div className="space-y-6">
+              <div className="glass-card p-6 rounded-xl">
+                <h3 className="font-bold text-white mb-3">Key Features</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3 text-sm text-white/60">
+                    <span className="material-symbols-outlined text-purple-400 text-base flex-shrink-0">check_circle</span>
+                    Cross-user synchronization — everyone sees the same state
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-white/60">
+                    <span className="material-symbols-outlined text-purple-400 text-base flex-shrink-0">check_circle</span>
+                    Persistent variables survive room reloads
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-white/60">
+                    <span className="material-symbols-outlined text-purple-400 text-base flex-shrink-0">check_circle</span>
+                    Public or scoped visibility controls
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-white/60">
+                    <span className="material-symbols-outlined text-purple-400 text-base flex-shrink-0">check_circle</span>
+                    Real-time subscriptions to value changes
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">Related</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Link href="/features/map-editor" className="glass-card p-6 rounded-xl flex flex-col items-center text-center gap-3 hover:border-purple-500/40 transition-all group">
+              <span className="material-symbols-outlined text-purple-400 text-3xl">edit_square</span>
+              <h3 className="font-bold text-white">Inline Map Editor</h3>
+              <p className="text-white/50 text-sm">Modify your universe in real-time with our browser-based editor.</p>
+              <span className="text-purple-400 text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <span className="material-symbols-outlined text-sm">arrow_forward</span></span>
+            </Link>
+            <Link href="/features/area-zones" className="glass-card p-6 rounded-xl flex flex-col items-center text-center gap-3 hover:border-purple-500/40 transition-all group">
+              <span className="material-symbols-outlined text-purple-400 text-3xl">widgets</span>
+              <h3 className="font-bold text-white">Area Zones</h3>
+              <p className="text-white/50 text-sm">Define interactions based on geographic proximity and room logic.</p>
+              <span className="text-purple-400 text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <span className="material-symbols-outlined text-sm">arrow_forward</span></span>
+            </Link>
+            <a href="https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer/map-scripting" target="_blank" rel="noopener noreferrer" className="glass-card p-6 rounded-xl flex flex-col items-center text-center gap-3 hover:border-purple-500/40 transition-all group">
+              <span className="material-symbols-outlined text-purple-400 text-3xl">menu_book</span>
+              <h3 className="font-bold text-white">Full Docs</h3>
+              <p className="text-white/50 text-sm">Complete scripting documentation on GitHub.</p>
+              <span className="text-purple-400 text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Read docs <span className="material-symbols-outlined text-base">open_in_new</span></span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }
