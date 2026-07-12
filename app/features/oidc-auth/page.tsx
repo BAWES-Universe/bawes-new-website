@@ -122,7 +122,7 @@ export default function OidcAuthPage() {
             <h2 className="font-headline-section text-headline-section mb-2">Deep Dives</h2>
             <p className="text-text-secondary">Extend your authentication capabilities further.</p>
           </div>
-          <Link href="/features" className="hidden md:flex items-center text-primary font-label-navigation hover:translate-x-2 transition-transform">
+          <Link href="/features-overview" className="hidden md:flex items-center text-primary font-label-navigation hover:translate-x-2 transition-transform">
             View all modules <span className="material-symbols-outlined ml-2">arrow_forward</span>
           </Link>
         </div>
@@ -167,8 +167,8 @@ export default function OidcAuthPage() {
             <h2 className="font-headline-section text-headline-section mb-6">Ready to secure your world?</h2>
             <p className="text-text-secondary max-w-xl mx-auto mb-10">Join 5,000+ developers building the future of decentralized identity on the BAWES Universe protocol.</p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-              <input className="w-full md:w-80 bg-surface-container border border-border-purple rounded-full px-6 py-4 focus:ring-2 focus:ring-primary focus:outline-none text-white" placeholder="Enter your email" type="email" />
-              <Link href="/contact" className="w-full md:w-auto bg-gradient-primary text-white font-label-navigation px-10 py-4 rounded-full neon-glow-purple whitespace-nowrap active:scale-95 transition-all inline-block text-center">Get Started Free</Link>
+              <Link href="/contact" className="bg-gradient-primary text-white font-label-navigation px-10 py-4 rounded-full neon-glow-purple active:scale-95 transition-all inline-block text-center">Get Started Free</Link>
+              <Link href="https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer" target="_blank" rel="noopener noreferrer" className="glass-card text-on-surface font-label-navigation px-10 py-4 rounded-full hover:bg-white/5 active:scale-95 transition-all inline-block text-center">View Documentation</Link>
             </div>
           </div>
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
