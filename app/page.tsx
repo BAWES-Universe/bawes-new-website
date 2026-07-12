@@ -43,11 +43,13 @@ const features = [
 ]
 
 const showcases = [
-  { emoji: '🏠', title: 'Personal Universe', desc: 'Custom AI companions, organized workspaces, friends welcome anytime. Start with what matters to you.', tag: 'For Personal', tagColor: 'purple', href: '/use-cases/personal' },
+  { emoji: '🏠', title: 'Personal Universe', desc: 'Custom AI companions, organized workspaces, friends welcome anytime.', tag: 'For Personal', tagColor: 'purple', href: '/use-cases/personal' },
   { emoji: '🎮', title: 'Community Universe', desc: 'Event halls, gaming rooms, welcome bots that greet every new member by name.', tag: 'For Community', tagColor: 'green', href: '/use-cases/community' },
   { emoji: '🎓', title: 'Campus Universe', desc: 'Lecture halls, study groups, AI teaching assistants available 24/7.', tag: 'For Learning', tagColor: 'amber', href: '/use-cases/learning' },
   { emoji: '🏢', title: 'Company Universe', desc: 'Team rooms, focus pods, standup bots, and a watercooler that actually works.', tag: 'For Work', tagColor: 'purple', href: '/use-cases/work' },
   { emoji: '🌐', title: 'Conference Universe', desc: 'Sponsor rooms, networking zones, main stages for thousands.', tag: 'For Events', tagColor: 'blue', href: '/use-cases/events' },
+  { emoji: '🛍️', title: 'Market Universe', desc: 'Brand showrooms, social shopping, pop-up shops in shared spaces.', tag: 'For Market', tagColor: 'cyan', href: '/use-cases/market' },
+  { emoji: '💰', title: 'Commerce Universe', desc: 'Subscriptions, tickets, and payments connected to your stack.', tag: 'For Commerce', tagColor: 'green', href: '/use-cases/commerce' },
 ]
 
 /* ─── COMPONENTS ─── */
@@ -161,18 +163,18 @@ function ShowcaseCard({ emoji, title, desc, tag, tagColor, href }: {
     <Link href={href} className="block group">
       <motion.div
         {...fadeUp(0.05)}
-        className="glass-card p-6 md:p-8 rounded-xl h-full flex flex-col transition-all duration-300 group-hover:-translate-y-0.5"
+        className="bento-card h-full"
       >
-        <span className="text-4xl mb-4 block">{emoji}</span>
-        <div className="flex items-center gap-2 mb-3">
+        <span className="text-3xl mb-4 block">{emoji}</span>
+        <div className="flex items-center gap-2 mb-2">
           <h3 className="font-headline-card text-headline-card text-white">{title}</h3>
-          <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold leading-tight tag-${tagColor}`}>
+          <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold leading-tight tag-${tagColor}`}>
             {tag}
           </span>
         </div>
         <p className="text-sm text-text-muted leading-relaxed flex-grow">{desc}</p>
-        <div className="flex items-center gap-1 text-sm font-semibold text-primary mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-          Learn more <span className="material-symbols-outlined text-sm">arrow_forward</span>
+        <div className="bento-card-arrow">
+          Learn more <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
         </div>
       </motion.div>
     </Link>
@@ -302,7 +304,7 @@ export default function Home() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {showcases.map((s) => (
             <ShowcaseCard key={s.title} {...s} />
           ))}
