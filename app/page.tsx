@@ -252,7 +252,7 @@ export default function Home() {
               {...fadeUp(0.05)}
               className="text-center py-2"
             >
-              <p className="font-display text-3xl md:text-4xl font-bold bg-gradient-accent">{stat.number}</p>
+              <p className="font-display text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">{stat.number}</p>
               <p className="text-sm text-text-muted mt-1">{stat.label}</p>
             </motion.div>
           ))}
