@@ -18,7 +18,7 @@ export default function AdminApiPage() {
         </div>
       </div>
       {/* Hero Section */}
-      <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-12 items-center min-h-[819px]">
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-12 items-center min-h-[819px]">
         <div className="space-y-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card border-purple/30">
             <span className="material-symbols-outlined text-[14px] text-primary">terminal</span>
@@ -73,7 +73,7 @@ export default function AdminApiPage() {
             }} />
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* Features Grid */}
       <Section className="bg-surface-container-low py-section-padding-v relative overflow-hidden">
@@ -143,69 +143,7 @@ export default function AdminApiPage() {
         </div>
       </Section>
 
-      {/* Endpoints Example */}
-      <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
-        <div className="space-y-6 order-1">
-          <h2 className="font-headline-section text-headline-section text-on-surface">Real Endpoints, Real Control</h2>
-          <p className="text-text-secondary">The Admin API is a Next.js REST API with Prisma-backed database access.</p>
-          <div className="space-y-4">
-            <div className="glass-card p-4 rounded-xl flex items-center gap-4">
-              <span className="px-2 py-1 rounded text-xs font-mono bg-green-500/10 text-green-400 font-bold">GET</span>
-              <span className="font-mono text-sm text-on-surface">/api/admin/worlds</span>
-              <span className="text-text-low-emphasis text-xs ml-auto">List worlds</span>
-            </div>
-            <div className="glass-card p-4 rounded-xl flex items-center gap-4">
-              <span className="px-2 py-1 rounded text-xs font-mono bg-green-500/10 text-green-400 font-bold">GET</span>
-              <span className="font-mono text-sm text-on-surface">/api/admin/worlds/[id]</span>
-              <span className="text-text-low-emphasis text-xs ml-auto">Get world</span>
-            </div>
-            <div className="glass-card p-4 rounded-xl flex items-center gap-4">
-              <span className="px-2 py-1 rounded text-xs font-mono bg-blue-500/10 text-blue-400 font-bold">POST</span>
-              <span className="font-mono text-sm text-on-surface">/api/admin/worlds</span>
-              <span className="text-text-low-emphasis text-xs ml-auto">Create world</span>
-            </div>
-            <div className="glass-card p-4 rounded-xl flex items-center gap-4">
-              <span className="px-2 py-1 rounded text-xs font-mono bg-yellow-500/10 text-yellow-400 font-bold">PATCH</span>
-              <span className="font-mono text-sm text-on-surface">/api/admin/worlds/[id]</span>
-              <span className="text-text-low-emphasis text-xs ml-auto">Update world</span>
-            </div>
-            <div className="glass-card p-4 rounded-xl flex items-center gap-4">
-              <span className="px-2 py-1 rounded text-xs font-mono bg-red-500/10 text-red-400 font-bold">DELETE</span>
-              <span className="font-mono text-sm text-on-surface">/api/admin/worlds/[id]</span>
-              <span className="text-text-low-emphasis text-xs ml-auto">Delete world</span>
-            </div>
-          </div>
-          <p className="text-text-secondary text-sm pt-2">Same pattern applies to universes, rooms, users, and bots.</p>
-        </div>
-        <div className="space-y-6 order-2">
-          <div className="glass-card p-6 rounded-2xl border-purple/30">
-            <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Authentication</h3>
-            <p className="text-text-secondary text-sm mb-4">Two auth methods:</p>
-            <div className="space-y-3">
-              <div className="glass-card p-4 rounded-xl">
-                <div className="text-white font-bold text-sm mb-1">Admin Token</div>
-                <code className="text-xs text-primary">Authorization: Bearer ADMIN_API_TOKEN</code>
-              </div>
-              <div className="glass-card p-4 rounded-xl">
-                <div className="text-white font-bold text-sm mb-1">Session</div>
-                <code className="text-xs text-primary">Super admin session via Orbit dashboard</code>
-              </div>
-            </div>
-          </div>
-          <div className="glass-card p-6 rounded-2xl border-purple/30">
-            <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Tech Stack</h3>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 rounded-full bg-white/5 text-xs border border-white/10">Next.js</span>
-              <span className="px-3 py-1 rounded-full bg-white/5 text-xs border border-white/10">Prisma</span>
-              <span className="px-3 py-1 rounded-full bg-white/5 text-xs border border-white/10">PostgreSQL</span>
-              <span className="px-3 py-1 rounded-full bg-white/5 text-xs border border-white/10">Zod Validation</span>
-              <span className="px-3 py-1 rounded-full bg-white/5 text-xs border border-white/10">AES-256 Encryption</span>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Related Deep Dives */}
+      {/* Deep Dives */}
       <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
         <h2 className="font-headline-section text-headline-section text-on-surface mb-12 text-center">Deep Dives</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

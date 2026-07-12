@@ -19,7 +19,7 @@ export default function SelfHostingPage() {
         </div>
       </div>
       {/* Hero Section */}
-      <Section className="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[716px] mb-section-padding-v">
+      <section className="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[716px] mb-section-padding-v">
         <div className="space-y-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-glass border border-border-purple">
             <span className="material-symbols-outlined text-[18px] text-tertiary" style={{ fontVariationSettings: "'FILL' 1" }}>terminal</span>
@@ -65,7 +65,7 @@ export default function SelfHostingPage() {
             </div>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* Features Bento */}
       <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v relative">
