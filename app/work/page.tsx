@@ -190,7 +190,7 @@ export default function Work() {
                 title: 'Plugn',
                 description: 'Launch your store in minutes. Connect inventory, payments, and fulfillment without devs needed.',
                 website: 'https://plugn.io',
-                discord: 'https://discord.gg/amjZaKAZ8X',
+                discord: 'https://discord.gg/CXceJWnwNT',
                 color: 'bawes-orange',
                 isLive: true,
               },
