@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function TechStackPage() {
   return (
-    <main className="relative">
+    <main className="pt-20 relative">
       {/* Breadcrumb */}
       <div className="max-w-container-max mx-auto px-gutter pt-0 pb-2">
         <div className="flex items-center gap-2 text-xs text-text-muted">

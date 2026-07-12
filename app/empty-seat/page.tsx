@@ -7,12 +7,12 @@ import Link from 'next/link';
 
 export default function EmptySeatPage() {
   return (
-    <main>
+    <main className="pt-20">
       {/* Hero Section */}
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
         <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="About" className="hover:text-primary transition-colors">/about</Link>
+          <Link href="/about" className="hover:text-primary transition-colors">About</Link>
           <span className="text-white/20">/</span>
           <span className="text-primary">The Empty Seat</span>
         </div>

@@ -7,12 +7,12 @@ import Link from 'next/link';
 
 export default function UseCaseCommunityPage() {
   return (
-    <main>
+    <main className="pt-20">
       {/* Hero Section */}
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
         <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="Use Cases" className="hover:text-primary transition-colors">/use-cases</Link>
+          <Link href="/use-cases" className="hover:text-primary transition-colors">Use Cases</Link>
           <span className="text-white/20">/</span>
           <span className="text-primary">For Community</span>
         </div>

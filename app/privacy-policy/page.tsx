@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="pt-20 min-h-screen bg-[#0a0a0a]">
       <Section className="pt-32">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-8 text-white">Privacy Policy</h1>
@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
         <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="Legal" className="hover:text-primary transition-colors">/legal</Link>
+          <Link href="/legal" className="hover:text-primary transition-colors">Legal</Link>
           <span className="text-white/20">/</span>
           <span className="text-primary">Privacy Policy</span>
         </div>

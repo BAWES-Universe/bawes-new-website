@@ -27,7 +27,7 @@ export default function Platform() {
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
         <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="Features" className="hover:text-primary transition-colors">/features-overview</Link>
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
           <span className="text-white/20">/</span>
           <span className="text-primary">Platform</span>
         </div>

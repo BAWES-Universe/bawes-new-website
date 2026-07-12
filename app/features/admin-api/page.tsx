@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function AdminApiPage() {
   return (
-    <main className="relative">
+<main className="pt-20 relative">
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
         <div className="flex items-center gap-2 text-xs text-text-muted">
