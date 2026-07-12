@@ -18,7 +18,7 @@ const features = [
   {
     icon: 'spatial_audio', iconColor: '#a78bfa', title: 'Walk in, meet people',
     desc: 'Walk up to start talking, walk away for privacy. Audio fades with distance naturally. Step into a meeting room for face-to-face video and screen sharing — all without scheduling a call.',
-    href: '/features/proximity-chat', wide: true, highlight: true,
+    href: '/features/proximity-chat', wide: false, highlight: true,
   },
   {
     icon: 'psychology', iconColor: '#fbbf24', title: 'Bots with memory',
@@ -43,11 +43,11 @@ const features = [
 ]
 
 const showcases = [
-  { emoji: '🏢', title: 'Company Universe', desc: 'Team rooms, focus pods, standup bots, and a watercooler that actually works.', tag: 'For Work', tagColor: 'purple', href: '/use-cases/work' },
-  { emoji: '🎓', title: 'Campus Universe', desc: 'Lecture halls, study groups, AI teaching assistants available 24/7.', tag: 'For Learning', tagColor: 'amber', href: '/use-cases/learning' },
+  { emoji: '🏠', title: 'Personal Universe', desc: 'Custom AI companions, organized workspaces, friends welcome anytime. Start with what matters to you.', tag: 'For Personal', tagColor: 'purple', href: '/use-cases/personal' },
   { emoji: '🎮', title: 'Community Universe', desc: 'Event halls, gaming rooms, welcome bots that greet every new member by name.', tag: 'For Community', tagColor: 'green', href: '/use-cases/community' },
+  { emoji: '🎓', title: 'Campus Universe', desc: 'Lecture halls, study groups, AI teaching assistants available 24/7.', tag: 'For Learning', tagColor: 'amber', href: '/use-cases/learning' },
+  { emoji: '🏢', title: 'Company Universe', desc: 'Team rooms, focus pods, standup bots, and a watercooler that actually works.', tag: 'For Work', tagColor: 'purple', href: '/use-cases/work' },
   { emoji: '🌐', title: 'Conference Universe', desc: 'Sponsor rooms, networking zones, main stages for thousands.', tag: 'For Events', tagColor: 'blue', href: '/use-cases/events' },
-  { emoji: '🏠', title: 'Personal Universe', desc: 'Custom AI companions, organized workspaces, friends welcome anytime.', tag: 'For Personal', tagColor: 'purple', href: '/use-cases/personal' },
 ]
 
 /* ─── COMPONENTS ─── */
@@ -158,15 +158,22 @@ function ShowcaseCard({ emoji, title, desc, tag, tagColor, href }: {
   emoji: string; title: string; desc: string; tag: string; tagColor: string; href: string
 }) {
   return (
-    <Link href={href}>
+    <Link href={href} className="block group">
       <motion.div
         {...fadeUp(0.05)}
-        className="rounded-bento p-10 md:p-12 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.06)] active:bg-[rgba(139,92,246,0.08)] transition-all duration-400"
+        className="glass-card p-6 md:p-8 rounded-xl h-full flex flex-col transition-all duration-300 group-hover:-translate-y-0.5"
       >
-        <span className="text-4xl mb-6 block">{emoji}</span>
-        <h3 className="font-headline-card text-headline-card text-white mb-2">{title}</h3>
-        <p className="text-sm text-text-muted leading-relaxed mb-5">{desc}</p>
-        <span className={`tag tag-${tagColor}`}>{tag}</span>
+        <span className="text-4xl mb-4 block">{emoji}</span>
+        <div className="flex items-center gap-2 mb-3">
+          <h3 className="font-headline-card text-headline-card text-white">{title}</h3>
+          <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold leading-tight tag-${tagColor}`}>
+            {tag}
+          </span>
+        </div>
+        <p className="text-sm text-text-muted leading-relaxed flex-grow">{desc}</p>
+        <div className="flex items-center gap-1 text-sm font-semibold text-primary mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          Learn more <span className="material-symbols-outlined text-sm">arrow_forward</span>
+        </div>
       </motion.div>
     </Link>
   )
@@ -276,7 +283,7 @@ export default function Home() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {features.map((f) => (
             <Bentocard key={f.title} {...f} />
           ))}
@@ -295,7 +302,7 @@ export default function Home() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {showcases.map((s) => (
             <ShowcaseCard key={s.title} {...s} />
           ))}
