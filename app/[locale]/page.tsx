@@ -1,0 +1,250 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import Section from '@/components/Section'
+import Button from '@/components/ui/Button'
+import { useTranslations, useLocale } from 'next-intl'
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6, delay },
+})
+
+function SceneHero({ isRtl }: { isRtl: boolean }) {
+  return (
+    <div className="relative w-full rounded-bento overflow-hidden bg-gradient-to-br from-[rgba(20,16,40,0.8)] to-[rgba(10,8,20,0.9)] border border-accent/20 shadow-[0_40px_100px_rgba(0,0,0,0.5)]">
+      {/* Grid */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(139,92,246,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.06) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+        }}
+      />
+      {/* Connection lines */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 300" fill="none">
+        <path d="M80 66 C120 120, 180 80, 220 50" stroke="rgba(139,92,246,0.15)" strokeWidth="1.5" strokeDasharray="4 4" fill="none">
+          <animate attributeName="stroke-dashoffset" from="0" to="100" dur="8s" repeatCount="indefinite" />
+        </path>
+        <path d="M320 105 C270 150, 200 160, 150 140" stroke="rgba(245,158,11,0.15)" strokeWidth="1.5" strokeDasharray="4 4" fill="none">
+          <animate attributeName="stroke-dashoffset" from="0" to="100" dur="6s" repeatCount="indefinite" />
+        </path>
+        <path d="M120 210 C160 180, 200 190, 240 170" stroke="rgba(59,130,246,0.15)" strokeWidth="1" strokeDasharray="3 3" fill="none">
+          <animate attributeName="stroke-dashoffset" from="0" to="100" dur="10s" repeatCount="indefinite" />
+        </path>
+      </svg>
+      <div className="relative aspect-[4/3] flex items-center justify-center p-6">
+        {[
+          { top: '22%', left: '18%', gradient: 'linear-gradient(135deg,#7c3aed,#6d28d9)', delay: '0s', emoji: '👤' },
+          { top: '35%', right: '20%', gradient: 'linear-gradient(135deg,#f59e0b,#d97706)', delay: '1s', emoji: '🤖' },
+          { bottom: '28%', left: '30%', gradient: 'linear-gradient(135deg,#3b82f6,#2563eb)', delay: '0.5s', emoji: '👥' },
+          { top: '15%', right: '35%', gradient: 'linear-gradient(135deg,#10b981,#059669)', delay: '2s', emoji: '🎨' },
+          { bottom: '20%', right: '15%', gradient: 'linear-gradient(135deg,#ec4899,#db2777)', delay: '1.5s', emoji: '💬' },
+        ].map((a, i) => (
+          <div
+            key={i}
+            className="absolute w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center text-lg shadow-lg animate-float"
+            style={{ top: a.top, left: a.left, right: a.right, bottom: a.bottom, background: a.gradient, animationDelay: a.delay }}
+          >{a.emoji}</div>
+        ))}
+        <div
+          className="absolute max-w-[200px] md:max-w-[260px] rounded-xl p-3 md:p-4 text-xs md:text-sm leading-relaxed backdrop-blur-lg"
+          style={{
+            bottom: '38%', left: '50%', transform: isRtl ? 'translateX(-50%) scaleX(-1)' : 'translateX(-50%)',
+            background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.2)',
+            color: 'rgba(255,255,255,0.85)',
+          }}
+        >
+          <strong className="text-accent-purple" style={{ display: 'inline-block', transform: isRtl ? 'scaleX(-1)' : 'none' }}>{isRtl ? 'روبوت المخطط' : 'Planner Bot'}</strong>
+          <span style={{ display: 'inline-block', transform: isRtl ? 'scaleX(-1)' : 'none' }}>
+            {isRtl ? '— مرحبًا بعودتك! سعيد برؤيتك مرة أخرى. هل ما زلت تعمل على كل تلك الخطط من المرة السابقة لبناء مساحتك الخاصة هنا؟ أخبرني أين أنت الآن.' : '— Welcome back! Good to see you again. Still working on all those plans from last time for building your own space here? Let me know where you\'re at now.'}
+          </span>
+        </div>
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(135deg, transparent 40%, rgba(139,92,246,0.04) 50%, transparent 60%)' }} />
+      </div>
+    </div>
+  )
+}
+
+function Bentocard({ icon, iconColor, title, desc, href, wide, highlight }: {
+  icon: string; iconColor: string; title: string; desc: string;
+  href: string; wide: boolean; highlight: boolean
+}) {
+  return (
+    <Link href={href} className={`block ${wide ? 'md:col-span-2' : ''}`}>
+      <motion.div
+        {...fadeUp(0.05)}
+        className={`bento-card h-full ${highlight ? 'bento-card-highlight' : ''}`}
+      >
+        <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style={{ background: `${iconColor}15` }}>
+          <span className="material-symbols-outlined text-xl" style={{ color: iconColor }}>{icon}</span>
+        </div>
+        <h3 className="font-headline-card text-headline-card text-white mb-2">{title}</h3>
+        <p className="text-sm text-text-muted leading-relaxed">{desc}</p>
+        <div className="bento-card-arrow">
+          {useLocale() === 'ar' ? 'اعرف المزيد' : 'Learn more'} <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+        </div>
+      </motion.div>
+    </Link>
+  )
+}
+
+function ShowcaseCard({ emoji, title, desc, href, wide }: {
+  emoji: string; title: string; desc: string; href: string; wide?: boolean
+}) {
+  return (
+    <Link href={href} className={`block group ${wide ? 'md:col-span-2' : ''}`}>
+      <motion.div {...fadeUp(0.05)} className="bento-card h-full">
+        <span className="text-3xl mb-4 block">{emoji}</span>
+        <h3 className="font-headline-card text-headline-card text-white mb-2">{title}</h3>
+        <p className="text-sm text-text-muted leading-relaxed flex-grow">{desc}</p>
+        <div className="bento-card-arrow">
+          {useLocale() === 'ar' ? 'اعرف المزيد' : 'Learn more'} <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+        </div>
+      </motion.div>
+    </Link>
+  )
+}
+
+export default function HomePage() {
+  const t = useTranslations('home')
+  const tf = useTranslations('home.features')
+  const ts = useTranslations('home.showcases')
+  const tc = useTranslations('home.cta')
+  const locale = useLocale()
+  const isRtl = locale === 'ar'
+
+  return (
+    <div className="relative z-10">
+      {/* ═══ 1. HERO ═══ */}
+      <section className="max-w-7xl mx-auto pt-32 md:pt-40 pb-20 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        <div className="flex-1 max-w-[600px]">
+          <motion.h1
+            {...fadeUp(0.05)}
+            className="font-display text-5xl md:text-7xl lg:text-[80px] leading-[1.05] font-bold text-white mb-6 tracking-[-0.03em]"
+          >
+            {t('hero.headline1')}<br />
+            <span className="bg-[length:200%_200%] animate-shimmer bg-clip-text text-transparent"
+              style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa 0%, #f59e0b 50%, #a78bfa 100%)' }}>
+              {t('hero.headline2')}
+            </span><br />
+            {t('hero.headline3')}
+          </motion.h1>
+
+          <motion.p {...fadeUp(0.1)} className="text-lg text-text-muted leading-relaxed max-w-[480px] mb-10">
+            {t('hero.subtitle')}
+          </motion.p>
+
+          <motion.div {...fadeUp(0.15)} className="flex flex-wrap gap-4">
+            <a href="https://universe.bawes.net" target="_blank" rel="noopener noreferrer"
+              className="gradient-cta text-white px-8 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
+            >
+              {t('hero.enterCta')}
+              <span className="material-symbols-outlined text-lg">{isRtl ? 'arrow_back' : 'arrow_forward'}</span>
+            </a>
+            <Link href="/how-it-works"
+              className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200"
+            >
+              {t('hero.howItWorks')}
+            </Link>
+          </motion.div>
+        </div>
+
+        <motion.div {...fadeUp(0.1)} className="flex-1 w-full max-w-[600px]">
+          <SceneHero isRtl={isRtl} />
+        </motion.div>
+      </section>
+
+      {/* ═══ 2. STATS ═══ */}
+      <div className="border-y border-[rgba(139,92,246,0.08)] bg-[rgba(139,92,246,0.03)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0">
+          {[
+            { number: '50,000+', label: t('stats.communityMembers') },
+            { number: '80+', label: t('stats.openSourceRepos') },
+            { number: t('stats.ai'), label: t('stats.agentsTools') },
+            { number: '\u221e', label: t('stats.possibilities') },
+          ].map((stat) => (
+            <motion.div key={stat.label} {...fadeUp(0.05)} className="text-center py-2">
+              <p className="font-display text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">{stat.number}</p>
+              <p className="text-sm text-text-muted mt-1">{stat.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* ═══ 3. WHAT MAKES IT DIFFERENT ═══ */}
+      <Section>
+        <motion.div {...fadeUp(0)}>
+          <div className="section-label" data-label={tf('sectionLabel')} />
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 leading-tight tracking-[-0.02em]">
+            {isRtl ? 'ليس مجرد أداة. ليست لعبة. إنها' : 'Not a tool.\nNot a game. A'}{' '}
+            <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa, #f59e0b)' }}>
+              {tf('livingSpace')}
+            </span>.
+          </h2>
+          <p className="text-base text-text-muted max-w-[500px] mb-16">{tf('subtitle')}</p>
+        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Bentocard icon="spatial_audio" iconColor="#a78bfa" title={tf('walkIn')} desc={tf('walkInDesc')} href="/features/proximity-chat" wide={false} highlight={true} />
+          <Bentocard icon="psychology" iconColor="#fbbf24" title={tf('botsMemory')} desc={tf('botsMemoryDesc')} href="/features/bot-memory" wide={false} highlight={false} />
+          <Bentocard icon="edit_square" iconColor="#93c5fd" title={tf('editWorld')} desc={tf('editWorldDesc')} href="/features/map-editor" wide={false} highlight={false} />
+          <Bentocard icon="device_hub" iconColor="#34d399" title={tf('botsBuild')} desc={tf('botsBuildDesc')} href="/features/recursive-bots" wide={false} highlight={false} />
+        </div>
+      </Section>
+
+      {/* ═══ 4. WHAT PEOPLE BUILD ═══ */}
+      <Section>
+        <motion.div {...fadeUp(0)}>
+          <div className="section-label" data-label={ts('sectionLabel')} />
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 leading-tight tracking-[-0.02em]">
+            {ts('title')}
+          </h2>
+          <p className="text-base text-text-muted max-w-[500px] mb-16">{ts('subtitle')}</p>
+        </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <ShowcaseCard emoji="🏠" title={ts('personal')} desc={ts('personalDesc')} wide={true} href="/use-cases/personal" />
+          <ShowcaseCard emoji="🏢" title={ts('work')} desc={ts('workDesc')} wide={true} href="/use-cases/work" />
+          <ShowcaseCard emoji="🎮" title={ts('community')} desc={ts('communityDesc')} href="/use-cases/community" />
+          <ShowcaseCard emoji="🎓" title={ts('learning')} desc={ts('learningDesc')} href="/use-cases/learning" />
+          <ShowcaseCard emoji="🌐" title={ts('events')} desc={ts('eventsDesc')} href="/use-cases/events" />
+          <ShowcaseCard emoji="💰" title={ts('commerce')} desc={ts('commerceDesc')} href="/use-cases/commerce" />
+          <ShowcaseCard emoji="🛍️" title={ts('market')} desc={ts('marketDesc')} href="/use-cases/market" />
+        </div>
+      </Section>
+
+      {/* ═══ 5. CTA ═══ */}
+      <Section className="!pb-32">
+        <motion.div {...fadeUp(0)}
+          className="relative rounded-[32px] p-12 md:p-20 text-center overflow-hidden"
+          style={{ background: 'linear-gradient(145deg, rgba(139,92,246,0.06), rgba(245,158,11,0.03))', border: '1px solid rgba(139,92,246,0.12)' }}
+        >
+          <div className="absolute w-[500px] h-[500px] top-[-200px] right-[-100px] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.08), transparent 70%)' }}
+          />
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-4 relative z-[2]">
+            {tc('title')}
+          </h2>
+          <p className="text-base text-text-muted max-w-[480px] mx-auto mb-8 relative z-[2]">
+            {tc('subtitle')}
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center relative z-[2]">
+            <a href="https://universe.bawes.net" target="_blank" rel="noopener noreferrer"
+              className="gradient-cta text-white px-8 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
+            >
+              {tc('button')}
+              <span className="material-symbols-outlined text-lg">{isRtl ? 'arrow_back' : 'arrow_forward'}</span>
+            </a>
+            <Link href="/contact"
+              className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200"
+            >
+              {tc('talkToUs')}
+            </Link>
+          </div>
+        </motion.div>
+      </Section>
+    </div>
+  )
+}

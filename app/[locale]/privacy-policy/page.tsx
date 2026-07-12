@@ -1,0 +1,92 @@
+'use client';
+
+import { useTranslations, useLocale } from 'next-intl';
+import Link from 'next/link';
+
+export default function PrivacyPolicyPage() {
+  const t = useTranslations('privacyPolicy');
+  const locale = useLocale();
+  const isRtl = locale === 'ar';
+  const dateLocale = isRtl ? 'ar' : 'en-US';
+
+  return (
+    <div className="pt-20 min-h-screen bg-[#0a0a0a]" dir={isRtl ? 'rtl' : 'ltr'}>
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/legal" className="hover:text-primary transition-colors">Legal</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">{t('title')} {t('titleGradient')}</span>
+        </div>
+      </div>
+      <div className="max-w-4xl mx-auto px-gutter py-section-padding-v">
+        <h1 className="text-4xl md:text-5xl font-bold mb-2 text-white">
+          {t('title')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6]">{t('titleGradient')}</span>
+        </h1>
+        <p className="text-white/50 mb-8">{t('lastUpdated', { date: new Date().toLocaleDateString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric' }) })}</p>
+
+        <div className="prose prose-invert max-w-none space-y-6 text-white/70">
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">1. Information We Collect</h2>
+            <p>
+              We collect information that you provide directly to us, such as when you fill out a contact form, subscribe to our newsletter, or communicate with us.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">2. How We Use Your Information</h2>
+            <p>We use the information we collect to:</p>
+            <ul className="list-disc pl-6 space-y-2 mt-4">
+              <li>Respond to your inquiries and provide customer support</li>
+              <li>Send you updates and communications about our services</li>
+              <li>Improve our website and services</li>
+              <li>Comply with legal obligations</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">3. Information Sharing</h2>
+            <p>
+              We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy. We may share information with service providers who assist us in operating our website and conducting our business.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">4. Data Security</h2>
+            <p>
+              We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">5. Cookies</h2>
+            <p>
+              We may use cookies to enhance your experience on our website. You can choose to disable cookies through your browser settings, though this may affect some functionality.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">6. Your Rights</h2>
+            <p>
+              You have the right to access, update, or delete your personal information at any time. If you wish to exercise these rights, please contact us through our contact page.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">7. Changes to This Policy</h2>
+            <p>
+              We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the &quot;Last updated&quot; date.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">8. Contact Us</h2>
+            <p>
+              If you have any questions about this Privacy Policy, please contact us through our contact page.
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
+}
