@@ -7,7 +7,15 @@ export default function UseCaseMarketPage() {
   return (
     <main className="pt-20">
       {/* Hero Section */}
-      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v flex flex-col md:flex-row items-center gap-12">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="Use Cases" className="hover:text-primary transition-colors">/use-cases</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">Market</span>
+        </div>
+      </div>
+            <section className="max-w-container-max mx-auto px-gutter py-section-padding-v flex flex-col md:flex-row items-center gap-12">
         <div className="flex-1 space-y-6">
           <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
             <Link href="/use-cases" className="hover:text-primary transition-colors">Use Cases</Link>

@@ -11,6 +11,8 @@ export default function WokaAvatarsPage() {
       {/* Breadcrumb */}
       <div className="max-w-container-max mx-auto px-gutter pt-24 pb-0">
         <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span className="text-white/20">/</span>
           <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
           <span className="text-white/20">/</span>
           <span className="text-primary">Woka Avatars</span>

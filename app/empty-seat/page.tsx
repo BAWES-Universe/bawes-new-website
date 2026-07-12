@@ -9,7 +9,15 @@ export default function EmptySeatPage() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative pt-48 pb-24 overflow-hidden">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="About" className="hover:text-primary transition-colors">/about</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">The Empty Seat</span>
+        </div>
+      </div>
+            <section className="relative pt-48 pb-24 overflow-hidden">
         <div className="max-w-container-max mx-auto px-margin-mobile grid md:grid-cols-2 gap-12 items-center">
           <div className="z-10">
             <span className="inline-block px-4 py-1.5 mb-6 glass-card rounded-full font-label-navigation text-label-navigation text-primary">

@@ -9,7 +9,15 @@ export default function UseCaseLearningPage() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative pt-40 pb-section-padding-v overflow-hidden">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="Use Cases" className="hover:text-primary transition-colors">/use-cases</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">For Learning</span>
+        </div>
+      </div>
+            <section className="relative pt-40 pb-section-padding-v overflow-hidden">
         <div className="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="z-10">
             <h1 className="font-display-hero text-display-hero mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] leading-tight">

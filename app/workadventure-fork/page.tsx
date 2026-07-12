@@ -9,7 +9,15 @@ export default function WorkAdventureForkPage() {
   return (
     <main className="relative pt-20">
       {/* Hero */}
-      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center min-h-[700px]">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="Developers" className="hover:text-primary transition-colors">/developers</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">WorkAdventure Fork</span>
+        </div>
+      </div>
+            <section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center min-h-[700px]">
         <div className="space-y-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-border-purple">
             <span className="material-symbols-outlined text-sm text-primary">fork_left</span>

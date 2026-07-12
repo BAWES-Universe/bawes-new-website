@@ -9,7 +9,15 @@ export default function LegalPage() {
   return (
     <main className="pt-32">
       {/* Hero Section */}
-      <section className="max-w-container-max mx-auto px-gutter mb-section-padding-v">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="About" className="hover:text-primary transition-colors">/about</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">Legal</span>
+        </div>
+      </div>
+            <section className="max-w-container-max mx-auto px-gutter mb-section-padding-v">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="font-display-hero text-display-hero mb-6">

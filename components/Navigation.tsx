@@ -77,7 +77,7 @@ const getHubHref = (label: string) => {
   switch (label) {
     case 'Features': return '/features-overview'
     case 'Use Cases': return '/use-cases'
-    case 'Developers': return '/open-source'
+    case 'Developers': return '/developers'
     case 'About': return '/about'
     default: return '/'
   }

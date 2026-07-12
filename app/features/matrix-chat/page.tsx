@@ -6,13 +6,19 @@ export default function MatrixChatPage() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
       {/* Hero */}
+            {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span className="text-white/20">/</span>
+          <Link href="/communication" className="hover:text-primary transition-colors">Communication</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">Matrix Chat</span>
+        </div>
+      </div>
       <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted w-full justify-start">
-        <Link href="/communication" className="hover:text-primary transition-colors">Communication</Link>
-        <span>/</span>
-        <span className="text-primary">Matrix Chat</span>
-      </div>
+          
       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
             <span className="material-symbols-outlined text-sm">hub</span>
             SYNAPSE PROTOCOL

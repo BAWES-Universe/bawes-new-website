@@ -30,7 +30,15 @@ export default function OpenSourcePage() {
 
   return (
     <div className="pt-20">
-      <section
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="Developers" className="hover:text-primary transition-colors">/developers</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">Open Source</span>
+        </div>
+      </div>
+            <section
         ref={heroRef}
         className="min-h-[50vh] flex items-center justify-center relative overflow-hidden"
       >

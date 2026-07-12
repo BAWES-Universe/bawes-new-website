@@ -8,6 +8,8 @@ export default function UserDirectoryPage() {
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 pt-24 pb-0">
         <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span className="text-white/20">/</span>
           <Link href="/communication" className="hover:text-primary transition-colors">Communication</Link>
           <span className="text-white/20">/</span>
           <span className="text-primary">User Directory</span>

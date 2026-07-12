@@ -34,7 +34,15 @@ export default function Build() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="min-h-[50vh] flex items-center justify-center relative overflow-hidden">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="Features" className="hover:text-primary transition-colors">/features-overview</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">Build & Create</span>
+        </div>
+      </div>
+            <section className="min-h-[50vh] flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-accent-purple/10 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-accent-amber/10 rounded-full blur-3xl" />

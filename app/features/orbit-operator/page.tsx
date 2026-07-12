@@ -10,7 +10,9 @@ export default function OrbitOperatorPage() {
     <main className="max-w-screen-xl mx-auto px-6">
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 pt-24 pb-0 text-xs text-text-muted max-w-container-max mx-auto px-gutter">
-        <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
+        <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span className="text-white/20">/</span>
+          <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
         <span className="text-white/20">/</span>
         <span className="text-primary">Orbit Operator</span>
       </div>

@@ -9,7 +9,15 @@ export default function TeamPage() {
   return (
     <main className="pt-32">
       {/* Hero Section */}
-      <section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v grid md:grid-cols-2 items-center gap-gutter">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="About" className="hover:text-primary transition-colors">/about</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">The Team</span>
+        </div>
+      </div>
+            <section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v grid md:grid-cols-2 items-center gap-gutter">
         <div className="space-y-6">
           <h1 className="font-display-hero text-display-hero text-on-surface leading-tight">
             Building the Future of <span className="text-gradient">Shared Spaces.</span>

@@ -9,7 +9,15 @@ export default function UseCaseWorkPage() {
   return (
     <main className="pt-32">
       {/* Hero Section */}
-      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-12 items-center">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="Use Cases" className="hover:text-primary transition-colors">/use-cases</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">For Work</span>
+        </div>
+      </div>
+            <section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
           <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero leading-tight">
             Work That Moves.<br />
