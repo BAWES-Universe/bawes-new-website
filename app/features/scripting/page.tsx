@@ -127,19 +127,19 @@ export default function ScriptingApiPage() {
             <pre className="p-6 font-mono text-sm leading-relaxed overflow-x-auto">
               <code>
                 <div className="space-y-1.5 text-white/80">
-                  <div><span className="text-gray-500">// Listen for zone entry</span></div>
+                  <div><span className="text-gray-500">{'// Listen for zone entry'}</span></div>
                   <div><span className="text-purple-400">WA.room</span>.<span className="text-blue-300">onEnterZone</span>(<span className="text-green-300">'welcome-zone'</span>, <span className="text-yellow-300">()</span> <span className="text-blue-300">=&gt;</span> {'{'}</div>
-                  <div className="pl-4"><span className="text-gray-500">// Open a welcome modal</span></div>
+                  <div className="pl-4"><span className="text-gray-500">{'// Open a welcome modal'}</span></div>
                   <div className="pl-4"><span className="text-purple-400">WA.ui</span>.<span className="text-blue-300">openModal</span>({'{'}</div>
-                  <div className="pl-8 text-purple-400">title: <span className="text-green-300">"Welcome!"</span>,</div>
-                  <div className="pl-8 text-purple-400">content: <span className="text-green-300">"&lt;p&gt;You've entered the BAWES Universe.&lt;/p&gt;"</span></div>
+                  <div className="pl-8 text-purple-400">title: <span className="text-green-300">{"\"Welcome!\""}</span>,</div>
+                  <div className="pl-8 text-purple-400">content: <span className="text-green-300">{"\"<p>You've entered the BAWES Universe.</p>\""}</span></div>
                   <div className="pl-4">{'}'}<span style={{color:'#e2e8f0'}}>);</span></div>
                   <div className="pl-4"><br /></div>
-                  <div className="pl-4"><span className="text-gray-500">// Move player to a specific position</span></div>
+                  <div className="pl-4"><span className="text-gray-500">{'// Move player to a specific position'}</span></div>
                   <div className="pl-4"><span className="text-purple-400">WA.player</span>.<span className="text-blue-300">moveTo</span>(<span className="text-orange-300">200</span>, <span className="text-orange-300">300</span>);</div>
                   <div>{'}'}<span style={{color:'#e2e8f0'}}>);</span></div>
                   <div><br /></div>
-                  <div><span className="text-gray-500">// Save state across sessions</span></div>
+                  <div><span className="text-gray-500">{'// Save state across sessions'}</span></div>
                   <div><span className="text-purple-400">WA.state</span>.<span className="text-blue-300">saveVariable</span>(<span className="text-green-300">'visitor_count'</span>, <span className="text-orange-300">42</span>, {'{'}</div>
                   <div className="pl-4 text-purple-400">public: <span className="text-yellow-300">true</span>,</div>
                   <div className="pl-4 text-purple-400">persist: <span className="text-yellow-300">true</span></div>
@@ -226,13 +226,13 @@ export default function ScriptingApiPage() {
                 </div>
                 <pre className="p-4 font-mono text-sm leading-relaxed overflow-x-auto max-h-48"><code>
                   <div className="space-y-1 text-white/80">
-                    <div><span className="text-gray-500">// Save a public variable</span></div>
+                    <div><span className="text-gray-500">{'// Save a public variable'}</span></div>
                     <div><span className="text-purple-400">WA.state</span>.<span className="text-blue-300">saveVariable</span>(<span className="text-green-300">'score'</span>, <span className="text-orange-300">100</span>, {'{'}</div>
                     <div className="pl-4 text-purple-400">public: <span className="text-yellow-300">true</span>,</div>
                     <div className="pl-4 text-purple-400">persist: <span className="text-yellow-300">true</span></div>
                     <div>{'}'}<span style={{color:'#e2e8f0'}}>);</span></div>
                     <div><br /></div>
-                    <div><span className="text-gray-500">// Listen for changes</span></div>
+                    <div><span className="text-gray-500">{'// Listen for changes'}</span></div>
                     <div><span className="text-purple-400">WA.state</span>.<span className="text-blue-300">onVariableChange</span>(<span className="text-green-300">'score'</span>)</div>
                     <div className="pl-4">.<span className="text-blue-300">subscribe</span>(<span className="text-yellow-300">(newValue)</span> <span className="text-blue-300">=&gt;</span> {'{'}</div>
                     <div className="pl-8"><span className="text-purple-400">console</span>.<span className="text-blue-300">log</span>(<span className="text-green-300">'Score:'</span>, newValue);</div>
