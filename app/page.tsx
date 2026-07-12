@@ -111,7 +111,7 @@ function SceneHero() {
             color: 'rgba(255,255,255,0.85)',
           }}
         >
-          <strong className="text-accent-purple">Hermes</strong> — Hey, I remember we were working on the landing page. Want me to show the new designs?
+          <strong className="text-accent-purple">Planner Bot</strong> — Welcome back! Good to see you again. Still working on all those plans from last time for building your own space here? Let me know where you're at now.
         </div>
         {/* Glare */}
         <div
