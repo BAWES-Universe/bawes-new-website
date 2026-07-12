@@ -1,0 +1,80 @@
+'use client';
+
+import { useTranslations, useLocale } from 'next-intl';
+import Link from 'next/link';
+
+export default function TermsOfUsePage() {
+  const t = useTranslations('termsOfUse');
+  const locale = useLocale();
+  const isRtl = locale === 'ar';
+  const dateLocale = isRtl ? 'ar' : 'en-US';
+
+  return (
+    <div className="pt-20 min-h-screen bg-[#0a0a0a]" dir={isRtl ? 'rtl' : 'ltr'}>
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/legal" className="hover:text-primary transition-colors">Legal</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">{t('title')} {t('titleGradient')}</span>
+        </div>
+      </div>
+      <div className="max-w-4xl mx-auto px-gutter py-section-padding-v">
+        <h1 className="text-4xl md:text-5xl font-bold mb-2 text-white">
+          {t('title')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6]">{t('titleGradient')}</span>
+        </h1>
+        <p className="text-white/50 mb-8">{t('lastUpdated', { date: new Date().toLocaleDateString(dateLocale, { year: 'numeric', month: 'long', day: 'numeric' }) })}</p>
+
+        <div className="prose prose-invert max-w-none space-y-6 text-white/70">
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">1. Acceptance of Terms</h2>
+            <p>
+              By accessing and using BAWES Universe, you accept and agree to be bound by the terms and provision of this agreement.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">2. Use License</h2>
+            <p>
+              Permission is granted to temporarily access the materials on BAWES Universe for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-4">
+              <li>modify or copy the materials</li>
+              <li>use the materials for any commercial purpose or for any public display</li>
+              <li>attempt to reverse engineer any software contained on BAWES Universe</li>
+              <li>remove any copyright or other proprietary notations from the materials</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">3. Disclaimer</h2>
+            <p>
+              The materials on BAWES Universe are provided on an &apos;as is&apos; basis. BAWES Universe makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">4. Limitations</h2>
+            <p>
+              In no event shall BAWES Universe or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on BAWES Universe.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">5. Revisions</h2>
+            <p>
+              BAWES Universe may revise these terms of use at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of use.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">6. Contact Information</h2>
+            <p>
+              If you have any questions about these Terms of Use, please contact us through our contact page.
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
+}

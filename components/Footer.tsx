@@ -1,13 +1,19 @@
 'use client'
 
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { usePathname } from '@/lib/navigation'
 
 export default function Footer() {
+  const t = useTranslations('footer')
+  const locale = useLocale()
+  const pathname = usePathname()
+  const isRtl = locale === 'ar'
+
   return (
     <footer className="relative pt-32 pb-12 overflow-hidden" style={{ background: '#0a0a14' }}>
-      {/* Background elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl" />
@@ -32,7 +38,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-white/50 mb-8 max-w-md leading-relaxed">
-              A shared digital universe where people explore, AI agents coexist, and communities build together.
+              {t('tagline')}
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -69,20 +75,19 @@ export default function Footer() {
           >
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
               <div>
-                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Explore</h3>
+                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">{t('explore')}</h3>
                 <ul className="space-y-3">
                   {[
-                    { label: 'Communication', href: '/communication' },
-                    { label: 'AI Bots', href: '/ai-bots' },
-                    { label: 'Build & Create', href: '/build' },
-                    { label: 'Platform', href: '/platform' },
-                    { label: 'About', href: '/about' },
-                    { label: 'How It Works', href: '/how-it-works' },
+                    { label: t('communication'), href: '/communication' },
+                    { label: t('aiBots'), href: '/ai-bots' },
+                    { label: t('buildCreate'), href: '/build' },
+                    { label: t('platform'), href: '/platform' },
+                    { label: t('howItWorks'), href: '/how-it-works' },
                   ].map((item) => (
                     <li key={item.label}>
                       <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
                         {item.label}
-                        <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
+                        <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">{isRtl ? 'chevron_left' : 'chevron_right'}</span>
                       </Link>
                     </li>
                   ))}
@@ -90,14 +95,14 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Community</h3>
+                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">{t('communityTitle')}</h3>
                 <ul className="space-y-3">
                   {[
-                    { label: 'Market', href: '/use-cases/market' },
-                    { label: 'Blog', href: 'https://blog.bawes.net', external: true },
-                    { label: 'Discord', href: 'https://discord.gg/CXceJWnwNT', external: true },
-                    { label: 'GitHub', href: 'https://github.com/BAWES-Universe', external: true },
-                    { label: 'Contact', href: '/contact' },
+                    { label: t('market'), href: '/use-cases/market' },
+                    { label: t('blogLink'), href: 'https://blog.bawes.net', external: true },
+                    { label: t('discord'), href: 'https://discord.gg/CXceJWnwNT', external: true },
+                    { label: t('github'), href: 'https://github.com/BAWES-Universe', external: true },
+                    { label: t('about'), href: '/about' },
                   ].map((item) => (
                     <li key={item.label}>
                       {item.external ? (
@@ -108,7 +113,7 @@ export default function Footer() {
                       ) : (
                         <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-blue-400 transition-colors text-sm">
                           {item.label}
-                          <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
+                          <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">{isRtl ? 'chevron_left' : 'chevron_right'}</span>
                         </Link>
                       )}
                     </li>
@@ -117,18 +122,18 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">More</h3>
+                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">{t('more')}</h3>
                 <ul className="space-y-3">
                   {[
-                    { label: 'Open Source', href: '/open-source' },
-                    { label: 'Manifesto', href: '/manifesto' },
-                    { label: 'The Team', href: '/team' },
-                    { label: 'Legal', href: '/legal' },
+                    { label: t('openSource'), href: '/open-source' },
+                    { label: t('theTeam'), href: '/team' },
+                    { label: t('legalLink'), href: '/legal' },
+                    { label: t('contact'), href: '/contact' },
                   ].map((item) => (
                     <li key={item.label}>
                       <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
                         {item.label}
-                        <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
+                        <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">{isRtl ? 'chevron_left' : 'chevron_right'}</span>
                       </Link>
                     </li>
                   ))}
@@ -141,17 +146,17 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/10 text-center">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
             <p className="text-white/30 text-sm">
-              © {new Date().getFullYear()} BAWES Universe. Open by default.
+              {t('copyright', { year: new Date().getFullYear() })}
             </p>
             <div className="flex items-center gap-3 text-xs text-white/30">
               <Link href="/terms-of-use" className="group inline-flex items-center gap-1 hover:text-white/50 transition-colors">
-                Terms of Use
-                <span className="material-symbols-outlined text-[12px] text-white/20 group-hover:text-white/50 transition-colors">chevron_right</span>
+                {t('termsOfUse')}
+                <span className="material-symbols-outlined text-[12px] text-white/20 group-hover:text-white/50 transition-colors">{isRtl ? 'chevron_left' : 'chevron_right'}</span>
               </Link>
               <span className="text-white/20">•</span>
               <Link href="/privacy-policy" className="group inline-flex items-center gap-1 hover:text-white/50 transition-colors">
-                Privacy Policy
-                <span className="material-symbols-outlined text-[12px] text-white/20 group-hover:text-white/50 transition-colors">chevron_right</span>
+                {t('privacyPolicy')}
+                <span className="material-symbols-outlined text-[12px] text-white/20 group-hover:text-white/50 transition-colors">{isRtl ? 'chevron_left' : 'chevron_right'}</span>
               </Link>
             </div>
           </div>
