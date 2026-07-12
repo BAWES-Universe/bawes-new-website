@@ -157,16 +157,24 @@ export default function McpIntegrationPage() {
               <span className="material-symbols-outlined text-primary">check_circle</span>
               <span className="text-sm font-semibold text-white">Test Connection</span>
             </div>
-            <p className="text-text-secondary text-sm mb-4">After saving, click <strong>Test Connection</strong> to verify the <code className="text-primary text-xs">tools/list</code> response and see which tools are exposed by your server.</p>
-            <div className="bg-surface-container-high rounded-lg p-3">
-              <pre className="font-mono text-xs text-primary">{`POST /mcp
+            <p className="text-text-secondary text-sm mb-4">After saving, click <strong>Test Connection</strong> to verify the <code className="text-purple-400 text-xs">tools/list</code> response and see which tools are exposed by your server.</p>
+            <div className="glass-card rounded-xl overflow-hidden border border-purple-500/20">
+              <div className="flex items-center gap-2 px-3 py-2 border-b border-white/5 bg-white/5">
+                <div className="flex gap-1.5">
+                  <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
+                  <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                  <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
+                </div>
+                <span className="ml-3 text-[10px] text-white/40 font-mono">test-connection.http</span>
+              </div>
+              <pre className="p-3 font-mono text-xs leading-relaxed text-purple-300 overflow-x-auto"><code>{`POST /mcp
 Content-Type: application/json
 
 {
   "jsonrpc": "2.0",
   "id": "test",
   "method": "tools/list"
-}`}</pre>
+}`}</code></pre>
             </div>
           </div>
         </div>
@@ -185,9 +193,17 @@ Content-Type: application/json
                 <span className="material-symbols-outlined text-primary">handshake</span>
                 Initialize
               </h3>
-              <p className="text-text-secondary text-sm mb-4">Sent before any method call. The server can return a <code className="text-primary text-xs">Mcp-Session-Id</code> header for stateful sessions.</p>
-              <div className="bg-surface-container-high rounded-lg p-3">
-                <pre className="font-mono text-xs text-primary overflow-x-auto">{`{
+              <p className="text-text-secondary text-sm mb-4">Sent before any method call. The server can return a <code className="text-purple-400 text-xs">Mcp-Session-Id</code> header for stateful sessions.</p>
+              <div className="glass-card rounded-xl overflow-hidden border border-purple-500/20">
+                <div className="flex items-center gap-2 px-3 py-2 border-b border-white/5 bg-white/5">
+                  <div className="flex gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
+                    <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                    <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
+                  </div>
+                  <span className="ml-3 text-[10px] text-white/40 font-mono">initialize.json</span>
+                </div>
+                <pre className="p-3 font-mono text-xs leading-relaxed text-purple-300 overflow-x-auto max-h-48"><code>{`{
   "jsonrpc": "2.0",
   "id": "init",
   "method": "initialize",
@@ -200,7 +216,7 @@ Content-Type: application/json
       "player_id": "<player-uuid>"
     }
   }
-}`}</pre>
+}`}</code></pre>
               </div>
             </div>
             <div className="glass-card rounded-xl p-6">
@@ -208,9 +224,17 @@ Content-Type: application/json
                 <span className="material-symbols-outlined text-secondary">call</span>
                 tools/call
               </h3>
-              <p className="text-text-secondary text-sm mb-4">When the AI selects a tool, the bot sends a <code className="text-secondary text-xs">tools/call</code> request with the chosen arguments.</p>
-              <div className="bg-surface-container-high rounded-lg p-3">
-                <pre className="font-mono text-xs text-secondary overflow-x-auto">{`{
+              <p className="text-text-secondary text-sm mb-4">When the AI selects a tool, the bot sends a <code className="text-purple-400 text-xs">tools/call</code> request with the chosen arguments.</p>
+              <div className="glass-card rounded-xl overflow-hidden border border-purple-500/20">
+                <div className="flex items-center gap-2 px-3 py-2 border-b border-white/5 bg-white/5">
+                  <div className="flex gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
+                    <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                    <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
+                  </div>
+                  <span className="ml-3 text-[10px] text-white/40 font-mono">tools-call.json</span>
+                </div>
+                <pre className="p-3 font-mono text-xs leading-relaxed text-purple-300 overflow-x-auto max-h-48"><code>{`{
   "jsonrpc": "2.0",
   "id": "exec",
   "method": "tools/call",
@@ -220,7 +244,7 @@ Content-Type: application/json
       "query": "latest updates"
     }
   }
-}`}</pre>
+}`}</code></pre>
               </div>
             </div>
           </div>
@@ -238,7 +262,16 @@ Content-Type: application/json
         <div className="glass-card rounded-2xl p-8 md:p-12 border border-purple/20">
           <h2 className="font-headline-section text-headline-section text-on-surface mb-4">Minimal MCP Server (Node.js)</h2>
           <p className="text-text-secondary mb-8">A complete, runnable example to get started with your own MCP server.</p>
-          <pre className="font-mono text-sm leading-relaxed text-primary bg-surface-container-high rounded-xl p-6 overflow-x-auto"><code>{`import express from 'express';
+          <div className="glass-card rounded-2xl overflow-hidden border border-purple-500/20">
+            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/5 bg-white/5">
+              <div className="flex gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+              </div>
+              <span className="ml-4 text-xs text-white/40 font-mono">mcp-server.js</span>
+            </div>
+            <pre className="p-4 font-mono text-xs leading-relaxed text-purple-300 overflow-x-auto max-h-64"><code>{`import express from 'express';
 const app = express();
 app.use(express.json());
 
@@ -284,6 +317,7 @@ app.post('/mcp', (req, res) => {
 });
 
 app.listen(3001);`}</code></pre>
+          </div>
         </div>
       </section>
 

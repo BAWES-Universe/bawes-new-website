@@ -213,8 +213,16 @@ WA.state.saveVariable('visitor_count', 42, {
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-white">Persistent Variables</h2>
               <p className="text-white/60">Store and synchronize state across all players in a room. Variables persist between sessions and can be public or private.</p>
-              <div className="glass-card p-4 rounded-xl">
-                <pre className="font-mono text-sm text-purple-300"><code>{`// Save a public variable
+              <div className="glass-card rounded-2xl overflow-hidden border border-purple-500/20">
+                <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/5 bg-white/5">
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+                  </div>
+                  <span className="ml-4 text-xs text-white/40 font-mono">state.ts</span>
+                </div>
+                <pre className="p-4 font-mono text-sm leading-relaxed text-purple-300 overflow-x-auto max-h-48"><code>{`// Save a public variable
 WA.state.saveVariable('score', 100, {
   public: true,
   persist: true
