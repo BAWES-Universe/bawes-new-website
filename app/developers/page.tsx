@@ -26,12 +26,6 @@ const fadeUp = (delay = 0) => ({
 export default function DevelopersPage() {
   return (
     <div className="pt-20">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <span className="text-primary">Developers</span>
-        </div>
-      </div>
 
       {/* Hero */}
       <section className="min-h-[45vh] flex items-center justify-center relative overflow-hidden">
