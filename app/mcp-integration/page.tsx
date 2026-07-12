@@ -41,13 +41,13 @@ export default function McpIntegrationPage() {
               <span className="material-symbols-outlined">arrow_forward</span>
             </a>
             <a
-              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md"
+              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/scripting.md"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-card text-on-surface px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-all inline-flex items-center gap-2"
             >
               <span className="material-symbols-outlined text-base">code</span>
-              Documentation
+              Bot Scripting Guide
             </a>
           </div>
         </div>
@@ -429,13 +429,13 @@ app.listen(3001);`}</code></pre>
               Get Started with MCP
             </a>
             <a
-              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md"
+              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/scripting.md"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-card text-on-surface px-10 py-4 rounded-full font-bold hover:bg-white/5 transition-all inline-flex items-center gap-2"
             >
               <span className="material-symbols-outlined text-base">open_in_new</span>
-              View Documentation
+              Explore Bot Scripting
             </a>
           </div>
         </div>

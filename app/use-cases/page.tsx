@@ -58,6 +58,15 @@ const useCases = [
     tag: 'Conferences & Events',
     tagColor: 'cyan',
   },
+  {
+    emoji: '🏠',
+    title: 'For Personal',
+    desc: 'Build your own digital sanctuary. Custom AI companions, organized workspaces, and a place where friends are always welcome to drop in.',
+    highlights: ['AI companions that remember you', 'Private spaces & tools', 'Friends welcome anytime', 'Self-hosted or cloud'],
+    href: '/use-cases/personal',
+    tag: 'Solo & Creators',
+    tagColor: 'purple',
+  },
 ]
 
 const fadeUp = (delay = 0) => ({

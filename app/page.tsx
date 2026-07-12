@@ -47,6 +47,7 @@ const showcases = [
   { emoji: '🎓', title: 'Campus Universe', desc: 'Lecture halls, study groups, AI teaching assistants available 24/7.', tag: 'For Learning', tagColor: 'amber', href: '/use-cases/learning' },
   { emoji: '🎮', title: 'Community Universe', desc: 'Event halls, gaming rooms, welcome bots that greet every new member by name.', tag: 'For Community', tagColor: 'green', href: '/use-cases/community' },
   { emoji: '🌐', title: 'Conference Universe', desc: 'Sponsor rooms, networking zones, main stages for thousands.', tag: 'For Events', tagColor: 'blue', href: '/use-cases/events' },
+  { emoji: '🏠', title: 'Personal Universe', desc: 'Custom AI companions, organized workspaces, friends welcome anytime.', tag: 'For Personal', tagColor: 'purple', href: '/use-cases/personal' },
 ]
 
 /* ─── COMPONENTS ─── */
@@ -287,7 +288,7 @@ export default function Home() {
         <motion.div {...fadeUp(0)}>
           <div className="section-label" data-label="What people build" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 leading-tight tracking-[-0.02em]">
-            Universes for work,<br />school, and play.
+            Universes for work,<br />school, community, and more.
           </h2>
           <p className="text-base text-text-muted max-w-[500px] mb-16">
             Companies, classrooms, communities, and creators are already building their own worlds.
