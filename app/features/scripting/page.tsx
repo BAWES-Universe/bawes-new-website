@@ -70,10 +70,9 @@ export default function ScriptingApiPage() {
               </div>
               <h3 className="text-lg font-bold text-white mb-2">WA.ui</h3>
               <p className="text-white/50 text-sm">Create UI elements, buttons, and modals within the world canvas. Open modal windows, add action bar buttons, and build custom interfaces.</p>
-              <div className="mt-4 pt-4 border-t border-white/5">
-                <code className="text-xs text-purple-300 font-mono">WA.ui.openModal()</code>
-                <span className="text-white/30 mx-1">·</span>
-                <code className="text-xs text-purple-300 font-mono">WA.ui.actionBar.addButton()</code>
+              <div className="mt-4 pt-4 border-t border-white/5 space-y-1">
+                <code className="block text-xs text-purple-300 font-mono">WA.ui.openModal()</code>
+                <code className="block text-xs text-purple-300 font-mono">WA.ui.actionBar.addButton()</code>
               </div>
             </div>
             <div className="glass-card p-6 rounded-xl">
@@ -82,10 +81,9 @@ export default function ScriptingApiPage() {
               </div>
               <h3 className="text-lg font-bold text-white mb-2">WA.room</h3>
               <p className="text-white/50 text-sm">Control room properties, layer visibility, and spatial triggers. Hide/show layers, enter/leave zones, and manage the room state.</p>
-              <div className="mt-4 pt-4 border-t border-white/5">
-                <code className="text-xs text-purple-300 font-mono">WA.room.onEnterZone()</code>
-                <span className="text-white/30 mx-1">·</span>
-                <code className="text-xs text-purple-300 font-mono">WA.room.hideLayer()</code>
+              <div className="mt-4 pt-4 border-t border-white/5 space-y-1">
+                <code className="block text-xs text-purple-300 font-mono">WA.room.onEnterZone()</code>
+                <code className="block text-xs text-purple-300 font-mono">WA.room.hideLayer()</code>
               </div>
             </div>
             <div className="glass-card p-6 rounded-xl">
@@ -94,10 +92,9 @@ export default function ScriptingApiPage() {
               </div>
               <h3 className="text-lg font-bold text-white mb-2">WA.player</h3>
               <p className="text-white/50 text-sm">Manage player position, avatars, and session data. Move players between maps, set custom avatars, and access user profile information.</p>
-              <div className="mt-4 pt-4 border-t border-white/5">
-                <code className="text-xs text-purple-300 font-mono">WA.player.moveTo()</code>
-                <span className="text-white/30 mx-1">·</span>
-                <code className="text-xs text-purple-300 font-mono">WA.player.setPlayerBadge()</code>
+              <div className="mt-4 pt-4 border-t border-white/5 space-y-1">
+                <code className="block text-xs text-purple-300 font-mono">WA.player.moveTo()</code>
+                <code className="block text-xs text-purple-300 font-mono">WA.player.setPlayerBadge()</code>
               </div>
             </div>
             <div className="glass-card p-6 rounded-xl">
@@ -106,10 +103,9 @@ export default function ScriptingApiPage() {
               </div>
               <h3 className="text-lg font-bold text-white mb-2">WA.state</h3>
               <p className="text-white/50 text-sm">Handle persistent room variables and cross-user synchronization. Store, retrieve, and share state across all players in a room.</p>
-              <div className="mt-4 pt-4 border-t border-white/5">
-                <code className="text-xs text-purple-300 font-mono">WA.state.saveVariable()</code>
-                <span className="text-white/30 mx-1">·</span>
-                <code className="text-xs text-purple-300 font-mono">WA.state.onVariableChange()</code>
+              <div className="mt-4 pt-4 border-t border-white/5 space-y-1">
+                <code className="block text-xs text-purple-300 font-mono">WA.state.saveVariable()</code>
+                <code className="block text-xs text-purple-300 font-mono">WA.state.onVariableChange()</code>
               </div>
             </div>
           </div>
@@ -128,23 +124,29 @@ export default function ScriptingApiPage() {
               </div>
               <span className="ml-4 text-xs text-white/40 font-mono">script.ts</span>
             </div>
-            <pre className="p-6 font-mono text-sm leading-relaxed text-purple-300 overflow-x-auto"><code>{`// Listen for zone entry
-WA.room.onEnterZone('welcome-zone', () => {
-  // Open a welcome modal
-  WA.ui.openModal({
-    title: "Welcome!",
-    content: "<p>You've entered the BAWES Universe.</p>"
-  });
-  
-  // Move player to a specific position
-  WA.player.moveTo(200, 300);
-});
-
-// Save state across sessions
-WA.state.saveVariable('visitor_count', 42, {
-  public: true,
-  persist: true
-});`}</code></pre>
+            <pre className="p-6 font-mono text-sm leading-relaxed overflow-x-auto">
+              <code>
+                <div className="space-y-1.5 text-white/80">
+                  <div><span className="text-gray-500">// Listen for zone entry</span></div>
+                  <div><span className="text-purple-400">WA.room</span>.<span className="text-blue-300">onEnterZone</span>(<span className="text-green-300">'welcome-zone'</span>, <span className="text-yellow-300">()</span> <span className="text-blue-300">=&gt;</span> {'{'}</div>
+                  <div className="pl-4"><span className="text-gray-500">// Open a welcome modal</span></div>
+                  <div className="pl-4"><span className="text-purple-400">WA.ui</span>.<span className="text-blue-300">openModal</span>({'{'}</div>
+                  <div className="pl-8 text-purple-400">title: <span className="text-green-300">"Welcome!"</span>,</div>
+                  <div className="pl-8 text-purple-400">content: <span className="text-green-300">"&lt;p&gt;You've entered the BAWES Universe.&lt;/p&gt;"</span></div>
+                  <div className="pl-4">{'}'}<span style={{color:'#e2e8f0'}}>);</span></div>
+                  <div className="pl-4"><br /></div>
+                  <div className="pl-4"><span className="text-gray-500">// Move player to a specific position</span></div>
+                  <div className="pl-4"><span className="text-purple-400">WA.player</span>.<span className="text-blue-300">moveTo</span>(<span className="text-orange-300">200</span>, <span className="text-orange-300">300</span>);</div>
+                  <div>{'}'}<span style={{color:'#e2e8f0'}}>);</span></div>
+                  <div><br /></div>
+                  <div><span className="text-gray-500">// Save state across sessions</span></div>
+                  <div><span className="text-purple-400">WA.state</span>.<span className="text-blue-300">saveVariable</span>(<span className="text-green-300">'visitor_count'</span>, <span className="text-orange-300">42</span>, {'{'}</div>
+                  <div className="pl-4 text-purple-400">public: <span className="text-yellow-300">true</span>,</div>
+                  <div className="pl-4 text-purple-400">persist: <span className="text-yellow-300">true</span></div>
+                  <div>{'}'}<span style={{color:'#e2e8f0'}}>);</span></div>
+                </div>
+              </code>
+            </pre>
           </div>
           <div className="text-center mt-6">
             <a
@@ -222,17 +224,21 @@ WA.state.saveVariable('visitor_count', 42, {
                   </div>
                   <span className="ml-4 text-xs text-white/40 font-mono">state.ts</span>
                 </div>
-                <pre className="p-4 font-mono text-sm leading-relaxed text-purple-300 overflow-x-auto max-h-48"><code>{`// Save a public variable
-WA.state.saveVariable('score', 100, {
-  public: true,
-  persist: true
-});
-
-// Listen for changes
-WA.state.onVariableChange('score')
-  .subscribe((newValue) => {
-    console.log('Score:', newValue);
-  });`}</code></pre>
+                <pre className="p-4 font-mono text-sm leading-relaxed overflow-x-auto max-h-48"><code>
+                  <div className="space-y-1 text-white/80">
+                    <div><span className="text-gray-500">// Save a public variable</span></div>
+                    <div><span className="text-purple-400">WA.state</span>.<span className="text-blue-300">saveVariable</span>(<span className="text-green-300">'score'</span>, <span className="text-orange-300">100</span>, {'{'}</div>
+                    <div className="pl-4 text-purple-400">public: <span className="text-yellow-300">true</span>,</div>
+                    <div className="pl-4 text-purple-400">persist: <span className="text-yellow-300">true</span></div>
+                    <div>{'}'}<span style={{color:'#e2e8f0'}}>);</span></div>
+                    <div><br /></div>
+                    <div><span className="text-gray-500">// Listen for changes</span></div>
+                    <div><span className="text-purple-400">WA.state</span>.<span className="text-blue-300">onVariableChange</span>(<span className="text-green-300">'score'</span>)</div>
+                    <div className="pl-4">.<span className="text-blue-300">subscribe</span>(<span className="text-yellow-300">(newValue)</span> <span className="text-blue-300">=&gt;</span> {'{'}</div>
+                    <div className="pl-8"><span className="text-purple-400">console</span>.<span className="text-blue-300">log</span>(<span className="text-green-300">'Score:'</span>, newValue);</div>
+                    <div className="pl-4">{'}'}<span style={{color:'#e2e8f0'}}>);</span></div>
+                  </div>
+                </code></pre>
               </div>
             </div>
             <div className="space-y-6">
