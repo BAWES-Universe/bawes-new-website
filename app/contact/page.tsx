@@ -37,8 +37,8 @@ export default function ContactPage() {
                 <input className="w-full bg-surface-container-lowest border border-border-purple rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-text-low-emphasis" placeholder="First and last name" type="text" />
               </div>
               <div className="space-y-2">
-                <label className="font-label-navigation text-label-navigation text-text-secondary px-1">your@email.com</label>
-                <input className="w-full bg-surface-container-lowest border border-border-purple rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-text-low-emphasis" placeholder="example@provider.com" type="email" />
+                <label className="font-label-navigation text-label-navigation text-text-secondary px-1">Your email</label>
+                <input className="w-full bg-surface-container-lowest border border-border-purple rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-text-low-emphasis" placeholder="your@email.com" type="email" />
               </div>
             </div>
             <div className="space-y-2">
@@ -86,7 +86,7 @@ export default function ContactPage() {
             <p className="text-text-secondary mb-8 font-body-md">
               Universe can be self-hosted, white-labeled, or extended for specific use cases. If your usage grows beyond fair usage, we&apos;ll work with you on a pricing model that fits — whether that&apos;s token consumption or infra needs.
             </p>
-            <a href="mailto:hello@bawes.net" className="w-full bg-transparent border border-white/30 text-on-surface px-6 py-3 rounded-full font-bold hover:border-white/60 transition-colors active:scale-95 inline-block text-center">
+            <a href="mailto:contact@bawes.net" className="w-full bg-transparent border border-white/30 text-on-surface px-6 py-3 rounded-full font-bold hover:border-white/60 transition-colors active:scale-95 inline-block text-center">
               Request Assistance
             </a>
           </div>
