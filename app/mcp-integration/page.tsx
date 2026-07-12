@@ -257,6 +257,77 @@ Content-Type: application/json
         </div>
       </section>
 
+      {/* Player Identification */}
+      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
+        <div className="glass-card rounded-2xl p-8 md:p-12 border border-purple/20">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="space-y-6">
+              <h2 className="font-headline-section text-headline-section text-on-surface">Player Identification</h2>
+              <p className="text-text-secondary">Each player gets their own MCP session, allowing your server to distinguish users and maintain per-player state.</p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="material-symbols-outlined text-primary text-sm flex-shrink-0 mt-0.5">badge</span>
+                  <div>
+                    <p className="text-sm font-semibold text-white"><code className="text-purple-400">player_id</code></p>
+                    <p className="text-xs text-text-secondary">A stable UUID sent with every initialize request. Use it for per-player state, context, and rate limits.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="material-symbols-outlined text-primary text-sm flex-shrink-0 mt-0.5">explore</span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">Tool Discovery</p>
+                    <p className="text-xs text-text-secondary">During initial tool discovery (before any player conversation), <code className="text-purple-400">player_id</code> is <code className="text-purple-400">null</code>. Your handler must accept null.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="material-symbols-outlined text-primary text-sm flex-shrink-0 mt-0.5">session</span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">Session Lifecycle</p>
+                    <p className="text-xs text-text-secondary">Each player gets a cached MCP session keyed by server URL, auth config, and <code className="text-purple-400">player_id</code>. Sessions expire after 1 hour of inactivity. First tool call per player triggers one <code className="text-purple-400">initialize</code> round-trip (~50&ndash;200ms), then reuse within the hour.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="material-symbols-outlined text-primary text-sm flex-shrink-0 mt-0.5">cached</span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">Tool List Caching</p>
+                    <p className="text-xs text-text-secondary">The tool list from <code className="text-purple-400">tools/list</code> is cached for 1 hour across all players. Tool changes may take up to 1 hour to propagate unless the bot is restarted.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="glass-card rounded-2xl overflow-hidden border border-purple-500/20">
+              <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/5 bg-white/5">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+                </div>
+                <span className="ml-4 text-xs text-white/40 font-mono">session-lifecycle.ts</span>
+              </div>
+              <pre className="p-4 font-mono text-xs leading-relaxed text-purple-300 overflow-x-auto max-h-48"><code>{`// Each player gets their own session
+const sessions = new Map();
+
+function getSession(playerId, serverUrl) {
+  const key = \`$\{playerId}:$\{serverUrl}\`;
+  let session = sessions.get(key);
+
+  if (!session || isExpired(session)) {
+    // Triggers initialize round-trip
+    session = createSession(serverUrl);
+    sessions.set(key, session);
+  }
+
+  return session;
+}
+
+// Session expires after 1h inactivity
+// Tool list refreshes every 1h
+setInterval(refreshToolList, 3600000);`}</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Example Server */}
       <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
         <div className="glass-card rounded-2xl p-8 md:p-12 border border-purple/20">
