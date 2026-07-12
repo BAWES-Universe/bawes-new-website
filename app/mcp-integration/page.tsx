@@ -61,18 +61,18 @@ export default function McpIntegrationPage() {
               </div>
               <div className="ml-4 text-caption text-text-low-emphasis font-mono">mcp-config.json</div>
             </div>
-            <pre className="font-mono text-sm leading-relaxed text-primary overflow-x-auto">{`{
-  "mcpServers": {
-    "calendar": {
-      "url": "https://mcp.bawes.io/calendar",
-      "tools": ["list_events", "create_event"]
-    },
-    "ticketing": {
-      "url": "https://mcp.bawes.io/jira",
-      "tools": ["search_issues", "create_ticket"]
-    }
+            <pre className="font-mono text-sm leading-relaxed overflow-x-auto" dangerouslySetInnerHTML={{
+              __html: `<span class="text-purple-400">"mcpServers"</span>: {
+  <span class="text-amber-300">"calendar"</span>: {
+    <span class="text-purple-400">"url"</span>: <span class="text-amber-300">"https://mcp.bawes.io/calendar"</span>,
+    <span class="text-purple-400">"tools"</span>: [<span class="text-amber-300">"list_events"</span>, <span class="text-amber-300">"create_event"</span>]
+  },
+  <span class="text-amber-300">"ticketing"</span>: {
+    <span class="text-purple-400">"url"</span>: <span class="text-amber-300">"https://mcp.bawes.io/jira"</span>,
+    <span class="text-purple-400">"tools"</span>: [<span class="text-amber-300">"search_issues"</span>, <span class="text-amber-300">"create_ticket"</span>]
   }
-}`}</pre>
+}`
+            }} />
             <div className="absolute -bottom-10 -right-10 opacity-10">
               <span className="material-symbols-outlined text-[200px]">hub</span>
             </div>
@@ -167,14 +167,16 @@ export default function McpIntegrationPage() {
                 </div>
                 <span className="ml-3 text-[10px] text-white/40 font-mono">test-connection.http</span>
               </div>
-              <pre className="p-3 font-mono text-xs leading-relaxed text-purple-300 overflow-x-auto"><code>{`POST /mcp
-Content-Type: application/json
+              <pre className="p-3 font-mono text-xs leading-relaxed overflow-x-auto" dangerouslySetInnerHTML={{
+                __html: `<span class="text-purple-300">POST</span> /mcp
+<span class="text-purple-400">Content-Type</span>: <span class="text-amber-300">application/json</span>
 
 {
-  "jsonrpc": "2.0",
-  "id": "test",
-  "method": "tools/list"
-}`}</code></pre>
+  <span class="text-purple-400">"jsonrpc"</span>: <span class="text-amber-300">"2.0"</span>,
+  <span class="text-purple-400">"id"</span>: <span class="text-amber-300">"test"</span>,
+  <span class="text-purple-400">"method"</span>: <span class="text-amber-300">"tools/list"</span>
+}`
+              }} />
             </div>
           </div>
         </div>
@@ -203,20 +205,22 @@ Content-Type: application/json
                   </div>
                   <span className="ml-3 text-[10px] text-white/40 font-mono">initialize.json</span>
                 </div>
-                <pre className="p-3 font-mono text-xs leading-relaxed text-purple-300 overflow-x-auto max-h-48"><code>{`{
-  "jsonrpc": "2.0",
-  "id": "init",
-  "method": "initialize",
-  "params": {
-    "protocolVersion": "2024-11-05",
-    "capabilities": {},
-    "clientInfo": {
-      "name": "workadventure-mcp-bot",
-      "version": "1.0.0",
-      "player_id": "<player-uuid>"
+                <pre className="p-3 font-mono text-xs leading-relaxed overflow-x-auto max-h-48" dangerouslySetInnerHTML={{
+                  __html: `{
+  <span class="text-purple-400">"jsonrpc"</span>: <span class="text-amber-300">"2.0"</span>,
+  <span class="text-purple-400">"id"</span>: <span class="text-amber-300">"init"</span>,
+  <span class="text-purple-400">"method"</span>: <span class="text-amber-300">"initialize"</span>,
+  <span class="text-purple-400">"params"</span>: {
+    <span class="text-purple-400">"protocolVersion"</span>: <span class="text-amber-300">"2024-11-05"</span>,
+    <span class="text-purple-400">"capabilities"</span>: {},
+    <span class="text-purple-400">"clientInfo"</span>: {
+      <span class="text-purple-400">"name"</span>: <span class="text-amber-300">"workadventure-mcp-bot"</span>,
+      <span class="text-purple-400">"version"</span>: <span class="text-amber-300">"1.0.0"</span>,
+      <span class="text-purple-400">"player_id"</span>: <span class="text-amber-300">"&lt;player-uuid&gt;"</span>
     }
   }
-}`}</code></pre>
+}`
+                }} />
               </div>
             </div>
             <div className="glass-card rounded-xl p-6">
@@ -234,17 +238,19 @@ Content-Type: application/json
                   </div>
                   <span className="ml-3 text-[10px] text-white/40 font-mono">tools-call.json</span>
                 </div>
-                <pre className="p-3 font-mono text-xs leading-relaxed text-purple-300 overflow-x-auto max-h-48"><code>{`{
-  "jsonrpc": "2.0",
-  "id": "exec",
-  "method": "tools/call",
-  "params": {
-    "name": "my_tool",
-    "arguments": {
-      "query": "latest updates"
+                <pre className="p-3 font-mono text-xs leading-relaxed overflow-x-auto max-h-48" dangerouslySetInnerHTML={{
+                  __html: `{
+  <span class="text-purple-400">"jsonrpc"</span>: <span class="text-amber-300">"2.0"</span>,
+  <span class="text-purple-400">"id"</span>: <span class="text-amber-300">"exec"</span>,
+  <span class="text-purple-400">"method"</span>: <span class="text-amber-300">"tools/call"</span>,
+  <span class="text-purple-400">"params"</span>: {
+    <span class="text-purple-400">"name"</span>: <span class="text-amber-300">"my_tool"</span>,
+    <span class="text-purple-400">"arguments"</span>: {
+      <span class="text-purple-400">"query"</span>: <span class="text-amber-300">"latest updates"</span>
     }
   }
-}`}</code></pre>
+}`
+                }} />
               </div>
             </div>
           </div>
@@ -304,25 +310,27 @@ Content-Type: application/json
                 </div>
                 <span className="ml-4 text-xs text-white/40 font-mono">session-lifecycle.ts</span>
               </div>
-              <pre className="p-4 font-mono text-xs leading-relaxed text-purple-300 overflow-x-auto max-h-48"><code>{`// Each player gets their own session
-const sessions = new Map();
+              <pre className="p-4 font-mono text-xs leading-relaxed overflow-x-auto max-h-48" dangerouslySetInnerHTML={{
+                __html: `<span class="text-purple-400">// Each player gets their own session</span>
+<span class="text-purple-300">const</span> sessions <span class="text-purple-300">=</span> <span class="text-blue-300">new</span> <span class="text-yellow-300">Map</span>();
 
-function getSession(playerId, serverUrl) {
-  const key = \`$\{playerId}:$\{serverUrl}\`;
-  let session = sessions.get(key);
+<span class="text-purple-300">function</span> <span class="text-yellow-300">getSession</span>(playerId, serverUrl) {
+  <span class="text-purple-300">const</span> key <span class="text-purple-300">=</span> <span class="text-amber-300">`${playerId}:${serverUrl}`</span>;
+  <span class="text-purple-300">let</span> session <span class="text-purple-300">=</span> sessions.<span class="text-yellow-300">get</span>(key);
 
-  if (!session || isExpired(session)) {
-    // Triggers initialize round-trip
-    session = createSession(serverUrl);
-    sessions.set(key, session);
+  <span class="text-blue-300">if</span> (<span class="text-purple-300">!</span>session <span class="text-purple-300">||</span> <span class="text-yellow-300">isExpired</span>(session)) {
+    <span class="text-purple-400">// Triggers initialize round-trip</span>
+    session <span class="text-purple-300">=</span> <span class="text-yellow-300">createSession</span>(serverUrl);
+    sessions.<span class="text-yellow-300">set</span>(key, session);
   }
 
-  return session;
+  <span class="text-blue-300">return</span> session;
 }
 
-// Session expires after 1h inactivity
-// Tool list refreshes every 1h
-setInterval(refreshToolList, 3600000);`}</code></pre>
+<span class="text-purple-400">// Session expires after 1h inactivity</span>
+<span class="text-purple-400">// Tool list refreshes every 1h</span>
+<span class="text-yellow-300">setInterval</span>(refreshToolList, <span class="text-cyan-300">3600000</span>);`
+              }} />
             </div>
           </div>
         </div>
@@ -342,52 +350,54 @@ setInterval(refreshToolList, 3600000);`}</code></pre>
               </div>
               <span className="ml-4 text-xs text-white/40 font-mono">mcp-server.js</span>
             </div>
-            <pre className="p-4 font-mono text-xs leading-relaxed text-purple-300 overflow-x-auto max-h-64"><code>{`import express from 'express';
-const app = express();
-app.use(express.json());
+            <pre className="p-4 font-mono text-xs leading-relaxed overflow-x-auto max-h-64" dangerouslySetInnerHTML={{
+              __html: `<span class="text-purple-300">import</span> express <span class="text-purple-300">from</span> <span class="text-amber-300">'express'</span>;
+<span class="text-purple-300">const</span> app <span class="text-purple-300">=</span> <span class="text-yellow-300">express</span>();
+app.<span class="text-yellow-300">use</span>(express.<span class="text-yellow-300">json</span>());
 
-app.post('/mcp', (req, res) => {
-  const { method, params } = req.body;
+app.<span class="text-yellow-300">post</span>(<span class="text-amber-300">'/mcp'</span>, (req, res) <span class="text-purple-300">=></span> {
+  <span class="text-purple-300">const</span> { method, params } <span class="text-purple-300">=</span> req.body;
 
-  if (method === 'initialize') {
-    return res.json({
-      jsonrpc: '2.0', id: req.body.id,
-      result: { protocolVersion: '2024-11-05',
+  <span class="text-blue-300">if</span> (method <span class="text-purple-300">===</span> <span class="text-amber-300">'initialize'</span>) {
+    <span class="text-blue-300">return</span> res.<span class="text-yellow-300">json</span>({
+      jsonrpc: <span class="text-amber-300">'2.0'</span>, id: req.body.id,
+      result: { protocolVersion: <span class="text-amber-300">'2024-11-05'</span>,
         capabilities: {},
-        serverInfo: { name: 'example-mcp', version: '1.0.0' },
+        serverInfo: { name: <span class="text-amber-300">'example-mcp'</span>, version: <span class="text-amber-300">'1.0.0'</span> },
       },
     });
   }
 
-  if (method === 'tools/list') {
-    return res.json({
-      jsonrpc: '2.0', id: req.body.id,
+  <span class="text-blue-300">if</span> (method <span class="text-purple-300">===</span> <span class="text-amber-300">'tools/list'</span>) {
+    <span class="text-blue-300">return</span> res.<span class="text-yellow-300">json</span>({
+      jsonrpc: <span class="text-amber-300">'2.0'</span>, id: req.body.id,
       result: { tools: [{
-        name: 'my_query',
-        description: 'Query knowledge about a topic',
+        name: <span class="text-amber-300">'my_query'</span>,
+        description: <span class="text-amber-300">'Query knowledge about a topic'</span>,
         inputSchema: {
-          type: 'object',
-          properties: { topic: { type: 'string' } },
+          type: <span class="text-amber-300">'object'</span>,
+          properties: { topic: { type: <span class="text-amber-300">'string'</span> } },
         },
       }]},
     });
   }
 
-  if (method === 'tools/call') {
-    const result = \`You asked about: \${params.arguments.topic}\`;
-    return res.json({
-      jsonrpc: '2.0', id: req.body.id,
-      result: { content: [{ type: 'text', text: result }] },
+  <span class="text-blue-300">if</span> (method <span class="text-purple-300">===</span> <span class="text-amber-300">'tools/call'</span>) {
+    <span class="text-purple-300">const</span> result <span class="text-purple-300">=</span> <span class="text-amber-300">\`You asked about: \${params.arguments.topic}\`</span>;
+    <span class="text-blue-300">return</span> res.<span class="text-yellow-300">json</span>({
+      jsonrpc: <span class="text-amber-300">'2.0'</span>, id: req.body.id,
+      result: { content: [{ type: <span class="text-amber-300">'text'</span>, text: result }] },
     });
   }
 
-  res.status(400).json({
-    jsonrpc: '2.0', id: req.body.id,
-    error: { code: -32601, message: 'Method not found' },
+  res.<span class="text-yellow-300">status</span>(<span class="text-cyan-300">400</span>).<span class="text-yellow-300">json</span>({
+    jsonrpc: <span class="text-amber-300">'2.0'</span>, id: req.body.id,
+    error: { code: <span class="text-cyan-300">-32601</span>, message: <span class="text-amber-300">'Method not found'</span> },
   });
 });
 
-app.listen(3001);`}</code></pre>
+app.<span class="text-yellow-300">listen</span>(<span class="text-cyan-300">3001</span>);`
+            }} />
           </div>
         </div>
       </section>
