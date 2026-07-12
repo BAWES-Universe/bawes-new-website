@@ -43,13 +43,13 @@ const features = [
 ]
 
 const showcases = [
-  { emoji: '🏠', title: 'Personal Universe', desc: 'Custom AI companions, organized workspaces, friends welcome anytime.', tag: 'For Personal', tagColor: 'purple', href: '/use-cases/personal' },
-  { emoji: '🎮', title: 'Community Universe', desc: 'Event halls, gaming rooms, welcome bots that greet every new member by name.', tag: 'For Community', tagColor: 'green', href: '/use-cases/community' },
-  { emoji: '🎓', title: 'Campus Universe', desc: 'Lecture halls, study groups, AI teaching assistants available 24/7.', tag: 'For Learning', tagColor: 'amber', href: '/use-cases/learning' },
-  { emoji: '🏢', title: 'Company Universe', desc: 'Team rooms, focus pods, standup bots, and a watercooler that actually works.', tag: 'For Work', tagColor: 'purple', href: '/use-cases/work' },
-  { emoji: '🌐', title: 'Conference Universe', desc: 'Sponsor rooms, networking zones, main stages for thousands.', tag: 'For Events', tagColor: 'blue', href: '/use-cases/events' },
-  { emoji: '🛍️', title: 'Market Universe', desc: 'Brand showrooms, social shopping, pop-up shops in shared spaces.', tag: 'For Market', tagColor: 'cyan', href: '/use-cases/market' },
-  { emoji: '💰', title: 'Commerce Universe', desc: 'Subscriptions, tickets, and payments connected to your stack.', tag: 'For Commerce', tagColor: 'green', href: '/use-cases/commerce' },
+  { emoji: '🏠', title: 'Personal Universe', desc: 'Custom AI companions, organized workspaces, friends welcome anytime.', wide: true, href: '/use-cases/personal' },
+  { emoji: '🎮', title: 'Community Universe', desc: 'Event halls, gaming rooms, welcome bots that greet every new member by name.', href: '/use-cases/community' },
+  { emoji: '🎓', title: 'Campus Universe', desc: 'Lecture halls, study groups, AI teaching assistants available 24/7.', href: '/use-cases/learning' },
+  { emoji: '🏢', title: 'Company Universe', desc: 'Team rooms, focus pods, standup bots, and a watercooler that actually works.', wide: true, href: '/use-cases/work' },
+  { emoji: '🌐', title: 'Conference Universe', desc: 'Sponsor rooms, networking zones, main stages for thousands.', href: '/use-cases/events' },
+  { emoji: '🛍️', title: 'Market Universe', desc: 'Brand showrooms, social shopping, pop-up shops in shared spaces.', href: '/use-cases/market' },
+  { emoji: '💰', title: 'Commerce Universe', desc: 'Subscriptions, tickets, and payments connected to your stack.', wide: true, href: '/use-cases/commerce' },
 ]
 
 /* ─── COMPONENTS ─── */
@@ -156,22 +156,18 @@ function Bentocard({ icon, iconColor, title, desc, href, wide, highlight }: {
   )
 }
 
-function ShowcaseCard({ emoji, title, desc, tag, tagColor, href }: {
-  emoji: string; title: string; desc: string; tag: string; tagColor: string; href: string
+function ShowcaseCard({ emoji, title, desc, href, wide }: {
+  emoji: string; title: string; desc: string; href: string; wide?: boolean
+  tag?: string; tagColor?: string
 }) {
   return (
-    <Link href={href} className="block group">
+    <Link href={href} className={`block group ${wide ? 'md:col-span-2' : ''}`}>
       <motion.div
         {...fadeUp(0.05)}
         className="bento-card h-full"
       >
         <span className="text-3xl mb-4 block">{emoji}</span>
-        <div className="flex items-center gap-2 mb-2">
-          <h3 className="font-headline-card text-headline-card text-white">{title}</h3>
-          <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold leading-tight tag-${tagColor}`}>
-            {tag}
-          </span>
-        </div>
+        <h3 className="font-headline-card text-headline-card text-white mb-2">{title}</h3>
         <p className="text-sm text-text-muted leading-relaxed flex-grow">{desc}</p>
         <div className="bento-card-arrow">
           Learn more <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>

@@ -5,6 +5,15 @@ import Link from 'next/link'
 
 const useCases = [
   {
+    emoji: '🏠',
+    title: 'For Personal',
+    desc: 'Build your own digital sanctuary. Custom AI companions, organized workspaces, and a place where friends are always welcome to drop in.',
+    highlights: ['AI companions that remember you', 'Private spaces & tools', 'Friends welcome anytime', 'Self-hosted or cloud'],
+    href: '/use-cases/personal',
+    tag: 'Solo & Creators',
+    tagColor: 'purple',
+  },
+  {
     emoji: '🏢',
     title: 'For Work',
     desc: 'Replace Slack, Zoom, and your office with a spatial world. Team rooms, focus pods, standup bots, and a watercooler that actually works — proximity audio, real-time presence, and AI that remembers what you discussed last week.',
@@ -57,15 +66,6 @@ const useCases = [
     href: '/use-cases/events',
     tag: 'Conferences & Events',
     tagColor: 'cyan',
-  },
-  {
-    emoji: '🏠',
-    title: 'For Personal',
-    desc: 'Build your own digital sanctuary. Custom AI companions, organized workspaces, and a place where friends are always welcome to drop in.',
-    highlights: ['AI companions that remember you', 'Private spaces & tools', 'Friends welcome anytime', 'Self-hosted or cloud'],
-    href: '/use-cases/personal',
-    tag: 'Solo & Creators',
-    tagColor: 'purple',
   },
 ]
 
