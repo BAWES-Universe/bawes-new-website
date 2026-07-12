@@ -9,7 +9,7 @@ export default function ScreenSharingPage() {
       <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex items-center gap-2 mb-4 text-xs text-text-muted w-full justify-start">
-        <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+        <Link href="/communication" className="hover:text-primary transition-colors">Communication</Link>
         <span>/</span>
         <span className="text-primary">Screen Sharing</span>
       </div>
@@ -97,7 +97,7 @@ export default function ScreenSharingPage() {
                 Explore the Universe
               </Link>
               <Link href="/features-overview" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
-                See all features →
+                            See all features →
               </Link>
             </div>
           </div>

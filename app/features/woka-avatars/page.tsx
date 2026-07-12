@@ -8,6 +8,14 @@ import Link from 'next/link';
 export default function WokaAvatarsPage() {
   return (
     <main>
+      {/* Breadcrumb */}
+      <div className="max-w-container-max mx-auto px-gutter pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">Woka Avatars</span>
+        </div>
+      </div>
       {/* Hero Section */}
       <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v relative overflow-visible">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

@@ -7,7 +7,13 @@ import Link from 'next/link';
 
 export default function OrbitOperatorPage() {
   return (
-    <main className="pt-32 max-w-screen-xl mx-auto px-6">
+    <main className="max-w-screen-xl mx-auto px-6">
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 pt-24 pb-0 text-xs text-text-muted max-w-container-max mx-auto px-gutter">
+        <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
+        <span className="text-white/20">/</span>
+        <span className="text-primary">Orbit Operator</span>
+      </div>
       {/* Hero Section */}
       <section className="max-w-container-max mx-auto px-gutter mb-section-padding-v grid md:grid-cols-2 gap-16 items-center">
         <div className="space-y-8">

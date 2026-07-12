@@ -8,6 +8,14 @@ import Link from 'next/link';
 export default function WhiteLabelPage() {
   return (
     <main>
+      {/* Breadcrumb */}
+      <div className="max-w-container-max mx-auto px-gutter pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/platform" className="hover:text-primary transition-colors">Platform</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">White Label</span>
+        </div>
+      </div>
       {/* Hero Section */}
       <Section className="relative pt-40 pb-section-padding-v px-gutter max-w-container-max mx-auto text-center">
         <div className="flex flex-col items-center">

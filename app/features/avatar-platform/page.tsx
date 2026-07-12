@@ -8,6 +8,14 @@ import Link from 'next/link';
 export default function AvatarPlatformPage() {
   return (
     <main className="relative pt-20">
+      {/* Breadcrumb */}
+      <div className="max-w-container-max mx-auto px-gutter pt-4 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">Avatar Platform</span>
+        </div>
+      </div>
       {/* Hero Section */}
       <section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
         <div className="space-y-8">

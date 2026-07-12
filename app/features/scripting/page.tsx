@@ -7,7 +7,13 @@ import Link from 'next/link';
 
 export default function ScriptingApiPage() {
   return (
-    <main className="relative z-10 pt-24 max-w-container-max mx-auto px-gutter">
+    <main className="relative z-10 max-w-container-max mx-auto px-gutter">
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-2 pt-24 pb-0 text-xs text-text-muted">
+        <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
+        <span className="text-white/20">/</span>
+        <span className="text-primary">Scripting API</span>
+      </div>
       {/* Hero Section */}
       <section className="min-h-[819px] flex flex-col md:flex-row items-center justify-between py-section-padding-lg gap-stack-lg">
         <div className="w-full md:w-1/2 space-y-stack-md">

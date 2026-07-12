@@ -7,7 +7,15 @@ import Link from 'next/link';
 
 export default function TechStackPage() {
   return (
-    <main className="relative pt-32">
+    <main className="relative">
+      {/* Breadcrumb */}
+      <div className="max-w-container-max mx-auto px-gutter pt-24 pb-0">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/platform" className="hover:text-primary transition-colors">Platform</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">Technology Stack</span>
+        </div>
+      </div>
       {/* Hero Section */}
       <Section className="max-w-container-max mx-auto px-gutter mb-section-padding-v text-center md:text-left grid md:grid-cols-2 items-center gap-12">
         <div className="relative z-10">

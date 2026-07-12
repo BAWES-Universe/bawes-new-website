@@ -8,7 +8,7 @@ export default function SearchablePage() {
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 pt-24 pb-0">
         <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
           <span className="text-white/20">/</span>
           <span className="text-primary">Searchable</span>
         </div>
@@ -66,7 +66,7 @@ export default function SearchablePage() {
                 Explore the Universe
               </Link>
               <Link href="/features-overview" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
-                See all features →
+                            See all features →
               </Link>
             </div>
           </div>
