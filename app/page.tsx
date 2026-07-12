@@ -40,11 +40,11 @@ const features = [
 const showcases = [
   { emoji: '🏠', title: 'For Personal', desc: 'Custom AI companions, organized workspaces, friends welcome anytime.', wide: true, href: '/use-cases/personal' },
   { emoji: '🏢', title: 'For Work', desc: 'Team rooms, focus pods, standup bots, and a watercooler that actually works.', wide: true, href: '/use-cases/work' },
-  { emoji: '🎓', title: 'For Learning', desc: 'Lecture halls, study groups, AI teaching assistants available 24/7.', href: '/use-cases/learning' },
   { emoji: '🎮', title: 'For Community', desc: 'Event halls, gaming rooms, welcome bots that greet every new member by name.', href: '/use-cases/community' },
-  { emoji: '🛍️', title: 'For Market', desc: 'Brand showrooms, social shopping, pop-up shops in shared spaces.', href: '/use-cases/market' },
+  { emoji: '🎓', title: 'For Learning', desc: 'Lecture halls, study groups, AI teaching assistants available 24/7.', href: '/use-cases/learning' },
+  { emoji: '🌐', title: 'For Events', desc: 'Sponsor rooms, networking zones, main stages for thousands.', href: '/use-cases/events' },
   { emoji: '💰', title: 'For Commerce', desc: 'Subscriptions, tickets, and payments connected to your stack.', href: '/use-cases/commerce' },
-  { emoji: '🌐', title: 'For Events', desc: 'Sponsor rooms, networking zones, main stages for thousands.', wide: true, href: '/use-cases/events' },
+  { emoji: '🛍️', title: 'For Market', desc: 'Brand showrooms, social shopping, pop-up shops in shared spaces.', href: '/use-cases/market' },
 ]
 
 /* ─── COMPONENTS ─── */

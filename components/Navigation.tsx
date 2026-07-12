@@ -34,11 +34,11 @@ const dropdowns: NavDropdown[] = [
     items: [
       { label: 'For Personal', href: '/use-cases/personal', description: 'AI companions, your own space' },
       { label: 'For Work', href: '/use-cases/work', description: 'Team spaces, focus rooms, standup bots' },
-      { label: 'For Learning', href: '/use-cases/learning', description: 'Study rooms, AI teaching assistants' },
       { label: 'For Community', href: '/use-cases/community', description: 'Events, gaming, welcome bots' },
-      { label: 'For Market', href: '/use-cases/market', description: 'Brand showrooms, shops, marketplaces' },
-      { label: 'For Commerce', href: '/use-cases/commerce', description: 'Subscriptions, ticketing, revenue' },
+      { label: 'For Learning', href: '/use-cases/learning', description: 'Study rooms, AI teaching assistants' },
       { label: 'For Events', href: '/use-cases/events', description: 'Conferences, broadcasts, meetups' },
+      { label: 'For Commerce', href: '/use-cases/commerce', description: 'Subscriptions, ticketing, revenue' },
+      { label: 'For Market', href: '/use-cases/market', description: 'Brand showrooms, shops, marketplaces' },
     ],
   },
   {
