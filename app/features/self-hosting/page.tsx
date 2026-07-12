@@ -32,7 +32,7 @@ export default function SelfHostingPage() {
             Self-host the entire BAWES Universe stack on your infrastructure. Experience total sovereignty with full control over your data, privacy, and performance.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
-            <Link href="https://github.com/BAWES-Universe/bawes-new-website" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-label-navigation text-label-navigation bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-bold text-lg neon-glow-purple flex items-center gap-3 active:scale-95 transition-transform">
+            <Link href="https://github.com/BAWES-Universe/workadventure-universe/blob/master/docs/others/self-hosting/install.md" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-label-navigation text-label-navigation bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-bold text-lg neon-glow-purple flex items-center gap-3 active:scale-95 transition-transform">
               Launch Self-Host Guide
               <span className="material-symbols-outlined">arrow_forward</span>
             </Link>
@@ -136,8 +136,8 @@ export default function SelfHostingPage() {
           <div className="lg:w-1/3 space-y-6">
             <h2 className="font-headline-section text-headline-section text-white">Included in the Stack</h2>
             <p className="text-text-secondary leading-relaxed">Our modular architecture ensures each component is world-class. Each piece of the BAWES stack is optimized for high-concurrency spatial interactions.</p>
-            <Link href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:gap-4 transition-all">
-              View Architecture Diagram
+            <Link href="https://github.com/BAWES-Universe/workadventure-universe/blob/master/docs/others/self-hosting/install.md" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:gap-4 transition-all">
+              View Install Guide
               <span className="material-symbols-outlined">chevron_right</span>
             </Link>
           </div>
