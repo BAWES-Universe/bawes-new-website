@@ -96,12 +96,12 @@ export default function UseCasesPage() {
       </section>
 
       {/* Use Case Cards */}
-      <section className="max-w-7xl mx-auto pb-32 px-4 sm:px-6 lg:px-8 space-y-8">
+      <section className="max-w-7xl mx-auto pb-32 px-4 sm:px-6 lg:px-8 space-y-0">
         {useCases.map((uc, i) => (
           <Link key={uc.title} href={uc.href}>
             <motion.div
               {...fadeUp(i * 0.08)}
-              className="group relative rounded-[32px] p-8 md:p-12 overflow-hidden cursor-pointer transition-all duration-400"
+              className={`group relative rounded-[32px] p-8 md:p-12 overflow-hidden cursor-pointer transition-all duration-400 ${i < useCases.length - 1 ? 'mb-8' : ''}`}
               style={{
                 background: 'linear-gradient(145deg, rgba(139,92,246,0.04), rgba(245,158,11,0.02))',
                 border: '1px solid rgba(139,92,246,0.08)',
