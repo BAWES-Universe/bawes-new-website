@@ -44,22 +44,39 @@ export default function AdminApiPage() {
         </div>
         <div className="relative group">
           <div className="absolute -inset-10 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
-          <div className="glass-card rounded-2xl p-4 overflow-hidden relative border-purple/30">
-            <div className="aspect-video rounded-xl bg-surface-container-high flex items-center justify-center">
-              <span className="material-symbols-outlined text-6xl text-primary/30">api</span>
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-background-page/80 to-transparent"></div>
-            <div className="absolute bottom-8 left-8 right-8">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full glass-card flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary">api</span>
-                </div>
-                <div>
-                  <div className="text-white font-headline-card text-body-md">Universe Core v2</div>
-                  <div className="text-primary text-caption font-caption">API Connection: Active</div>
-                </div>
+          <div className="glass-card rounded-2xl overflow-hidden relative border-purple/30">
+            {/* Terminal window frame */}
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-surface-dim/60">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
               </div>
+              <span className="ml-3 text-xs text-text-low-emphasis font-mono">POST /v1/worlds/create</span>
             </div>
+            {/* Code content */}
+            <pre className="p-5 text-sm leading-relaxed overflow-x-auto font-mono bg-surface-dim/40" dangerouslySetInnerHTML={{
+              __html: `<span class="text-purple-400">// Create a new world</span>
+<span class="text-purple-300">const</span> response <span class="text-purple-300">=</span> <span class="text-blue-300">await</span> <span class="text-yellow-300">fetch</span>(<span class="text-amber-300">'https://api.bawes.net/v1/worlds/create'</span>, {
+  method: <span class="text-amber-300">'POST'</span>,
+  headers: {
+    <span class="text-amber-300">'Authorization'</span>: <span class="text-amber-300">'Bearer YOUR_API_KEY'</span>,
+    <span class="text-amber-300">'Content-Type'</span>: <span class="text-amber-300">'application/json'</span>
+  },
+  body: JSON.<span class="text-yellow-300">stringify</span>({
+    world_id: <span class="text-amber-300">'cyber_sector_09'</span>,
+    max_capacity: <span class="text-cyan-300">128</span>,
+    region: <span class="text-amber-300">'us-east-universe'</span>,
+    features: {
+      ai_moderation: <span class="text-blue-300">true</span>,
+      p2p_voice: <span class="text-blue-300">true</span>
+    }
+  })
+});
+
+<span class="text-purple-300">const</span> world <span class="text-purple-300">=</span> <span class="text-blue-300">await</span> response.<span class="text-yellow-300">json</span>();
+<span class="text-blue-300">console</span>.<span class="text-yellow-300">log</span>(world);`
+            }} />
           </div>
         </div>
       </Section>
@@ -106,28 +123,7 @@ export default function AdminApiPage() {
 
       {/* Technical Section */}
       <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8 order-2 md:order-1">
-          <div className="glass-card p-8 rounded-2xl border-purple/30 relative overflow-hidden">
-            <div className="flex items-center gap-2 mb-6 border-b border-divider pb-4">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-              </div>
-              <div className="ml-4 text-caption text-text-low-emphasis font-mono">POST /v1/worlds/create</div>
-            </div>
-            <pre className="font-mono text-[14px] leading-relaxed text-primary">{`{
-  "world_id": "cyber_sector_09",
-  "max_capacity": 128,
-  "region": "us-east-universe",
-  "features": {
-    "ai_moderation": true,
-    "p2p_voice": true
-  }
-}`}</pre>
-          </div>
-        </div>
-        <div className="space-y-8 order-1 md:order-2">
+        <div className="space-y-8 order-1">
           <h2 className="font-headline-section text-headline-section text-on-surface">Built for Performance & Security</h2>
           <p className="text-text-secondary">Our infrastructure is architected to handle high-frequency programmatic interactions without compromising on latency or data integrity.</p>
           <div className="grid grid-cols-1 gap-6">
@@ -152,6 +148,27 @@ export default function AdminApiPage() {
                 <div className="text-text-secondary text-caption">Enterprise-grade reliability guaranteed for critical automation tasks.</div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="space-y-8 order-2">
+          <div className="glass-card p-8 rounded-2xl border-purple/30 relative overflow-hidden">
+            <div className="flex items-center gap-2 mb-6 border-b border-divider pb-4">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
+              </div>
+              <div className="ml-4 text-caption text-text-low-emphasis font-mono">POST /v1/worlds/create</div>
+            </div>
+            <pre className="font-mono text-[14px] leading-relaxed text-primary">{`{
+  "world_id": "cyber_sector_09",
+  "max_capacity": 128,
+  "region": "us-east-universe",
+  "features": {
+    "ai_moderation": true,
+    "p2p_voice": true
+  }
+}`}</pre>
           </div>
         </div>
       </Section>
