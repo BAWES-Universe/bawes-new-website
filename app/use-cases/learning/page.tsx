@@ -20,8 +20,8 @@ export default function UseCaseLearningPage() {
             <section className="relative pt-40 pb-section-padding-v overflow-hidden">
         <div className="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="z-10">
-            <h1 className="font-display-hero text-display-hero mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] leading-tight">
-              Learn Together, <br />Wherever You Are.
+            <h1 className="font-display-hero text-display-hero mb-6 text-white leading-tight">
+              Learn <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6]">Together</span>, <br />Wherever You Are.
             </h1>
             <p className="font-body-md text-body-md text-text-secondary mb-10 max-w-lg">
               Digital campuses, study rooms, and mentorship spaces. Walk into a lecture, join a study group, or meet your mentor in their virtual office.
