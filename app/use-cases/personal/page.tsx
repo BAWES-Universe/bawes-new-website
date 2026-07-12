@@ -98,7 +98,7 @@ export default function UseCasePersonalPage() {
                 <span className="material-symbols-outlined text-primary text-2xl">lock</span>
               </div>
               <h3 className="font-headline-card text-headline-card text-white">Private by Default</h3>
-              <p className="text-on-surface-variant text-sm">Self-host for full control, or use the cloud — you choose who enters. Your data is encrypted and never shared.</p>
+              <p className="text-on-surface-variant text-sm">Choose who enters your universe. Your space, your community — you decide who's welcome.</p>
             </div>
             <div className="glass-card p-6 rounded-xl flex flex-col items-center text-center gap-4">
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
