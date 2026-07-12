@@ -30,13 +30,13 @@ export default function WorkAdventureForkPage() {
             BAWES Universe is a fork of WorkAdventure (MIT), the pioneering open-source spatial platform. We extend their foundation with new features while maintaining upstream compatibility and contributing back.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
-            <button className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white px-8 py-4 rounded-full font-bold neon-glow-purple active:scale-95 transition-all flex items-center gap-2">
+            <a href="https://github.com/workadventure/workadventure" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white px-8 py-4 rounded-full font-bold neon-glow-purple active:scale-95 transition-all flex items-center gap-2">
               View on GitHub
               <span className="material-symbols-outlined">arrow_forward</span>
-            </button>
-            <button className="glass-card text-on-surface px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-all">
+            </a>
+            <a href="https://workadventu.re/" target="_blank" rel="noopener noreferrer" className="glass-card text-on-surface px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-all">
               WorkAdventure Project
-            </button>
+            </a>
           </div>
         </div>
         <div className="relative group">
@@ -117,8 +117,8 @@ export default function WorkAdventureForkPage() {
           <h2 className="font-headline-section text-headline-section text-on-surface mb-6">Contribute to the fork</h2>
           <p className="text-text-secondary max-w-xl mx-auto mb-10">BAWES Universe is MIT-licensed open source. Browse our repositories, submit issues, and contribute to the future of spatial computing.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white px-10 py-4 rounded-full font-bold neon-glow-purple active:scale-95 transition-all">Explore Repositories</button>
-            <button className="glass-card text-on-surface px-10 py-4 rounded-full font-bold hover:bg-white/5 transition-all">Read Contributing Guide</button>
+            <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white px-10 py-4 rounded-full font-bold neon-glow-purple active:scale-95 transition-all">Explore Repositories</a>
+            <a href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" className="glass-card text-on-surface px-10 py-4 rounded-full font-bold hover:bg-white/5 transition-all">Read Contributing Guide</a>
           </div>
         </div>
       </section>
