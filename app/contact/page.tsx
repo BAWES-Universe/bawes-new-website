@@ -1,9 +1,6 @@
 'use client';
 
 import React from 'react';
-import Section from '@/components/Section';
-import Button from '@/components/ui/Button';
-import Link from 'next/link';
 
 export default function ContactPage() {
   return (
@@ -30,24 +27,24 @@ export default function ContactPage() {
         {/* Main Form Card */}
         <div className="lg:col-span-2 glass-card rounded-2xl p-8 md:p-12">
           <h2 className="font-headline-section text-headline-section mb-12">Get in touch</h2>
-          <form className="space-y-8">
+          <form className="space-y-8" action="/contact" method="POST">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
-                <label className="font-label-navigation text-label-navigation text-text-secondary px-1">Your name</label>
-                <input className="w-full bg-surface-container-lowest border border-border-purple rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-text-low-emphasis" placeholder="First and last name" type="text" />
+                <label htmlFor="name" className="font-label-navigation text-label-navigation text-text-secondary px-1">Your name</label>
+                <input id="name" name="name" className="w-full bg-surface-container-lowest border border-border-purple rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-text-low-emphasis" placeholder="First and last name" type="text" required />
               </div>
               <div className="space-y-2">
-                <label className="font-label-navigation text-label-navigation text-text-secondary px-1">Your email</label>
-                <input className="w-full bg-surface-container-lowest border border-border-purple rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-text-low-emphasis" placeholder="your@email.com" type="email" />
+                <label htmlFor="email" className="font-label-navigation text-label-navigation text-text-secondary px-1">Your email</label>
+                <input id="email" name="email" className="w-full bg-surface-container-lowest border border-border-purple rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-text-low-emphasis" placeholder="your@email.com" type="email" required />
               </div>
             </div>
             <div className="space-y-2">
-              <label className="font-label-navigation text-label-navigation text-text-secondary px-1">Tell us about your project, idea, or challenge...</label>
-              <textarea className="w-full bg-surface-container-lowest border border-border-purple rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-text-low-emphasis resize-none" placeholder="Describe what you're working on..." rows={4}></textarea>
+              <label htmlFor="message" className="font-label-navigation text-label-navigation text-text-secondary px-1">What are you trying to do?</label>
+              <textarea id="message" name="message" className="w-full bg-surface-container-lowest border border-border-purple rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-text-low-emphasis resize-none" placeholder="Describe your project, idea, or challenge..." rows={4} required></textarea>
             </div>
             <div className="space-y-2">
-              <label className="font-label-navigation text-label-navigation text-text-secondary px-1">Any additional details, timeline, or context...</label>
-              <textarea className="w-full bg-surface-container-lowest border border-border-purple rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-text-low-emphasis resize-none" placeholder="Timeline, budget range, or specific needs..." rows={3}></textarea>
+              <label htmlFor="details" className="font-label-navigation text-label-navigation text-text-secondary px-1">Optional context or timeline</label>
+              <textarea id="details" name="details" className="w-full bg-surface-container-lowest border border-border-purple rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-text-low-emphasis resize-none" placeholder="Timeline, budget range, or specific needs..." rows={3}></textarea>
             </div>
             <div className="pt-4 flex flex-col md:flex-row items-center justify-between gap-6">
             <button type="submit" className="bg-gradient-to-r from-[#a078ff] to-[#d0bcff] text-on-primary-container px-12 py-4 rounded-full font-bold text-lg active:scale-95 transition-transform w-full md:w-auto shadow-lg">
@@ -55,10 +52,10 @@ export default function ContactPage() {
               </button>
               <div className="flex items-center gap-4 text-text-secondary">
                 <span className="text-caption font-caption">Prefer to connect another way?</span>
-                <Link href="#" className="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full border border-border-purple hover:bg-surface-container-high transition-colors">
+                <a href="https://discord.gg/CXceJWnwNT" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full border border-border-purple hover:bg-surface-container-high transition-colors">
                   <span className="material-symbols-outlined text-[20px]">forum</span>
                   <span className="text-label-navigation font-label-navigation">Join Discord</span>
-                </Link>
+                </a>
               </div>
             </div>
           </form>
