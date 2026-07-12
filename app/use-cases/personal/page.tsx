@@ -18,11 +18,6 @@ export default function UseCasePersonalPage() {
       {/* Hero */}
       <section className="max-w-container-max mx-auto px-gutter py-section-padding-v flex flex-col md:flex-row items-center gap-12">
         <div className="flex-1 space-y-6">
-          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
-            <Link href="/use-cases" className="hover:text-primary transition-colors">Use Cases</Link>
-            <span>/</span>
-            <span className="text-primary">Personal</span>
-          </div>
           <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-white tracking-tight">
             A Universe That's{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6]">Yours.</span>
@@ -34,7 +29,7 @@ export default function UseCasePersonalPage() {
             <Link href="https://universe.bawes.net" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-label-navigation px-8 py-4 rounded-full shadow-lg active:scale-95 transition-all inline-block">
               Enter the Universe
             </Link>
-            <Link href="/features/bot-memory" className="font-label-navigation px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all inline-block">
+            <Link href="/ai-bots" className="font-label-navigation px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all inline-block">
               Meet the Bots
             </Link>
           </div>
@@ -133,7 +128,7 @@ export default function UseCasePersonalPage() {
               <p className="text-on-surface-variant leading-relaxed">
                 Your bots aren't chatbots — they're residents. They have personalities, remember your name, greet you when you walk in, and can do real things like open websites or run scripts. Customize their appearance, choose their AI provider, and give them unique emotional profiles. Build a bot that feels like yours.
               </p>
-              <Link href="/features/bot-behaviors" className="text-primary font-bold inline-flex items-center gap-2 group/link">
+              <Link href="/ai-bots" className="text-primary font-bold inline-flex items-center gap-2 group/link">
                 Explore Bot Features <span className="material-symbols-outlined text-base transition-transform group-hover/link:translate-x-1">arrow_forward</span>
               </Link>
             </div>
@@ -150,7 +145,7 @@ export default function UseCasePersonalPage() {
           <h2 className="font-headline-section text-headline-section text-white mb-4">Powered by these features</h2>
           <p className="text-on-surface-variant">Everything you need to build a personal universe that's truly yours.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           <Link href="/features/bot-memory" className="glass-card p-6 rounded-xl flex flex-col items-center text-center gap-3 hover:border-primary/40 transition-all group">
             <span className="material-symbols-outlined text-primary text-3xl">memory</span>
             <h3 className="font-headline-card text-headline-card text-white">Bot Memory</h3>
@@ -163,16 +158,22 @@ export default function UseCasePersonalPage() {
             <p className="text-on-surface-variant text-sm">Personalities that feel alive.</p>
             <span className="text-primary text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <span className="material-symbols-outlined text-sm">arrow_forward</span></span>
           </Link>
-          <Link href="/features/map-editor" className="glass-card p-6 rounded-xl flex flex-col items-center text-center gap-3 hover:border-primary/40 transition-all group">
-            <span className="material-symbols-outlined text-primary text-3xl">edit_square</span>
-            <h3 className="font-headline-card text-headline-card text-white">Map Editor</h3>
-            <p className="text-on-surface-variant text-sm">Design your space live.</p>
-            <span className="text-primary text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <span className="material-symbols-outlined text-sm">arrow_forward</span></span>
-          </Link>
           <Link href="/features/bot-greetings" className="glass-card p-6 rounded-xl flex flex-col items-center text-center gap-3 hover:border-primary/40 transition-all group">
             <span className="material-symbols-outlined text-primary text-3xl">waving_hand</span>
             <h3 className="font-headline-card text-headline-card text-white">Bot Greetings</h3>
             <p className="text-on-surface-variant text-sm">Walk in, get welcomed by name.</p>
+            <span className="text-primary text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <span className="material-symbols-outlined text-sm">arrow_forward</span></span>
+          </Link>
+          <Link href="/features/proximity-chat" className="glass-card p-6 rounded-xl flex flex-col items-center text-center gap-3 hover:border-primary/40 transition-all group">
+            <span className="material-symbols-outlined text-primary text-3xl">forum</span>
+            <h3 className="font-headline-card text-headline-card text-white">Proximity Chat</h3>
+            <p className="text-on-surface-variant text-sm">Hang out with friends — walk up, talk naturally.</p>
+            <span className="text-primary text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <span className="material-symbols-outlined text-sm">arrow_forward</span></span>
+          </Link>
+          <Link href="/features/map-editor" className="glass-card p-6 rounded-xl flex flex-col items-center text-center gap-3 hover:border-primary/40 transition-all group">
+            <span className="material-symbols-outlined text-primary text-3xl">edit_square</span>
+            <h3 className="font-headline-card text-headline-card text-white">Map Editor</h3>
+            <p className="text-on-surface-variant text-sm">Design your space live.</p>
             <span className="text-primary text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Learn more <span className="material-symbols-outlined text-sm">arrow_forward</span></span>
           </Link>
         </div>
@@ -194,7 +195,7 @@ export default function UseCasePersonalPage() {
               <Link href="https://universe.bawes.net" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-label-navigation px-10 py-5 rounded-full shadow-lg active:scale-95 transition-all text-lg inline-block">
                 Enter the Universe
               </Link>
-              <Link href="/features/bot-behaviors" className="font-label-navigation px-10 py-5 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all text-lg inline-block">
+              <Link href="/ai-bots" className="font-label-navigation px-10 py-5 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all text-lg inline-block">
                 Meet the Bots
               </Link>
             </div>
