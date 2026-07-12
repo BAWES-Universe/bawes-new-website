@@ -280,7 +280,7 @@ Content-Type: application/json
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-primary text-sm flex-shrink-0 mt-0.5">session</span>
+                  <span className="material-symbols-outlined text-primary text-sm flex-shrink-0 mt-0.5">sync_saved_locally</span>
                   <div>
                     <p className="text-sm font-semibold text-white">Session Lifecycle</p>
                     <p className="text-xs text-text-secondary">Each player gets a cached MCP session keyed by server URL, auth config, and <code className="text-purple-400">player_id</code>. Sessions expire after 1 hour of inactivity. First tool call per player triggers one <code className="text-purple-400">initialize</code> round-trip (~50&ndash;200ms), then reuse within the hour.</p>
