@@ -258,22 +258,7 @@ export default function HowItWorksPage() {
           <p className="font-body-md text-body-md text-text-secondary">
             Membership exists at the world level and grants capabilities, not exclusivity. Access control is spatial, not global. Using the Area Editor, members define zones inside rooms and control who can enter, who can interact, and who can edit.
           </p>
-          <div className="pt-10 flex justify-center">
-            <div className="glass-card p-8 rounded-full flex items-center gap-6">
-              <div className="flex -space-x-4">
-                <div className="w-12 h-12 rounded-full border-2 border-background-page overflow-hidden bg-primary/20 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary text-xl">person</span>
-                </div>
-                <div className="w-12 h-12 rounded-full border-2 border-background-page overflow-hidden bg-secondary/20 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-secondary text-xl">person</span>
-                </div>
-                <div className="w-12 h-12 rounded-full border-2 border-background-page overflow-hidden bg-tertiary/20 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-tertiary text-xl">person</span>
-                </div>
-              </div>
-              <span className="text-white font-semibold">Join thousands of world builders</span>
-            </div>
-          </div>
+
         </div>
       </section>
 

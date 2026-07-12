@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function ManifestoPage() {
   return (
-    <main className="pt-32">
+    <main className="pt-20">
       {/* Hero Section */}
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">

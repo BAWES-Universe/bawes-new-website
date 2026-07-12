@@ -30,7 +30,7 @@ export default function WorkAdventureForkPage() {
             BAWES Universe is a fork of WorkAdventure (MIT), the pioneering open-source spatial platform. We extend their foundation with new features while maintaining upstream compatibility and contributing back.
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
-            <a href="https://github.com/workadventure/workadventure" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white px-8 py-4 rounded-full font-bold neon-glow-purple active:scale-95 transition-all flex items-center gap-2">
+            <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white px-8 py-4 rounded-full font-bold neon-glow-purple active:scale-95 transition-all flex items-center gap-2">
               View on GitHub
               <span className="material-symbols-outlined">arrow_forward</span>
             </a>

@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function TeamPage() {
   return (
-    <main className="pt-32">
+    <main className="pt-20">
       {/* Hero Section */}
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
@@ -26,7 +26,7 @@ export default function TeamPage() {
             A small team with a big vision. We build Universe because we believe in open, AI-powered collaboration.
           </p>
           <div className="flex gap-4">
-            <Link href="/team" className="bg-primary text-on-primary px-8 py-3 rounded-full font-label-navigation font-bold neon-glow-purple active:scale-95 transition-transform inline-block">
+            <Link href="/contact" className="bg-primary text-on-primary px-8 py-3 rounded-full font-label-navigation font-bold neon-glow-purple active:scale-95 transition-transform inline-block">
               Meet the Core
             </Link>
             <Link href="/manifesto" className="glass-card px-8 py-3 rounded-full font-label-navigation text-on-surface active:scale-95 transition-transform inline-block">
