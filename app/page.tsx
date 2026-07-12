@@ -9,8 +9,8 @@ import Button from '@/components/ui/Button'
 
 const stats = [
   { number: '50,000+', label: 'Community Members' },
-  { number: 'AI', label: 'Agents & Tools' },
   { number: '80+', label: 'Open Source Repos' },
+  { number: 'AI', label: 'Agents & Tools' },
   { number: '\u221e', label: 'Possibilities' },
 ]
 
