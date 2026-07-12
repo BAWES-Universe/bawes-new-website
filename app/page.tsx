@@ -314,13 +314,15 @@ export default function Home() {
             No credit card. No commitment. Build, invite, and watch your world come alive.
           </p>
           <div className="flex flex-wrap gap-4 justify-center relative z-[2]">
-            <Link
-              href="/communication"
+            <a
+              href="https://universe.bawes.net"
+              target="_blank"
+              rel="noopener noreferrer"
               className="gradient-cta text-white px-8 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
             >
               Enter the Universe
               <span className="material-symbols-outlined text-lg">arrow_forward</span>
-            </Link>
+            </a>
             <Link
               href="/contact"
               className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200"
