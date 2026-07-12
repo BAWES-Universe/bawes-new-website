@@ -35,11 +35,6 @@ const features = [
     desc: 'Drop a bot into a room. Give it tools. Let it spawn other bots with their own personalities. Self-architecting AI systems.',
     href: '/features/recursive-bots', wide: false, highlight: false,
   },
-  {
-    icon: 'code', iconColor: '#a78bfa', title: 'Built in the open. MIT license.',
-    desc: '80+ repos. Fork of WorkAdventure. You can host, modify, redistribute — it\'s yours. We don\'t lock you in.',
-    href: '/open-source', wide: true, highlight: false,
-  },
 ]
 
 const showcases = [
