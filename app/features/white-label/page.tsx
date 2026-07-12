@@ -31,12 +31,12 @@ export default function WhiteLabelPage() {
             Custom domain, logos, and branding for your universe instance. White-label the entire experience — your users see your brand, not ours.
           </p>
           <div className="flex flex-col md:flex-row gap-4 mb-20">
-            <button className="neon-gradient px-8 py-4 rounded-full font-label-navigation text-lg text-white">
+            <Link href="/contact" className="neon-gradient px-8 py-4 rounded-full font-label-navigation text-lg text-white">
               Launch Your Brand
-            </button>
-            <button className="glass-card px-8 py-4 rounded-full font-label-navigation text-lg text-on-surface hover:bg-white/5">
+            </Link>
+            <Link href="/features/self-hosting" className="glass-card px-8 py-4 rounded-full font-label-navigation text-lg text-on-surface hover:bg-white/5">
               View Documentation
-            </button>
+            </Link>
           </div>
           <div className="w-full relative glass-card rounded-2xl overflow-hidden aspect-[1.79] max-w-[1000px] mx-auto border-purple shadow-2xl">
             <div className="w-full h-full bg-surface-container-high flex items-center justify-center aspect-video">
@@ -133,7 +133,7 @@ export default function WhiteLabelPage() {
             <h2 className="font-headline-section text-headline-section text-white mb-2">Related Deep Dives</h2>
             <p className="font-body-md text-body-md text-text-low-emphasis">Explore the technical foundations of the universe.</p>
           </div>
-          <Link href="/features" className="hidden md:flex items-center gap-2 text-primary font-label-navigation hover:gap-3 transition-all">
+          <Link href="/features-overview" className="hidden md:flex items-center gap-2 text-primary font-label-navigation hover:gap-3 transition-all">
             Explore All Docs <span className="material-symbols-outlined">arrow_forward</span>
           </Link>
         </div>
