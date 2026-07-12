@@ -18,7 +18,7 @@ export default function OidcAuthPage() {
         </div>
       </div>
       {/* Hero Section */}
-      <Section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
+      <section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
         <div className="space-y-8">
           <div className="inline-flex items-center space-x-2 bg-surface-container px-4 py-1.5 rounded-full border border-border-purple">
             <span className="material-symbols-outlined text-primary text-[18px]">verified_user</span>
@@ -69,7 +69,7 @@ export default function OidcAuthPage() {
             }} />
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* Features Bento Grid */}
       <Section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v">
