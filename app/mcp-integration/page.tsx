@@ -311,25 +311,27 @@ export default function McpIntegrationPage() {
                 <span className="ml-4 text-xs text-white/40 font-mono">session-lifecycle.ts</span>
               </div>
               <pre className="p-4 font-mono text-xs leading-relaxed overflow-x-auto max-h-48" dangerouslySetInnerHTML={{
-                __html: `<span class="text-purple-400">// Each player gets their own session</span>
-<span class="text-purple-300">const</span> sessions <span class="text-purple-300">=</span> <span class="text-blue-300">new</span> <span class="text-yellow-300">Map</span>();
-
-<span class="text-purple-300">function</span> <span class="text-yellow-300">getSession</span>(playerId, serverUrl) {
-  <span class="text-purple-300">const</span> key <span class="text-purple-300">=</span> <span class="text-amber-300">`${playerId}:${serverUrl}`</span>;
-  <span class="text-purple-300">let</span> session <span class="text-purple-300">=</span> sessions.<span class="text-yellow-300">get</span>(key);
-
-  <span class="text-blue-300">if</span> (<span class="text-purple-300">!</span>session <span class="text-purple-300">||</span> <span class="text-yellow-300">isExpired</span>(session)) {
-    <span class="text-purple-400">// Triggers initialize round-trip</span>
-    session <span class="text-purple-300">=</span> <span class="text-yellow-300">createSession</span>(serverUrl);
-    sessions.<span class="text-yellow-300">set</span>(key, session);
-  }
-
-  <span class="text-blue-300">return</span> session;
-}
-
-<span class="text-purple-400">// Session expires after 1h inactivity</span>
-<span class="text-purple-400">// Tool list refreshes every 1h</span>
-<span class="text-yellow-300">setInterval</span>(refreshToolList, <span class="text-cyan-300">3600000</span>);`
+                __html: [
+'<span class="text-purple-400">// Each player gets their own session</span>',
+'<span class="text-purple-300">const</span> sessions <span class="text-purple-300">=</span> <span class="text-blue-300">new</span> <span class="text-yellow-300">Map</span>();',
+'',
+'<span class="text-purple-300">function</span> <span class="text-yellow-300">getSession</span>(playerId, serverUrl) {',
+'  <span class="text-purple-300">const</span> key <span class="text-purple-300">=</span> <span class="text-amber-300">`${playerId}:${serverUrl}`</span>;',
+'  <span class="text-purple-300">let</span> session <span class="text-purple-300">=</span> sessions.<span class="text-yellow-300">get</span>(key);',
+'',
+'  <span class="text-blue-300">if</span> (<span class="text-purple-300">!</span>session <span class="text-purple-300">||</span> <span class="text-yellow-300">isExpired</span>(session)) {',
+'    <span class="text-purple-400">// Triggers initialize round-trip</span>',
+'    session <span class="text-purple-300">=</span> <span class="text-yellow-300">createSession</span>(serverUrl);',
+'    sessions.<span class="text-yellow-300">set</span>(key, session);',
+'  }',
+'',
+'  <span class="text-blue-300">return</span> session;',
+'}',
+'',
+'<span class="text-purple-400">// Session expires after 1h inactivity</span>',
+'<span class="text-purple-400">// Tool list refreshes every 1h</span>',
+'<span class="text-yellow-300">setInterval</span>(refreshToolList, <span class="text-cyan-300">3600000</span>);',
+                ].join('\n')
               }} />
             </div>
           </div>
@@ -351,53 +353,55 @@ export default function McpIntegrationPage() {
               <span className="ml-4 text-xs text-white/40 font-mono">mcp-server.js</span>
             </div>
             <pre className="p-4 font-mono text-xs leading-relaxed overflow-x-auto max-h-64" dangerouslySetInnerHTML={{
-              __html: `<span class="text-purple-300">import</span> express <span class="text-purple-300">from</span> <span class="text-amber-300">'express'</span>;
-<span class="text-purple-300">const</span> app <span class="text-purple-300">=</span> <span class="text-yellow-300">express</span>();
-app.<span class="text-yellow-300">use</span>(express.<span class="text-yellow-300">json</span>());
-
-app.<span class="text-yellow-300">post</span>(<span class="text-amber-300">'/mcp'</span>, (req, res) <span class="text-purple-300">=></span> {
-  <span class="text-purple-300">const</span> { method, params } <span class="text-purple-300">=</span> req.body;
-
-  <span class="text-blue-300">if</span> (method <span class="text-purple-300">===</span> <span class="text-amber-300">'initialize'</span>) {
-    <span class="text-blue-300">return</span> res.<span class="text-yellow-300">json</span>({
-      jsonrpc: <span class="text-amber-300">'2.0'</span>, id: req.body.id,
-      result: { protocolVersion: <span class="text-amber-300">'2024-11-05'</span>,
-        capabilities: {},
-        serverInfo: { name: <span class="text-amber-300">'example-mcp'</span>, version: <span class="text-amber-300">'1.0.0'</span> },
-      },
-    });
-  }
-
-  <span class="text-blue-300">if</span> (method <span class="text-purple-300">===</span> <span class="text-amber-300">'tools/list'</span>) {
-    <span class="text-blue-300">return</span> res.<span class="text-yellow-300">json</span>({
-      jsonrpc: <span class="text-amber-300">'2.0'</span>, id: req.body.id,
-      result: { tools: [{
-        name: <span class="text-amber-300">'my_query'</span>,
-        description: <span class="text-amber-300">'Query knowledge about a topic'</span>,
-        inputSchema: {
-          type: <span class="text-amber-300">'object'</span>,
-          properties: { topic: { type: <span class="text-amber-300">'string'</span> } },
-        },
-      }]},
-    });
-  }
-
-  <span class="text-blue-300">if</span> (method <span class="text-purple-300">===</span> <span class="text-amber-300">'tools/call'</span>) {
-    <span class="text-purple-300">const</span> result <span class="text-purple-300">=</span> <span class="text-amber-300">\`You asked about: \${params.arguments.topic}\`</span>;
-    <span class="text-blue-300">return</span> res.<span class="text-yellow-300">json</span>({
-      jsonrpc: <span class="text-amber-300">'2.0'</span>, id: req.body.id,
-      result: { content: [{ type: <span class="text-amber-300">'text'</span>, text: result }] },
-    });
-  }
-
-  res.<span class="text-yellow-300">status</span>(<span class="text-cyan-300">400</span>).<span class="text-yellow-300">json</span>({
-    jsonrpc: <span class="text-amber-300">'2.0'</span>, id: req.body.id,
-    error: { code: <span class="text-cyan-300">-32601</span>, message: <span class="text-amber-300">'Method not found'</span> },
-  });
-});
-
-app.<span class="text-yellow-300">listen</span>(<span class="text-cyan-300">3001</span>);`
-            }} />
+              __html: [
+'<span class="text-purple-300">import</span> express <span class="text-purple-300">from</span> <span class="text-amber-300">\'express\'</span>;',
+'<span class="text-purple-300">const</span> app <span class="text-purple-300">=</span> <span class="text-yellow-300">express</span>();',
+'app.<span class="text-yellow-300">use</span>(express.<span class="text-yellow-300">json</span>());',
+'',
+'app.<span class="text-yellow-300">post</span>(<span class="text-amber-300">\'/mcp\'</span>, (req, res) <span class="text-purple-300">=></span> {',
+'  <span class="text-purple-300">const</span> { method, params } <span class="text-purple-300">=</span> req.body;',
+'',
+'  <span class="text-blue-300">if</span> (method <span class="text-purple-300">===</span> <span class="text-amber-300">\'initialize\'</span>) {',
+'    <span class="text-blue-300">return</span> res.<span class="text-yellow-300">json</span>({',
+'      jsonrpc: <span class="text-amber-300">\'2.0\'</span>, id: req.body.id,',
+'      result: { protocolVersion: <span class="text-amber-300">\'2024-11-05\'</span>,',
+'        capabilities: {},',
+'        serverInfo: { name: <span class="text-amber-300">\'example-mcp\'</span>, version: <span class="text-amber-300">\'1.0.0\'</span> },',
+'      },',
+'    });',
+'  }',
+'',
+'  <span class="text-blue-300">if</span> (method <span class="text-purple-300">===</span> <span class="text-amber-300">\'tools/list\'</span>) {',
+'    <span class="text-blue-300">return</span> res.<span class="text-yellow-300">json</span>({',
+'      jsonrpc: <span class="text-amber-300">\'2.0\'</span>, id: req.body.id,',
+'      result: { tools: [{',
+'        name: <span class="text-amber-300">\'my_query\'</span>,',
+'        description: <span class="text-amber-300">\'Query knowledge about a topic\'</span>,',
+'        inputSchema: {',
+'          type: <span class="text-amber-300">\'object\'</span>,',
+'          properties: { topic: { type: <span class="text-amber-300">\'string\'</span> } },',
+'        },',
+'      }]},',
+'    });',
+'  }',
+'',
+'  <span class="text-blue-300">if</span> (method <span class="text-purple-300">===</span> <span class="text-amber-300">\'tools/call\'</span>) {',
+'    <span class="text-purple-300">const</span> result <span class="text-purple-300">=</span> <span class="text-amber-300">\`You asked about: \${params.arguments.topic}\`</span>;',
+'    <span class="text-blue-300">return</span> res.<span class="text-yellow-300">json</span>({',
+'      jsonrpc: <span class="text-amber-300">\'2.0\'</span>, id: req.body.id,',
+'      result: { content: [{ type: <span class="text-amber-300">\'text\'</span>, text: result }] },',
+'    });',
+'  }',
+'',
+'  res.<span class="text-yellow-300">status</span>(<span class="text-cyan-300">400</span>).<span class="text-yellow-300">json</span>({',
+'    jsonrpc: <span class="text-amber-300">\'2.0\'</span>, id: req.body.id,',
+'    error: { code: <span class="text-cyan-300">-32601</span>, message: <span class="text-amber-300">\'Method not found\'</span> },',
+'  });',
+'});',
+'',
+'app.<span class="text-yellow-300">listen</span>(<span class="text-cyan-300">3001</span>);',
+              ].join('\n')
+              }} />
           </div>
         </div>
       </section>
