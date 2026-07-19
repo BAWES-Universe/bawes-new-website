@@ -4,6 +4,14 @@ import AdminApiPageContent from './AdminApiContent'
 export const metadata: Metadata = {
   title: 'Admin API',
   description: 'REST API for managing users, worlds, rooms, and bots programmatically. Automate your universe with robust endpoints and low-latency synchronization.',
+  openGraph: {
+    title: 'Admin API',
+    description: 'REST API for managing users, worlds, rooms, and bots programmatically. Automate your universe with robust endpoints and low-latency synchronization.',
+  },
+  twitter: {
+    title: 'Admin API',
+    description: 'REST API for managing users, worlds, rooms, and bots programmatically. Automate your universe with robust endpoints and low-latency synchronization.',
+  },
 }
 
 export default function AdminApiPage() {

@@ -4,6 +4,14 @@ import BotEmotionsPageContent from './BotEmotionsContent'
 export const metadata: Metadata = {
   title: 'Bot Emotions',
   description: 'Emotional states that change how bots respond. Happy bots are more helpful; serious bots keep it professional. Configurable per bot.',
+  openGraph: {
+    title: 'Bot Emotions',
+    description: 'Emotional states that change how bots respond. Happy bots are more helpful; serious bots keep it professional. Configurable per bot.',
+  },
+  twitter: {
+    title: 'Bot Emotions',
+    description: 'Emotional states that change how bots respond. Happy bots are more helpful; serious bots keep it professional. Configurable per bot.',
+  },
 }
 
 export default function BotEmotionsPage() {

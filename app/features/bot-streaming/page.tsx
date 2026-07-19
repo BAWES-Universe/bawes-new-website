@@ -4,6 +4,14 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Bot Streaming Chat — Real-Time AI Responses',
   description: 'Bot responses stream token-by-token into chat bubbles. Watch the AI think, compose, and respond in real time. Tool calls and media delivery happen mid-stream.',
+  openGraph: {
+    title: 'Bot Streaming Chat — Real-Time AI Responses',
+    description: 'Bot responses stream token-by-token into chat bubbles. Watch the AI think, compose, and respond in real time. Tool calls and media delivery happen mid-stream.',
+  },
+  twitter: {
+    title: 'Bot Streaming Chat — Real-Time AI Responses',
+    description: 'Bot responses stream token-by-token into chat bubbles. Watch the AI think, compose, and respond in real time. Tool calls and media delivery happen mid-stream.',
+  },
 }
 
 export default function BotStreamingPage() {

@@ -4,6 +4,14 @@ import BotGreetingsPageContent from './BotGreetingsContent'
 export const metadata: Metadata = {
   title: 'Bot Greetings',
   description: 'Custom greeting messages that play when someone approaches a bot. Make your bots welcoming, helpful, or delightfully mysterious.',
+  openGraph: {
+    title: 'Bot Greetings',
+    description: 'Custom greeting messages that play when someone approaches a bot. Make your bots welcoming, helpful, or delightfully mysterious.',
+  },
+  twitter: {
+    title: 'Bot Greetings',
+    description: 'Custom greeting messages that play when someone approaches a bot. Make your bots welcoming, helpful, or delightfully mysterious.',
+  },
 }
 
 export default function BotGreetingsPage() {

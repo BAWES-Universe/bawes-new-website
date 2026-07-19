@@ -17,11 +17,15 @@ export const metadata: Metadata = {
   authors: [{ name: 'BAWES' }],
   icons: { icon: '/images/bawes-logo.png', apple: '/images/bawes-logo.png' },
   openGraph: {
+    title: 'BAWES Universe — People and AI Living Together',
+    description: 'Walk into a shared digital world. Proximity voice. AI agents with memory. Build anything in rooms that feel alive.',
     type: 'website',
     images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     card: 'summary_large_image',
+    title: 'BAWES Universe — People and AI Living Together',
+    description: 'Walk into a shared digital world. Proximity voice. AI agents with memory. Build anything in rooms that feel alive.',
     images: ['/images/enter-univ.png'],
   },
 }
