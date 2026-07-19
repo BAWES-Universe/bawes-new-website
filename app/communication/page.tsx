@@ -7,10 +7,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Communication Features',
     description: 'Proximity chat, text chat, Matrix federation, megaphone broadcasts, meeting rooms, screen sharing, and more — every way people talk inside Universe.',
+    type: 'website',
+    images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Communication Features',
     description: 'Proximity chat, text chat, Matrix federation, megaphone broadcasts, meeting rooms, screen sharing, and more — every way people talk inside Universe.',
+    card: 'summary_large_image',
+    images: ['/images/enter-univ.png'],
   },
 }
 

@@ -10,10 +10,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Features Overview — Everything Universe Can Do',
     description: 'Explore every feature in the BAWES Universe platform — AI bots, spatial world, MCP integration, communication, and more.',
+    type: 'website',
+    images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Features Overview — Everything Universe Can Do',
     description: 'Explore every feature in the BAWES Universe platform — AI bots, spatial world, MCP integration, communication, and more.',
+    card: 'summary_large_image',
+    images: ['/images/enter-univ.png'],
   },
 }
 

@@ -7,10 +7,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bot Pending Media — Reliable Delivery on Re-Entry',
     description: 'If you walk away while a bot is generating media, it queues the result and delivers it the moment you return. Nothing gets lost.',
+    type: 'website',
+    images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Bot Pending Media — Reliable Delivery on Re-Entry',
     description: 'If you walk away while a bot is generating media, it queues the result and delivers it the moment you return. Nothing gets lost.',
+    card: 'summary_large_image',
+    images: ['/images/enter-univ.png'],
   },
 }
 

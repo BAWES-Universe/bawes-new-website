@@ -7,10 +7,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bot Provider Config',
     description: 'Configure which AI model powers each bot — OpenAI, Anthropic, or open-source models. A provider-agnostic layer makes swapping brains a single config change.',
+    type: 'website',
+    images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Bot Provider Config',
     description: 'Configure which AI model powers each bot — OpenAI, Anthropic, or open-source models. A provider-agnostic layer makes swapping brains a single config change.',
+    card: 'summary_large_image',
+    images: ['/images/enter-univ.png'],
   },
 }
 

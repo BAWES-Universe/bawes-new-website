@@ -7,10 +7,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bot Media Sending — Auto-Send Tool-Generated Images',
     description: 'When a bot calls a tool that returns media — images, video, files — the result is auto-sent to the user. ComfyUI, Higgsfield, Firecrawl, and more.',
+    type: 'website',
+    images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Bot Media Sending — Auto-Send Tool-Generated Images',
     description: 'When a bot calls a tool that returns media — images, video, files — the result is auto-sent to the user. ComfyUI, Higgsfield, Firecrawl, and more.',
+    card: 'summary_large_image',
+    images: ['/images/enter-univ.png'],
   },
 }
 

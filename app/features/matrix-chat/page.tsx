@@ -7,10 +7,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Matrix Chat',
     description: 'Optional Matrix/Synapse integration for persistent chat history. Conversations survive between visits with cross-room message sync across your universe.',
+    type: 'website',
+    images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Matrix Chat',
     description: 'Optional Matrix/Synapse integration for persistent chat history. Conversations survive between visits with cross-room message sync across your universe.',
+    card: 'summary_large_image',
+    images: ['/images/enter-univ.png'],
   },
 }
 
