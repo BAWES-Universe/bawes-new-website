@@ -1,15 +1,20 @@
 'use client'
 
-'use client';
-
 import React from 'react';
+import { motion } from 'framer-motion';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
 export default function ManifestoPageContent() {
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 24 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.6, delay },
+  })
+
   return (
     <main className="pt-32">
-      {/* Hero Section */}
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
         <div className="flex items-center gap-2 text-xs text-text-muted">
@@ -18,19 +23,92 @@ export default function ManifestoPageContent() {
           <span className="text-primary">Manifesto</span>
         </div>
       </div>
-            <section className="relative max-w-container-max mx-auto px-gutter mb-section-padding-v text-center">
-        <h1 className="font-display-hero text-display-hero md:text-display-hero text-display-hero-mobile font-bold tracking-tight mb-12">
-          The BAWES Universe Manifesto
-        </h1>
-        <div className="max-w-4xl mx-auto mb-16">
-          <p className="font-headline-section text-headline-section md:text-headline-section text-headline-section leading-tight text-on-background/90">
-            We are not building an app. We are building a universe. A people-first environment designed to help ideas turn into action, faster, smarter, and with less friction.
-          </p>
-        </div>
-        <div className="glass-card p-10 rounded-2xl max-w-2xl mx-auto border-purple inline-block">
-          <p className="font-headline-card text-headline-card italic text-primary">
-            &ldquo;We don&apos;t just support execution. We are execution.&rdquo;
-          </p>
+
+      {/* ═══ HERO ═══ */}
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-20 overflow-hidden">
+        {/* Grid background */}
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(139,92,246,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.04) 1px, transparent 1px)',
+            backgroundSize: '40px 40px',
+          }}
+        />
+        {/* Glow orbs */}
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          {/* Text side */}
+          <div className="flex-1 max-w-[600px]">
+            <motion.h1
+              {...fadeUp(0.05)}
+              className="font-display text-4xl md:text-5xl lg:text-[64px] leading-[1.05] font-bold text-white mb-8 tracking-[-0.03em]"
+            >
+              The BAWES Universe<br />
+              <span
+                className="bg-[length:200%_200%] animate-shimmer bg-clip-text text-transparent"
+                style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa 0%, #f59e0b 50%, #a78bfa 100%)' }}
+              >
+                Manifesto
+              </span>
+            </motion.h1>
+
+            <motion.p
+              {...fadeUp(0.1)}
+              className="text-lg md:text-xl text-text-muted leading-relaxed mb-10"
+            >
+              We are not building an app. We are building a universe. A people-first environment designed to help ideas turn into action, faster, smarter, and with less friction.
+            </motion.p>
+
+            <motion.div
+              {...fadeUp(0.15)}
+              className="glass-card p-6 md:p-8 rounded-2xl border border-purple-500/20 inline-block"
+            >
+              <p className="text-lg md:text-xl italic text-purple-300 font-medium leading-relaxed">
+                &ldquo;We don&rsquo;t just support execution. We are execution.&rdquo;
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Visual side — floating emblems */}
+          <motion.div
+            {...fadeUp(0.1)}
+            className="flex-1 w-full max-w-[500px]"
+          >
+            <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-[rgba(20,16,40,0.6)] to-[rgba(10,8,20,0.8)] border border-white/10">
+              {/* Mini grid */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: 'linear-gradient(rgba(139,92,246,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.06) 1px, transparent 1px)',
+                  backgroundSize: '30px 30px',
+                }}
+              />
+              {/* Connection lines SVG */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400" fill="none">
+                <path d="M80 66 C120 120, 180 80, 220 50" stroke="rgba(139,92,246,0.15)" strokeWidth="1.5" strokeDasharray="4 4" fill="none">
+                  <animate attributeName="stroke-dashoffset" from="0" to="100" dur="8s" repeatCount="indefinite" />
+                </path>
+                <path d="M320 105 C270 150, 200 160, 150 140" stroke="rgba(245,158,11,0.15)" strokeWidth="1.5" strokeDasharray="4 4" fill="none">
+                  <animate attributeName="stroke-dashoffset" from="0" to="100" dur="6s" repeatCount="indefinite" />
+                </path>
+                <path d="M120 210 C160 180, 200 190, 240 170" stroke="rgba(59,130,246,0.15)" strokeWidth="1" strokeDasharray="3 3" fill="none">
+                  <animate attributeName="stroke-dashoffset" from="0" to="100" dur="10s" repeatCount="indefinite" />
+                </path>
+              </svg>
+              {/* Floating orbs */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-400/20 flex items-center justify-center">
+                  <span className="material-symbols-outlined text-4xl md:text-5xl text-purple-300/60">public</span>
+                  {/* Orbiting dots */}
+                  <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-amber-400/30 border border-amber-400/40" />
+                  <div className="absolute -bottom-2 -left-2 w-4 h-4 rounded-full bg-blue-400/30 border border-blue-400/40" />
+                  <div className="absolute top-1/2 -right-8 w-3 h-3 rounded-full bg-purple-400/30 border border-purple-400/40" />
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
