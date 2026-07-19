@@ -7,10 +7,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bot Tool Calling — MCP Integration',
     description: 'Bots interact with APIs and external tools through MCP. Generate images via ComfyUI, video via Higgsfield, research via Firecrawl and Tavily, and more.',
+    type: 'website',
+    images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Bot Tool Calling — MCP Integration',
     description: 'Bots interact with APIs and external tools through MCP. Generate images via ComfyUI, video via Higgsfield, research via Firecrawl and Tavily, and more.',
+    card: 'summary_large_image',
+    images: ['/images/enter-univ.png'],
   },
 }
 

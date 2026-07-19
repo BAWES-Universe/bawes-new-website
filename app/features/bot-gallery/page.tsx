@@ -7,10 +7,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bot Gallery — Multi-Image Messages with Lightbox',
     description: 'Gallery messages display multiple images in a responsive grid with a full-screen lightbox. Keyboard nav, swipe gestures, and auto-disable character movement.',
+    type: 'website',
+    images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Bot Gallery — Multi-Image Messages with Lightbox',
     description: 'Gallery messages display multiple images in a responsive grid with a full-screen lightbox. Keyboard nav, swipe gestures, and auto-disable character movement.',
+    card: 'summary_large_image',
+    images: ['/images/enter-univ.png'],
   },
 }
 

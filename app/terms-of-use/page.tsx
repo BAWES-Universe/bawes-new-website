@@ -8,10 +8,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Terms of Use',
     description: 'Terms of Use for BAWES Universe',
+    type: 'website',
+    images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Terms of Use',
     description: 'Terms of Use for BAWES Universe',
+    card: 'summary_large_image',
+    images: ['/images/enter-univ.png'],
   },
 }
 

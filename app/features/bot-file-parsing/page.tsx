@@ -7,10 +7,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bot File Parsing — PDF, Word, Excel, Web Pages',
     description: 'Drop a PDF, Word doc, Excel spreadsheet, or paste a URL — bots extract the content and answer questions about it in real time.',
+    type: 'website',
+    images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Bot File Parsing — PDF, Word, Excel, Web Pages',
     description: 'Drop a PDF, Word doc, Excel spreadsheet, or paste a URL — bots extract the content and answer questions about it in real time.',
+    card: 'summary_large_image',
+    images: ['/images/enter-univ.png'],
   },
 }
 
