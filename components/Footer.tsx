@@ -67,7 +67,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
               <div>
                 <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Explore</h3>
                 <ul className="space-y-3">
@@ -78,6 +78,8 @@ export default function Footer() {
                     { label: 'Platform', href: '/platform' },
                     { label: 'How It Works', href: '/how-it-works' },
                     { label: 'About', href: '/about' },
+                    { label: 'The Team', href: '/team' },
+                    { label: 'Manifesto', href: '/manifesto' },
                   ].map((item) => (
                     <li key={item.label}>
                       <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
@@ -112,7 +114,7 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Developers &amp; More</h3>
+                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Developers</h3>
                 <ul className="space-y-3">
                   {[
                     { label: 'Technology Stack', href: '/features/tech-stack' },
@@ -121,14 +123,36 @@ export default function Footer() {
                     { label: 'Self-Hosting', href: '/features/self-hosting' },
                     { label: 'Open Source', href: '/open-source' },
                     { label: 'WorkAdventure Fork', href: '/workadventure-fork' },
-                    { label: 'The Team', href: '/team' },
-                    { label: 'Manifesto', href: '/manifesto' },
                   ].map((item) => (
                     <li key={item.label}>
                       <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
                         {item.label}
                         <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
                       </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Connect</h3>
+                <ul className="space-y-3">
+                  {[
+                    { label: 'Blog', href: 'https://blog.bawes.net', external: true },
+                    { label: 'Contact', href: '/contact' },
+                  ].map((item) => (
+                    <li key={item.label}>
+                      {item.external ? (
+                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1.5 text-white/50 hover:text-blue-400 transition-colors text-sm">
+                          {item.label}
+                          <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-blue-400 transition-all duration-200">open_in_new</span>
+                        </a>
+                      ) : (
+                        <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
+                          {item.label}
+                          <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -142,21 +166,16 @@ export default function Footer() {
             <p className="text-white/30 text-sm">
               © {new Date().getFullYear()} BAWES Universe. Open by default.
             </p>
-            <div className="hidden sm:block text-white/10">•</div>
             <div className="flex items-center gap-3 text-xs text-white/30">
-              <a href="https://blog.bawes.net" target="_blank" rel="noopener noreferrer" className="hover:text-white/50 transition-colors">Blog</a>
+              <Link href="/terms-of-use" className="group inline-flex items-center gap-1 hover:text-white/50 transition-colors">
+                Terms of Use
+                <span className="material-symbols-outlined text-[12px] text-white/20 group-hover:text-white/50 transition-colors">chevron_right</span>
+              </Link>
               <span className="text-white/20">•</span>
-              <a href="https://discord.gg/CXceJWnwNT" target="_blank" rel="noopener noreferrer" className="hover:text-white/50 transition-colors">Discord</a>
-              <span className="text-white/20">•</span>
-              <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="hover:text-white/50 transition-colors">GitHub</a>
-              <span className="text-white/20">•</span>
-              <Link href="/contact" className="hover:text-white/50 transition-colors">Contact</Link>
-              <span className="text-white/20">•</span>
-              <Link href="/legal" className="hover:text-white/50 transition-colors">Legal</Link>
-              <span className="text-white/20">•</span>
-              <Link href="/terms-of-use" className="hover:text-white/50 transition-colors">Terms</Link>
-              <span className="text-white/20">•</span>
-              <Link href="/privacy-policy" className="hover:text-white/50 transition-colors">Privacy</Link>
+              <Link href="/privacy-policy" className="group inline-flex items-center gap-1 hover:text-white/50 transition-colors">
+                Privacy Policy
+                <span className="material-symbols-outlined text-[12px] text-white/20 group-hover:text-white/50 transition-colors">chevron_right</span>
+              </Link>
             </div>
           </div>
         </div>
