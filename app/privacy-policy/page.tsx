@@ -5,6 +5,14 @@ import Section from '@/components/Section'
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Privacy Policy for BAWES Universe',
+  openGraph: {
+    title: 'Privacy Policy',
+    description: 'Privacy Policy for BAWES Universe',
+  },
+  twitter: {
+    title: 'Privacy Policy',
+    description: 'Privacy Policy for BAWES Universe',
+  },
 }
 
 export default function PrivacyPolicy() {

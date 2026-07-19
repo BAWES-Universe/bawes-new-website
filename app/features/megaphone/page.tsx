@@ -4,6 +4,14 @@ import MegaphonePageContent from './MegaphoneContent'
 export const metadata: Metadata = {
   title: 'Megaphone',
   description: 'Zone-based megaphone: designate speakers and listeners within area zones. Amplify your voice to a whole room — or silence it with a silent zone.',
+  openGraph: {
+    title: 'Megaphone',
+    description: 'Zone-based megaphone: designate speakers and listeners within area zones. Amplify your voice to a whole room — or silence it with a silent zone.',
+  },
+  twitter: {
+    title: 'Megaphone',
+    description: 'Zone-based megaphone: designate speakers and listeners within area zones. Amplify your voice to a whole room — or silence it with a silent zone.',
+  },
 }
 
 export default function MegaphonePage() {

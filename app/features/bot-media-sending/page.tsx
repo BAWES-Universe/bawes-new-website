@@ -4,6 +4,14 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Bot Media Sending — Auto-Send Tool-Generated Images',
   description: 'When a bot calls a tool that returns media — images, video, files — the result is auto-sent to the user. ComfyUI, Higgsfield, Firecrawl, and more.',
+  openGraph: {
+    title: 'Bot Media Sending — Auto-Send Tool-Generated Images',
+    description: 'When a bot calls a tool that returns media — images, video, files — the result is auto-sent to the user. ComfyUI, Higgsfield, Firecrawl, and more.',
+  },
+  twitter: {
+    title: 'Bot Media Sending — Auto-Send Tool-Generated Images',
+    description: 'When a bot calls a tool that returns media — images, video, files — the result is auto-sent to the user. ComfyUI, Higgsfield, Firecrawl, and more.',
+  },
 }
 
 export default function BotMediaSendingPage() {

@@ -5,6 +5,14 @@ import Section from '@/components/Section'
 export const metadata: Metadata = {
   title: 'Terms of Use',
   description: 'Terms of Use for BAWES Universe',
+  openGraph: {
+    title: 'Terms of Use',
+    description: 'Terms of Use for BAWES Universe',
+  },
+  twitter: {
+    title: 'Terms of Use',
+    description: 'Terms of Use for BAWES Universe',
+  },
 }
 
 export default function TermsOfUse() {

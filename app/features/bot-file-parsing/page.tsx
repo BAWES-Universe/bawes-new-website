@@ -4,6 +4,14 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Bot File Parsing — PDF, Word, Excel, Web Pages',
   description: 'Drop a PDF, Word doc, Excel spreadsheet, or paste a URL — bots extract the content and answer questions about it in real time.',
+  openGraph: {
+    title: 'Bot File Parsing — PDF, Word, Excel, Web Pages',
+    description: 'Drop a PDF, Word doc, Excel spreadsheet, or paste a URL — bots extract the content and answer questions about it in real time.',
+  },
+  twitter: {
+    title: 'Bot File Parsing — PDF, Word, Excel, Web Pages',
+    description: 'Drop a PDF, Word doc, Excel spreadsheet, or paste a URL — bots extract the content and answer questions about it in real time.',
+  },
 }
 
 export default function BotFileParsingPage() {

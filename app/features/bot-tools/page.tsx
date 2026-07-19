@@ -4,6 +4,14 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Bot Tool Calling — MCP Integration',
   description: 'Bots interact with APIs and external tools through MCP. Generate images via ComfyUI, video via Higgsfield, research via Firecrawl and Tavily, and more.',
+  openGraph: {
+    title: 'Bot Tool Calling — MCP Integration',
+    description: 'Bots interact with APIs and external tools through MCP. Generate images via ComfyUI, video via Higgsfield, research via Firecrawl and Tavily, and more.',
+  },
+  twitter: {
+    title: 'Bot Tool Calling — MCP Integration',
+    description: 'Bots interact with APIs and external tools through MCP. Generate images via ComfyUI, video via Higgsfield, research via Firecrawl and Tavily, and more.',
+  },
 }
 
 export default function BotToolsPage() {

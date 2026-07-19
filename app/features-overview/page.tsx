@@ -7,6 +7,14 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Features Overview — Everything Universe Can Do',
   description: 'Explore every feature in the BAWES Universe platform — AI bots, spatial world, MCP integration, communication, and more.',
+  openGraph: {
+    title: 'Features Overview — Everything Universe Can Do',
+    description: 'Explore every feature in the BAWES Universe platform — AI bots, spatial world, MCP integration, communication, and more.',
+  },
+  twitter: {
+    title: 'Features Overview — Everything Universe Can Do',
+    description: 'Explore every feature in the BAWES Universe platform — AI bots, spatial world, MCP integration, communication, and more.',
+  },
 }
 
 interface FeatureCardProps {

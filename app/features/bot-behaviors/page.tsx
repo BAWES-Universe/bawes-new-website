@@ -4,6 +4,14 @@ import BotBehaviorsPageContent from './BotBehaviorsContent'
 export const metadata: Metadata = {
   title: 'Bot Behaviors',
   description: "Bots don't just wait for commands. They patrol, lead, guide, introduce, and respond to summons — active participants in your spatial universe.",
+  openGraph: {
+    title: 'Bot Behaviors',
+    description: "Bots don't just wait for commands. They patrol, lead, guide, introduce, and respond to summons — active participants in your spatial universe.",
+  },
+  twitter: {
+    title: 'Bot Behaviors',
+    description: "Bots don't just wait for commands. They patrol, lead, guide, introduce, and respond to summons — active participants in your spatial universe.",
+  },
 }
 
 export default function BotBehaviorsPage() {

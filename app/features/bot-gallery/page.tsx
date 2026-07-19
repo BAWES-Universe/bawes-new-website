@@ -4,6 +4,14 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Bot Gallery — Multi-Image Messages with Lightbox',
   description: 'Gallery messages display multiple images in a responsive grid with a full-screen lightbox. Keyboard nav, swipe gestures, and auto-disable character movement.',
+  openGraph: {
+    title: 'Bot Gallery — Multi-Image Messages with Lightbox',
+    description: 'Gallery messages display multiple images in a responsive grid with a full-screen lightbox. Keyboard nav, swipe gestures, and auto-disable character movement.',
+  },
+  twitter: {
+    title: 'Bot Gallery — Multi-Image Messages with Lightbox',
+    description: 'Gallery messages display multiple images in a responsive grid with a full-screen lightbox. Keyboard nav, swipe gestures, and auto-disable character movement.',
+  },
 }
 
 export default function BotGalleryPage() {

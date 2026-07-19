@@ -4,6 +4,14 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Bot Pending Media — Reliable Delivery on Re-Entry',
   description: 'If you walk away while a bot is generating media, it queues the result and delivers it the moment you return. Nothing gets lost.',
+  openGraph: {
+    title: 'Bot Pending Media — Reliable Delivery on Re-Entry',
+    description: 'If you walk away while a bot is generating media, it queues the result and delivers it the moment you return. Nothing gets lost.',
+  },
+  twitter: {
+    title: 'Bot Pending Media — Reliable Delivery on Re-Entry',
+    description: 'If you walk away while a bot is generating media, it queues the result and delivers it the moment you return. Nothing gets lost.',
+  },
 }
 
 export default function BotPendingMediaPage() {
