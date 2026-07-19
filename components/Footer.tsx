@@ -76,8 +76,8 @@ export default function Footer() {
                     { label: 'AI Bots', href: '/ai-bots' },
                     { label: 'Build & Create', href: '/build' },
                     { label: 'Platform', href: '/platform' },
-                    { label: 'About', href: '/about' },
                     { label: 'How It Works', href: '/how-it-works' },
+                    { label: 'About', href: '/about' },
                   ].map((item) => (
                     <li key={item.label}>
                       <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
@@ -90,40 +90,39 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Community</h3>
+                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Use Cases</h3>
                 <ul className="space-y-3">
                   {[
-                    { label: 'Market', href: '/use-cases/market' },
-                    { label: 'Blog', href: 'https://blog.bawes.net', external: true },
-                    { label: 'Discord', href: 'https://discord.gg/CXceJWnwNT', external: true },
-                    { label: 'GitHub', href: 'https://github.com/BAWES-Universe', external: true },
-                    { label: 'Contact', href: '/contact' },
+                    { label: 'For Personal', href: '/use-cases/personal' },
+                    { label: 'For Work', href: '/use-cases/work' },
+                    { label: 'For Community', href: '/use-cases/community' },
+                    { label: 'For Learning', href: '/use-cases/learning' },
+                    { label: 'For Events', href: '/use-cases/events' },
+                    { label: 'For Commerce', href: '/use-cases/commerce' },
+                    { label: 'For Market', href: '/use-cases/market' },
                   ].map((item) => (
                     <li key={item.label}>
-                      {item.external ? (
-                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1.5 text-white/50 hover:text-blue-400 transition-colors text-sm">
-                          {item.label}
-                          <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-blue-400 transition-all duration-200">open_in_new</span>
-                        </a>
-                      ) : (
-                        <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-blue-400 transition-colors text-sm">
-                          {item.label}
-                          <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
-                        </Link>
-                      )}
+                      <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
+                        {item.label}
+                        <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">More</h3>
+                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Developers &amp; More</h3>
                 <ul className="space-y-3">
                   {[
+                    { label: 'Technology Stack', href: '/features/tech-stack' },
+                    { label: 'Scripting API', href: '/features/scripting' },
+                    { label: 'MCP Integration', href: '/mcp-integration' },
+                    { label: 'Self-Hosting', href: '/features/self-hosting' },
                     { label: 'Open Source', href: '/open-source' },
-                    { label: 'Manifesto', href: '/manifesto' },
+                    { label: 'WorkAdventure Fork', href: '/workadventure-fork' },
                     { label: 'The Team', href: '/team' },
-                    { label: 'Legal', href: '/legal' },
+                    { label: 'Manifesto', href: '/manifesto' },
                   ].map((item) => (
                     <li key={item.label}>
                       <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
@@ -143,16 +142,21 @@ export default function Footer() {
             <p className="text-white/30 text-sm">
               © {new Date().getFullYear()} BAWES Universe. Open by default.
             </p>
+            <div className="hidden sm:block text-white/10">•</div>
             <div className="flex items-center gap-3 text-xs text-white/30">
-              <Link href="/terms-of-use" className="group inline-flex items-center gap-1 hover:text-white/50 transition-colors">
-                Terms of Use
-                <span className="material-symbols-outlined text-[12px] text-white/20 group-hover:text-white/50 transition-colors">chevron_right</span>
-              </Link>
+              <a href="https://blog.bawes.net" target="_blank" rel="noopener noreferrer" className="hover:text-white/50 transition-colors">Blog</a>
               <span className="text-white/20">•</span>
-              <Link href="/privacy-policy" className="group inline-flex items-center gap-1 hover:text-white/50 transition-colors">
-                Privacy Policy
-                <span className="material-symbols-outlined text-[12px] text-white/20 group-hover:text-white/50 transition-colors">chevron_right</span>
-              </Link>
+              <a href="https://discord.gg/CXceJWnwNT" target="_blank" rel="noopener noreferrer" className="hover:text-white/50 transition-colors">Discord</a>
+              <span className="text-white/20">•</span>
+              <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="hover:text-white/50 transition-colors">GitHub</a>
+              <span className="text-white/20">•</span>
+              <Link href="/contact" className="hover:text-white/50 transition-colors">Contact</Link>
+              <span className="text-white/20">•</span>
+              <Link href="/legal" className="hover:text-white/50 transition-colors">Legal</Link>
+              <span className="text-white/20">•</span>
+              <Link href="/terms-of-use" className="hover:text-white/50 transition-colors">Terms</Link>
+              <span className="text-white/20">•</span>
+              <Link href="/privacy-policy" className="hover:text-white/50 transition-colors">Privacy</Link>
             </div>
           </div>
         </div>
