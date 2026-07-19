@@ -67,7 +67,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
               <div>
                 <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Explore</h3>
                 <ul className="space-y-3">
@@ -76,8 +76,10 @@ export default function Footer() {
                     { label: 'AI Bots', href: '/ai-bots' },
                     { label: 'Build & Create', href: '/build' },
                     { label: 'Platform', href: '/platform' },
-                    { label: 'About', href: '/about' },
                     { label: 'How It Works', href: '/how-it-works' },
+                    { label: 'About', href: '/about' },
+                    { label: 'The Team', href: '/team' },
+                    { label: 'Manifesto', href: '/manifesto' },
                   ].map((item) => (
                     <li key={item.label}>
                       <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
@@ -90,12 +92,54 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Community</h3>
+                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Use Cases</h3>
                 <ul className="space-y-3">
                   {[
-                    { label: 'Market', href: '/use-cases/market' },
-                    { label: 'Blog', href: 'https://blog.bawes.net', external: true },
+                    { label: 'For Personal', href: '/use-cases/personal' },
+                    { label: 'For Work', href: '/use-cases/work' },
+                    { label: 'For Community', href: '/use-cases/community' },
+                    { label: 'For Learning', href: '/use-cases/learning' },
+                    { label: 'For Events', href: '/use-cases/events' },
+                    { label: 'For Commerce', href: '/use-cases/commerce' },
+                    { label: 'For Market', href: '/use-cases/market' },
+                  ].map((item) => (
+                    <li key={item.label}>
+                      <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
+                        {item.label}
+                        <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Developers</h3>
+                <ul className="space-y-3">
+                  {[
+                    { label: 'Technology Stack', href: '/features/tech-stack' },
+                    { label: 'Scripting API', href: '/features/scripting' },
+                    { label: 'MCP Integration', href: '/mcp-integration' },
+                    { label: 'Self-Hosting', href: '/features/self-hosting' },
+                    { label: 'Open Source', href: '/open-source' },
+                    { label: 'WorkAdventure Fork', href: '/workadventure-fork' },
+                  ].map((item) => (
+                    <li key={item.label}>
+                      <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
+                        {item.label}
+                        <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Connect</h3>
+                <ul className="space-y-3">
+                  {[
                     { label: 'Discord', href: 'https://discord.gg/CXceJWnwNT', external: true },
+                    { label: 'Blog', href: 'https://blog.bawes.net', external: true },
                     { label: 'GitHub', href: 'https://github.com/BAWES-Universe', external: true },
                     { label: 'Contact', href: '/contact' },
                   ].map((item) => (
@@ -106,30 +150,11 @@ export default function Footer() {
                           <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-blue-400 transition-all duration-200">open_in_new</span>
                         </a>
                       ) : (
-                        <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-blue-400 transition-colors text-sm">
+                        <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
                           {item.label}
                           <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
                         </Link>
                       )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">More</h3>
-                <ul className="space-y-3">
-                  {[
-                    { label: 'Open Source', href: '/open-source' },
-                    { label: 'Manifesto', href: '/manifesto' },
-                    { label: 'The Team', href: '/team' },
-                    { label: 'Legal', href: '/legal' },
-                  ].map((item) => (
-                    <li key={item.label}>
-                      <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
-                        {item.label}
-                        <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
-                      </Link>
                     </li>
                   ))}
                 </ul>

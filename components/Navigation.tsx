@@ -22,10 +22,10 @@ const dropdowns: NavDropdown[] = [
     label: 'Features',
     icon: 'grid_view',
     items: [
-      { label: 'Communication Hub', href: '/communication', description: 'Proximity chat, text, voice, events' },
-      { label: 'AI Bots Hub', href: '/ai-bots', description: 'Autonomous agents with memory & tools' },
-      { label: 'Build & Create Hub', href: '/build', description: 'Maps, scripting, entities, zones' },
-      { label: 'Platform Hub', href: '/platform', description: 'Self-hosting, auth, API, white label' },
+      { label: 'Communication', href: '/communication', description: 'Proximity chat, text, voice, events' },
+      { label: 'AI Bots', href: '/ai-bots', description: 'Autonomous agents with memory & tools' },
+      { label: 'Build & Create', href: '/build', description: 'Maps, scripting, entities, zones' },
+      { label: 'Platform', href: '/platform', description: 'Self-hosting, auth, API, white label' },
     ],
   },
   {

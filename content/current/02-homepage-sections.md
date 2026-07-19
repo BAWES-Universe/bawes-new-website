@@ -65,6 +65,9 @@ Four grid cards, each with emoji, title, description. Staggered fade-in animatio
 > Universe doesn't promise answers to everything.
 > It promises a **path forward** for anything.
 
+**Bot capability highlight:**
+> Drop a file, get answers. Bots read PDFs, Word documents, Excel spreadsheets, and web pages — then answer your questions, summarize key points, and generate images and video. Not just chat. Real work.
+
 ---
 
 ## 5. Work with Universe Components

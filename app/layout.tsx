@@ -8,7 +8,10 @@ import PostHogProvider from '@/components/PostHogProvider'
 import PostHogPageView from '@/components/PostHogPageView'
 
 export const metadata: Metadata = {
-  title: 'BAWES Universe — People and AI Living Together',
+  title: {
+    default: 'BAWES Universe — People and AI Living Together',
+    template: '%s | BAWES Universe',
+  },
   description: 'Walk into a shared world where people, AI agents, and communities work, learn, and connect — in real time, in actual space.',
   keywords: ['BAWES', 'Universe', 'spatial', 'AI bots', 'virtual worlds', 'metaverse', 'collaboration'],
   authors: [{ name: 'BAWES' }],
@@ -42,7 +45,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1&amp;display=optional" />
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1&display=block" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..1&display=block" />
       </head>
       <body className="bg-surface text-on-surface antialiased relative min-h-screen">
         <div className="noise-overlay" />

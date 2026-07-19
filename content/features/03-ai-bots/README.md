@@ -13,5 +13,9 @@ The core Universe-built feature. Bots are first-class spatial citizens — they 
 | [bot-avatars](./bot-avatars/) | 🟢 LIVE | NPC-only avatar sets for bots |
 | [recursive-bots](./recursive-bots/) | 🟢 LIVE | Bots spawning bots |
 | [bot-provider-config](./bot-provider-config/) | 🟢 LIVE | Per-bot AI provider (OpenAI, LMStudio, etc) |
+| [bot-file-parsing](./bot-file-parsing/) | 🟢 LIVE | PDF, Word, Excel, web page analysis |
+| [bot-media-sending](./bot-media-sending/) | 🟢 LIVE | Auto-send tool-generated images to users |
+| [bot-gallery](./bot-gallery/) | 🟢 LIVE | Multi-image gallery messages with lightbox |
+| [bot-pending-media](./bot-pending-media/) | 🟢 LIVE | Queue media for delivery on user re-entry |
 
 See also: [04-mcp](../04-mcp/), [02-spatial-world/proximity-chat](../02-spatial-world/proximity-chat/)

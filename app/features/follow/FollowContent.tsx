@@ -1,0 +1,118 @@
+'use client'
+
+import Link from 'next/link'
+export default function FollowPageContent() {
+  return (
+    <div className="pt-20 relative min-h-screen overflow-hidden">
+      {/* Hero */}
+            {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
+        <div className="flex items-center gap-2 text-xs text-text-muted">
+          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
+          <span className="text-white/20">/</span>
+          <Link href="/communication" className="hover:text-primary transition-colors">Communication</Link>
+          <span className="text-white/20">/</span>
+          <span className="text-primary">Follow</span>
+        </div>
+      </div>
+      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
+            <span className="material-symbols-outlined text-[14px]">visibility</span>
+            Feature Spotlight
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Never Lose Sight of <span className="text-gradient">Your Team.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Click to follow another player through the map. Your view tracks their movement. Perfect for tours, escorts, and staying together in crowded spaces.
+          </p>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">How It Works</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="glass-card p-8 rounded-xl flex flex-col items-center text-center">
+              <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-3xl text-primary">mouse</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Click Follow</h3>
+              <p className="text-white/60">Click the follow icon on any nearby player's context menu to initiate the link.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl flex flex-col items-center text-center">
+              <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-3xl text-primary">sync_alt</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Synchronized View</h3>
+              <p className="text-white/60">Your camera automatically tracks their avatar as they navigate the complex world map.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl flex flex-col items-center text-center">
+              <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6">
+                <span className="material-symbols-outlined text-3xl text-primary">link_off</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Auto-Drop</h3>
+              <p className="text-white/60">The follow state automatically disconnects when you walk away or click to stop manually.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technical */}
+      <section className="relative z-10 py-24 px-4 bg-white/5">
+        <div className="max-w-6xl mx-auto">
+          <div className="glass-card p-8 md:p-12 rounded-[2rem]">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-white">Under the Hood</h2>
+                <p className="text-white/60">Seamless camera synchronization is handled via the core spatial engine, ensuring zero latency between the leader and follower.</p>
+                <div className="p-4 rounded-lg bg-black/40 border-l-4 border-primary font-mono text-sm text-white/70">
+                  WA.player.proximityMeeting.followMe();
+                </div>
+                <p className="text-white/40 text-xs">* Supported across all modern desktop browsers via BAWES Native SDK.</p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-6 bg-white/5 rounded-xl border border-white/10">
+                  <div className="text-primary text-3xl font-bold mb-1">0ms</div>
+                  <div className="text-white/40 text-xs uppercase">Input Lag</div>
+                </div>
+                <div className="p-6 bg-white/5 rounded-xl border border-white/10">
+                  <div className="text-primary text-3xl font-bold mb-1">60fps</div>
+                  <div className="text-white/40 text-xs uppercase">Motion Sync</div>
+                </div>
+                <div className="p-6 bg-white/5 rounded-xl border border-white/10">
+                  <div className="text-primary text-3xl font-bold mb-1">100%</div>
+                  <div className="text-white/40 text-xs uppercase">Privacy Safe</div>
+                </div>
+                <div className="p-6 bg-white/5 rounded-xl border border-white/10">
+                  <div className="text-primary text-3xl font-bold mb-1">API</div>
+                  <div className="text-white/40 text-xs uppercase">Extensible</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to stay together?</h2>
+          <p className="text-white/60 mb-8">Try follow mode on your next team exploration.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/" className="gradient-cta text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200">
+              <span className="material-symbols-outlined text-lg">arrow_forward</span>
+              Explore the Universe
+            </Link>
+            <Link href="/features-overview" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
+              See all features →
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
