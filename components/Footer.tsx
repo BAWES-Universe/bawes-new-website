@@ -138,7 +138,9 @@ export default function Footer() {
                 <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Connect</h3>
                 <ul className="space-y-3">
                   {[
+                    { label: 'Discord', href: 'https://discord.gg/CXceJWnwNT', external: true },
                     { label: 'Blog', href: 'https://blog.bawes.net', external: true },
+                    { label: 'GitHub', href: 'https://github.com/BAWES-Universe', external: true },
                     { label: 'Contact', href: '/contact' },
                   ].map((item) => (
                     <li key={item.label}>

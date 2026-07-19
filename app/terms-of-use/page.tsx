@@ -10,12 +10,6 @@ export const metadata: Metadata = {
 export default function TermsOfUse() {
   return (
     <div className="pt-20 min-h-screen bg-[#0a0a0a]">
-      <Section className="pt-32">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-white">Terms of Use</h1>
-          <p className="text-white/50 mb-8">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-          
-          <div className="prose prose-invert max-w-none space-y-6 text-white/70">
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
         <div className="flex items-center gap-2 text-xs text-text-muted">
@@ -24,6 +18,12 @@ export default function TermsOfUse() {
           <span className="text-primary">Terms of Use</span>
         </div>
       </div>
+      <Section className="pt-32">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-white">Terms of Use</h1>
+          <p className="text-white/50 mb-8">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          
+          <div className="prose prose-invert max-w-none space-y-6 text-white/70">
                   <section>
               <h2 className="text-2xl font-semibold text-white mb-4">1. Acceptance of Terms</h2>
               <p>
