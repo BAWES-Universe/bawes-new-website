@@ -8,10 +8,10 @@ import Button from '@/components/ui/Button'
 /* ─── DATA ─── */
 
 const stats = [
-  { number: '10,000+', label: 'Active Rooms' },
   { number: '50,000+', label: 'Community Members' },
-  { number: '1,000+', label: 'AI Bots' },
   { number: '80+', label: 'Open Source Repos' },
+  { number: 'AI', label: 'Agents & Tools' },
+  { number: '\u221e', label: 'Possibilities' },
 ]
 
 const features = [
@@ -116,7 +116,7 @@ function SceneHero() {
             color: 'rgba(255,255,255,0.85)',
           }}
         >
-          <strong className="text-accent-purple">Hermes</strong> — Hey, I remember we were working on the landing page. Want me to show the new designs?
+          <strong className="text-accent-purple">Planner Bot</strong> — Welcome back! Good to see you again. Still working on all those plans from last time for building your own space here? Let me know where you're at now.
         </div>
         {/* Glare */}
         <div
@@ -319,13 +319,15 @@ export default function Home() {
             No credit card. No commitment. Build, invite, and watch your world come alive.
           </p>
           <div className="flex flex-wrap gap-4 justify-center relative z-[2]">
-            <Link
-              href="/communication"
+            <a
+              href="https://universe.bawes.net"
+              target="_blank"
+              rel="noopener noreferrer"
               className="gradient-cta text-white px-8 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
             >
               Enter the Universe
               <span className="material-symbols-outlined text-lg">arrow_forward</span>
-            </Link>
+            </a>
             <Link
               href="/contact"
               className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200"
