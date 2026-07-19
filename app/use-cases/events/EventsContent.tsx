@@ -18,11 +18,6 @@ export default function UseCaseEventsPageContent() {
       </div>
             <section className="max-w-container-max mx-auto px-gutter py-section-padding-v flex flex-col md:flex-row items-center gap-12">
         <div className="flex-1 space-y-6">
-          <div className="flex items-center gap-2 mb-4 text-xs text-text-muted">
-            <Link href="/use-cases" className="hover:text-primary transition-colors">Use Cases</Link>
-            <span>/</span>
-            <span className="text-primary">Events</span>
-          </div>
           <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-white tracking-tight">
             Events That <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6]">Fill the Room.</span>
           </h1>
