@@ -89,7 +89,7 @@ export default function FeaturesOverviewPage() {
       {/* SECTION 1: Communication */}
       <section>
         <div className="mb-12">
-          <span className="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Hub 01</span>
+          <span className="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">01</span>
           <h2 className="font-headline-section text-headline-section mb-4">
             <Link href="/communication" className="hover:text-primary transition-colors">Communication</Link>
           </h2>
@@ -115,7 +115,7 @@ export default function FeaturesOverviewPage() {
       {/* SECTION 2: AI Bots */}
       <section className="relative">
         <div className="mb-12">
-          <span className="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Hub 02</span>
+          <span className="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">02</span>
           <h2 className="font-headline-section text-headline-section mb-4">
             <Link href="/ai-bots" className="hover:text-primary transition-colors">AI Bots</Link>
           </h2>
@@ -142,7 +142,7 @@ export default function FeaturesOverviewPage() {
       {/* SECTION 3: Build & Create */}
       <section>
         <div className="mb-12">
-          <span className="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Hub 03</span>
+          <span className="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">03</span>
           <h2 className="font-headline-section text-headline-section mb-4">
             <Link href="/build" className="hover:text-primary transition-colors">Build &amp; Create</Link>
           </h2>
@@ -166,7 +166,7 @@ export default function FeaturesOverviewPage() {
       {/* SECTION 4: Platform */}
       <section>
         <div className="mb-12">
-          <span className="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Hub 04</span>
+          <span className="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">04</span>
           <h2 className="font-headline-section text-headline-section mb-4">
             <Link href="/platform" className="hover:text-primary transition-colors">Platform</Link>
           </h2>
