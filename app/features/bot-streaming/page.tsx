@@ -1,6 +1,10 @@
-'use client'
-
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Bot Streaming Chat — Real-Time AI Responses',
+  description: 'Bot responses stream token-by-token into chat bubbles. Watch the AI think, compose, and respond in real time. Tool calls and media delivery happen mid-stream.',
+}
 
 export default function BotStreamingPage() {
   return (
@@ -76,6 +80,10 @@ export default function BotStreamingPage() {
                 <li className="flex items-center gap-3">
                   <span className="material-symbols-outlined text-primary">check_circle</span>
                   <span>Multi-model streaming support</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-primary">check_circle</span>
+                  <span>Tool calls produce media output mid-stream — images and video appear in chat automatically</span>
                 </li>
               </ul>
             </div>

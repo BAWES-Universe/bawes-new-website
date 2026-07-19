@@ -1,6 +1,10 @@
-'use client'
-
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Bot Tool Calling — MCP Integration',
+  description: 'Bots interact with APIs and external tools through MCP. Generate images via ComfyUI, video via Higgsfield, research via Firecrawl and Tavily, and more.',
+}
 
 export default function BotToolsPage() {
   return (
@@ -39,7 +43,7 @@ export default function BotToolsPage() {
       <section className="relative z-10 py-24 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Tool Capabilities</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="glass-card p-8 rounded-2xl">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 text-primary">
                 <span className="material-symbols-outlined text-3xl">hub</span>
@@ -67,6 +71,76 @@ export default function BotToolsPage() {
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">External Systems</h3>
               <p className="text-white/60 text-sm">Full interoperability with your existing tech stack through standardized webhooks.</p>
+            </div>
+            <div className="glass-card p-8 rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 border border-secondary/30 text-secondary">
+                <span className="material-symbols-outlined text-3xl">description</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">File Analysis</h3>
+              <p className="text-white/60 text-sm">Bots read PDF, Word, Excel, and web pages. Upload a file and ask questions about it. <Link href="/features/bot-file-parsing" className="text-primary hover:underline">Learn more →</Link></p>
+            </div>
+            <div className="glass-card p-8 rounded-2xl">
+              <div className="w-12 h-12 rounded-xl bg-tertiary/20 flex items-center justify-center mb-6 border border-tertiary/30 text-tertiary">
+                <span className="material-symbols-outlined text-3xl">image</span>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Media Output</h3>
+              <p className="text-white/60 text-sm">Tools can return images and video — auto-sent to users as chat messages or galleries. <Link href="/features/bot-media-sending" className="text-primary hover:underline">Learn more →</Link></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MCP Tool Examples */}
+      <section className="relative z-10 py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Real-World MCP Tools</h2>
+          <p className="text-white/50 text-center mb-16 max-w-2xl mx-auto">Connect any MCP-compatible tool. Here are popular integrations that work out of the box.</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20">
+                <span className="material-symbols-outlined text-primary text-3xl">auto_awesome</span>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">ComfyUI</h3>
+              <p className="text-white/60 text-sm mb-3">Image generation workflows. Bot takes a prompt, calls ComfyUI, and delivers the generated image to chat.</p>
+              <Link href="/features/bot-media-sending" className="text-primary text-sm hover:underline">See media sending →</Link>
+            </div>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 border border-secondary/30">
+                <span className="material-symbols-outlined text-secondary text-3xl">movie</span>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Higgsfield</h3>
+              <p className="text-white/60 text-sm mb-3">AI video generation. Bot generates short video clips and delivers them directly to the user.</p>
+              <Link href="/features/bot-media-sending" className="text-primary text-sm hover:underline">See media sending →</Link>
+            </div>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-xl bg-tertiary/20 flex items-center justify-center mb-6 border border-tertiary/30">
+                <span className="material-symbols-outlined text-tertiary text-3xl">travel_explore</span>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Firecrawl</h3>
+              <p className="text-white/60 text-sm mb-3">Web scraping and content extraction. Bot scrapes pages, extracts content, and answers questions about any URL.</p>
+              <Link href="/features/bot-file-parsing" className="text-primary text-sm hover:underline">See file parsing →</Link>
+            </div>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20">
+                <span className="material-symbols-outlined text-primary text-3xl">search</span>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Tavily</h3>
+              <p className="text-white/60 text-sm mb-3">AI web search and research. Bot searches the web, synthesizes results, and delivers findings with sources.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 border border-secondary/30">
+                <span className="material-symbols-outlined text-secondary text-3xl">task_alt</span>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Linear / Attio</h3>
+              <p className="text-white/60 text-sm mb-3">CRM and project management. Bot creates issues, checks deal status, manages tickets — all from chat.</p>
+            </div>
+            <div className="glass-card p-8 rounded-xl">
+              <div className="w-12 h-12 rounded-xl bg-tertiary/20 flex items-center justify-center mb-6 border border-tertiary/30">
+                <span className="material-symbols-outlined text-tertiary text-3xl">extension</span>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Any MCP Tool</h3>
+              <p className="text-white/60 text-sm mb-3">If it speaks MCP, your bots can use it. The standardized protocol works with any provider.</p>
+              <Link href="/mcp-integration" className="text-primary text-sm hover:underline">See MCP integration →</Link>
             </div>
           </div>
         </div>

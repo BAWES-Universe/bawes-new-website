@@ -1,9 +1,13 @@
-'use client';
-
+import type { Metadata } from 'next';
 import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Features Overview — Everything Universe Can Do',
+  description: 'Explore every feature in the BAWES Universe platform — AI bots, spatial world, MCP integration, communication, and more.',
+}
 
 interface FeatureCardProps {
   href: string;
@@ -128,6 +132,10 @@ export default function FeaturesOverviewPage() {
           <FeatureCard href="/features/bot-provider-config" icon="settings" label="LIVE" title="Bot Provider Config" desc="Configure AI providers — OpenAI, Anthropic, local models, and more." />
           <FeatureCard href="/features/recursive-bots" icon="device_hub" label="LIVE" title="Recursive Bots" desc="Bots that spawn and coordinate other bots for complex multi-agent tasks." />
           <FeatureCard href="/features/bot-editor" icon="edit" label="LIVE" title="Bot Editor" desc="Visual editor to create, tweak, and manage your entire bot fleet." />
+          <FeatureCard href="/features/bot-file-parsing" icon="description" label="LIVE" title="Bot File Parsing" desc="Bots analyze PDF, Word, Excel, and web pages — extract content and answer questions." />
+          <FeatureCard href="/features/bot-media-sending" icon="image" label="LIVE" title="Bot Media Sending" desc="Auto-send tool-generated images and video to users via ComfyUI, Higgsfield, and more." />
+          <FeatureCard href="/features/bot-gallery" icon="photo_library" label="LIVE" title="Bot Gallery" desc="Multi-image gallery messages with responsive grid and full-screen lightbox." />
+          <FeatureCard href="/features/bot-pending-media" icon="schedule" label="LIVE" title="Bot Pending Media" desc="Queue media for delivery when users return — nothing gets lost." />
         </div>
       </section>
 

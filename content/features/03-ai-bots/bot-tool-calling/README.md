@@ -12,10 +12,20 @@ Bots use MCP tools during conversations — querying databases, checking invento
 
 ## Examples
 
-- **CRM** (Attio MCP) — "What's the status of deal X?"
-- **Analytics** — "How many users signed up this week?"
-- **E-commerce** — "Create an order for product Y"
-- **Linear** — "Create an issue for this bug"
+- **ComfyUI** (image generation) — "Generate an image of a dragon" → bot sends the image
+- **Higgsfield** (video generation) — "Create a 5-second video clip" → bot delivers the video
+- **Firecrawl** (web scraping) — "Read this article and tell me the key points" → bot scrapes and summarizes
+- **Tavily** (web search) — "Research this topic" → bot searches, synthesizes, and links sources
+- **Linear / Attio** (CRM/PM) — "Create an issue for this bug" / "What's the status of deal X?"
+- **FileParser** (built-in) — "Summarize this PDF" → bot extracts text and answers questions
+
+## File Analysis
+
+Bots can analyze PDF, Word, Excel, and web pages. See [bot-file-parsing](./bot-file-parsing/) for details.
+
+## Media Output
+
+Tools can return images and video — auto-sent to users as chat messages or galleries. See [bot-media-sending](./bot-media-sending/) for details.
 
 ## Graceful Degradation
 

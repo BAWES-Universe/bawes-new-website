@@ -8,7 +8,10 @@ import PostHogProvider from '@/components/PostHogProvider'
 import PostHogPageView from '@/components/PostHogPageView'
 
 export const metadata: Metadata = {
-  title: 'BAWES Universe — People and AI Living Together',
+  title: {
+    default: 'BAWES Universe — People and AI Living Together',
+    template: '%s | BAWES Universe',
+  },
   description: 'Walk into a shared world where people, AI agents, and communities work, learn, and connect — in real time, in actual space.',
   keywords: ['BAWES', 'Universe', 'spatial', 'AI bots', 'virtual worlds', 'metaverse', 'collaboration'],
   authors: [{ name: 'BAWES' }],

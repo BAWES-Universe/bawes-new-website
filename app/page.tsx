@@ -35,6 +35,11 @@ const features = [
     desc: 'Drop a bot into a room. Give it tools. Let it spawn other bots with their own personalities. Self-architecting AI systems.',
     href: '/features/recursive-bots', wide: false, highlight: false,
   },
+  {
+    icon: 'description', iconColor: '#f472b6', title: 'Bots that read files',
+    desc: 'Drop a PDF, Word doc, Excel spreadsheet, or paste a URL — bots extract the content, answer questions, summarize key points, and generate images and video. Not just chat. Real work.',
+    href: '/features/bot-file-parsing', wide: true, highlight: false,
+  },
 ]
 
 const showcases = [

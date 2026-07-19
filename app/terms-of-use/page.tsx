@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Section from '@/components/Section'
 
 export const metadata: Metadata = {
-  title: 'Terms of Use | BAWES Universe',
+  title: 'Terms of Use',
   description: 'Terms of Use for BAWES Universe',
 }
 
