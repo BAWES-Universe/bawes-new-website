@@ -188,15 +188,6 @@ export default function Home() {
       {/* ═══ 1. HERO ═══ */}
       <section className="max-w-7xl mx-auto pt-32 md:pt-40 pb-20 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10 md:gap-16">
         <div className="flex-1 max-w-[600px]">
-          {/* Badge */}
-          <motion.div
-            {...fadeUp(0)}
-            className="inline-flex items-center gap-2 px-4 py-2 pl-2 pr-5 rounded-full bg-accent/10 border border-accent/20 text-sm text-text-secondary mb-8"
-          >
-            <span className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)] animate-pulse-dot" />
-            Live with 10,000+ active rooms
-          </motion.div>
-
           {/* Headline */}
           <motion.h1
             {...fadeUp(0.05)}
