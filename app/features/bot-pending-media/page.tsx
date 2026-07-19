@@ -111,7 +111,7 @@ export default function BotPendingMediaPage() {
             </div>
             <div className="glass-card p-6 rounded-xl text-center">
               <div className="w-12 h-12 rounded-full bg-tertiary/20 flex items-center justify-center mb-4 mx-auto border border-tertiary/30">
-                <span className="material-symbols-outlined text-tertiary text-2xl">person_enter</span>
+                <span className="material-symbols-outlined text-tertiary text-2xl">login</span>
               </div>
               <h3 className="text-sm font-semibold text-white mb-2">3. User Returns</h3>
               <p className="text-white/50 text-xs">Re-entry triggers flushPendingMedia</p>

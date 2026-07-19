@@ -129,7 +129,7 @@ export default function BotFileParsingPage() {
       {/* Technical / Security */}
       <section className="relative z-10 py-24 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="glass-card p-8 md:p-12 rounded-2xl">
+          <div className="glass-card p-8 md:p-12 rounded-2xl overflow-hidden">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Security &amp; Reliability</h2>
@@ -158,7 +158,7 @@ export default function BotFileParsingPage() {
                     <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
                   </div>
                 </div>
-                <pre className="text-purple-200 leading-relaxed">
+                <pre className="text-purple-200 leading-relaxed overflow-x-auto whitespace-pre-wrap break-all">
 <span className="text-white/40">{'// FileParser handles'}</span>
 <span className="text-orange-400">{'"application/pdf"'}</span>        → pdf-parse
 <span className="text-orange-400">{'"application/vnd.openxmlformats"'}</span> → mammoth

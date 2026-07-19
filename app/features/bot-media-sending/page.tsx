@@ -122,7 +122,7 @@ export default function BotMediaSendingPage() {
               <p className="text-white/60 text-sm">2+ images from the same tool call are automatically batched into a single gallery message. Single images use direct send.</p>
             </div>
             <div className="glass-card p-8 rounded-xl">
-              <span className="material-symbols-outlined text-secondary text-3xl mb-4 block">fallback</span>
+              <span className="material-symbols-outlined text-secondary text-3xl mb-4 block">change_circle</span>
               <h3 className="text-lg font-semibold text-white mb-2">Graceful Fallback</h3>
               <p className="text-white/60 text-sm">If gallery send fails (e.g. user left the space), the bot falls back to individual sends or queues for later delivery.</p>
             </div>
