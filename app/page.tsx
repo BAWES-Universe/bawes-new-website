@@ -3,217 +3,135 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Section from '@/components/Section'
-import Button from '@/components/ui/Button'
+import RoomScene from '@/components/scenes/RoomScene'
+import {
+  ProximityScene, MemoryScene, EditorScene, RecursiveScene, FilesScene,
+} from '@/components/scenes/FeatureScenes'
+import PixelIcon, { type PixelIconName } from '@/components/pixel/PixelIcon'
 
 /* ─── DATA ─── */
 
 const stats = [
-  { number: '50,000+', label: 'Community Members' },
-  { number: '80+', label: 'Open Source Repos' },
-  { number: 'AI', label: 'Agents & Tools' },
-  { number: '\u221e', label: 'Possibilities' },
+  { number: '50,000+', label: 'Community members' },
+  { number: '80+', label: 'Open source repos' },
+  { number: '57', label: 'Shipped features' },
+  { number: 'MIT', label: 'Licensed, self-hostable' },
 ]
 
-const features = [
+/** The three mechanics that carry the pitch. Each gets a full row and a scene. */
+const pillars = [
   {
-    icon: 'spatial_audio', iconColor: '#a78bfa', title: 'Walk in, meet people',
-    desc: 'Walk up to start talking, walk away for privacy. Audio fades with distance naturally. Step into a meeting room for face-to-face video and screen sharing — all without scheduling a call.',
-    href: '/features/proximity-chat', wide: false, highlight: true,
+    kicker: 'Proximity',
+    title: 'Walk up. Start talking.',
+    desc: 'No links, no lobby, no "can you hear me?". Audio and video open when you get close and fade as you walk away — the way a room has always worked. Step into a meeting zone and you get screen sharing too.',
+    href: '/features/proximity-chat',
+    cta: 'How proximity works',
+    Scene: ProximityScene,
   },
   {
-    icon: 'psychology', iconColor: '#fbbf24', title: 'Bots with memory',
-    desc: 'They remember your name, what you talked about, your preferences. Walk up to a bot — it greets you like an old friend.',
-    href: '/features/bot-memory', wide: false, highlight: false,
+    kicker: 'Memory',
+    title: 'The bots know who you are.',
+    desc: 'Every bot keeps persistent memory in Postgres — names, past conversations, what you were working on. Come back a week later and it picks up where you left off instead of asking you to start over.',
+    href: '/features/bot-memory',
+    cta: 'How bot memory works',
+    Scene: MemoryScene,
   },
   {
-    icon: 'edit_square', iconColor: '#93c5fd', title: 'Edit the world live',
-    desc: 'Drag a tile, place an entity, change the lighting — all without leaving the room. The world updates for everyone instantly.',
-    href: '/features/map-editor', wide: false, highlight: false,
-  },
-  {
-    icon: 'device_hub', iconColor: '#34d399', title: 'Bots build bots',
-    desc: 'Drop a bot into a room. Give it tools. Let it spawn other bots with their own personalities. Self-architecting AI systems.',
-    href: '/features/recursive-bots', wide: false, highlight: false,
-  },
-  {
-    icon: 'description', iconColor: '#f472b6', title: 'Bots that read files',
-    desc: 'Drop a PDF, Word doc, Excel spreadsheet, or paste a URL — bots extract the content, answer questions, summarize key points, and generate images and video. Not just chat. Real work.',
-    href: '/features/bot-file-parsing', wide: true, highlight: false,
+    kicker: 'Live editing',
+    title: 'Change the world while you stand in it.',
+    desc: 'Drag a tile, drop an entity, redraw a zone — no export, no redeploy, no kicking anyone out. Maps hot-reload for everyone in the room the moment you save.',
+    href: '/features/map-editor',
+    cta: 'How the editor works',
+    Scene: EditorScene,
   },
 ]
 
-const showcases = [
-  { emoji: '🏠', title: 'For Personal', desc: 'Custom AI companions, organized workspaces, friends welcome anytime.', wide: true, href: '/use-cases/personal' },
-  { emoji: '🏢', title: 'For Work', desc: 'Team rooms, focus pods, standup bots, and a watercooler that actually works.', wide: true, href: '/use-cases/work' },
-  { emoji: '🎮', title: 'For Community', desc: 'Event halls, gaming rooms, welcome bots that greet every new member by name.', href: '/use-cases/community' },
-  { emoji: '🎓', title: 'For Learning', desc: 'Lecture halls, study groups, AI teaching assistants available 24/7.', href: '/use-cases/learning' },
-  { emoji: '🌐', title: 'For Events', desc: 'Sponsor rooms, networking zones, main stages for thousands.', href: '/use-cases/events' },
-  { emoji: '💰', title: 'For Commerce', desc: 'Subscriptions, tickets, and payments connected to your stack.', href: '/use-cases/commerce' },
-  { emoji: '🛍️', title: 'For Market', desc: 'Brand showrooms, social shopping, pop-up shops in shared spaces.', href: '/use-cases/market' },
+/** Two more that are better shown side by side. */
+const extras = [
+  {
+    title: 'Bots that build bots',
+    desc: 'A manager bot provisions a worker bot through the admin API — its own personality, its own MCP servers, its own room. Agents provisioning agents on real infrastructure.',
+    href: '/features/recursive-bots',
+    Scene: RecursiveScene,
+  },
+  {
+    title: 'Bots that do real work',
+    desc: 'Drop a PDF, spreadsheet, or document into a conversation. Bots parse it, answer questions about it, and hand back charts and images. Not a chat toy.',
+    href: '/features/bot-file-parsing',
+    Scene: FilesScene,
+  },
 ]
 
-/* ─── COMPONENTS ─── */
+type UseCase = {
+  icon: PixelIconName
+  colors: [string, string, string, string]
+  title: string
+  desc: string
+  href: string
+}
+
+const useCases: UseCase[] = [
+  { icon: 'home', colors: ['#a78bfa', '#6d5b9e', '#fbbf24', '#3b2f57'], title: 'Personal', desc: 'Your own space, your own AI companions, friends welcome anytime.', href: '/use-cases/personal' },
+  { icon: 'office', colors: ['#93c5fd', '#3f5a86', '#fbbf24', '#26364f'], title: 'Work', desc: 'Team rooms, focus pods, standup bots, and a watercooler that works.', href: '/use-cases/work' },
+  { icon: 'gamepad', colors: ['#34d399', '#1f6b52', '#f472b6', '#0f3b2e'], title: 'Community', desc: 'Event halls, gaming rooms, bots that greet every new member by name.', href: '/use-cases/community' },
+  { icon: 'graduation', colors: ['#fbbf24', '#8a6218', '#f03e2f', '#4a350c'], title: 'Learning', desc: 'Lecture halls, study groups, teaching assistants on call at 3am.', href: '/use-cases/learning' },
+  { icon: 'megaphone', colors: ['#f472b6', '#8a3a63', '#fbbf24', '#4d1f36'], title: 'Events', desc: 'Main stages, sponsor rooms, networking floors, megaphone broadcast.', href: '/use-cases/events' },
+  { icon: 'bag', colors: ['#67e8f9', '#2b6b78', '#134e5a', '#0d3540'], title: 'Commerce', desc: 'Subscriptions, ticketing, and payments wired into your existing stack.', href: '/use-cases/commerce' },
+  { icon: 'storefront', colors: ['#f59e0b', '#7c5cbf', '#c4b5fd', '#2e2447'], title: 'Market', desc: 'Brand showrooms, pop-up shops, shopping you do next to other people.', href: '/use-cases/market' },
+]
+
+/* ─── HELPERS ─── */
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
+  viewport: { once: true, margin: '-80px' },
   transition: { duration: 0.6, delay },
 })
 
-function SceneHero() {
+function ArrowLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <div className="relative w-full rounded-bento overflow-hidden bg-gradient-to-br from-[rgba(20,16,40,0.8)] to-[rgba(10,8,20,0.9)] border border-accent/20 shadow-[0_40px_100px_rgba(0,0,0,0.5)]">
-      {/* Grid */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(139,92,246,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.06) 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
-        }}
-      />
-      {/* Connection lines */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 300" fill="none">
-        <path d="M80 66 C120 120, 180 80, 220 50" stroke="rgba(139,92,246,0.15)" strokeWidth="1.5" strokeDasharray="4 4" fill="none">
-          <animate attributeName="stroke-dashoffset" from="0" to="100" dur="8s" repeatCount="indefinite" />
-        </path>
-        <path d="M320 105 C270 150, 200 160, 150 140" stroke="rgba(245,158,11,0.15)" strokeWidth="1.5" strokeDasharray="4 4" fill="none">
-          <animate attributeName="stroke-dashoffset" from="0" to="100" dur="6s" repeatCount="indefinite" />
-        </path>
-        <path d="M120 210 C160 180, 200 190, 240 170" stroke="rgba(59,130,246,0.15)" strokeWidth="1" strokeDasharray="3 3" fill="none">
-          <animate attributeName="stroke-dashoffset" from="0" to="100" dur="10s" repeatCount="indefinite" />
-        </path>
-      </svg>
-      {/* Content area */}
-      <div className="relative aspect-[4/3] flex items-center justify-center p-6">
-        {/* Floating avatars */}
-        {[
-          { top: '22%', left: '18%', gradient: 'linear-gradient(135deg,#7c3aed,#6d28d9)', delay: '0s', emoji: '👤' },
-          { top: '35%', right: '20%', gradient: 'linear-gradient(135deg,#f59e0b,#d97706)', delay: '1s', emoji: '🤖' },
-          { bottom: '28%', left: '30%', gradient: 'linear-gradient(135deg,#3b82f6,#2563eb)', delay: '0.5s', emoji: '👥' },
-          { top: '15%', right: '35%', gradient: 'linear-gradient(135deg,#10b981,#059669)', delay: '2s', emoji: '🎨' },
-          { bottom: '20%', right: '15%', gradient: 'linear-gradient(135deg,#ec4899,#db2777)', delay: '1.5s', emoji: '💬' },
-        ].map((a, i) => (
-          <div
-            key={i}
-            className="absolute w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center text-lg shadow-lg animate-float"
-            style={{
-              top: a.top, left: a.left, right: a.right, bottom: a.bottom,
-              background: a.gradient,
-              animationDelay: a.delay,
-            }}
-          >
-            {a.emoji}
-          </div>
-        ))}
-        {/* Bot speech bubble */}
-        <div
-          className="absolute max-w-[200px] md:max-w-[260px] rounded-xl p-3 md:p-4 text-xs md:text-sm leading-relaxed backdrop-blur-lg"
-          style={{
-            bottom: '38%', left: '50%', transform: 'translateX(-50%)',
-            background: 'rgba(139,92,246,0.15)',
-            border: '1px solid rgba(139,92,246,0.2)',
-            color: 'rgba(255,255,255,0.85)',
-          }}
-        >
-          <strong className="text-accent-purple">Planner Bot</strong> — Welcome back! Good to see you again. Still working on all those plans from last time for building your own space here? Let me know where you're at now.
-        </div>
-        {/* Glare */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'linear-gradient(135deg, transparent 40%, rgba(139,92,246,0.04) 50%, transparent 60%)',
-          }}
-        />
-      </div>
-    </div>
-  )
-}
-
-function Bentocard({ icon, iconColor, title, desc, href, wide, highlight }: {
-  icon: string; iconColor: string; title: string; desc: string;
-  href: string; wide: boolean; highlight: boolean
-}) {
-  return (
-    <Link href={href} className={`block ${wide ? 'md:col-span-2' : ''}`}>
-      <motion.div
-        {...fadeUp(0.05)}
-        className={`bento-card h-full ${highlight ? 'bento-card-highlight' : ''}`}
-      >
-        <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center mb-5"
-          style={{ background: `${iconColor}15` }}
-        >
-          <span className="material-symbols-outlined text-xl" style={{ color: iconColor }}>{icon}</span>
-        </div>
-        <h3 className="font-headline-card text-headline-card text-white mb-2">{title}</h3>
-        <p className="text-sm text-text-muted leading-relaxed">{desc}</p>
-        <div className="bento-card-arrow">
-          Learn more <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
-        </div>
-      </motion.div>
+    <Link href={href} className="group inline-flex items-center gap-2 text-sm font-medium text-accent-purple hover:text-white transition-colors">
+      {children}
+      <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
     </Link>
   )
 }
 
-function ShowcaseCard({ emoji, title, desc, href, wide }: {
-  emoji: string; title: string; desc: string; href: string; wide?: boolean
-  tag?: string; tagColor?: string
-}) {
-  return (
-    <Link href={href} className={`block group ${wide ? 'md:col-span-2' : ''}`}>
-      <motion.div
-        {...fadeUp(0.05)}
-        className="bento-card h-full"
-      >
-        <span className="text-3xl mb-4 block">{emoji}</span>
-        <h3 className="font-headline-card text-headline-card text-white mb-2">{title}</h3>
-        <p className="text-sm text-text-muted leading-relaxed flex-grow">{desc}</p>
-        <div className="bento-card-arrow">
-          Learn more <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
-        </div>
-      </motion.div>
-    </Link>
-  )
-}
-
-/* ════════════════════════════════════════
-   PAGE
-   ════════════════════════════════════════ */
+/* ─── PAGE ─── */
 
 export default function Home() {
   return (
     <div className="relative z-10">
 
-      {/* ═══ 1. HERO ═══ */}
-      <section className="max-w-7xl mx-auto pt-32 md:pt-40 pb-20 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10 md:gap-16">
-        <div className="flex-1 max-w-[600px]">
-          {/* Headline */}
+      {/* ═══ HERO ═══ */}
+      <section className="max-w-7xl mx-auto pt-32 md:pt-40 pb-4 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl">
+          <motion.div {...fadeUp(0)} className="section-label">
+            A SHARED WORLD, NOT ANOTHER TAB
+          </motion.div>
+
           <motion.h1
             {...fadeUp(0.05)}
-            className="font-display text-5xl md:text-7xl lg:text-[80px] leading-[1.05] font-bold text-white mb-6 tracking-[-0.03em]"
+            className="font-display text-5xl md:text-7xl lg:text-[76px] leading-[1.03] font-bold text-white mb-6 tracking-[-0.03em] text-balance"
           >
-            Universe is where<br />
-            <span className="bg-[length:200%_200%] animate-shimmer bg-clip-text text-transparent"
-              style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa 0%, #f59e0b 50%, #a78bfa 100%)' }}>
-              people and AI
-            </span><br />
-            actually live together.
+            Imagine a place where{' '}
+            <span
+              className="bg-[length:200%_200%] animate-shimmer bg-clip-text text-transparent"
+              style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa 0%, #f59e0b 50%, #a78bfa 100%)' }}
+            >
+              you can just walk over
+            </span>{' '}
+            and talk.
           </motion.h1>
 
-          {/* Sub */}
-          <motion.p
-            {...fadeUp(0.1)}
-            className="text-lg text-text-muted leading-relaxed max-w-[480px] mb-10"
-          >
-            Rooms where you walk in, see who&apos;s around, and talk naturally — with people and bots that have memories, feelings, and real tools to help.
+          <motion.p {...fadeUp(0.1)} className="text-lg text-text-secondary leading-relaxed max-w-[560px] mb-9">
+            Universe is a world you move through, not an app you log into. Walk up to someone and
+            the conversation opens. Walk away and it closes. The bots living there remember you,
+            read your files, and get real work done.
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div
-            {...fadeUp(0.15)}
-            className="flex flex-wrap gap-4"
-          >
+          <motion.div {...fadeUp(0.15)} className="flex flex-wrap gap-4">
             <Link
               href="https://universe.bawes.net"
               className="gradient-cta text-white px-8 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
@@ -223,100 +141,208 @@ export default function Home() {
             </Link>
             <Link
               href="/how-it-works"
-              className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200"
+              className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.14)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.32)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200"
             >
-              How it works →
+              See how it works
             </Link>
           </motion.div>
         </div>
-
-        {/* Hero Scene */}
-        <motion.div
-          {...fadeUp(0.1)}
-          className="flex-1 w-full max-w-[600px]"
-        >
-          <SceneHero />
-        </motion.div>
       </section>
 
-      {/* ═══ 2. STATS ═══ */}
-      <div className="border-y border-[rgba(139,92,246,0.08)] bg-[rgba(139,92,246,0.03)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0">
-          {stats.map((stat) => (
-            <motion.div
-              key={stat.label}
-              {...fadeUp(0.05)}
-              className="text-center py-2"
-            >
-              <p className="font-display text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">{stat.number}</p>
-              <p className="text-sm text-text-muted mt-1">{stat.label}</p>
+      {/* ═══ HERO SCENE — the product, drawn ═══ */}
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-28"
+      >
+        <div className="pixel-frame overflow-hidden shadow-[0_50px_120px_rgba(0,0,0,0.55)] aspect-[4/3] sm:aspect-[16/10] md:aspect-auto">
+          <RoomScene className="block w-full h-full md:h-auto" />
+        </div>
+        <p className="mt-4 text-xs text-text-muted text-center tracking-wide">
+          One room. Proximity audio open on the left, a bot mid-conversation, a meeting zone on the right.
+        </p>
+      </motion.div>
+
+      {/* ═══ STATS ═══ */}
+      <div className="band-raised">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
+          {stats.map((stat, i) => (
+            <motion.div key={stat.label} {...fadeUp(i * 0.05)} className="text-center">
+              <p className="font-display text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-400">
+                {stat.number}
+              </p>
+              <p className="text-sm text-text-muted mt-1.5">{stat.label}</p>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* ═══ 3. WHAT MAKES IT DIFFERENT ═══ */}
+      {/* ═══ PILLARS — alternating rows ═══ */}
       <Section>
-        <motion.div {...fadeUp(0)}>
-          <div className="section-label" data-label="What makes it different" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 leading-tight tracking-[-0.02em]">
-            Not a tool.<br />
-            Not a game. A{' '}
-            <span className="bg-clip-text text-transparent"
-              style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa, #f59e0b)' }}>
-              living space
-            </span>.
+        <motion.div {...fadeUp(0)} className="mb-16">
+          <div className="section-label">What makes it different</div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 leading-tight tracking-[-0.02em] text-balance">
+            Not a tool. Not a game.
+            <br />
+            A{' '}
+            <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa, #f59e0b)' }}>
+              place
+            </span>
+            .
           </h2>
-          <p className="text-base text-text-muted max-w-[500px] mb-16">
-            The rooms are social. The bots remember you. The world changes based on what you build.
+          <p className="text-base text-text-muted max-w-[520px]">
+            Three things make a room feel alive instead of scheduled. All three are shipped and running today.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {features.map((f) => (
-            <Bentocard key={f.title} {...f} />
+        <div className="space-y-20 md:space-y-28">
+          {pillars.map((p, i) => (
+            <motion.div
+              key={p.title}
+              {...fadeUp(0)}
+              className={`flex flex-col gap-8 md:gap-14 items-center ${i % 2 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
+            >
+              <div className="flex-1 w-full">
+                <div className="pixel-frame overflow-hidden">
+                  <p.Scene />
+                </div>
+              </div>
+              <div className="flex-1 w-full">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-purple/70 mb-3">{p.kicker}</p>
+                <h3 className="font-display text-3xl md:text-[40px] font-bold text-white mb-4 leading-[1.12] tracking-[-0.02em] text-balance">
+                  {p.title}
+                </h3>
+                <p className="text-base text-text-muted leading-relaxed mb-6 max-w-[460px]">{p.desc}</p>
+                <ArrowLink href={p.href}>{p.cta}</ArrowLink>
+              </div>
+            </motion.div>
           ))}
         </div>
       </Section>
 
-      {/* ═══ 4. WHAT PEOPLE BUILD ═══ */}
+      {/* ═══ EXTRAS ═══ */}
+      <div className="band-raised">
+        <Section>
+          <motion.div {...fadeUp(0)} className="mb-12">
+            <div className="section-label">And then it gets strange</div>
+            <h2 className="font-display text-3xl md:text-[42px] font-bold text-white leading-tight tracking-[-0.02em] max-w-[620px] text-balance">
+              The bots don&apos;t just talk. They build, and they hire.
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {extras.map((e, i) => (
+              <motion.div key={e.title} {...fadeUp(i * 0.08)}>
+                <Link href={e.href} className="scene-card group block h-full">
+                  <e.Scene />
+                  <div className="p-7">
+                    <h3 className="font-headline-card text-headline-card text-white mb-2">{e.title}</h3>
+                    <p className="text-sm text-text-muted leading-relaxed mb-5">{e.desc}</p>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-accent-purple">
+                      Learn more
+                      <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </Section>
+      </div>
+
+      {/* ═══ USE CASES ═══ */}
       <Section>
-        <motion.div {...fadeUp(0)}>
-          <div className="section-label" data-label="What people build" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 leading-tight tracking-[-0.02em]">
-            Universes for work,<br />school, community, and more.
+        <motion.div {...fadeUp(0)} className="mb-14">
+          <div className="section-label">What people build</div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 leading-tight tracking-[-0.02em] text-balance">
+            Universes for work, school,
+            <br />
+            community, and everything after.
           </h2>
-          <p className="text-base text-text-muted max-w-[500px] mb-16">
-            Companies, classrooms, communities, and creators are already building their own worlds.
+          <p className="text-base text-text-muted max-w-[520px]">
+            Companies, classrooms, communities, and creators are already running their own worlds.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {showcases.map((s) => (
-            <ShowcaseCard key={s.title} {...s} />
+          {useCases.map((u, i) => (
+            <motion.div key={u.title} {...fadeUp((i % 4) * 0.05)}>
+              <Link href={u.href} className="bento-card group flex flex-col h-full">
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center mb-5"
+                  style={{ background: `${u.colors[0]}14`, border: `1px solid ${u.colors[0]}22` }}
+                >
+                  <PixelIcon name={u.icon} colors={u.colors} size={34} />
+                </div>
+                <h3 className="font-headline-card text-headline-card text-white mb-2">{u.title}</h3>
+                <p className="text-sm text-text-muted leading-relaxed">{u.desc}</p>
+                <div className="bento-card-arrow">
+                  Learn more
+                  <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </Section>
 
-      {/* ═══ 5. CTA ═══ */}
+      {/* ═══ OPEN BY DEFAULT ═══ */}
+      <div className="band-accent">
+        <Section className="!py-20 md:!py-24">
+          <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
+            <motion.div {...fadeUp(0)} className="flex-1">
+              <div className="section-label">Open by default</div>
+              <h2 className="font-display text-3xl md:text-[42px] font-bold text-white mb-5 leading-tight tracking-[-0.02em] text-balance">
+                You can read every line of it.
+              </h2>
+              <p className="text-base text-text-muted leading-relaxed mb-7 max-w-[480px]">
+                Universe is a fork of WorkAdventure, MIT licensed, and deployable on your own
+                infrastructure with Docker Compose or Helm. No lock-in, no black box, no seat
+                you have to ask permission to sit in.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <ArrowLink href="/open-source">Browse the source</ArrowLink>
+                <ArrowLink href="/features/self-hosting">Self-host it</ArrowLink>
+              </div>
+            </motion.div>
+
+            <motion.div {...fadeUp(0.1)} className="flex-1 w-full grid grid-cols-2 gap-4">
+              {[
+                { k: 'License', v: 'MIT' },
+                { k: 'Repos', v: '80+' },
+                { k: 'Deploy', v: 'Docker · Helm' },
+                { k: 'Auth', v: 'Your OIDC' },
+              ].map((c) => (
+                <div key={c.k} className="pixel-frame p-5">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-accent-purple/60 mb-1.5">{c.k}</p>
+                  <p className="font-display text-xl font-bold text-white">{c.v}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </Section>
+      </div>
+
+      {/* ═══ CTA ═══ */}
       <Section className="!pb-32">
         <motion.div
           {...fadeUp(0)}
           className="relative rounded-[32px] p-12 md:p-20 text-center overflow-hidden"
           style={{
-            background: 'linear-gradient(145deg, rgba(139,92,246,0.06), rgba(245,158,11,0.03))',
-            border: '1px solid rgba(139,92,246,0.12)',
+            background: 'linear-gradient(145deg, rgba(139,92,246,0.08), rgba(245,158,11,0.04))',
+            border: '1px solid rgba(139,92,246,0.14)',
           }}
         >
           <div
-            className="absolute w-[500px] h-[500px] top-[-200px] right-[-100px] pointer-events-none"
-            style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.08), transparent 70%)' }}
+            className="absolute w-[520px] h-[520px] top-[-220px] right-[-120px] pointer-events-none"
+            style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.1), transparent 70%)' }}
           />
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-4 relative z-[2]">
-            Step into a universe<br />that&apos;s waiting for you.
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-4 relative z-[2] text-balance">
+            There&apos;s a room open right now.
           </h2>
-          <p className="text-base text-text-muted max-w-[480px] mx-auto mb-8 relative z-[2]">
-            No credit card. No commitment. Build, invite, and watch your world come alive.
+          <p className="text-base text-text-muted max-w-[460px] mx-auto mb-9 relative z-[2]">
+            No credit card, no commitment. Walk in, look around, and see who&apos;s there.
           </p>
           <div className="flex flex-wrap gap-4 justify-center relative z-[2]">
             <a
@@ -330,7 +356,7 @@ export default function Home() {
             </a>
             <Link
               href="/contact"
-              className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200"
+              className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.14)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.32)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200"
             >
               Talk to us
             </Link>
