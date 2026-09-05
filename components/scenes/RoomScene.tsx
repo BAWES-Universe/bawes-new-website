@@ -152,20 +152,20 @@ function VideoBubble({ x, y }: { x: number; y: number }) {
   )
 }
 
-/** Bot speech — it remembers you, so the copy is a callback, not a greeting. */
+/** Bot speech — the site's existing Planner Bot line, trimmed to fit. */
 function SpeechBubble({ x, y }: { x: number; y: number }) {
   return (
     <g>
       <rect x={x} y={y} width={150} height={46} rx={7} fill="rgba(24,17,46,0.95)" stroke="rgba(167,139,250,0.4)" strokeWidth={1} />
       <path d={`M${x} ${y + 16} L${x - 9} ${y + 22} L${x} ${y + 28} Z`} fill="rgba(24,17,46,0.95)" />
       <text x={x + 11} y={y + 17} fill="#c4b5fd" fontSize={9} fontFamily="'Space Grotesk', sans-serif" fontWeight={700}>
-        Planner
+        Planner Bot
       </text>
       <text x={x + 11} y={y + 30} fill="rgba(255,255,255,0.72)" fontSize={8.5} fontFamily="Inter, sans-serif">
-        Welcome back. Still building
+        Welcome back! Good to
       </text>
       <text x={x + 11} y={y + 41} fill="rgba(255,255,255,0.72)" fontSize={8.5} fontFamily="Inter, sans-serif">
-        that room from last week?
+        see you again.
       </text>
     </g>
   )
