@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import LivingWorld from '@/components/home/LivingWorld'
 import FeatureTour from '@/components/home/FeatureTour'
 import BotTranscript from '@/components/home/BotTranscript'
@@ -12,16 +12,11 @@ import { captureEnterUniverse, captureCtaClick, captureExternalLink, getCrossDom
    DATA
    ═══════════════════════════════════════════════════════════════ */
 
-const proof = [
-  { value: '57', label: 'documented features', href: '/features-overview' },
-  { value: '36k+', label: 'lines of AI bot runtime', href: '/ai-bots' },
-  { value: '130+', label: 'admin API endpoints', href: '/features/admin-api' },
-  { value: '∞', label: 'tools through MCP', href: '/mcp-integration' },
-]
-
-const stack = [
-  'WorkAdventure', 'Phaser', 'Svelte', 'LiveKit', 'WebRTC', 'Matrix', 'Redis', 'PostgreSQL',
-  'Next.js', 'Prisma', 'Model Context Protocol', 'OpenID Connect', 'Docker', 'TypeScript',
+const promises = [
+  { icon: 'directions_walk', title: 'Just walk in', desc: 'Works in your browser. No download, no install, no account to start.' },
+  { icon: 'record_voice_over', title: 'Talk like you are there', desc: 'Get close to someone and you can hear them. Step away and you cannot.' },
+  { icon: 'smart_toy', title: 'Meet the residents', desc: 'AI characters who live in the rooms, remember you and actually help.' },
+  { icon: 'home_work', title: 'Make it yours', desc: 'Build a room, invite friends or your team, and change it any time.' },
 ]
 
 const box = [
@@ -113,8 +108,6 @@ function Wrap({ children, className = '', id }: { children: React.ReactNode; cla
    ═══════════════════════════════════════════════════════════════ */
 
 export default function Home() {
-  const reduced = useReducedMotion() ?? false
-
   return (
     <div className="relative z-10 overflow-x-clip">
       {/* ═══ HERO ═══ */}
@@ -126,17 +119,6 @@ export default function Home() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Copy */}
           <div className="lg:col-span-5">
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-wrap items-center gap-2 mb-6"
-            >
-              <span className="chip chip-purple"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-dot" /> Open source</span>
-              <span className="chip">Built on WorkAdventure</span>
-              <span className="chip">Self-hostable</span>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -154,9 +136,9 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.12 }}
               className="text-lg text-white/60 leading-relaxed max-w-[480px] mb-8"
             >
-              Universe is a world you walk into, not a link you click. Proximity voice that fades
-              with distance, AI residents that remember you, real tools wired in through MCP, and
-              rooms you can edit live — open source, on your infrastructure or ours.
+              Universe is a world you walk into, not a link you click. Voices that fade with
+              distance, AI residents who remember you and actually get things done, and rooms
+              you can change any time — free to start, right in your browser.
             </motion.p>
 
             <motion.div
@@ -180,7 +162,7 @@ export default function Home() {
             >
               <span className="inline-flex items-center gap-1.5"><span className="material-symbols-outlined text-[16px] text-emerald-300">check</span> No credit card</span>
               <span className="inline-flex items-center gap-1.5"><span className="material-symbols-outlined text-[16px] text-emerald-300">check</span> Works in the browser</span>
-              <span className="inline-flex items-center gap-1.5"><span className="material-symbols-outlined text-[16px] text-emerald-300">check</span> MIT licensed</span>
+              <span className="inline-flex items-center gap-1.5"><span className="material-symbols-outlined text-[16px] text-emerald-300">check</span> Free to start</span>
             </motion.div>
           </div>
 
@@ -211,26 +193,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ PROOF + STACK TICKER ═══ */}
+      {/* ═══ PROMISES ═══ */}
       <section className="px-4 sm:px-6 lg:px-8 pb-6">
         <div className="max-w-7xl mx-auto">
-          <div className="divider-glow mb-8" />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {proof.map((p, i) => (
-              <motion.div key={p.label} {...rise(i * 0.05)}>
-                <Link href={p.href} className="block group">
-                  <div className="font-display text-4xl md:text-5xl font-bold tracking-[-0.03em] text-gradient-accent leading-none mb-1.5">{p.value}</div>
-                  <div className="text-[13px] text-white/50 group-hover:text-white/80 transition-colors">{p.label}</div>
-                </Link>
+          <div className="divider-glow mb-10" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6">
+            {promises.map((p, i) => (
+              <motion.div key={p.title} {...rise(i * 0.05)} className="flex items-start gap-3.5">
+                <span className="w-10 h-10 rounded-xl bg-purple-500/12 border border-purple-400/20 text-purple-200 flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-outlined text-[20px]">{p.icon}</span>
+                </span>
+                <span>
+                  <span className="block text-[15px] font-semibold text-white leading-tight mb-1">{p.title}</span>
+                  <span className="block text-[13px] text-white/50 leading-relaxed">{p.desc}</span>
+                </span>
               </motion.div>
             ))}
-          </div>
-          <div className="mt-10 ticker-mask overflow-hidden">
-            <div className={`flex w-max gap-3 ${reduced ? '' : 'animate-ticker'}`}>
-              {[...stack, ...stack].map((s, i) => (
-                <span key={`${s}-${i}`} className="chip !text-[12px] !text-white/50 !bg-transparent">{s}</span>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -324,8 +302,8 @@ export default function Home() {
           ))}
         </div>
         <motion.div {...rise(0.2)} className="mt-8 text-center">
-          <Link href="/features-overview" onClick={() => captureCtaClick('All 57 features', 'box')} className="cta-secondary !py-3 !text-sm">
-            See all 57 features
+          <Link href="/features-overview" onClick={() => captureCtaClick('All features', 'box')} className="cta-secondary !py-3 !text-sm">
+            See all features
             <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
           </Link>
         </motion.div>
@@ -335,8 +313,8 @@ export default function Home() {
       <Wrap className="!pt-8">
         <SectionHead
           eyebrow="How it fits together"
-          title={<>One ecosystem.<br />Five services. <span className="text-gradient-accent">All yours.</span></>}
-          body="We forked WorkAdventure and built the missing pieces around it: a control plane, an AI bot runtime, an MCP bridge and a Discord presence feed. Every box runs from one Docker Compose."
+          title={<>One world.<br />Everything <span className="text-gradient-accent">connected.</span></>}
+          body="Universe is the world you walk through. Around it we built the control room, the AI residents, the tools they use and a link to your Discord. Tap any piece to learn more."
         />
         <motion.div {...rise(0.1)}>
           <Ecosystem />
@@ -345,7 +323,7 @@ export default function Home() {
           {[
             { icon: 'account_tree', title: 'Universes → Worlds → Rooms', desc: 'Three levels, one URL per room. Orbit shows you where you are and lets you jump to where activity is.', href: '/how-it-works' },
             { icon: 'lock', title: 'Spatial access control', desc: 'Open spaces with protected cores. Membership tags decide who can enter a room, edit a map or run a bot.', href: '/features/oidc-auth' },
-            { icon: 'terminal', title: 'Built to be operated', desc: 'REST admin API, OIDC, encrypted credentials, Sentry and PostHog instrumentation out of the box.', href: '/features/admin-api' },
+            { icon: 'code', title: 'Open source, self-hostable', desc: 'Built on WorkAdventure and developed in the open. Run it on our cloud or on your own servers.', href: '/open-source' },
           ].map((c, i) => (
             <motion.div key={c.title} {...rise(0.05 * i)}>
               <Link href={c.href} className="surface-card surface-card-hover block h-full p-5">
