@@ -23,7 +23,7 @@ interface Node {
 }
 
 const NODES: Node[] = [
-  { id: 'universe', x: 280, y: 140, w: 240, h: 100, title: 'Universe', sub: 'Universes, worlds and rooms', icon: 'public', accent: '#a78bfa', href: '/how-it-works' },
+  { id: 'universe', x: 280, y: 140, w: 240, h: 100, title: 'Universe', sub: 'The space you walk through', icon: 'public', accent: '#a78bfa', href: '/how-it-works' },
   { id: 'orbit', x: 20, y: 30, w: 240, h: 76, title: 'Orbit', sub: 'Your control room', icon: 'admin_panel_settings', accent: '#93c5fd', href: '/features/orbit-operator' },
   { id: 'bots', x: 540, y: 30, w: 240, h: 76, title: 'AI residents', sub: 'Bots living in the rooms', icon: 'smart_toy', accent: '#fbbf24', href: '/ai-bots' },
   { id: 'mcp', x: 540, y: 274, w: 240, h: 76, title: 'Tools', sub: 'What residents can do', icon: 'hub', accent: '#6ee7b7', href: '/mcp-integration' },

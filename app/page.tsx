@@ -136,7 +136,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.12 }}
               className="text-lg text-white/60 leading-relaxed max-w-[480px] mb-8"
             >
-              Universe is made of rooms you walk into, not links you click. See who&apos;s around,
+              Universe is made of spaces you walk into, not links you click. See who&apos;s around,
               walk over and talk naturally — with people and bots that have memories, feelings,
               and real tools to help.
             </motion.p>
@@ -314,7 +314,7 @@ export default function Home() {
         <SectionHead
           eyebrow="How it fits together"
           title={<>One universe.<br />Everything <span className="text-gradient-accent">connected.</span></>}
-          body="Universe is the space itself — universes, the worlds inside them, and the rooms you walk through. Around it we built the control room, the AI residents, the tools they can use and a link to your Discord."
+          body="Universe is the space you walk through — worlds and rooms, all in one place. Around it we built the control room, the AI residents, the tools they can use and a link to your Discord."
         />
         <motion.div {...rise(0.1)}>
           <Ecosystem />
