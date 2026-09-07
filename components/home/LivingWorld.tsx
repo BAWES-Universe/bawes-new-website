@@ -60,10 +60,10 @@ const POIS: Pt[] = [
 ]
 
 const GREETINGS: ((name: string) => string)[] = [
-  (n) => `Welcome back${n ? `, ${n}` : ''}. Still building the study room from last week? I saved your tile palette.`,
-  (n) => `Hey${n ? ` ${n}` : ''} — your 3pm standup moved to the meeting room. Want me to walk you there?`,
-  () => 'Nice to see you again. Last time we talked about the launch checklist. Two items are still open.',
-  () => 'Hi! I read the PDF you dropped yesterday. Ask me anything about section 4.',
+  (n) => `Welcome back${n ? `, ${n}` : ''}. Omar and Lina are at the meeting table — want me to walk you over?`,
+  (n) => `Hi${n ? ` ${n}` : ''}. Sara's here and asked me to introduce you when you arrived.`,
+  () => 'I don\'t think we\'ve met — want me to let the team know you stopped by?',
+  () => 'The design review is starting at the table on the right. Follow me, I\'ll take you over.',
 ]
 
 const NAMES = ['Sara', 'Omar', 'Lina', 'Yusuf', 'Maya', 'Dana']
@@ -116,7 +116,7 @@ function makeAgents(): Agent[] {
   list.push({
     id: 'bot',
     kind: 'bot',
-    name: 'Concierge',
+    name: 'Receptionist',
     x: 66,
     y: 84,
     hair: '#cbd5e1',
@@ -585,7 +585,7 @@ export default function LivingWorld({ className = '' }: { className?: string }) 
         octx.fill()
         octx.fillStyle = '#c4b5fd'
         octx.font = `700 ${5.5 * ui}px Inter, system-ui, sans-serif`
-        octx.fillText('CONCIERGE BOT', bx + pad, by + 8 * ui)
+        octx.fillText('RECEPTIONIST', bx + pad, by + 8 * ui)
         octx.fillStyle = 'rgba(255,255,255,0.92)'
         octx.font = `500 ${fs}px Inter, system-ui, sans-serif`
         lines.forEach((l, i) => octx.fillText(l, bx + pad, by + 16 * ui + i * lh))
@@ -628,7 +628,7 @@ export default function LivingWorld({ className = '' }: { className?: string }) 
       className={`relative w-full select-none cursor-crosshair ${className}`}
       style={{ aspectRatio: `${W} / ${H}` }}
       role="img"
-      aria-label="Interactive preview of a Universe room: people walking, proximity voice bubbles, a meeting room, and a bot that greets you."
+      aria-label="Interactive preview of a Universe room: people walking, proximity voice bubbles, a meeting room, and the Receptionist, who greets you."
     >
       <canvas
         ref={pixelRef}
@@ -666,7 +666,7 @@ export default function LivingWorld({ className = '' }: { className?: string }) 
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none">
           <div className="flex items-center gap-1.5 rounded-full bg-[rgba(10,8,20,0.8)] border border-amber-400/30 px-3 py-1 text-[11px] font-medium text-amber-200/90 animate-float">
             <span className="material-symbols-outlined text-[13px]">touch_app</span>
-            Click anywhere to walk · try the Concierge bot
+            Click anywhere to walk · say hi to the Receptionist
           </div>
         </div>
       )}

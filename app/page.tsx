@@ -43,6 +43,13 @@ const botCaps = [
   { icon: 'account_tree', title: 'Bots that build bots', desc: 'Hand a bot the admin API and it can provision more.', href: '/features/recursive-bots' },
 ]
 
+const roster = [
+  { icon: 'waving_hand', color: '#a78bfa', name: 'Receptionist', job: 'Meets whoever walks in, learns who they are, hands the lead to your team in Discord.' },
+  { icon: 'auto_awesome', color: '#fbbf24', name: 'Imagine', job: 'Generates images and video on request, right there in the room.' },
+  { icon: 'task_alt', color: '#6ee7b7', name: 'Project', job: 'Tracks work in Linear, files issues, chases what is still open.' },
+  { icon: 'bug_report', color: '#f9a8d4', name: 'Debug', job: 'Reads GitHub and Sentry to explain what broke and why.' },
+]
+
 const useCases = [
   { emoji: '🏠', title: 'Personal', desc: 'Your own space, your own AI companions, friends welcome anytime.', href: '/use-cases/personal' },
   { emoji: '🏢', title: 'Work', desc: 'Team rooms, focus pods, standup bots and a watercooler that works.', href: '/use-cases/work' },
@@ -232,7 +239,7 @@ export default function Home() {
             <SectionHead
               eyebrow="AI residents"
               title={<>A bot is a resident,<br />not a chat window.</>}
-              body="Universe bots join rooms as players. They walk the map, notice who is nearby, remember every conversation and call real tools — then bring you the result in person."
+              body="Universe bots join rooms as players. They walk the map, see who is nearby, remember every conversation and call real tools — then bring you the result in person. You build one per job, and they keep working when nobody is talking to them."
             />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-2.5 -mt-6">
               {botCaps.map((c, i) => (
@@ -258,17 +265,24 @@ export default function Home() {
           </div>
           <motion.div {...rise(0.1)} className="lg:col-span-7">
             <BotTranscript />
-            <div className="mt-4 grid grid-cols-3 gap-3">
-              {[
-                { k: 'Provider', v: 'OpenAI · LM Studio' },
-                { k: 'Tools', v: '8 built-in + MCP' },
-                { k: 'Memory', v: 'per person, persistent' },
-              ].map((s) => (
-                <div key={s.k} className="surface-card px-3.5 py-3">
-                  <div className="text-[10px] uppercase tracking-[0.16em] text-white/35 mb-1">{s.k}</div>
-                  <div className="text-[13px] font-medium text-white/85">{s.v}</div>
-                </div>
-              ))}
+            <div className="mt-5">
+              <div className="text-[11px] uppercase tracking-[0.16em] text-white/35 mb-3">
+                You don&apos;t get one assistant. You build one for each job.
+              </div>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                {roster.map((r) => (
+                  <div key={r.name} className="surface-card px-3.5 py-3.5 h-full">
+                    <span
+                      className="w-8 h-8 rounded-lg flex items-center justify-center mb-2.5"
+                      style={{ background: `${r.color}1f`, color: r.color }}
+                    >
+                      <span className="material-symbols-outlined text-[18px]">{r.icon}</span>
+                    </span>
+                    <div className="text-[13.5px] font-semibold text-white leading-tight mb-1">{r.name}</div>
+                    <div className="text-[12px] text-white/50 leading-snug">{r.job}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

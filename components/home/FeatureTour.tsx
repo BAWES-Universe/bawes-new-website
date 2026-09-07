@@ -184,10 +184,13 @@ function Typewriter({ text, delay = 0, speed = 22, reduced }: { text: string; de
       if (id) clearInterval(id)
     }
   }, [text, delay, speed, reduced])
+  // The untyped tail stays in layout but invisible, so the line count — and
+  // therefore the height of whatever contains this — is final from first paint.
   return (
     <span>
       {text.slice(0, n)}
-      {n < text.length && <span className="inline-block w-[2px] h-[1em] align-[-2px] bg-purple-300 ml-0.5 animate-blink" />}
+      {n < text.length && <span className="inline-block w-[2px] h-[1em] align-[-2px] bg-purple-300 mx-0.5 animate-blink" />}
+      <span className="invisible">{text.slice(n)}</span>
     </span>
   )
 }
@@ -213,11 +216,11 @@ function MemoryDemo({ reduced }: { reduced: boolean }) {
       <div className="relative">
         <div className="text-[10px] uppercase tracking-[0.18em] text-white/35 mb-2">Today · Sara walks up</div>
         <div className="surface-card p-3 text-[13px] text-white/85 leading-relaxed border-purple-400/30">
-          <span className="text-purple-300 font-semibold">Concierge bot:</span>{' '}
+          <span className="text-purple-300 font-semibold">Receptionist:</span>{' '}
           <Typewriter
             reduced={reduced}
             delay={600}
-            text="Welcome back, Sara. Your study room is live — three people from your cohort were in it last night. Want me to walk you there?"
+            text="Welcome back, Sara. Last time you were setting up the study room — want to pick up where you left off?"
           />
         </div>
         <div className="mt-2 flex items-center gap-2">
@@ -372,7 +375,6 @@ export default function FeatureTour() {
   const [active, setActive] = useState<TabKey>('proximity')
   const [auto, setAuto] = useState(true)
   const reduced = useReducedMotion() ?? false
-  const tab = TABS.find((t) => t.key === active)!
 
   // auto-advance until the visitor interacts
   useEffect(() => {
@@ -429,7 +431,7 @@ export default function FeatureTour() {
       {/* panel */}
       <div className="lg:col-span-8 surface-card p-2 sm:p-3">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 h-full">
-          <div className="min-h-[320px] md:min-h-[380px]">
+          <div className="min-h-[380px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -446,39 +448,42 @@ export default function FeatureTour() {
               </motion.div>
             </AnimatePresence>
           </div>
-          <div className="p-4 sm:p-6 flex flex-col">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="flex flex-col h-full"
-              >
-                <h3 className="font-display text-2xl sm:text-[28px] font-bold text-white leading-tight tracking-[-0.02em] mb-3">
-                  {tab.title}
-                </h3>
-                <p className="text-[15px] text-white/60 leading-relaxed mb-5">{tab.body}</p>
-                <ul className="space-y-2.5 mb-6">
-                  {tab.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2.5 text-sm text-white/75">
-                      <span className="material-symbols-outlined text-[18px] text-purple-300 mt-[1px]" style={{ fontVariationSettings: "'FILL' 1" }}>
-                        check_circle
-                      </span>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={tab.href}
-                  className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-purple-300 hover:text-white transition-colors group"
+          <div className="p-4 sm:p-6 grid">
+            {TABS.map((t) => {
+              const on = t.key === active
+              return (
+                <div
+                  key={t.key}
+                  aria-hidden={!on}
+                  className={`[grid-area:1/1] flex flex-col transition-opacity duration-300 ${
+                    on ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  }`}
                 >
-                  {tab.linkLabel}
-                  <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-                </Link>
-              </motion.div>
-            </AnimatePresence>
+                  <h3 className="font-display text-2xl sm:text-[28px] font-bold text-white leading-tight tracking-[-0.02em] mb-3">
+                    {t.title}
+                  </h3>
+                  <p className="text-[15px] text-white/60 leading-relaxed mb-5">{t.body}</p>
+                  <ul className="space-y-2.5 mb-6">
+                    {t.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-sm text-white/75">
+                        <span className="material-symbols-outlined text-[18px] text-purple-300 mt-[1px]" style={{ fontVariationSettings: "'FILL' 1" }}>
+                          check_circle
+                        </span>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={t.href}
+                    tabIndex={on ? 0 : -1}
+                    className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-purple-300 hover:text-white transition-colors group w-fit"
+                  >
+                    {t.linkLabel}
+                    <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+                  </Link>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>
