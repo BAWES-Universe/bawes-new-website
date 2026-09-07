@@ -392,6 +392,10 @@
   .scroll-rail {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    /* Keep a horizontal swipe inside the rail — without this iOS chains the
+       overscroll to the page and can trigger back-navigation. Vertical is left
+       alone so a vertical drag still scrolls the page. */
+    overscroll-behavior-x: contain;
   }
   .scroll-rail > * { scroll-snap-align: start; }
   .divider-glow {

@@ -64,6 +64,13 @@ const useCases = [
    PRIMITIVES
    ═══════════════════════════════════════════════════════════════ */
 
+const fade = (delay = 0) => ({
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.5, delay },
+})
+
 const rise = (delay = 0) => ({
   initial: { opacity: 0, y: 22 },
   whileInView: { opacity: 1, y: 0 },
@@ -94,7 +101,7 @@ function SectionHead({ eyebrow, title, body, align = 'left' }: { eyebrow: string
   return (
     <motion.div {...rise()} className={`mb-12 md:mb-16 ${align === 'center' ? 'text-center mx-auto' : ''} max-w-[720px]`}>
       <div className={`eyebrow mb-5 ${align === 'center' ? 'justify-center' : ''}`}>{eyebrow}</div>
-      <h2 className="font-display text-[34px] sm:text-5xl md:text-[56px] font-bold text-white leading-[1.05] tracking-[-0.03em] mb-5 text-balance">
+      <h2 className={`font-display text-[34px] sm:text-5xl md:text-[56px] font-bold text-white leading-[1.05] tracking-[-0.03em] text-balance ${body ? 'mb-5' : ''}`}>
         {title}
       </h2>
       {body && <p className="text-base md:text-lg text-white/55 leading-relaxed max-w-[560px]">{body}</p>}
@@ -225,11 +232,37 @@ export default function Home() {
         <SectionHead
           eyebrow="What makes it different"
           title={<>Not a tool. Not a game.<br />A <span className="text-gradient-accent">living space</span>.</>}
-          body="Four things a video call, a chat app or a 3D metaverse can't give you. Every panel is a working illustration, not a mockup."
         />
         <motion.div {...rise(0.1)}>
           <FeatureTour />
         </motion.div>
+      </Wrap>
+
+      {/* ═══ USE CASES ═══ */}
+      <Wrap className="!pt-8">
+        <SectionHead
+          eyebrow="What people build"
+          title={<>Universes for work, school,<br />community and more.</>}
+          body="Same platform, different worlds. Pick a starting point and walk in."
+        />
+        <div className="scroll-rail flex gap-3.5 overflow-x-auto overflow-y-hidden scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible">
+          {useCases.map((u, i) => (
+            <motion.div key={u.title} {...fade(0.04 * i)} className="min-w-[260px] sm:min-w-0">
+              <Link href={u.href} className="surface-card surface-card-hover block h-full p-5">
+                <span className="text-3xl block mb-4">{u.emoji}</span>
+                <h3 className="text-[16px] font-semibold text-white mb-1.5">For {u.title}</h3>
+                <p className="text-[13px] text-white/50 leading-relaxed">{u.desc}</p>
+              </Link>
+            </motion.div>
+          ))}
+          <motion.div {...fade(0.3)} className="min-w-[260px] sm:min-w-0">
+            <Link href="/use-cases" className="surface-card surface-card-hover flex flex-col justify-center items-start h-full p-5 border-dashed">
+              <span className="material-symbols-outlined text-[28px] text-purple-300 mb-3">add</span>
+              <h3 className="text-[16px] font-semibold text-white mb-1.5">Something else?</h3>
+              <p className="text-[13px] text-white/50 leading-relaxed">Rooms are just maps. If you can draw it, you can host it.</p>
+            </Link>
+          </motion.div>
+        </div>
       </Wrap>
 
       {/* ═══ BOTS ═══ */}
@@ -293,7 +326,6 @@ export default function Home() {
         <SectionHead
           eyebrow="Everything in the box"
           title={<>The whole office, campus or venue. <span className="text-gradient-accent">Already built.</span></>}
-          body="Everything WorkAdventure does, plus what we added on top. Every card links to the feature page."
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           {box.map((f, i) => (
@@ -347,33 +379,6 @@ export default function Home() {
               </Link>
             </motion.div>
           ))}
-        </div>
-      </Wrap>
-
-      {/* ═══ USE CASES ═══ */}
-      <Wrap className="!pt-8">
-        <SectionHead
-          eyebrow="What people build"
-          title={<>Universes for work, school,<br />community and more.</>}
-          body="Same platform, different worlds. Pick a starting point and walk in."
-        />
-        <div className="scroll-rail flex gap-3.5 overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible">
-          {useCases.map((u, i) => (
-            <motion.div key={u.title} {...rise(0.04 * i)} className="min-w-[260px] sm:min-w-0">
-              <Link href={u.href} className="surface-card surface-card-hover block h-full p-5">
-                <span className="text-3xl block mb-4">{u.emoji}</span>
-                <h3 className="text-[16px] font-semibold text-white mb-1.5">For {u.title}</h3>
-                <p className="text-[13px] text-white/50 leading-relaxed">{u.desc}</p>
-              </Link>
-            </motion.div>
-          ))}
-          <motion.div {...rise(0.3)} className="min-w-[260px] sm:min-w-0">
-            <Link href="/use-cases" className="surface-card surface-card-hover flex flex-col justify-center items-start h-full p-5 border-dashed">
-              <span className="material-symbols-outlined text-[28px] text-purple-300 mb-3">add</span>
-              <h3 className="text-[16px] font-semibold text-white mb-1.5">Something else?</h3>
-              <p className="text-[13px] text-white/50 leading-relaxed">Rooms are just maps. If you can draw it, you can host it.</p>
-            </Link>
-          </motion.div>
         </div>
       </Wrap>
 
