@@ -14,7 +14,7 @@ An impressive, animated Next.js website for BAWES — building shared digital en
 
 ## 📄 Pages
 
-- **Home** (`/`) — Hero with WebGL canvas, feature cards, CTAs
+- **Home** (`/`) — Interactive pixel-world hero (`components/home/LivingWorld.tsx`), feature tour, bot transcript, ecosystem diagram, CTAs
 - **How It Works** (`/how-it-works`) — Universe structure explained
 - **Market** (`/market`) — Commerce in shared spaces
 - **Work** (`/work`) — Selected projects and case studies
