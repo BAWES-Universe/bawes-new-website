@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 /* ──────────────────────────────────────────────────────────────
-   The ecosystem: the rooms in the middle, and the pieces we built
+   The ecosystem: Universe in the middle, and the pieces we built
    around it. Rendered as a responsive SVG on desktop and a stacked
    list on phones.
    ────────────────────────────────────────────────────────────── */
@@ -23,8 +23,8 @@ interface Node {
 }
 
 const NODES: Node[] = [
-  { id: 'universe', x: 280, y: 140, w: 240, h: 100, title: 'Universe', sub: 'The rooms you walk through', icon: 'public', accent: '#a78bfa', href: '/how-it-works' },
-  { id: 'orbit', x: 20, y: 30, w: 240, h: 76, title: 'Orbit', sub: 'Worlds, rooms & members', icon: 'admin_panel_settings', accent: '#93c5fd', href: '/features/orbit-operator' },
+  { id: 'universe', x: 280, y: 140, w: 240, h: 100, title: 'Universe', sub: 'Universes, worlds and rooms', icon: 'public', accent: '#a78bfa', href: '/how-it-works' },
+  { id: 'orbit', x: 20, y: 30, w: 240, h: 76, title: 'Orbit', sub: 'Your control room', icon: 'admin_panel_settings', accent: '#93c5fd', href: '/features/orbit-operator' },
   { id: 'bots', x: 540, y: 30, w: 240, h: 76, title: 'AI residents', sub: 'Bots living in the rooms', icon: 'smart_toy', accent: '#fbbf24', href: '/ai-bots' },
   { id: 'mcp', x: 540, y: 274, w: 240, h: 76, title: 'Tools', sub: 'What residents can do', icon: 'hub', accent: '#6ee7b7', href: '/mcp-integration' },
   { id: 'discord', x: 20, y: 274, w: 240, h: 76, title: 'Discord link', sub: 'Who is around, in Discord', icon: 'forum', accent: '#f9a8d4', href: '/communication' },

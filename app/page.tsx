@@ -314,7 +314,7 @@ export default function Home() {
         <SectionHead
           eyebrow="How it fits together"
           title={<>One universe.<br />Everything <span className="text-gradient-accent">connected.</span></>}
-          body="The rooms you walk through are the heart of it. Around them we built the control room, the AI residents, the tools they can use and a link to your Discord. Tap any piece to learn more."
+          body="Universe is the space itself — universes, the worlds inside them, and the rooms you walk through. Around it we built the control room, the AI residents, the tools they can use and a link to your Discord."
         />
         <motion.div {...rise(0.1)}>
           <Ecosystem />
