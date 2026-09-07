@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 /* ──────────────────────────────────────────────────────────────
-   The ecosystem: the world in the middle, and the pieces we built
+   The ecosystem: the rooms in the middle, and the pieces we built
    around it. Rendered as a responsive SVG on desktop and a stacked
    list on phones.
    ────────────────────────────────────────────────────────────── */
@@ -23,7 +23,7 @@ interface Node {
 }
 
 const NODES: Node[] = [
-  { id: 'universe', x: 280, y: 140, w: 240, h: 100, title: 'Universe', sub: 'The world you walk through', icon: 'public', accent: '#a78bfa', href: '/how-it-works' },
+  { id: 'universe', x: 280, y: 140, w: 240, h: 100, title: 'Universe', sub: 'The rooms you walk through', icon: 'public', accent: '#a78bfa', href: '/how-it-works' },
   { id: 'orbit', x: 20, y: 30, w: 240, h: 76, title: 'Orbit', sub: 'Worlds, rooms & members', icon: 'admin_panel_settings', accent: '#93c5fd', href: '/features/orbit-operator' },
   { id: 'bots', x: 540, y: 30, w: 240, h: 76, title: 'AI residents', sub: 'Bots living in the rooms', icon: 'smart_toy', accent: '#fbbf24', href: '/ai-bots' },
   { id: 'mcp', x: 540, y: 274, w: 240, h: 76, title: 'Tools', sub: 'What residents can do', icon: 'hub', accent: '#6ee7b7', href: '/mcp-integration' },
@@ -67,7 +67,7 @@ export default function Ecosystem() {
         })}
       </div>
 
-      <svg viewBox="0 0 800 380" className="hidden md:block w-full h-auto" role="img" aria-label="Diagram: Orbit, AI residents, tools and the Discord link all connect to the Universe world in the middle.">
+      <svg viewBox="0 0 800 380" className="hidden md:block w-full h-auto" role="img" aria-label="Diagram: Orbit, AI residents, tools and the Discord link all connect to Universe in the middle.">
         <defs>
           <filter id="eco-glow" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="8" result="b" />

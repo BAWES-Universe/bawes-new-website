@@ -136,9 +136,9 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.12 }}
               className="text-lg text-white/60 leading-relaxed max-w-[480px] mb-8"
             >
-              Universe is a world you walk into, not a link you click. Voices that fade with
-              distance, AI residents who remember you and actually get things done, and rooms
-              you can change any time — free to start, right in your browser.
+              Universe is made of rooms you walk into, not links you click. See who&apos;s around,
+              walk over and talk naturally — with people and bots that have memories, feelings,
+              and real tools to help.
             </motion.p>
 
             <motion.div
@@ -313,8 +313,8 @@ export default function Home() {
       <Wrap className="!pt-8">
         <SectionHead
           eyebrow="How it fits together"
-          title={<>One world.<br />Everything <span className="text-gradient-accent">connected.</span></>}
-          body="Universe is the world you walk through. Around it we built the control room, the AI residents, the tools they use and a link to your Discord. Tap any piece to learn more."
+          title={<>One universe.<br />Everything <span className="text-gradient-accent">connected.</span></>}
+          body="The rooms you walk through are the heart of it. Around them we built the control room, the AI residents, the tools they can use and a link to your Discord. Tap any piece to learn more."
         />
         <motion.div {...rise(0.1)}>
           <Ecosystem />
