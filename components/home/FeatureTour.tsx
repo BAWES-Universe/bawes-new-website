@@ -216,7 +216,7 @@ function MemoryDemo({ reduced }: { reduced: boolean }) {
       <div className="relative">
         <div className="text-[10px] uppercase tracking-[0.18em] text-white/35 mb-2">Today · Sara walks up</div>
         <div className="surface-card p-3 text-[13px] text-white/85 leading-relaxed border-purple-400/30">
-          <span className="text-purple-300 font-semibold">Receptionist:</span>{' '}
+          <span className="text-purple-300 font-semibold">Receptionist bot:</span>{' '}
           <Typewriter
             reduced={reduced}
             delay={600}

@@ -116,7 +116,7 @@ function makeAgents(): Agent[] {
   list.push({
     id: 'bot',
     kind: 'bot',
-    name: 'Receptionist',
+    name: 'Receptionist bot',
     x: 66,
     y: 84,
     hair: '#cbd5e1',
@@ -540,9 +540,12 @@ export default function LivingWorld({ className = '' }: { className?: string }) 
       octx.font = `600 ${5.5 * ui}px Inter, system-ui, sans-serif`
       octx.textAlign = 'center'
       agents.forEach((a) => {
+        // While the bubble is open its header already names the bot, and the
+        // tag would sit under the bubble's left edge — so skip it.
+        if (a.kind === 'bot' && greetTarget) return
         const label = a.name
         const tw = octx.measureText(label).width + 6 * ui
-        const lx = a.x
+        const lx = Math.max(tw / 2 + 2, Math.min(W - tw / 2 - 2, a.x))
         const ly = a.y - 24 - 2 * ui
         octx.fillStyle = a.kind === 'you' ? 'rgba(251,191,36,0.95)' : a.kind === 'bot' ? 'rgba(167,139,250,0.95)' : 'rgba(10,8,20,0.75)'
         roundRect(octx, lx - tw / 2, ly - 5 * ui, tw, 8 * ui, 2 * ui)
@@ -585,7 +588,7 @@ export default function LivingWorld({ className = '' }: { className?: string }) 
         octx.fill()
         octx.fillStyle = '#c4b5fd'
         octx.font = `700 ${5.5 * ui}px Inter, system-ui, sans-serif`
-        octx.fillText('RECEPTIONIST', bx + pad, by + 8 * ui)
+        octx.fillText('RECEPTIONIST BOT', bx + pad, by + 8 * ui)
         octx.fillStyle = 'rgba(255,255,255,0.92)'
         octx.font = `500 ${fs}px Inter, system-ui, sans-serif`
         lines.forEach((l, i) => octx.fillText(l, bx + pad, by + 16 * ui + i * lh))
@@ -628,7 +631,7 @@ export default function LivingWorld({ className = '' }: { className?: string }) 
       className={`relative w-full select-none cursor-crosshair ${className}`}
       style={{ aspectRatio: `${W} / ${H}` }}
       role="img"
-      aria-label="Interactive preview of a Universe room: people walking, proximity voice bubbles, a meeting room, and the Receptionist, who greets you."
+      aria-label="Interactive preview of a Universe room: people walking, proximity voice bubbles, a meeting room, and the Receptionist bot, which greets you."
     >
       <canvas
         ref={pixelRef}
@@ -666,7 +669,7 @@ export default function LivingWorld({ className = '' }: { className?: string }) 
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none">
           <div className="flex items-center gap-1.5 rounded-full bg-[rgba(10,8,20,0.8)] border border-amber-400/30 px-3 py-1 text-[11px] font-medium text-amber-200/90 animate-float">
             <span className="material-symbols-outlined text-[13px]">touch_app</span>
-            Click anywhere to walk · say hi to the Receptionist
+            Click anywhere to walk · say hi to the Receptionist bot
           </div>
         </div>
       )}

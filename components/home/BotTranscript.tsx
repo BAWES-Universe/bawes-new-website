@@ -5,7 +5,7 @@ import { useReducedMotion } from 'framer-motion'
 
 /* ──────────────────────────────────────────────────────────────
    A scripted, looping transcript for the Project bot: it reads a
-   file, streams an answer, files the work in Linear, finds who is
+   file, streams an answer, files the work in your tracker, finds who is
    in the room and physically walks you to them.
 
    Height is constant by construction — every step is rendered from
@@ -103,7 +103,7 @@ function Bubble({ step, active, reduced }: { step: Step; active: boolean; reduce
     <div className="flex justify-start">
       <div className="max-w-[88%] rounded-2xl rounded-bl-md bg-purple-500/12 border border-purple-300/25 px-3.5 py-2.5 text-[13px] text-white/90 leading-relaxed">
         <div className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.12em] text-purple-300 mb-1">
-          <span className="material-symbols-outlined text-[13px]">smart_toy</span> PROJECT
+          <span className="material-symbols-outlined text-[13px]">smart_toy</span> PROJECT BOT
         </div>
         {step.stream ? <StreamedText text={step.text} active={active} reduced={reduced} /> : step.text}
       </div>
@@ -141,12 +141,12 @@ export default function BotTranscript() {
             <span className="material-symbols-outlined text-white text-[18px]">smart_toy</span>
           </div>
           <div className="min-w-0">
-            <div className="text-sm font-semibold text-white leading-tight">Project</div>
-            <div className="text-[11px] text-white/45 leading-tight truncate">Linear · walks the map</div>
+            <div className="text-sm font-semibold text-white leading-tight">Project bot</div>
+            <div className="text-[11px] text-white/45 leading-tight truncate">Tracks your work · walks the map</div>
           </div>
         </div>
         <div className="flex items-center gap-1.5 flex-shrink-0">
-          <span className="chip !text-[10px] hidden sm:inline-flex">Linear connected</span>
+          <span className="chip !text-[10px] hidden sm:inline-flex">Tracker connected</span>
           <span className="chip chip-green !text-[10px]"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> memory on</span>
         </div>
       </div>

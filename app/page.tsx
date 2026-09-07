@@ -44,10 +44,10 @@ const botCaps = [
 ]
 
 const roster = [
-  { icon: 'waving_hand', color: '#a78bfa', name: 'Receptionist', job: 'Meets whoever walks in, learns who they are, hands the lead to your team in Discord.' },
-  { icon: 'auto_awesome', color: '#fbbf24', name: 'Imagine', job: 'Generates images and video on request, right there in the room.' },
-  { icon: 'task_alt', color: '#6ee7b7', name: 'Project', job: 'Tracks work in Linear, files issues, chases what is still open.' },
-  { icon: 'bug_report', color: '#f9a8d4', name: 'Debug', job: 'Reads GitHub and Sentry to explain what broke and why.' },
+  { icon: 'waving_hand', color: '#a78bfa', name: 'Receptionist bot', job: 'Meets whoever walks in, learns who they are, and hands the lead straight to your team.' },
+  { icon: 'auto_awesome', color: '#fbbf24', name: 'Imagine bot', job: 'Generates images and video on request, right there in the room.' },
+  { icon: 'task_alt', color: '#6ee7b7', name: 'Project bot', job: 'Tracks work in your project tracker, files issues, chases what is still open.' },
+  { icon: 'bug_report', color: '#f9a8d4', name: 'Debug bot', job: 'Reads GitHub and Sentry to explain what broke and why.' },
 ]
 
 const useCases = [
