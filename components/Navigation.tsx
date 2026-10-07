@@ -142,10 +142,10 @@ export default function Navigation() {
       <motion.nav
         className="fixed top-0 left-0 right-0 z-50"
         style={{
-          backgroundColor: isScrolled ? 'rgba(10, 10, 20, 0.85)' : 'transparent',
-          backdropFilter: isScrolled ? 'blur(20px)' : 'none',
-          WebkitBackdropFilter: isScrolled ? 'blur(20px)' : 'none',
-          borderBottom: isScrolled ? '1px solid rgba(139, 92, 246, 0.15)' : '1px solid transparent',
+          backgroundColor: isMobileOpen ? '#0a0a14' : isScrolled ? 'rgba(10, 10, 20, 0.85)' : 'transparent',
+          backdropFilter: isScrolled && !isMobileOpen ? 'blur(20px)' : 'none',
+          WebkitBackdropFilter: isScrolled && !isMobileOpen ? 'blur(20px)' : 'none',
+          borderBottom: isScrolled || isMobileOpen ? '1px solid rgba(139, 92, 246, 0.15)' : '1px solid transparent',
           transition: 'background-color 0.3s, backdrop-filter 0.3s, border-color 0.3s',
         }}
         initial={{ y: -100 }}
@@ -156,13 +156,15 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
-              <div className="relative w-9 h-9 lg:w-10 lg:h-10 flex-shrink-0">
-                <Image src="/images/bawes-logo.png" alt="BAWES" fill className="object-contain" />
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-lg sm:text-xl lg:text-2xl font-bold text-white">BAWES</span>
-                <span className="text-base sm:text-lg lg:text-xl font-light text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 truncate">Universe</span>
-              </div>
+              <Image
+                src="/images/bawes-universe-logo.svg"
+                alt="BAWES Universe"
+                width={471}
+                height={71}
+                priority
+                unoptimized
+                className="h-8 min-[400px]:h-10 lg:h-8 xl:h-9 w-auto"
+              />
             </Link>
 
             {/* Desktop Nav */}

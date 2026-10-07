@@ -23,13 +23,14 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="relative w-10 h-10">
-                <Image src="/images/bawes-logo.png" alt="BAWES" fill className="object-contain" />
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-bold text-white">BAWES</span>
-                <span className="text-xl font-light text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Universe</span>
-              </div>
+              <Image
+                src="/images/bawes-universe-logo.svg"
+                alt="BAWES Universe"
+                width={471}
+                height={71}
+                unoptimized
+                className="h-10 w-auto max-w-full"
+              />
             </Link>
             <p className="text-white/50 mb-8 max-w-md leading-relaxed">
               A shared digital universe where people explore, AI agents coexist, and communities build together.
