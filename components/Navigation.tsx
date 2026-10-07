@@ -142,10 +142,10 @@ export default function Navigation() {
       <motion.nav
         className="fixed top-0 left-0 right-0 z-50"
         style={{
-          backgroundColor: isScrolled ? 'rgba(10, 10, 20, 0.85)' : 'transparent',
-          backdropFilter: isScrolled ? 'blur(20px)' : 'none',
-          WebkitBackdropFilter: isScrolled ? 'blur(20px)' : 'none',
-          borderBottom: isScrolled ? '1px solid rgba(139, 92, 246, 0.15)' : '1px solid transparent',
+          backgroundColor: isMobileOpen ? '#0a0a14' : isScrolled ? 'rgba(10, 10, 20, 0.85)' : 'transparent',
+          backdropFilter: isScrolled && !isMobileOpen ? 'blur(20px)' : 'none',
+          WebkitBackdropFilter: isScrolled && !isMobileOpen ? 'blur(20px)' : 'none',
+          borderBottom: isScrolled || isMobileOpen ? '1px solid rgba(139, 92, 246, 0.15)' : '1px solid transparent',
           transition: 'background-color 0.3s, backdrop-filter 0.3s, border-color 0.3s',
         }}
         initial={{ y: -100 }}
