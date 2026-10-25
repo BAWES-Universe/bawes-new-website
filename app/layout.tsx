@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   description: 'Walk into a shared world where people, AI agents, and communities work, learn, and connect — in real time, in actual space.',
   keywords: ['BAWES', 'Universe', 'spatial', 'AI bots', 'virtual worlds', 'metaverse', 'collaboration'],
   authors: [{ name: 'BAWES' }],
-  icons: { icon: '/images/bawes-logo.png', apple: '/images/bawes-logo.png' },
   openGraph: {
     title: 'BAWES Universe — People and AI Living Together',
     description: 'Walk into a shared digital world. Proximity voice. AI agents with memory. Build anything in rooms that feel alive.',
@@ -31,6 +30,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
+  themeColor: '#0a0814',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -40,8 +40,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="icon" href="/images/bawes-logo.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/images/bawes-logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
