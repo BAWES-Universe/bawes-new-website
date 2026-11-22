@@ -2,7 +2,7 @@
 
 Source: `components/Footer.tsx`. Shown on every page.
 
-Left: logo, the line "A shared digital universe where people explore, AI agents coexist, and communities build together.", Discord and GitHub icons.
+Left: logo, the line "A shared digital universe where people explore, AI agents coexist, and communities build together.", icons for Discord, GitHub, YouTube (`https://www.youtube.com/@FollowTheButterfly-Universe`), TikTok (`https://www.tiktok.com/@bawes.universe`) and Instagram (`https://www.instagram.com/bawes.universe`), each opening in a new tab.
 
 | Universe | Explore | Use Cases | Developers | Connect |
 |----------|---------|-----------|------------|---------|

@@ -1,6 +1,6 @@
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
-import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
+import { PartBuilders, PartCards, PartCode, PartRelated, PartSteps } from '@/components/page/PageParts'
 
 export default function SelfHostingPageContent() {
   return (
@@ -37,6 +37,22 @@ export default function SelfHostingPageContent() {
           { icon: "smart_toy", title: "AI bots", text: "The bot server runs your bots, on Universe AI providers you set or on keys people bring." },
           { icon: "badge", title: "Sign-in", text: "Any login service that speaks OpenID Connect.", more: { label: "OIDC Auth", href: "/features/oidc-auth" } },
         ]}
+      />
+
+      <PartCode
+        eyebrow="Try it first"
+        title="On your own computer in four lines"
+        body={<>This starts the game for trying things out on your own machine. It is not for a public server. For that, follow the install guide below.</>}
+        file="terminal"
+        code={`git clone https://github.com/BAWES-Universe/workadventure-universe
+cd workadventure-universe
+cp .env.template .env
+docker compose up
+
+# with the AI bots too
+docker compose -f docker-compose.yaml -f docker-compose.bots.yaml up
+
+# then open http://play.workadventure.localhost`}
       />
 
       <PartBuilders

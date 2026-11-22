@@ -8,25 +8,12 @@ import BrickSection from '@/components/home/BrickSection'
 import EnterCta from '@/components/home/EnterCta'
 import Parade from '@/components/home/Parade'
 import { Avatar, Brick, vars, type AvatarId } from '@/components/home/sprites'
-import { captureCtaClick, captureExternalLink } from '@/lib/posthog'
+import { captureCtaClick } from '@/lib/posthog'
 import '@/components/home/home.css'
 
 /* ═══════════════════════════════════════════════════════════════
    DATA
    ═══════════════════════════════════════════════════════════════ */
-
-const box = [
-  { icon: 'meeting_room', color: '#a78bfa', title: 'Meeting rooms', desc: 'Walk in to auto-join. Video, screen share and a shared screen on the wall — no invites, no links.', href: '/features/meeting-rooms', wide: true },
-  { icon: 'campaign', color: '#fbbf24', title: 'Megaphone & broadcasting', desc: 'Address a whole room at once, or stream a main stage to everyone in the world.', href: '/features/broadcasting' },
-  { icon: 'forum', color: '#93c5fd', title: 'Matrix chat', desc: 'Federated text chat that follows you from room to room, with a searchable directory.', href: '/features/matrix-chat' },
-  { icon: 'face', color: '#f9a8d4', title: 'Avatar catalog', desc: 'Curated avatar sets and companions with per-universe entitlements and audit logs.', href: '/features/avatar-platform' },
-  { icon: 'select_all', color: '#6ee7b7', title: 'Area zones', desc: 'Draw a zone and give it a job: open a website, play audio, teleport, start a meeting. 18+ behaviours.', href: '/features/area-zones' },
-  { icon: 'code', color: '#c4b5fd', title: 'Scripting API', desc: 'A typed API for rooms: popups, triggers, variables, custom UI, anything you can script.', href: '/features/scripting' },
-  { icon: 'shield_person', color: '#93c5fd', title: 'OIDC single sign-on', desc: 'Bring your identity provider. Access is spatial and tag-based, not one global switch.', href: '/features/oidc-auth' },
-  { icon: 'dns', color: '#34d399', title: 'Self-host everything', desc: 'Docker Compose. Your domain, your logos, your data, your models.', href: '/features/self-hosting', wide: true },
-  { icon: 'explore', color: '#fbbf24', title: 'Orbit', desc: 'See where you are, who is online and jump straight to where activity is happening.', href: '/features/orbit-operator' },
-  { icon: 'map', color: '#f9a8d4', title: 'Map editor', desc: 'Drag a tile, place a desk, draw a zone. Every change is live for everyone in the room.', href: '/features/map-editor' },
-]
 
 const botCaps = [
   { icon: 'memory', title: 'Memory', desc: 'Per-person memory and history that survives sessions.', href: '/features/bot-memory' },
@@ -37,7 +24,7 @@ const botCaps = [
   { icon: 'perm_media', title: 'Sends media', desc: 'Images, audio, video and files, delivered in-world.', href: '/features/bot-media-sending' },
   { icon: 'directions_walk', title: 'Behaviours', desc: 'Idle, patrol or social. Real pathfinding on the real map.', href: '/features/bot-behaviors' },
   { icon: 'tune', title: 'Any model', desc: 'OpenAI, local models via LM Studio, vision models per bot.', href: '/features/bot-provider-config' },
-  { icon: 'account_tree', title: 'Bots that build bots', desc: 'Ask your Brick for a helper and it makes one on the spot.', href: '/features/recursive-bots' },
+  { icon: 'account_tree', title: 'Makes more Bricks', desc: 'Ask your Brick for a helper and it makes one on the spot.', href: '/features/recursive-bots' },
 ]
 
 const useCases = [
@@ -272,6 +259,17 @@ export default function Home() {
         <motion.div {...rise(0.1)}>
           <BrickSection />
         </motion.div>
+        <motion.div {...rise(0.12)} className="mt-8">
+          <div className="text-[11px] uppercase tracking-[0.16em] text-white/35 mb-3">More that Bricks and other residents can do</div>
+          <div className="flex flex-wrap gap-2.5">
+            {botCaps.map((c) => (
+              <Link key={c.title} href={c.href} title={c.desc} className="surface-card surface-card-hover inline-flex items-center gap-2 !rounded-full px-4 py-2.5 text-[13.5px] font-semibold text-white/85">
+                <span className="material-symbols-outlined text-[18px] text-purple-300">{c.icon}</span>
+                {c.title}
+              </Link>
+            ))}
+          </div>
+        </motion.div>
         <motion.div {...rise(0.15)} className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
           <MoreLink href="/features/brick" label="More about Brick" source="brick" />
           <MoreLink href="/guide/your-brick" label="Your Brick, step by step" source="brick" />
@@ -378,61 +376,14 @@ export default function Home() {
             </Link>
           </div>
         </motion.div>
-      </Wrap>
-
-      {/* ═══ EVERYTHING IN THE BOX ═══ */}
-      <Wrap id="features">
-        <SectionHead
-          eyebrow="Everything in the box"
-          title={<>The whole office, campus or venue. <span className="text-gradient-accent">Already built.</span></>}
-        />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-          {box.map((f, i) => (
-            <motion.div key={f.title} {...rise(0.04 * i)} className={f.wide ? 'sm:col-span-2' : ''}>
-              <Link href={f.href} className="surface-card surface-card-hover block h-full p-6 group relative overflow-hidden">
-                <span
-                  className="absolute -right-10 -top-10 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: `radial-gradient(circle, ${f.color}33, transparent 70%)` }}
-                />
-                <span className="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style={{ background: `${f.color}1f`, color: f.color }}>
-                  <span className="material-symbols-outlined text-[22px]">{f.icon}</span>
-                </span>
-                <h3 className="text-[17px] font-semibold text-white mb-1.5 leading-tight">{f.title}</h3>
-                <p className="text-[13.5px] text-white/50 leading-relaxed">{f.desc}</p>
-                <span className="mt-5 inline-flex items-center gap-1 text-[12px] font-semibold text-purple-300/80 group-hover:text-purple-200 transition-colors">
-                  Learn more <span className="material-symbols-outlined text-[15px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-                </span>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div {...rise(0.15)} className="mt-10">
-          <div className="text-[11px] uppercase tracking-[0.16em] text-white/35 mb-3">What residents can do</div>
-          <div className="flex flex-wrap gap-2.5">
-            {botCaps.map((c) => (
-              <Link key={c.title} href={c.href} title={c.desc} className="surface-card surface-card-hover inline-flex items-center gap-2 !rounded-full px-4 py-2.5 text-[13.5px] font-semibold text-white/85">
-                <span className="material-symbols-outlined text-[18px] text-purple-300">{c.icon}</span>
-                {c.title}
-              </Link>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div {...rise(0.2)} className="mt-8 flex flex-wrap justify-center gap-3">
-          <Link href="/features-overview" onClick={() => captureCtaClick('All features', 'box')} className="cta-secondary !py-3 !text-sm">
-            See all features
-            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-          </Link>
-          <Link href="/ai-bots" onClick={() => captureCtaClick('Everything bots can do', 'box')} className="cta-secondary !py-3 !text-sm">
-            Everything residents can do
-            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-          </Link>
+        <motion.div {...rise(0.1)} className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+          <MoreLink href="/features-overview" label="See all features" source="use_cases" />
+          <MoreLink href="/use-cases" label="See all use cases" source="use_cases" />
         </motion.div>
       </Wrap>
 
       {/* ═══ UNIVERSE AI ═══ */}
-      <Wrap id="universe-ai" className="!pt-8">
+      <Wrap id="universe-ai">
         <SectionHead
           eyebrow="Universe AI"
           title={<>Free to start. <span className="text-gradient-accent">Room to grow.</span></>}
@@ -446,72 +397,8 @@ export default function Home() {
             </div>
           ))}
         </motion.div>
-        <div className="uh-after">
-          <EnterCta source="universe_ai" />
-          <Link href="/contact" onClick={() => captureCtaClick('Talk to us', 'universe_ai')} className="cta-secondary">
-            Talk to us
-          </Link>
+        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
           <MoreLink href="/guide/universe-ai" label="Universe AI and your own keys" source="universe_ai" />
-        </div>
-      </Wrap>
-
-      {/* ═══ OPEN BY DEFAULT ═══ */}
-      <Wrap className="!pt-8">
-        <div className="surface-card p-6 sm:p-10 md:p-14 overflow-hidden relative">
-          <div className="absolute inset-0 grid-fade opacity-40 pointer-events-none" />
-          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6">
-              <div className="eyebrow mb-5">Open by default</div>
-              <h2 className="font-display text-[34px] sm:text-5xl font-bold text-white leading-[1.05] tracking-[-0.03em] mb-5">
-                Standing on giant shoulders. <span className="text-gradient-accent">Building in the open.</span>
-              </h2>
-              <p className="text-base md:text-lg text-white/55 leading-relaxed mb-6 max-w-[520px]">
-                Universe is a fork of WorkAdventure, the open source virtual office by our partners at
-                TheCodingMachine. We kept everything that makes it great and added the AI residents,
-                the control plane and the tool bridge. Every line is public.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="https://github.com/BAWES-Universe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => captureExternalLink('github', 'https://github.com/BAWES-Universe')}
-                  className="cta-secondary !py-3 !text-sm"
-                >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd"/></svg>
-                  GitHub
-                </a>
-                <Link href="/workadventure-fork" className="cta-secondary !py-3 !text-sm">
-                  Why we forked
-                </Link>
-                <Link href="/open-source" className="cta-secondary !py-3 !text-sm">
-                  Open source
-                </Link>
-              </div>
-            </div>
-            <div className="lg:col-span-6">
-              <div className="rounded-2xl bg-[#0a0814] border border-white/8 overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
-                <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/6">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-                  <span className="ml-3 text-[11px] text-white/35 mono">self-host · docker compose</span>
-                </div>
-                <pre className="mono text-[12.5px] leading-relaxed p-4 sm:p-5 text-white/80 overflow-x-auto">
-                  <span className="text-white/35">$</span> git clone https://github.com/BAWES-Universe/workadventure-universe{'\n'}
-                  <span className="text-white/35">$</span> cd workadventure-universe{'\n'}
-                  <span className="text-white/35">$</span> docker compose \{'\n'}
-                  {'    '}-f docker-compose.yaml \{'\n'}
-                  {'    '}-f docker-compose.bots.yaml \{'\n'}
-                  {'    '}-f docker-compose.livekit.yaml up{'\n\n'}
-                  <span className="text-emerald-300">✓</span> play, back, pusher, map-storage{'      '}<span className="text-white/35">ready</span>{'\n'}
-                  <span className="text-emerald-300">✓</span> bot-server · 3 residents awake{'       '}<span className="text-white/35">ready</span>{'\n'}
-                  <span className="text-emerald-300">✓</span> livekit · matrix · redis{'             '}<span className="text-white/35">ready</span>{'\n'}
-                  <span className="text-purple-300">→</span> https://play.your-domain.com/@/your-universe/hq/lobby
-                </pre>
-              </div>
-            </div>
-          </div>
         </div>
       </Wrap>
 
@@ -544,6 +431,7 @@ export default function Home() {
               <a href="https://discord.gg/CXceJWnwNT" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Join the Discord →</a>
               <Link href="/manifesto" className="hover:text-white transition-colors">Read the manifesto →</Link>
               <Link href="/developers" className="hover:text-white transition-colors">Developer hub →</Link>
+              <Link href="/open-source" className="hover:text-white transition-colors">Open source →</Link>
             </div>
           </div>
           <Parade />

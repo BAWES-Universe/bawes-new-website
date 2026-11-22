@@ -19,6 +19,7 @@ export default function WorkAdventureForkPageContent() {
         lead={<>Universe is built on WorkAdventure, the open-source project that pioneered walk-around spaces online. We add our own features on top and give back.</>}
         detail={[
           <>BAWES Universe is a fork of WorkAdventure, the pioneering open-source spatial platform. We extend their foundation with new features while maintaining upstream compatibility and contributing back.</>,
+          <>WorkAdventure is the open source virtual office by our partners at TheCodingMachine. We kept everything that makes it great and added the AI residents, Orbit and the bridge to tools and Apps. Every line is public.</>,
         ]}
         scene="desks"
         actions={[{ label: 'View on GitHub', href: 'https://github.com/workadventure/workadventure' }, { label: 'WorkAdventure project', href: 'https://workadventu.re/' }]}

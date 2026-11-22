@@ -13,14 +13,13 @@ Source: `components/Navigation.tsx`. The desktop bar shows from 1280px up; below
 | Use Cases | Dropdown (hub `/use-cases`) | Personal, Work, Community, Learning, Events, Commerce, Market under `/use-cases/...` |
 | Developers | Dropdown (hub `/developers`) | Technology Stack `/features/tech-stack`, Scripting API `/features/scripting`, MCP Integration `/mcp-integration`, Self-Hosting `/features/self-hosting`, Open Source `/open-source`, WorkAdventure Fork `/workadventure-fork` |
 | About | Dropdown (hub `/about`) | The Team `/team`, Manifesto `/manifesto`, The Empty Seat `/empty-seat`, Legal `/legal` |
-| Blog | External | `https://blog.bawes.net` |
 | Contact | Link | `/contact` |
 | Discord | Icon button | `https://discord.gg/CXceJWnwNT` |
 | Enter the Universe | Primary button | `https://universe.bawes.net` |
 
 ## Mobile
 
-Logo, Discord icon, hamburger. The menu opens full screen: Enter the Universe first, then How It Works, then every dropdown group with its links, then Blog and Contact.
+Logo, Discord icon, hamburger. The menu opens full screen: Enter the Universe first, then How It Works, then every dropdown group with its links, then Contact. Blog is in the footer only.
 
 ## Rule
 

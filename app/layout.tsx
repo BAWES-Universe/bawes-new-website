@@ -18,7 +18,7 @@ const structuredData = {
       name: 'BAWES',
       url: SITE_URL,
       logo: `${SITE_URL}/images/bawes-logo.png`,
-      sameAs: ['https://github.com/BAWES-Universe', 'https://discord.gg/CXceJWnwNT', 'https://blog.bawes.net'],
+      sameAs: ['https://github.com/BAWES-Universe', 'https://discord.gg/CXceJWnwNT', 'https://blog.bawes.net', 'https://www.youtube.com/@FollowTheButterfly-Universe', 'https://www.tiktok.com/@bawes.universe', 'https://www.instagram.com/bawes.universe'],
     },
     {
       '@type': 'WebSite',

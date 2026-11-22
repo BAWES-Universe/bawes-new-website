@@ -89,8 +89,8 @@ const standaloneLinks = [
   { label: 'Guide', href: '/guide', icon: 'menu_book' },
 ]
 
-const topLinks = [
-  { label: 'Blog', href: 'https://blog.bawes.net', external: true },
+/* The Blog link lives in the footer. */
+const topLinks: { label: string; href: string; external?: boolean }[] = [
   { label: 'Contact', href: '/contact' },
 ]
 
