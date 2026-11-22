@@ -26,26 +26,15 @@ export const metadata: Metadata = {
 interface FeatureCardProps {
   href: string;
   icon: string;
-  label?: string;
   title: string;
   desc: string;
 }
 
-function FeatureCard({ href, icon, label, title, desc }: FeatureCardProps) {
+function FeatureCard({ href, icon, title, desc }: FeatureCardProps) {
   return (
     <Link href={href} className="glass-card p-6 rounded-xl flex flex-col h-full cursor-pointer hover-lift">
       <div className="flex justify-between items-start mb-4">
         <span className="material-symbols-outlined text-primary text-3xl">{icon}</span>
-        {label && <span className="px-2 py-1 rounded text-[10px] font-bold whitespace-nowrap"
-          style={{
-            color: label === 'INHERITED' ? '#a78bfa' : '#34d399',
-            background: label === 'INHERITED' ? 'rgba(167,139,250,0.1)' : 'rgba(52,211,153,0.1)',
-            borderColor: label === 'INHERITED' ? 'rgba(167,139,250,0.2)' : 'rgba(52,211,153,0.2)',
-            borderWidth: 1,
-          }}
-        >
-          {label}
-        </span>}
       </div>
       <h3 className="font-headline-card text-lg mb-2">{title}</h3>
       <p className="text-text-secondary text-sm flex-grow">{desc}</p>
@@ -82,16 +71,16 @@ export default function FeaturesOverviewPage() {
           <p className="text-text-secondary max-w-2xl">Connect, converse, and collaborate in real-time across your universe. From proximity voice to broadcasting, stay in touch with everyone.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
-          <FeatureCard href="/features/proximity-chat" icon="forum" label="INHERITED" title="Proximity Chat" desc="Walk up to someone and a voice and video conversation starts." />
-          <FeatureCard href="/features/megaphone" icon="diversity_3" label="INHERITED" title="Megaphone" desc="A stage and an audience area. People on the stage are heard by the whole audience." />
+          <FeatureCard href="/features/proximity-chat" icon="forum" title="Proximity Chat" desc="Walk up to someone and a voice and video conversation starts." />
+          <FeatureCard href="/features/megaphone" icon="diversity_3" title="Megaphone" desc="A stage and an audience area. People on the stage are heard by the whole audience." />
           <FeatureCard href="/features/broadcasting" icon="podcasts" title="Broadcasting" desc="Create live events that stream audio and video across the entire universe." />
-          <FeatureCard href="/features/meeting-rooms" icon="meeting_room" label="INHERITED" title="Meeting Rooms" desc="Rooms where everyone inside talks together." />
-          <FeatureCard href="/features/text-chat" icon="chat" label="INHERITED" title="Text Chat" desc="Real-time text messaging between users and groups within your universe." />
-          <FeatureCard href="/features/matrix-chat" icon="hub" label="INHERITED" title="Matrix Chat" desc="Direct messages and chat rooms on the open Matrix protocol, with history that stays." />
-          <FeatureCard href="/features/screen-sharing" icon="present_to_all" label="INHERITED" title="Screen Sharing" desc="Share your screen with others in real-time during meetings." />
-          <FeatureCard href="/features/play-audio" icon="music_note" label="INHERITED" title="Play Audio" desc="Play music and sounds in an area. They get quieter as you walk away." />
-          <FeatureCard href="/features/follow" icon="group_work" label="INHERITED" title="Follow" desc="Ask people to follow you and walk through the map together." />
-          <FeatureCard href="/features/lock-discuss" icon="verified_user" label="INHERITED" title="Lock & Moderate" desc="Lock a conversation or a room so nobody else can join." />
+          <FeatureCard href="/features/meeting-rooms" icon="meeting_room" title="Meeting Rooms" desc="Rooms where everyone inside talks together." />
+          <FeatureCard href="/features/text-chat" icon="chat" title="Text Chat" desc="Real-time text messaging between users and groups within your universe." />
+          <FeatureCard href="/features/matrix-chat" icon="hub" title="Matrix Chat" desc="Direct messages and chat rooms on the open Matrix protocol, with history that stays." />
+          <FeatureCard href="/features/screen-sharing" icon="present_to_all" title="Screen Sharing" desc="Share your screen with others in real-time during meetings." />
+          <FeatureCard href="/features/play-audio" icon="music_note" title="Play Audio" desc="Play music and sounds in an area. They get quieter as you walk away." />
+          <FeatureCard href="/features/follow" icon="group_work" title="Follow" desc="Ask people to follow you and walk through the map together." />
+          <FeatureCard href="/features/lock-discuss" icon="verified_user" title="Lock & Moderate" desc="Lock a conversation or a room so nobody else can join." />
           <FeatureCard href="/features/emoji-reactions" icon="emoji_emotions" title="Emoji Reactions" desc="Express yourself with emoji reactions in chat and spatial spaces." />
           <FeatureCard href="/features/availability-status" icon="circle" title="Availability Status" desc="Show your status: online, away, back in a moment, busy or do not disturb." />
           <FeatureCard href="/features/user-directory" icon="group" title="User Directory" desc="Browse and connect with users across your universe." />
@@ -140,18 +129,18 @@ export default function FeaturesOverviewPage() {
           <p className="text-text-secondary max-w-2xl">Everything you need to build, shape, and expand your universe. Maps, entities, scripts, and more — all at your fingertips.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
-          <FeatureCard href="/features/maps" icon="map" label="INHERITED" title="Maps" desc="Tiled maps with layers, walls and areas that do things." />
+          <FeatureCard href="/features/maps" icon="map" title="Maps" desc="Tiled maps with layers, walls and areas that do things." />
           <FeatureCard href="/features/map-templates" icon="dashboard_customize" title="Map Templates" desc="Pre-configured spatial blueprints for offices, campuses, and events." />
-          <FeatureCard href="/features/map-editor" icon="edit_square" label="INHERITED" title="Inline Map Editor" desc="Edit your world in real-time without leaving the platform." />
+          <FeatureCard href="/features/map-editor" icon="edit_square" title="Inline Map Editor" desc="Edit your world in real-time without leaving the platform." />
           <FeatureCard href="/features/avatar-platform" icon="face_6" title="Avatar Platform" desc="Avatar sets and companions, and who may wear them." />
           <FeatureCard href="/features/woka-avatars" icon="face" title="Avatars" desc="Pick a colourful avatar or build your own, and wear it in every world." />
-          <FeatureCard href="/features/area-zones" icon="widgets" label="INHERITED" title="Area Zones" desc="Define zones with custom behaviors, permissions, and environmental effects." />
-          <FeatureCard href="/features/entity-editor" icon="view_in_ar" label="INHERITED" title="Entity Editor" desc="Place, configure, and manage interactive entities on your maps." />
-          <FeatureCard href="/features/scripting" icon="code" label="INHERITED" title="Scripting API" desc="Extend functionality with a powerful scripting API for custom logic." />
-          <FeatureCard href="/features/teleport" icon="near_me" label="INHERITED" title="Teleport" desc="Walk through an exit and arrive in another room." />
+          <FeatureCard href="/features/area-zones" icon="widgets" title="Area Zones" desc="Define zones with custom behaviors, permissions, and environmental effects." />
+          <FeatureCard href="/features/entity-editor" icon="view_in_ar" title="Entity Editor" desc="Place, configure, and manage interactive entities on your maps." />
+          <FeatureCard href="/features/scripting" icon="code" title="Scripting API" desc="Extend functionality with a powerful scripting API for custom logic." />
+          <FeatureCard href="/features/teleport" icon="near_me" title="Teleport" desc="Walk through an exit and arrive in another room." />
           <FeatureCard href="/features/quests" icon="explore" title="Quests" desc="Set a few stops for your visitors. Their Brick leads them through." />
           <FeatureCard href="/features/orbit-operator" icon="space_dashboard" title="Orbit Operator" desc="The dashboard for your universe: worlds, rooms, members, roles and visitors." />
-          <FeatureCard href="/features/searchable" icon="search" label="INHERITED" title="Searchable" desc="Mark a place or an object as searchable, so people can find it on the map." />
+          <FeatureCard href="/features/searchable" icon="search" title="Searchable" desc="Mark a place or an object as searchable, so people can find it on the map." />
         </div>
       </section>
 
@@ -185,7 +174,7 @@ export default function FeaturesOverviewPage() {
           <FeatureCard href="/mcp-integration" icon="key" title="Auth Protocols" desc="Support for OAuth, Bearer, and API Key authentication for secure MCP connections." />
           <FeatureCard href="/mcp-integration" icon="visibility" title="Tool calls in chat" desc="Show the names of the tools a bot uses in the chat, or keep them hidden." />
           <FeatureCard href="/mcp-integration" icon="lock" title="Approvals" desc="A bot asks first before it changes, deletes or sends anything with a tool." />
-          <FeatureCard href="/workadventure-fork" icon="terminal" label="INHERITED" title="WorkAdventure Fork" desc="Universe is built on WorkAdventure, the open source project for walk-around spaces." />
+          <FeatureCard href="/workadventure-fork" icon="terminal" title="WorkAdventure Fork" desc="Universe is built on WorkAdventure, the open source project for walk-around spaces." />
         </div>
       </section>
     </main>
