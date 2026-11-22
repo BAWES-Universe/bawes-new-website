@@ -21,7 +21,7 @@ export default function McpIntegrationPageContent() {
           <>Model Context Protocol (MCP) integration lets your bots connect to any tool, API, or data source. Give your AI agents real-time access to calendars, databases, ticketing systems, and more — all from inside your universe.</>,
         ]}
         scene="desks"
-        actions={[{ label: 'View MCP servers', href: 'https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md' }, { label: 'Bot scripting guide', href: 'https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/scripting.md' }]}
+        actions={[{ label: 'View MCP servers', href: 'https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md' }, { label: 'Map scripting docs', href: 'https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer/map-scripting' }]}
         source="page_mcp_integration"
       />
 
@@ -362,7 +362,7 @@ app.listen(3001);`}</code></pre>
       <PageClosing
         title={<>Ready to connect your bots?</>}
         body={<>Give your AI agents the power to act. MCP integration unlocks a new dimension of bot capabilities.</>}
-        links={[{ label: 'Get started with MCP', href: 'https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md' }, { label: 'Explore bot scripting', href: 'https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/scripting.md' }]}
+        links={[{ label: 'Get started with MCP', href: 'https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md' }, { label: 'Explore map scripting', href: 'https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer/map-scripting' }]}
         source="page_mcp_integration"
       />
     </main>
