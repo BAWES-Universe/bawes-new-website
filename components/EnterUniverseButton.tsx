@@ -26,7 +26,7 @@ export default function EnterUniverseButton({ source, children }: Props) {
         e.preventDefault()
         captureEnterUniverse(source)
         const enrichedUrl = getCrossDomainUrl(UNIVERSE_URL)
-        window.open(enrichedUrl, '_blank')
+        window.open(enrichedUrl, '_blank', 'noopener')
       }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}

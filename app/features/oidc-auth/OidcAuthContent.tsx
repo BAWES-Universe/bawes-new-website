@@ -6,77 +6,23 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function OidcAuthPageContent() {
   return (
-    <main className="relative z-10 pt-32">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/platform" className="hover:text-primary transition-colors">Platform</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">OIDC Auth</span>
-        </div>
-      </div>
-      {/* Hero Section */}
-      <Section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8">
-          <div className="inline-flex items-center space-x-2 bg-surface-container px-4 py-1.5 rounded-full border border-border-purple">
-            <span className="material-symbols-outlined text-primary text-[18px]">verified_user</span>
-            <span className="font-caption text-caption uppercase tracking-widest text-primary">OIDC Protocol Enabled</span>
-          </div>
-          <h1 className="font-display-hero text-display-hero">
-            Your Identity. <br />
-            <span className="text-gradient">Your Way.</span>
-          </h1>
-          <p className="font-body-md text-body-md text-text-secondary max-w-lg">
-            OpenID Connect authentication. Connect your existing SSO — Google, GitHub, Microsoft, or custom OIDC providers. Secure, decentralized, and seamless.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/contact" className="bg-gradient-primary text-white font-label-navigation px-8 py-4 rounded-full neon-glow-purple active:scale-95 transition-all inline-block">
-              Start Integrating
-            </Link>
-            <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="bg-surface-glass border border-white/20 text-on-surface font-label-navigation px-8 py-4 rounded-full hover:bg-white/10 active:scale-95 transition-all inline-block">
-              View Docs
-            </a>
-          </div>
-        </div>
-        <div className="relative">
-          <div className="glass-card rounded-xl p-8 overflow-hidden group">
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 rounded-full bg-error"></div>
-                <div className="w-3 h-3 rounded-full bg-tertiary"></div>
-                <div className="w-3 h-3 rounded-full bg-secondary"></div>
-              </div>
-              <div className="text-caption font-caption text-text-low-emphasis">oidc-config.yaml</div>
-            </div>
-            <pre className="text-secondary font-mono text-sm leading-relaxed overflow-x-auto"><code>{`oidc:
-  issuer: "https://auth.bawes.io"
-  client_id: "universe-portal-v1"
-  scopes: ["openid", "profile", "email"]
-  mapping:
-    roles: "custom:universe_roles"
-    username: "preferred_username"
-  security:
-    pkce: true
-    jwt_validation: strict`}</code></pre>
-            <div className="absolute -bottom-10 -right-10 opacity-10 group-hover:opacity-20 transition-opacity duration-700">
-              <span className="material-symbols-outlined text-[200px]" style={{ fontVariationSettings: "'FILL' 1" }}>security</span>
-            </div>
-          </div>
-          <div className="absolute -top-6 -right-6 glass-card px-6 py-4 rounded-xl flex items-center space-x-4">
-            <div className="bg-primary-container/20 p-2 rounded-lg">
-              <span className="material-symbols-outlined text-primary">bolt</span>
-            </div>
-            <div>
-              <div className="font-headline-card text-headline-card text-white">99.9%</div>
-              <div className="font-caption text-caption text-text-low-emphasis uppercase">Auth Uptime</div>
-            </div>
-          </div>
-        </div>
-      </Section>
+    <main className="relative z-10 pt-20">
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Platform', href: '/platform' }]}
+        here="OIDC Auth"
+        title={<>Your identity. <span className="text-gradient-accent">Your way.</span></>}
+        lead={<>Let people sign in with the account they already have, such as Google, GitHub, Microsoft, or your own company login.</>}
+        detail={[
+          <>OpenID Connect authentication. Connect your existing SSO — Google, GitHub, Microsoft, or custom OIDC providers. Secure, decentralized, and seamless.</>,
+        ]}
+        scene="desks"
+        actions={[{ label: 'Start integrating', href: '/contact' }, { label: 'View docs', href: 'https://github.com/BAWES-Universe' }]}
+        source="page_features_oidc_auth"
+      />
 
       {/* Features Bento Grid */}
       <Section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v">
@@ -161,21 +107,12 @@ export default function OidcAuthPageContent() {
         </div>
       </Section>
 
-      {/* CTA */}
-      <Section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v">
-        <div className="glass-card rounded-2xl p-12 text-center relative overflow-hidden">
-          <div className="relative z-10">
-            <h2 className="font-headline-section text-headline-section mb-6">Ready to secure your world?</h2>
-            <p className="text-text-secondary max-w-xl mx-auto mb-10">Join 5,000+ developers building the future of decentralized identity on the BAWES Universe protocol.</p>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="bg-gradient-primary text-white font-label-navigation px-10 py-4 rounded-full neon-glow-purple active:scale-95 transition-all inline-block text-center">Get Started Free</Link>
-              <Link href="https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer" target="_blank" rel="noopener noreferrer" className="glass-card text-on-surface font-label-navigation px-10 py-4 rounded-full hover:bg-white/5 active:scale-95 transition-all inline-block text-center">View Documentation</Link>
-            </div>
-          </div>
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-[80px]"></div>
-        </div>
-      </Section>
+      <PageClosing
+        title={<>Ready to secure your world?</>}
+        body={<>Let people sign in the way they already know.</>}
+        links={[{ label: 'Get started', href: '/contact' }, { label: 'View documentation', href: 'https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer' }]}
+        source="page_features_oidc_auth"
+      />
     </main>
   );
 }

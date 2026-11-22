@@ -6,45 +6,20 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function UseCaseLearningPageContent() {
   return (
     <main className="pt-20">
-      {/* Hero Section */}
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/use-cases" className="hover:text-primary transition-colors">Use Cases</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">For Learning</span>
-        </div>
-      </div>
-            <section className="relative pt-40 pb-section-padding-v overflow-hidden">
-        <div className="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="z-10">
-            <h1 className="font-display-hero text-display-hero mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] leading-tight">
-              Learn Together, <br />Wherever You Are.
-            </h1>
-            <p className="font-body-md text-body-md text-text-secondary mb-10 max-w-lg">
-              Digital campuses, study rooms, and mentorship spaces. Walk into a lecture, join a study group, or meet your mentor in their virtual office.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button href="/contact" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] px-10 py-4 rounded-full font-label-navigation text-white text-lg shadow-lg">
-                Build Your Campus
-              </Button>
-              <Button href="/how-it-works" className="px-10 py-4 rounded-full font-label-navigation border border-white/30 text-white hover:border-white/60 transition-all flex items-center gap-2">
-                <span className="material-symbols-outlined">play_circle</span>
-                View Demo
-              </Button>
-            </div>
-          </div>
-          <div className="relative group">
-            <div className="absolute -inset-4 bg-primary/20 rounded-xl blur-3xl group-hover:bg-primary/30 transition-all"></div>
-            <div className="rounded-xl shadow-2xl relative glass-card border-none aspect-video flex items-center justify-center">
-              <span className="material-symbols-outlined text-7xl text-primary/30">school</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Use Cases', href: '/use-cases' }]}
+        here="For Learning"
+        title={<>Learn together, <span className="text-gradient-accent">wherever you are</span></>}
+        lead={<>Digital campuses, study rooms, and mentorship spaces. Walk into a lecture, join a study group, or meet your mentor in their virtual office.</>}
+        scene="class"
+        actions={[{ label: 'Build your campus', href: '/contact' }, { label: 'How it works', href: '/how-it-works' }]}
+        source="page_use_cases_learning"
+      />
 
       {/* How It Works */}
       <section className="py-section-padding-v relative">
@@ -153,6 +128,12 @@ export default function UseCaseLearningPageContent() {
           </div>
         </div>
       </section>
+      <PageClosing
+        title={<>Open the doors to your campus</>}
+        body={<>Walk in, say hello, and look around.</>}
+        links={[{ label: 'Build your campus', href: '/contact' }, { label: 'All use cases', href: '/use-cases' }]}
+        source="page_use_cases_learning"
+      />
     </main>
   );
 }

@@ -6,49 +6,24 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function OrbitOperatorPageContent() {
   return (
 <main className="pt-20 max-w-screen-xl mx-auto px-6">
-      {/* Breadcrumb */}
-      <div className="flex items-center gap-2 pt-0 pb-2 text-xs text-text-muted max-w-container-max mx-auto px-gutter">
-        <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
-        <span className="text-white/20">/</span>
-        <span className="text-primary">Orbit Operator</span>
-      </div>
-      {/* Hero Section */}
-      <section className="max-w-container-max mx-auto px-gutter mb-section-padding-v grid md:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-border-purple">
-            <span className="material-symbols-outlined text-sm text-primary">space_dashboard</span>
-            <span className="text-caption font-label-navigation uppercase tracking-widest text-primary">Orbit Operator Console</span>
-          </div>
-          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">
-            Your Universe, <span className="text-gradient">In Command.</span>
-          </h1>
-          <p className="text-body-md text-text-secondary max-w-xl">
-            Orbit Operator gives you manual control over your universe. Review logs, manage worlds, monitor performance, and control bots — all from a single dashboard.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-4">
-            <button className="neon-gradient px-8 py-4 rounded-full text-white font-bold flex items-center gap-2 active:scale-95 transition-transform">
-              Launch Dashboard
-              <span className="material-symbols-outlined">open_in_new</span>
-            </button>
-            <button className="glass-card px-8 py-4 rounded-full text-on-surface font-bold hover:bg-surface-glass transition-all">
-              View Documentation
-            </button>
-          </div>
-        </div>
-        <div className="relative group">
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all"></div>
-          <div className="relative glass-card rounded-2xl overflow-hidden border border-white/10 aspect-video">
-            <div className="w-full h-full bg-surface-container-high flex items-center justify-center">
-              <span className="material-symbols-outlined text-6xl text-primary/30">dashboard</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Build & Create', href: '/build' }]}
+        here="Orbit Operator"
+        eyebrow="Orbit"
+        title={<>Your universe, <span className="text-gradient-accent">in command</span></>}
+        lead={<>Orbit is where you run your universe: manage worlds, check what is happening, and look after your bots from one place.</>}
+        detail={[
+          <>Orbit Operator gives you manual control over your universe. Review logs, manage worlds, monitor performance, and control bots — all from a single dashboard.</>,
+        ]}
+        scene="desks"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="page_features_orbit_operator"
+      />
 
       {/* Features Grid */}
       <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
@@ -124,17 +99,12 @@ export default function OrbitOperatorPageContent() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v text-center">
-        <div className="glass-card p-12 rounded-[2rem] relative overflow-hidden">
-          <h2 className="font-headline-section text-headline-section text-on-surface mb-6">Ready to take command?</h2>
-          <p className="text-text-secondary max-w-xl mx-auto mb-10">Get instant access to the Orbit Operator dashboard and start managing your universe like a pro.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="neon-gradient px-10 py-4 rounded-full text-white font-bold active:scale-95 transition-transform">Launch Dashboard</button>
-            <button className="glass-card px-10 py-4 rounded-full text-on-surface font-bold hover:bg-surface-glass transition-all">Talk to Sales</button>
-          </div>
-        </div>
-      </section>
+      <PageClosing
+        title={<>Ready to take command?</>}
+        body={<>Open Orbit and start managing your universe.</>}
+        links={[{ label: 'Talk to us', href: '/contact' }, { label: 'See all features', href: '/features-overview' }]}
+        source="page_features_orbit_operator"
+      />
     </main>
   );
 }

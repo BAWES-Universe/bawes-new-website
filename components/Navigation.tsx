@@ -119,7 +119,7 @@ function EnterLink({ source, className, onNavigate }: { source: string; classNam
       onClick={(e) => {
         e.preventDefault()
         captureEnterUniverse(source)
-        window.open(getCrossDomainUrl(UNIVERSE_URL), '_blank')
+        window.open(getCrossDomainUrl(UNIVERSE_URL), '_blank', 'noopener')
         onNavigate?.()
       }}
       className={className}

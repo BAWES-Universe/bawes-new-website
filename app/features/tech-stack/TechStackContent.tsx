@@ -6,74 +6,23 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function TechStackPageContent() {
   return (
     <main className="pt-20 relative">
-      {/* Breadcrumb */}
-      <div className="max-w-container-max mx-auto px-gutter pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/platform" className="hover:text-primary transition-colors">Platform</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Technology Stack</span>
-        </div>
-      </div>
-      {/* Hero Section */}
-      <Section className="max-w-container-max mx-auto px-gutter mb-section-padding-v text-center md:text-left grid md:grid-cols-2 items-center gap-12">
-        <div className="relative z-10">
-          <h1 className="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero mb-6 text-on-surface">
-            The Stack Behind <br /><span className="text-primary">the Universe.</span>
-          </h1>
-          <p className="text-text-secondary max-w-lg text-lg mb-8">
-            TypeScript, Node.js, WebRTC, AI, MCP — the technologies that power every world. We've engineered a fluid, real-time ecosystem designed for infinite scale.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-            <div className="flex items-center gap-2 glass-card px-4 py-2 rounded-full border-purple/30">
-              <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>code</span>
-              <span className="text-caption font-bold tracking-wider uppercase">Open Core</span>
-            </div>
-            <div className="flex items-center gap-2 glass-card px-4 py-2 rounded-full border-purple/30">
-              <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>bolt</span>
-              <span className="text-caption font-bold tracking-wider uppercase">Ultra Low Latency</span>
-            </div>
-          </div>
-        </div>
-        <div className="relative h-[400px] md:h-[500px] flex items-center justify-center">
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-secondary/5 rounded-3xl blur-3xl"></div>
-          <div className="relative w-full h-full glass-card rounded-3xl p-8 overflow-hidden border-purple/10 flex flex-col justify-between">
-            <div className="flex flex-col gap-6">
-              <div className="glass-card p-4 rounded-xl border-purple/40 w-3/4 self-center flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
-                  <span className="material-symbols-outlined text-on-primary-container">layers</span>
-                </div>
-                <div>
-                  <div className="text-caption font-bold text-primary">UI LAYER</div>
-                  <div className="text-xs text-text-low-emphasis">Reactive Svelte Canvas</div>
-                </div>
-              </div>
-              <div className="glass-card p-4 rounded-xl border-purple/40 w-5/6 self-center flex items-center gap-4 ml-8">
-                <div className="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
-                  <span className="material-symbols-outlined text-on-secondary-container">hub</span>
-                </div>
-                <div>
-                  <div className="text-caption font-bold text-secondary">REAL-TIME SYNC</div>
-                  <div className="text-xs text-text-low-emphasis">WebRTC + Colyseus Authority</div>
-                </div>
-              </div>
-              <div className="glass-card p-4 rounded-xl border-purple/40 w-3/4 self-center flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-tertiary-container flex items-center justify-center">
-                  <span className="material-symbols-outlined text-on-tertiary-container">psychology</span>
-                </div>
-                <div>
-                  <div className="text-caption font-bold text-tertiary">AGENTIC AI</div>
-                  <div className="text-xs text-text-low-emphasis">MCP Protocol Node</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Platform', href: '/platform' }]}
+        here="Technology Stack"
+        title={<>The stack behind <span className="text-gradient-accent">the Universe</span></>}
+        lead={<>For builders: the languages and tools Universe is made of.</>}
+        detail={[
+          <>TypeScript, Node.js, WebRTC, AI, MCP — the technologies that power every world. We've engineered a fluid, real-time ecosystem designed for infinite scale.</>,
+        ]}
+        scene="desks"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="page_features_tech_stack"
+      />
 
       {/* The Core Stack */}
       <Section className="max-w-container-max mx-auto px-gutter mb-section-padding-v">
@@ -200,6 +149,12 @@ export default function TechStackPageContent() {
           </div>
         </div>
       </Section>
+      <PageClosing
+        title={<>Come and see it for yourself</>}
+        body={<>Walk in, say hello, and look around.</>}
+        links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Developer hub', href: '/developers' }]}
+        source="page_features_tech_stack"
+      />
     </main>
   );
 }

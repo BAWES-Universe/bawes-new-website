@@ -1,0 +1,63 @@
+/* ═══════════════════════════════════════════════════════════════
+   INNER PAGES: the shared top and closing of every page that is not the home page.
+   Same uh- prefix and the same sprites as components/home/home.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+.uh-phero { position: relative; padding: 14px 16px 56px; }
+.uh-phero-in { max-width: 80rem; margin: 0 auto; }
+.uh-trail { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12.5px; color: var(--uh-faint); margin-bottom: 40px; list-style: none; padding: 0; }
+.uh-trail a { color: inherit; transition: color 0.2s; }
+.uh-trail a:hover { color: #fff; }
+.uh-trail li + li::before { content: '/'; margin-right: 8px; color: rgba(255, 255, 255, 0.2); }
+.uh-trail [aria-current] { color: #c4b5fd; }
+.uh-phero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+.uh-ph1 { font-family: var(--uh-display); color: #fff; font-size: 58px; line-height: 1.03; font-weight: 700; letter-spacing: -0.035em; margin: 18px 0 20px; text-wrap: balance; }
+.uh-plead { font-size: 19px; line-height: 1.6; color: rgba(255, 255, 255, 0.72); max-width: 32em; }
+.uh-pdetail { font-size: 14.5px; line-height: 1.65; color: var(--uh-faint); max-width: 38em; margin-top: 14px; }
+.uh-pdetail + .uh-pdetail { margin-top: 8px; }
+.uh-phero .uh-cta { margin: 28px 0 0; }
+
+/* the small scene beside the title */
+.uh-scene.uh-pscene { aspect-ratio: 16 / 10; --s: 2; --u: 4px; border: 1px solid rgba(167, 139, 250, 0.16); box-shadow: 0 30px 80px rgba(8, 4, 28, 0.6), 0 0 90px rgba(139, 92, 246, 0.12); }
+.uh-scene.uh-pscene .uh-say { font-size: 12px; animation-name: uh-say-turn; }
+/* speech bubbles take turns, so two people standing close never talk over each other */
+@keyframes uh-say-turn { 0%, 40% { opacity: 1; } 47%, 94% { opacity: 0; } 100% { opacity: 1; } }
+
+/* an avatar that walks back and forth on its own */
+.uh-av.uh-stroll { animation: uh-step 0.48s steps(1) infinite, uh-stroll var(--t, 12s) linear infinite; }
+@keyframes uh-stroll {
+  0% { left: var(--from); background-position-y: 66.666%; }
+  47% { left: var(--to); background-position-y: 66.666%; }
+  47.01%, 50% { left: var(--to); background-position-y: 33.333%; }
+  97% { left: var(--from); background-position-y: 33.333%; }
+  97.01%, 100% { left: var(--from); background-position-y: 66.666%; }
+}
+
+/* the closing card */
+.uh-pclose { position: relative; padding: 40px 16px 96px; }
+.uh-pclose-card { position: relative; max-width: 80rem; margin: 0 auto; border-radius: 28px; overflow: hidden; text-align: center; padding: 64px 24px 0; border: 1px solid rgba(167, 139, 250, 0.2); background: radial-gradient(ellipse at 50% 120%, rgba(139, 92, 246, 0.3), rgba(10, 8, 20, 0) 60%), linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)); }
+.uh-pclose h2 { font-family: var(--uh-display); color: #fff; font-size: 44px; line-height: 1.05; font-weight: 700; letter-spacing: -0.03em; margin: 0 auto 14px; max-width: 16em; text-wrap: balance; }
+.uh-pclose p { font-size: 17px; line-height: 1.6; color: rgba(255, 255, 255, 0.55); max-width: 34em; margin: 0 auto 30px; }
+.uh-pclose .uh-cta { justify-content: center; margin: 0; }
+.uh-pclose-more { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; margin-top: 26px; font-size: 13px; color: rgba(255, 255, 255, 0.4); }
+.uh-pclose-more a { color: inherit; transition: color 0.2s; }
+.uh-pclose-more a:hover { color: #fff; }
+
+@media (max-width: 900px) {
+  .uh-phero { padding-bottom: 40px; }
+  .uh-trail { margin-bottom: 24px; }
+  .uh-phero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .uh-ph1 { font-size: 40px; margin-top: 14px; }
+  .uh-plead { font-size: 17px; }
+  .uh-phero .uh-cta > * { flex: 1 1 auto; }
+  .uh-scene.uh-pscene { aspect-ratio: 16 / 10; --s: 1.5; --u: 3px; border-radius: 18px; }
+  .uh-scene.uh-pscene .uh-say { font-size: 11px; padding: 4px 8px; }
+  .uh-pclose { padding-bottom: 64px; }
+  .uh-pclose-card { padding-top: 44px; border-radius: 22px; }
+  .uh-pclose h2 { font-size: 30px; }
+  .uh-pclose p { font-size: 15.5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uh-av.uh-stroll, .uh-scene.uh-pscene .uh-say { animation: none !important; }
+}

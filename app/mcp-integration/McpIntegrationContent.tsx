@@ -6,80 +6,24 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function McpIntegrationPageContent() {
   return (
     <main className="relative pt-20">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/developers" className="hover:text-primary transition-colors">Developers</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">MCP Integration</span>
-        </div>
-      </div>
-
-      {/* Hero */}
-      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-border-purple">
-            <span className="material-symbols-outlined text-sm text-primary">hub</span>
-            <span className="text-caption font-caption uppercase tracking-widest text-primary">MCP Protocol v1.0</span>
-          </div>
-          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">
-            Connect <span className="text-gradient">Everything.</span>
-          </h1>
-          <p className="font-body-md text-body-md text-text-secondary max-w-xl">
-            Model Context Protocol (MCP) integration lets your bots connect to any tool, API, or data source. Give your AI agents real-time access to calendars, databases, ticketing systems, and more — all from inside your universe.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-4">
-            <a
-              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-bold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
-            >
-              View MCP Servers
-              <span className="material-symbols-outlined">arrow_forward</span>
-            </a>
-            <a
-              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/scripting.md"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass-card text-on-surface px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-all inline-flex items-center gap-2"
-            >
-              <span className="material-symbols-outlined text-base">code</span>
-              Bot Scripting Guide
-            </a>
-          </div>
-        </div>
-        <div className="relative">
-          <div className="glass-card rounded-2xl p-8 overflow-hidden border-purple/30">
-            <div className="flex items-center gap-2 mb-6 border-b border-divider pb-4">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-              </div>
-              <div className="ml-4 text-caption text-text-low-emphasis font-mono">mcp-config.json</div>
-            </div>
-            <pre className="font-mono text-sm leading-relaxed text-primary overflow-x-auto">{`{
-  "mcpServers": {
-    "calendar": {
-      "url": "https://mcp.bawes.io/calendar",
-      "tools": ["list_events", "create_event"]
-    },
-    "ticketing": {
-      "url": "https://mcp.bawes.io/jira",
-      "tools": ["search_issues", "create_ticket"]
-    }
-  }
-}`}</pre>
-            <div className="absolute -bottom-10 -right-10 opacity-10">
-              <span className="material-symbols-outlined text-[200px]">hub</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Developers', href: '/developers' }]}
+        here="MCP Integration"
+        eyebrow="Model Context Protocol"
+        title={<>Connect <span className="text-gradient-accent">everything</span></>}
+        lead={<>Let your bots use the tools you already rely on, such as calendars, databases and ticket systems, without leaving your universe.</>}
+        detail={[
+          <>Model Context Protocol (MCP) integration lets your bots connect to any tool, API, or data source. Give your AI agents real-time access to calendars, databases, ticketing systems, and more — all from inside your universe.</>,
+        ]}
+        scene="desks"
+        actions={[{ label: 'View MCP servers', href: 'https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md' }, { label: 'Bot scripting guide', href: 'https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/scripting.md' }]}
+        source="page_mcp_integration"
+      />
 
       {/* How It Works */}
       <section className="bg-surface-container-low py-section-padding-v">
@@ -415,32 +359,12 @@ app.listen(3001);`}</code></pre>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v text-center">
-        <div className="glass-card p-12 rounded-3xl relative overflow-hidden">
-          <h2 className="font-headline-section text-headline-section text-on-surface mb-6">Ready to connect your bots?</h2>
-          <p className="text-text-secondary max-w-xl mx-auto mb-10">Give your AI agents the power to act. MCP integration unlocks a new dimension of bot capabilities.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-10 py-4 rounded-full font-bold inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
-            >
-              Get Started with MCP
-            </a>
-            <a
-              href="https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/scripting.md"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass-card text-on-surface px-10 py-4 rounded-full font-bold hover:bg-white/5 transition-all inline-flex items-center gap-2"
-            >
-              <span className="material-symbols-outlined text-base">open_in_new</span>
-              Explore Bot Scripting
-            </a>
-          </div>
-        </div>
-      </section>
+      <PageClosing
+        title={<>Ready to connect your bots?</>}
+        body={<>Give your AI agents the power to act. MCP integration unlocks a new dimension of bot capabilities.</>}
+        links={[{ label: 'Get started with MCP', href: 'https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/mcp-servers.md' }, { label: 'Explore bot scripting', href: 'https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/developer/bots/scripting.md' }]}
+        source="page_mcp_integration"
+      />
     </main>
   );
 }

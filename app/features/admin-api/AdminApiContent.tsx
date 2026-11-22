@@ -6,64 +6,23 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function AdminApiPageContent() {
   return (
 <main className="pt-20 relative">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/platform" className="hover:text-primary transition-colors">Platform</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Admin API</span>
-        </div>
-      </div>
-      {/* Hero Section */}
-      <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-12 items-center min-h-[819px]">
-        <div className="space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card border-purple/30">
-            <span className="material-symbols-outlined text-[14px] text-primary">terminal</span>
-            <span className="text-caption font-caption uppercase tracking-widest text-primary">v2.4 Released</span>
-          </div>
-          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">
-            Administer <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">at Scale.</span>
-          </h1>
-          <p className="text-text-secondary font-body-md text-body-md max-w-lg">
-            REST API for managing users, worlds, rooms, and bots programmatically. Automate your universe with robust endpoints and low-latency synchronization.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Link href="/contact" className="bg-gradient-neon text-white px-8 py-4 rounded-full font-headline-card text-body-md neon-glow-primary hover:scale-105 transition-transform flex items-center gap-2">
-              Explore API Docs
-              <span className="material-symbols-outlined">arrow_forward</span>
-            </Link>
-            <Link href="/contact" className="glass-card text-on-surface px-8 py-4 rounded-full font-headline-card text-body-md hover:bg-white/5 transition-colors inline-block">
-              Get API Key
-            </Link>
-          </div>
-        </div>
-        <div className="relative group">
-          <div className="absolute -inset-10 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl opacity-50 group-hover:opacity-70 transition-opacity"></div>
-          <div className="glass-card rounded-2xl p-4 overflow-hidden relative border-purple/30">
-            <div className="aspect-video rounded-xl bg-surface-container-high flex items-center justify-center">
-              <span className="material-symbols-outlined text-6xl text-primary/30">api</span>
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-background-page/80 to-transparent"></div>
-            <div className="absolute bottom-8 left-8 right-8">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full glass-card flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary">api</span>
-                </div>
-                <div>
-                  <div className="text-white font-headline-card text-body-md">Universe Core v2</div>
-                  <div className="text-primary text-caption font-caption">API Connection: Active</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Platform', href: '/platform' }]}
+        here="Admin API"
+        title={<>Administer <span className="text-gradient-accent">at scale</span></>}
+        lead={<>Manage people, worlds, rooms and bots from your own code, so the routine work runs itself.</>}
+        detail={[
+          <>REST API for managing users, worlds, rooms, and bots programmatically. Automate your universe with robust endpoints and low-latency synchronization.</>,
+        ]}
+        scene="desks"
+        actions={[{ label: 'Ask for API access', href: '/contact' }]}
+        source="page_features_admin_api"
+      />
 
       {/* Features Grid */}
       <Section className="bg-surface-container-low py-section-padding-v relative overflow-hidden">
@@ -193,6 +152,11 @@ export default function AdminApiPageContent() {
           </Link>
         </div>
       </Section>
+      <PageClosing
+        title={<>Ready to automate your universe?</>}
+        links={[{ label: 'Ask for API access', href: '/contact' }, { label: 'See all features', href: '/features-overview' }]}
+        source="page_features_admin_api"
+      />
     </main>
   );
 }

@@ -4,44 +4,23 @@
 
 import React from 'react';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function UseCasePersonalPageContent() {
   return (
     <main className="pt-20">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/use-cases" className="hover:text-primary transition-colors">Use Cases</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Personal</span>
-        </div>
-      </div>
-
-      {/* Hero */}
-      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v flex flex-col md:flex-row items-center gap-12">
-        <div className="flex-1 space-y-6">
-          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-white tracking-tight">
-            A Universe That's{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6]">Yours.</span>
-          </h1>
-          <p className="text-on-surface-variant text-lg md:text-xl max-w-xl leading-relaxed">
-            Build your own digital sanctuary. Custom AI companions, organized workspaces, and a place where friends are always welcome to drop in.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Link href="https://universe.bawes.net" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-label-navigation px-8 py-4 rounded-full shadow-lg active:scale-95 transition-all inline-block">
-              Enter the Universe
-            </Link>
-            <Link href="/ai-bots" className="font-label-navigation px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all inline-block">
-              Meet the Bots
-            </Link>
-          </div>
-        </div>
-        <div className="flex-1 w-full relative">
-          <div className="glass-card rounded-2xl overflow-hidden shadow-2xl aspect-video flex items-center justify-center">
-            <span className="material-symbols-outlined text-7xl text-primary/30">home_heart</span>
-          </div>
-          <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/30 rounded-full blur-[120px] pointer-events-none"></div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Use Cases', href: '/use-cases' }]}
+        here="Personal"
+        title={<>A universe that is <span className="text-gradient-accent">yours</span></>}
+        lead={<>Make a place of your own: AI companions, a tidy spot to work, and a door your friends can always walk through.</>}
+        detail={[
+          <>Build your own digital sanctuary. Custom AI companions, organized workspaces, and a place where friends are always welcome to drop in.</>,
+        ]}
+        scene="chat"
+        actions={[{ label: 'Meet the bots', href: '/ai-bots' }]}
+        source="page_use_cases_personal"
+      />
 
       {/* What You Can Do */}
       <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
@@ -180,29 +159,12 @@ export default function UseCasePersonalPageContent() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-container-max mx-auto px-gutter pb-section-padding-v">
-        <div className="glass-card rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[120px]"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-[120px]"></div>
-          <div className="relative z-10 space-y-8">
-            <h2 className="font-display-hero text-headline-section md:text-display-hero text-white max-w-3xl mx-auto">
-              Your universe is waiting.
-            </h2>
-            <p className="text-on-surface-variant text-lg max-w-xl mx-auto">
-              Free to explore. Free to build. No credit card. No commitment.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6">
-              <Link href="https://universe.bawes.net" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-label-navigation px-10 py-5 rounded-full shadow-lg active:scale-95 transition-all text-lg inline-block">
-                Enter the Universe
-              </Link>
-              <Link href="/ai-bots" className="font-label-navigation px-10 py-5 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all text-lg inline-block">
-                Meet the Bots
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageClosing
+        title={<>Your universe is waiting.</>}
+        body={<>Free to explore. Free to build. No credit card. No commitment.</>}
+        links={[{ label: 'Meet the bots', href: '/ai-bots' }, { label: 'All use cases', href: '/use-cases' }]}
+        source="page_use_cases_personal"
+      />
     </main>
   );
 }

@@ -3,6 +3,8 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 
 export const metadata: Metadata = {
   title: 'Features Overview — Everything Universe Can Do',
@@ -85,19 +87,21 @@ function InfoCard({ icon, label, title, desc }: InfoCardProps) {
 
 export default function FeaturesOverviewPage() {
   return (
+    <div className="pt-20">
+      <PageHero
+        crumbs={[]}
+        here="Features"
+        eyebrow="All features"
+        title={<><span className="text-gradient-accent">Everything</span> Universe can do</>}
+        lead={<>Every way to talk, build and run your own space, on one page. Pick anything to see how it works.</>}
+        detail={[
+          <>Explore every feature, component, and capability in the BAWES Universe platform. Click any feature to learn more about the future of spatial intelligence.</>,
+        ]}
+        scene="fire"
+        actions={[{ label: 'What people build', href: '/use-cases' }]}
+        source="page_features_overview"
+      />
     <main className="max-w-container-max mx-auto px-gutter space-y-24 pb-section-padding-v">
-      {/* Hero */}
-      <header className="pt-40 pb-20">
-        <div className="text-center md:text-left max-w-3xl">
-          <h1 className="font-display-hero text-display-hero md:text-display-hero mb-6">
-            <span className="text-gradient">Everything</span> Universe can do.
-          </h1>
-          <p className="text-text-secondary text-xl leading-relaxed">
-            Explore every feature, component, and capability in the BAWES Universe platform. Click any feature to learn more about the future of spatial intelligence.
-          </p>
-        </div>
-      </header>
-
       {/* SECTION 1: Communication */}
       <section>
         <div className="mb-12">
@@ -162,7 +166,7 @@ export default function FeaturesOverviewPage() {
           <FeatureCard href="/features/map-templates" icon="dashboard_customize" title="Map Templates" desc="Pre-configured spatial blueprints for offices, campuses, and events." />
           <FeatureCard href="/features/map-editor" icon="edit_square" label="INHERITED" title="Inline Map Editor" desc="Edit your world in real-time without leaving the platform." />
           <FeatureCard href="/features/avatar-platform" icon="face_6" title="Avatar Platform" desc="Advanced character customization and integration with external avatar systems." />
-          <FeatureCard href="/features/woka-avatars" icon="face" title="Woka Avatars" desc="Pipoya-style pixel art avatars — colorful, expressive, and endlessly customizable." />
+          <FeatureCard href="/features/woka-avatars" icon="face" title="Avatars" desc="Pipoya-style pixel art avatars — colorful, expressive, and endlessly customizable." />
           <FeatureCard href="/features/area-zones" icon="widgets" label="INHERITED" title="Area Zones" desc="Define zones with custom behaviors, permissions, and environmental effects." />
           <FeatureCard href="/features/entity-editor" icon="view_in_ar" label="INHERITED" title="Entity Editor" desc="Place, configure, and manage interactive entities on your maps." />
           <FeatureCard href="/features/scripting" icon="code" label="INHERITED" title="Scripting API" desc="Extend functionality with a powerful scripting API for custom logic." />
@@ -206,5 +210,12 @@ export default function FeaturesOverviewPage() {
         </div>
       </section>
     </main>
+      <PageClosing
+        title={<>Come and see it for yourself</>}
+        body={<>Walk in, say hello, and look around.</>}
+        links={[{ label: 'How it works', href: '/how-it-works' }, { label: 'What people build', href: '/use-cases' }]}
+        source="page_features_overview"
+      />
+    </div>
   );
 }

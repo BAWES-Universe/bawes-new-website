@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 const useCases = [
   {
     emoji: '🏠',
@@ -77,22 +79,17 @@ const fadeUp = (delay = 0) => ({
 
 export default function UseCasesPageContent() {
   return (
-    <main className="relative z-10">
-      {/* Hero */}
-      <section className="max-w-7xl mx-auto pt-40 pb-20 px-4 sm:px-6 lg:px-8">
-        <motion.div {...fadeUp(0)} className="max-w-3xl">
-          <h1 className="font-display text-5xl md:text-7xl font-bold text-white mb-6 tracking-[-0.03em]">
-            Built for{' '}
-            <span className="bg-[length:200%_200%] animate-shimmer bg-clip-text text-transparent"
-              style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa 0%, #f59e0b 50%, #a78bfa 100%)' }}>
-              real life.
-            </span>
-          </h1>
-          <p className="text-lg text-text-muted leading-relaxed max-w-[540px]">
-            Work, school, community, market, commerce — Universe adapts to what you&apos;re building. Pick your path and see what&apos;s possible.
-          </p>
-        </motion.div>
-      </section>
+    <main className="relative z-10 pt-20">
+      <PageHero
+        crumbs={[]}
+        here="Use Cases"
+        eyebrow="Use cases"
+        title={<>Built for <span className="text-gradient-accent">real life</span></>}
+        lead={<>Work, school, community, market, commerce — Universe adapts to what you&apos;re building. Pick your path and see what&apos;s possible.</>}
+        scene="fire"
+        actions={[{ label: 'How it works', href: '/how-it-works' }]}
+        source="page_use_cases"
+      />
 
       {/* Use Case Cards */}
       <section className="max-w-7xl mx-auto pb-32 px-4 sm:px-6 lg:px-8 space-y-0">
@@ -151,31 +148,12 @@ export default function UseCasesPageContent() {
         ))}
       </section>
 
-      {/* CTA */}
-      <section className="max-w-7xl mx-auto pb-32 px-4 sm:px-6 lg:px-8">
-        <motion.div
-          {...fadeUp(0.3)}
-          className="relative rounded-[32px] p-12 md:p-20 text-center overflow-hidden"
-          style={{
-            background: 'linear-gradient(145deg, rgba(139,92,246,0.06), rgba(245,158,11,0.03))',
-            border: '1px solid rgba(139,92,246,0.12)',
-          }}
-        >
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-4">
-            Not sure where to start?
-          </h2>
-          <p className="text-base text-text-muted max-w-[480px] mx-auto mb-8">
-            Every universe begins with a single room. Walk through and see what&apos;s possible.
-          </p>
-          <Link
-            href="/how-it-works"
-            className="gradient-cta text-white px-8 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
-          >
-            How it works
-            <span className="material-symbols-outlined text-lg">arrow_forward</span>
-          </Link>
-        </motion.div>
-      </section>
+      <PageClosing
+        title={<>Not sure where to start?</>}
+        body={<>Every universe begins with a single room. Walk through and see what&apos;s possible.</>}
+        links={[{ label: 'How it works', href: '/how-it-works' }]}
+        source="page_use_cases"
+      />
     </main>
   )
 }

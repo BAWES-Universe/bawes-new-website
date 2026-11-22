@@ -6,66 +6,23 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function WokaAvatarsPageContent() {
   return (
     <main className="pt-20">
-      {/* Breadcrumb */}
-      <div className="max-w-container-max mx-auto px-gutter pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Woka Avatars</span>
-        </div>
-      </div>
-      {/* Hero Section */}
-      <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v relative overflow-visible">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-border-purple mb-6">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span className="text-caption font-label-navigation text-on-surface-variant">V2.0 Avatar Engine Live</span>
-            </div>
-            <h1 className="font-display-hero text-display-hero mb-6 text-on-surface">
-              Pixel Art. <br />
-              <span className="text-gradient">Infinite Personalities.</span>
-            </h1>
-            <p className="font-body-md text-body-md text-on-surface-variant mb-10 max-w-lg">
-              Pipoya-style user avatars — colorful, expressive pixel art characters. Customize your look and express yourself in every world.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <button className="px-8 py-4 rounded-full primary-gradient text-white font-bold flex items-center gap-2 hover:opacity-90 transition-all active:scale-95">
-                Launch Avatar Manager
-                <span className="material-symbols-outlined">arrow_forward</span>
-              </button>
-              <button className="px-8 py-4 rounded-full glass-card text-on-surface font-bold transition-all active:scale-95">
-                View Documentation
-              </button>
-            </div>
-          </div>
-          <div className="relative group">
-            <div className="glass-card p-4 rounded-3xl relative overflow-hidden aspect-[1.79/1]">
-              <div className="absolute inset-0 bg-gradient-to-t from-background-page/80 via-transparent to-transparent z-10"></div>
-              <div className="w-full h-full rounded-2xl bg-surface-container-high flex items-center justify-center">
-                <span className="material-symbols-outlined text-7xl text-primary/30" style={{ fontVariationSettings: "'FILL' 1" }}>face</span>
-              </div>
-              <div className="absolute top-8 left-8 glass-card p-3 rounded-xl z-20 flex items-center gap-3 border-purple">
-                <div className="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center border border-border-purple">
-                  <span className="material-symbols-outlined text-primary text-xl">person</span>
-                </div>
-                <div>
-                  <p className="text-caption font-bold">Zenith_Pixel</p>
-                  <p className="text-[10px] text-primary">Active in Plaza</p>
-                </div>
-              </div>
-              <div className="absolute bottom-8 right-8 glass-card p-4 rounded-xl z-20 max-w-[200px] border-purple">
-                <p className="text-caption italic leading-tight text-on-surface-variant">&ldquo;The level of detail in this pixel world is insane! I love how my avatar looks here.&rdquo;</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Build & Create', href: '/build' }]}
+        here="Avatars"
+        title={<>Pixel art. <span className="text-gradient-accent">Infinite personalities.</span></>}
+        lead={<>Pick a colourful pixel-art avatar, change its look whenever you like, and take it with you into every world.</>}
+        detail={[
+          <>Pipoya-style user avatars — colorful, expressive pixel art characters. Customize your look and express yourself in every world.</>,
+        ]}
+        scene="looks"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="page_features_woka_avatars"
+      />
 
       {/* Features Section */}
       <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v border-t border-divider">
@@ -157,19 +114,12 @@ export default function WokaAvatarsPageContent() {
         </div>
       </Section>
 
-      {/* CTA */}
-      <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
-        <div className="primary-gradient rounded-[40px] p-12 md:p-20 text-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-          <div className="relative z-10">
-            <h2 className="font-display-hero text-display-hero text-white mb-6">Ready to enter the Universe?</h2>
-            <p className="font-body-md text-body-md text-white/80 max-w-xl mx-auto mb-10">Join thousands of players and creators building the future of digital identity. Your adventure starts with your avatar.</p>
-            <button className="bg-white text-[#6d3bd7] px-12 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all shadow-xl active:scale-95">
-              Create Your Character
-            </button>
-          </div>
-        </div>
-      </Section>
+      <PageClosing
+        title={<>Ready to enter the Universe?</>}
+        body={<>Your adventure starts with your avatar.</>}
+        links={[{ label: 'See all features', href: '/features-overview' }]}
+        source="page_features_woka_avatars"
+      />
     </main>
   );
 }

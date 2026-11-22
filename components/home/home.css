@@ -415,4 +415,5 @@
   .uh-h1 .uh-g, .uh-av.uh-walking, .uh-bk, .uh-bk.uh-hopping, .uh-say, .uh-fire::before, .uh-gate::before, .uh-gate::after,
   .uh-orbit .uh-o, .uh-tick > div, .uh-parade, .uh-build .uh-sheet i { animation: none !important; }
   .uh-build .uh-sheet i { width: 70%; }
+  .uh-cam, .uh-prox .uh-ring, .uh-prox .uh-hint, .uh-av.uh-mover, .uh-rug, .uh-swatches i { transition: none !important; }
 }

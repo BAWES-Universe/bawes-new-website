@@ -4,42 +4,23 @@
 
 import React from 'react';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function UseCaseMarketPageContent() {
   return (
     <main className="pt-20">
-      {/* Hero Section */}
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/use-cases" className="hover:text-primary transition-colors">Use Cases</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Market</span>
-        </div>
-      </div>
-            <section className="max-w-container-max mx-auto px-gutter py-section-padding-v flex flex-col md:flex-row items-center gap-12">
-        <div className="flex-1 space-y-6">
-          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-white tracking-tight">
-            Commerce in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6]">shared spaces.</span>
-          </h1>
-          <p className="text-on-surface-variant text-lg md:text-xl max-w-xl leading-relaxed">
-            Universe supports commerce as a spatial experience. People explore shops, services, and marketplaces together inside shared environments, while transactions connect to the real world.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Link href="https://universe.bawes.net" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-label-navigation px-8 py-4 rounded-full shadow-lg active:scale-95 transition-all inline-block">
-              Enter the Universe
-            </Link>
-            <Link href="/features-overview" className="font-label-navigation px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all inline-block">
-              All Features
-            </Link>
-          </div>
-        </div>
-        <div className="flex-1 w-full relative">
-          <div className="glass-card rounded-2xl overflow-hidden shadow-2xl aspect-video flex items-center justify-center">
-            <span className="material-symbols-outlined text-7xl text-primary/30">storefront</span>
-          </div>
-          <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/30 rounded-full blur-[120px] pointer-events-none"></div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Use Cases', href: '/use-cases' }]}
+        here="Market"
+        title={<>Commerce in <span className="text-gradient-accent">shared spaces</span></>}
+        lead={<>Browse shops, services and marketplaces together, the way you would walk a real market with friends.</>}
+        detail={[
+          <>Universe supports commerce as a spatial experience. People explore shops, services, and marketplaces together inside shared environments, while transactions connect to the real world.</>,
+        ]}
+        scene="market"
+        actions={[{ label: 'All features', href: '/features-overview' }]}
+        source="page_use_cases_market"
+      />
 
       {/* What This Enables */}
       <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
@@ -148,26 +129,11 @@ export default function UseCaseMarketPageContent() {
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
-        <div className="glass-card rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[120px]"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-[120px]"></div>
-          <div className="relative z-10 space-y-8">
-            <h2 className="font-display-hero text-headline-section md:text-display-hero text-white max-w-3xl mx-auto">
-              Ready to bring a market into your universe?
-            </h2>
-            <div className="flex flex-wrap justify-center gap-6">
-              <Link href="/contact" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-label-navigation px-10 py-5 rounded-full shadow-lg active:scale-95 transition-all text-lg inline-block">
-                Set up your shop
-              </Link>
-              <Link href="/contact" className="font-label-navigation px-10 py-5 rounded-full border border-white/30 text-white hover:bg-white/5 active:scale-95 transition-all text-lg inline-block">
-                Talk to us
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageClosing
+        title={<>Ready to bring a market into your universe?</>}
+        links={[{ label: 'Set up your shop', href: '/contact' }, { label: 'All use cases', href: '/use-cases' }]}
+        source="page_use_cases_market"
+      />
     </main>
   );
 }

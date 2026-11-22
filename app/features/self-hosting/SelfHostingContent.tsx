@@ -6,67 +6,23 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function SelfHostingPageContent() {
   return (
-    <main className="pt-32">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/platform" className="hover:text-primary transition-colors">Platform</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Self-Hosting</span>
-        </div>
-      </div>
-      {/* Hero Section */}
-      <Section className="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[716px] mb-section-padding-v">
-        <div className="space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-glass border border-border-purple">
-            <span className="material-symbols-outlined text-[18px] text-tertiary" style={{ fontVariationSettings: "'FILL' 1" }}>terminal</span>
-            <span className="text-caption font-caption text-tertiary uppercase tracking-widest">Self-Hosting Stack v4.2.0</span>
-          </div>
-          <h1 className="font-display-hero text-display-hero text-white tracking-tight leading-none">
-            Run Your Own <br /><span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Universe.</span>
-          </h1>
-          <p className="font-body-md text-text-secondary max-w-xl text-lg">
-            Self-host the entire BAWES Universe stack on your infrastructure. Experience total sovereignty with full control over your data, privacy, and performance.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Link href="/features/self-hosting" className="px-8 py-4 rounded-full font-label-navigation text-label-navigation bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-bold text-lg neon-glow-purple flex items-center gap-3 active:scale-95 transition-transform">
-              Launch Self-Host Guide
-              <span className="material-symbols-outlined">arrow_forward</span>
-            </Link>
-            <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-label-navigation text-label-navigation border border-border-purple text-on-surface hover:bg-surface-glass flex items-center gap-3 transition-all inline-block">
-              <span className="material-symbols-outlined">code</span>
-              View on GitHub
-            </a>
-          </div>
-          <div className="flex items-center gap-8 pt-8">
-            <div className="flex flex-col">
-              <span className="text-headline-card font-bold text-white">99.9%</span>
-              <span className="text-caption font-caption text-text-low-emphasis uppercase tracking-wider">Uptime Reliability</span>
-            </div>
-            <div className="w-px h-10 bg-divider"></div>
-            <div className="flex flex-col">
-              <span className="text-headline-card font-bold text-white">0ms</span>
-              <span className="text-caption font-caption text-text-low-emphasis uppercase tracking-wider">Data Latency</span>
-            </div>
-          </div>
-        </div>
-        <div className="relative group">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 blur-[80px] opacity-30 rounded-full group-hover:opacity-50 transition-opacity"></div>
-          <div className="relative glass-card rounded-3xl p-4 overflow-hidden border-2 border-white/10">
-            <div className="aspect-square rounded-2xl bg-surface-container-high flex items-center justify-center">
-              <span className="material-symbols-outlined text-7xl text-primary/30">dns</span>
-            </div>
-            <div className="absolute bottom-10 right-10 glass-card p-4 rounded-xl flex items-center gap-3">
-              <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-caption font-caption text-white font-bold">NODE-01 ONLINE</span>
-            </div>
-          </div>
-        </div>
-      </Section>
+    <main className="pt-20">
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Platform', href: '/platform' }]}
+        here="Self-Hosting"
+        title={<>Run your own <span className="text-gradient-accent">universe</span></>}
+        lead={<>Run the whole of Universe on your own servers, with your data, your privacy and your rules.</>}
+        detail={[
+          <>Self-host the entire BAWES Universe stack on your infrastructure. Experience total sovereignty with full control over your data, privacy, and performance.</>,
+        ]}
+        scene="desks"
+        actions={[{ label: 'View on GitHub', href: 'https://github.com/BAWES-Universe' }]}
+        source="page_features_self_hosting"
+      />
 
       {/* Features Bento */}
       <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v relative">
@@ -185,21 +141,12 @@ export default function SelfHostingPageContent() {
         </div>
       </Section>
 
-      {/* Final CTA */}
-      <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v text-center">
-        <div className="glass-card p-12 rounded-[3rem] relative overflow-hidden">
-          <div className="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 blur-[100px] rounded-full"></div>
-          <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary/20 blur-[100px] rounded-full"></div>
-          <div className="relative z-10 space-y-6">
-            <h2 className="font-headline-section text-headline-section text-white">Ready to deploy?</h2>
-            <p className="text-text-secondary max-w-xl mx-auto">Join thousands of developers hosting their own sovereign digital worlds. Our documentation will guide you every step of the way.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-label-navigation text-label-navigation bg-white text-background font-bold hover:bg-opacity-90 transition-all active:scale-95 inline-block">Read the Docs</a>
-              <a href="https://discord.gg/CXceJWnwNT" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full font-label-navigation text-label-navigation border border-white/20 text-white font-bold hover:bg-white/5 transition-all inline-block">Join the Discord</a>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <PageClosing
+        title={<>Ready to deploy?</>}
+        body={<>Our documentation will guide you every step of the way.</>}
+        links={[{ label: 'Read the docs', href: 'https://github.com/BAWES-Universe' }, { label: 'Join the Discord', href: 'https://discord.gg/CXceJWnwNT' }]}
+        source="page_features_self_hosting"
+      />
     </main>
   );
 }

@@ -1,13 +1,15 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, MotionConfig } from 'framer-motion'
 import Plaza from '@/components/home/Plaza'
 import FeelLoops from '@/components/home/FeelLoops'
 import BrickSection from '@/components/home/BrickSection'
 import Soon, { Live } from '@/components/home/Soon'
-import { Avatar, Brick, vars, type AvatarId, type BrickColour } from '@/components/home/sprites'
-import { captureEnterUniverse, captureCtaClick, captureExternalLink, getCrossDomainUrl, UNIVERSE_URL } from '@/lib/posthog'
+import EnterCta from '@/components/home/EnterCta'
+import Parade from '@/components/home/Parade'
+import { Avatar, Brick, vars, type AvatarId } from '@/components/home/sprites'
+import { captureCtaClick, captureExternalLink } from '@/lib/posthog'
 import '@/components/home/home.css'
 
 /* ═══════════════════════════════════════════════════════════════
@@ -79,11 +81,6 @@ const steps = [
 ]
 
 /* The closing parade: avatars walk right, Bricks hop right. */
-const parade: ({ avatar: AvatarId } | { brick: BrickColour })[] = [
-  { avatar: 'a' }, { brick: 'orange' }, { avatar: 'j' }, { avatar: 'd' }, { brick: 'violet' }, { avatar: 'g' }, { avatar: 'cat' }, { avatar: 'e' }, { brick: 'teal' }, { avatar: 'k' },
-  { avatar: 'c' }, { brick: 'pink' }, { avatar: 'm' }, { avatar: 'dog' }, { brick: 'sky' }, { avatar: 'b' }, { avatar: 'i' }, { brick: 'green' }, { avatar: 'l' }, { avatar: 'n' },
-]
-
 /* ═══════════════════════════════════════════════════════════════
    PRIMITIVES
    ═══════════════════════════════════════════════════════════════ */
@@ -101,25 +98,6 @@ const rise = (delay = 0) => ({
   viewport: { once: true, margin: '-60px' },
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 })
-
-function EnterCta({ source, className = '' }: { source: string; className?: string }) {
-  return (
-    <a
-      href={UNIVERSE_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={(e) => {
-        e.preventDefault()
-        captureEnterUniverse(source)
-        window.open(getCrossDomainUrl(UNIVERSE_URL), '_blank')
-      }}
-      className={`cta-primary ${className}`}
-    >
-      Enter the Universe
-      <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-    </a>
-  )
-}
 
 function SectionHead({ eyebrow, title, body, align = 'left' }: { eyebrow: string; title: React.ReactNode; body?: string; align?: 'left' | 'center' }) {
   return (
@@ -172,6 +150,7 @@ function Ticker({ names, seconds, reverse = false }: { names: string[]; seconds:
 
 export default function Home() {
   return (
+    <MotionConfig reducedMotion="user">
     <div className="uh relative z-10 overflow-x-clip">
       {/* ═══ HERO + PLAZA ═══ */}
       <section className="relative pt-28 md:pt-32 pb-6 md:pb-10 px-4 sm:px-6 lg:px-8">
@@ -559,19 +538,10 @@ export default function Home() {
               <Link href="/developers" className="hover:text-white transition-colors">Developer hub →</Link>
             </div>
           </div>
-          <div className="uh-road" aria-hidden="true">
-            <div className="uh-parade">
-              {[...parade, ...parade].map((who, k) =>
-                'brick' in who ? (
-                  <Brick key={k} colour={who.brick} className="uh-hopping" style={vars({ '--d': `-${((k % parade.length) * 0.13).toFixed(2)}s` })} />
-                ) : (
-                  <Avatar key={k} id={who.avatar} className="uh-walking" />
-                ),
-              )}
-            </div>
-          </div>
+          <Parade />
         </motion.div>
       </Wrap>
     </div>
+    </MotionConfig>
   )
 }

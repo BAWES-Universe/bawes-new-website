@@ -6,57 +6,23 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function WhiteLabelPageContent() {
   return (
     <main className="pt-20">
-      {/* Breadcrumb */}
-      <div className="max-w-container-max mx-auto px-gutter pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/platform" className="hover:text-primary transition-colors">Platform</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">White Label</span>
-        </div>
-      </div>
-      {/* Hero Section */}
-      <Section className="relative pt-40 pb-section-padding-v px-gutter max-w-container-max mx-auto text-center">
-        <div className="flex flex-col items-center">
-          <span className="inline-block px-4 py-1 rounded-full border border-purple text-primary text-caption mb-6 bg-surface-glass">
-            White-Label Solution
-          </span>
-          <h1 className="font-display-hero text-display-hero mb-6 text-white max-w-4xl leading-tight">
-            Your Brand. <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Your Universe.</span>
-          </h1>
-          <p className="font-body-md text-body-md text-text-secondary max-w-2xl mb-10">
-            Custom domain, logos, and branding for your universe instance. White-label the entire experience — your users see your brand, not ours.
-          </p>
-          <div className="flex flex-col md:flex-row gap-4 mb-20">
-            <Link href="/contact" className="neon-gradient px-8 py-4 rounded-full font-label-navigation text-lg text-white">
-              Launch Your Brand
-            </Link>
-            <Link href="/features/self-hosting" className="glass-card px-8 py-4 rounded-full font-label-navigation text-lg text-on-surface hover:bg-white/5">
-              View Documentation
-            </Link>
-          </div>
-          <div className="w-full relative glass-card rounded-2xl overflow-hidden aspect-[1.79] max-w-[1000px] mx-auto border-purple shadow-2xl">
-            <div className="w-full h-full bg-surface-container-high flex items-center justify-center aspect-video">
-              <span className="material-symbols-outlined text-7xl text-primary/30">palette</span>
-            </div>
-            <div className="absolute top-8 left-8 glass-card px-4 py-2 rounded-lg flex items-center gap-3">
-              <span className="material-symbols-outlined text-primary">domain</span>
-              <span className="text-caption font-bold">your-universe.com</span>
-            </div>
-            <div className="absolute bottom-8 right-8 glass-card p-6 rounded-xl flex flex-col items-start gap-2 max-w-[200px]">
-              <div className="w-10 h-10 rounded bg-gradient-to-br from-tertiary to-primary mb-2"></div>
-              <span className="text-caption opacity-60">Identity Applied</span>
-              <div className="h-1 w-full bg-surface-variant rounded-full overflow-hidden">
-                <div className="h-full bg-primary w-[85%]"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Platform', href: '/platform' }]}
+        here="White Label"
+        title={<>Your brand. <span className="text-gradient-accent">Your universe.</span></>}
+        lead={<>Use your own web address, logo and colours. People see your brand, not ours.</>}
+        detail={[
+          <>Custom domain, logos, and branding for your universe instance. White-label the entire experience — your users see your brand, not ours.</>,
+        ]}
+        scene="looks"
+        actions={[{ label: 'Talk to us', href: '/contact' }, { label: 'Self-hosting', href: '/features/self-hosting' }]}
+        source="page_features_white_label"
+      />
 
       {/* Features Grid */}
       <Section className="py-section-padding-v px-gutter max-w-container-max mx-auto">
@@ -159,6 +125,11 @@ export default function WhiteLabelPageContent() {
           </Link>
         </div>
       </Section>
+      <PageClosing
+        title={<>Make it yours</>}
+        links={[{ label: 'Talk to us', href: '/contact' }, { label: 'See all features', href: '/features-overview' }]}
+        source="page_features_white_label"
+      />
     </main>
   );
 }

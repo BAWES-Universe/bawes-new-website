@@ -1,9 +1,10 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { useReducedMotion } from 'framer-motion'
 import { Avatar, Brick, vars } from './sprites'
 import Soon from './Soon'
-import { at, halt, hasPosition, prefersReducedMotion, put, setRest, walk, type Pt } from './walk'
+import { at, halt, hasPosition, put, setRest, walk, type Pt } from './walk'
 
 /**
  * The plaza: seven spots, one for each thing you can do in Universe.
@@ -137,6 +138,8 @@ export default function Plaza() {
   const touched = useRef(false)
   const [interacted, setInteracted] = useState(false)
   const moveYou = useRef<(i: number, instant: boolean) => void>(() => {})
+  // follows the visitor's setting, also when it changes while the page is open
+  const reduce = useReducedMotion() ?? false
 
   useEffect(() => {
     const scene = sceneRef.current
@@ -145,7 +148,6 @@ export default function Plaza() {
     const p2 = passer2Ref.current
     if (!scene || !you || !p1 || !p2) return
 
-    const reduce = prefersReducedMotion()
     const places = Array.from(scene.querySelectorAll<HTMLElement>('.uh-place'))
     let alive = true
     const timers = new Set<ReturnType<typeof setTimeout>>()
@@ -221,7 +223,7 @@ export default function Plaza() {
       halt(p1)
       halt(p2)
     }
-  }, [])
+  }, [reduce])
 
   useEffect(() => {
     curRef.current = cur

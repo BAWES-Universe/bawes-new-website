@@ -6,44 +6,20 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function UseCaseCommunityPageContent() {
   return (
     <main className="pt-20">
-      {/* Hero Section */}
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/use-cases" className="hover:text-primary transition-colors">Use Cases</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">For Community</span>
-        </div>
-      </div>
-            <section className="relative pt-32 pb-section-padding-v px-margin-mobile md:px-gutter max-w-container-max mx-auto overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">
-              Spaces Where <span className="text-gradient">Communities</span> Come Alive.
-            </h1>
-            <p className="text-text-secondary text-lg max-w-xl">
-              Hangouts, gaming groups, fan communities, meetups — build a space where people actually want to spend time.
-            </p>
-            <div className="flex gap-4 pt-4">
-              <Button href="/contact" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] px-8 py-4 rounded-full font-label-navigation text-white shadow-lg transition-transform hover:scale-105">
-                Create Your Space
-              </Button>
-              <Button href="/how-it-works" className="px-8 py-4 rounded-full font-label-navigation border border-white/30 text-white hover:bg-white/5 transition-all">
-                View Demo
-              </Button>
-            </div>
-          </div>
-          <div className="relative group">
-            <div className="absolute -inset-4 bg-primary/20 blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
-            <div className="relative glass-card rounded-2xl overflow-hidden aspect-video shadow-2xl flex items-center justify-center">
-              <span className="material-symbols-outlined text-7xl text-primary/30">diversity_3</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Use Cases', href: '/use-cases' }]}
+        here="For Community"
+        title={<>Spaces where <span className="text-gradient-accent">communities</span> come alive</>}
+        lead={<>Hangouts, gaming groups, fan communities, meetups — build a space where people actually want to spend time.</>}
+        scene="fire"
+        actions={[{ label: 'Create your space', href: '/contact' }, { label: 'How it works', href: '/how-it-works' }]}
+        source="page_use_cases_community"
+      />
 
       {/* How It Works */}
       <section className="py-section-padding-v px-margin-mobile md:px-gutter max-w-container-max mx-auto">
@@ -137,6 +113,12 @@ export default function UseCaseCommunityPageContent() {
           </div>
         </div>
       </section>
+      <PageClosing
+        title={<>Give your community a home</>}
+        body={<>Walk in, say hello, and look around.</>}
+        links={[{ label: 'Create your space', href: '/contact' }, { label: 'All use cases', href: '/use-cases' }]}
+        source="page_use_cases_community"
+      />
     </main>
   );
 }

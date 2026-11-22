@@ -93,7 +93,3 @@ export function walk(el: HTMLElement, to: Pt, reduce: boolean, done?: () => void
     done?.()
   }, t * 1000 + 40)
 }
-
-export function prefersReducedMotion(): boolean {
-  return typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-}

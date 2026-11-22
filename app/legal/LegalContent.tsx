@@ -6,53 +6,22 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
 export default function LegalPageContent() {
   return (
-    <main className="pt-32">
-      {/* Hero Section */}
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/about" className="hover:text-primary transition-colors">About</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Legal</span>
-        </div>
-      </div>
-            <section className="max-w-container-max mx-auto px-gutter mb-section-padding-v">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="font-display-hero text-display-hero mb-6">
-              <span className="text-gradient">Transparency</span><br />by Default.
-            </h1>
-            <p className="font-body-md text-body-md text-text-secondary max-w-lg mb-8">
-              Privacy policy, terms of service, and fair usage. We believe in clear, honest legal terms for the decentralized future.
-            </p>
-            <div className="flex gap-4">
-              <div className="glass-card px-4 py-2 rounded-lg flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>verified_user</span>
-                <span className="font-caption text-caption uppercase tracking-wider text-primary">GDPR Compliant</span>
-              </div>
-              <div className="glass-card px-4 py-2 rounded-lg flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>lock_open</span>
-                <span className="font-caption text-caption uppercase tracking-wider text-primary">MIT Licensed</span>
-              </div>
-            </div>
-          </div>
-          <div className="relative h-[400px] flex items-center justify-center">
-            <div className="relative w-full h-full glass-card rounded-3xl overflow-hidden border-2 border-primary/20">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                  <div className="w-48 h-64 glass-card rounded-2xl rotate-[15deg] absolute -left-12 -top-12 border-white/10"></div>
-                  <div className="w-48 h-64 glass-card rounded-2xl -rotate-[5deg] relative z-10 border-primary/30 flex items-center justify-center">
-                    <span className="material-symbols-outlined text-6xl text-primary animate-pulse" style={{ fontVariationSettings: "'wght' 200" }}>security</span>
-                  </div>
-                  <div className="w-48 h-64 glass-card rounded-2xl rotate-[25deg] absolute -right-12 -bottom-12 border-white/10"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <main className="pt-20">
+      <PageHero
+        crumbs={[{ label: 'About', href: '/about' }]}
+        here="Legal"
+        title={<><span className="text-gradient-accent">Transparency</span> by default</>}
+        lead={<>Privacy policy, terms of service, and fair usage. We believe in clear, honest legal terms for the decentralized future.</>}
+        detail={[
+          <>GDPR Compliant · MIT Licensed</>,
+        ]}
+        scene="desks"
+        noEnter
+        source="page_legal"
+      />
 
       {/* Content Bento Grid */}
       <section className="max-w-container-max mx-auto px-gutter mb-section-padding-v">

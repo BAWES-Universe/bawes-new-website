@@ -1,59 +1,24 @@
 'use client'
 
 import Link from 'next/link'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function ScriptingApiPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Scripting API</span>
-        </div>
-      </div>
 
-      {/* Hero */}
-      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
-            <span className="material-symbols-outlined text-lg">code</span>
-            Map Scripting
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Code That <span className="text-gradient">Shapes</span> Worlds.
-          </h1>
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
-            <code className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-lg font-mono">WA.ui</code>,{' '}
-            <code className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-lg font-mono">WA.room</code>,{' '}
-            <code className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-lg font-mono">WA.player</code>,{' '}
-            <code className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-lg font-mono">WA.state</code>
-            — the scripting API from WorkAdventure. Control rooms, players, state, and UI from your map scripts.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center mt-8">
-            <a
-              href="https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer/map-scripting"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
-            >
-              <span className="material-symbols-outlined text-lg">code</span>
-              Scripting Docs
-            </a>
-            <a
-              href="https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer/map-scripting/references"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full border border-white/30 text-white font-semibold text-sm inline-flex items-center gap-2 hover:bg-white/5 hover:-translate-y-0.5 transition-all duration-200"
-            >
-              <span className="material-symbols-outlined text-lg">menu_book</span>
-              API Reference
-            </a>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Build & Create', href: '/build' }]}
+        here="Scripting API"
+        title={<>Code that <span className="text-gradient-accent">shapes</span> worlds</>}
+        lead={<>For builders: write small scripts that make your map react to people, remember things, and show its own buttons and windows.</>}
+        detail={[
+          <><code className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-sm font-mono">WA.ui</code>,{' '} <code className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-sm font-mono">WA.room</code>,{' '} <code className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-sm font-mono">WA.player</code>,{' '} <code className="px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 text-sm font-mono">WA.state</code> — the scripting API from WorkAdventure. Control rooms, players, state, and UI from your map scripts.</>,
+        ]}
+        scene="desks"
+        actions={[{ label: 'Scripting docs', href: 'https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer/map-scripting' }, { label: 'API reference', href: 'https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer/map-scripting/references' }]}
+        source="feature_scripting"
+      />
 
       {/* API Pillars */}
       <section className="relative z-10 py-24 px-4">
@@ -293,6 +258,11 @@ export default function ScriptingApiPageContent() {
           </div>
         </div>
       </section>
+      <PageClosing
+        title={<>Ready to script your world?</>}
+        links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Developer hub', href: '/developers' }]}
+        source="page_features_scripting"
+      />
     </div>
   )
 }

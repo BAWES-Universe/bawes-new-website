@@ -6,45 +6,20 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function UseCaseWorkPageContent() {
   return (
-    <main className="pt-32">
-      {/* Hero Section */}
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/use-cases" className="hover:text-primary transition-colors">Use Cases</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">For Work</span>
-        </div>
-      </div>
-            <section className="max-w-container-max mx-auto px-gutter py-section-padding-v grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8">
-          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero leading-tight">
-            Work That Moves.<br />
-            <span className="text-primary">Not Meetings That Stall.</span>
-          </h1>
-          <p className="text-text-secondary text-lg max-w-lg">
-            Replace the endless Slack threads and Zoom links with a spatial office. Walk into a room, see who&apos;s there, and start working.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Button href="/contact" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] px-8 py-4 rounded-full font-label-navigation text-white hover:opacity-90 transition-all">
-              Build Your Workspace
-            </Button>
-            <Button href="/how-it-works" className="px-8 py-4 rounded-full border border-white/30 font-label-navigation text-white hover:bg-white/5 transition-all">
-              View Demo
-            </Button>
-          </div>
-        </div>
-        <div className="relative group">
-          <div className="absolute inset-0 bg-primary/20 blur-[80px] rounded-full group-hover:bg-primary/30 transition-all duration-700"></div>
-          <div className="relative rounded-2xl overflow-hidden glass-card p-2 border-purple">
-            <div className="aspect-video rounded-xl bg-surface-container-high flex items-center justify-center">
-              <span className="material-symbols-outlined text-6xl text-primary/30">business</span>
-            </div>
-          </div>
-        </div>
-      </section>
+    <main className="pt-20">
+      <PageHero
+        crumbs={[{ label: 'Use Cases', href: '/use-cases' }]}
+        here="For Work"
+        title={<>Work that moves. <span className="text-gradient-accent">Not meetings that stall.</span></>}
+        lead={<>Replace the endless Slack threads and Zoom links with a spatial office. Walk into a room, see who&apos;s there, and start working.</>}
+        scene="room"
+        actions={[{ label: 'Build your workspace', href: '/contact' }, { label: 'How it works', href: '/how-it-works' }]}
+        source="page_use_cases_work"
+      />
 
       {/* How It Works */}
       <section className="max-w-container-max mx-auto px-gutter py-section-padding-v border-t border-divider">
@@ -153,6 +128,12 @@ export default function UseCaseWorkPageContent() {
           </div>
         </div>
       </section>
+      <PageClosing
+        title={<>Walk into your new office</>}
+        body={<>Walk in, say hello, and look around.</>}
+        links={[{ label: 'Build your workspace', href: '/contact' }, { label: 'All use cases', href: '/use-cases' }]}
+        source="page_use_cases_work"
+      />
     </main>
   );
 }

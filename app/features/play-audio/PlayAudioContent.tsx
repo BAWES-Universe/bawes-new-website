@@ -1,38 +1,23 @@
 'use client'
 
-import Link from 'next/link'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function PlayAudioPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Hero */}
-            {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/communication" className="hover:text-primary transition-colors">Communication</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Play Audio</span>
-        </div>
-      </div>
-      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
-            <span className="material-symbols-outlined text-lg">spatial_audio</span>
-            Spatial Audio Engine
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Sound That <span className="text-gradient">Follows You.</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
-            Configure areas to trigger audio files when someone walks in. Perfect for entrance music, announcement chimes, or ambient atmosphere.
-          </p>
-          <p className="text-base text-white/40 max-w-2xl mx-auto mt-6">
-            The spatial audio engine dynamically processes zone-triggered sound with automatic culling, distance-based attenuation, and decentralized asset storage — keeping your soundscapes performant and persistent.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Communication', href: '/communication' }]}
+        here="Play Audio"
+        title={<>Sound that <span className="text-gradient-accent">follows you</span></>}
+        lead={<>Make an area play a sound when someone walks in: welcome music, a chime, or some background atmosphere.</>}
+        detail={[
+          <>Configure areas to trigger audio files when someone walks in. Perfect for entrance music, announcement chimes, or ambient atmosphere.</>,
+          <>The spatial audio engine dynamically processes zone-triggered sound with automatic culling, distance-based attenuation, and decentralized asset storage — keeping your soundscapes performant and persistent.</>,
+        ]}
+        scene="fire"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="feature_play_audio"
+      />
 
       {/* Features */}
       <section className="relative z-10 py-24 px-4">
@@ -115,22 +100,12 @@ export default function PlayAudioPageContent() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to add spatial audio?</h2>
-          <p className="text-white/60 mb-8">Configure zone-triggered audio in your universe today.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/" className="gradient-cta text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200">
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
-              Explore the Universe
-            </Link>
-            <Link href="/features-overview" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
-              See all features →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PageClosing
+        title={<>Ready to add spatial audio?</>}
+        body={<>Configure zone-triggered audio in your universe today.</>}
+        links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
+        source="feature_play_audio"
+      />
     </div>
   )
 }

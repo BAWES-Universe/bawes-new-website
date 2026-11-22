@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 
 export const metadata: Metadata = {
   title: 'Bot Gallery — Multi-Image Messages with Lightbox',
@@ -21,32 +22,19 @@ export const metadata: Metadata = {
 export default function BotGalleryPage() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/ai-bots" className="hover:text-primary transition-colors">AI Bots</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Bot Gallery</span>
-        </div>
-      </div>
 
-      {/* Hero */}
-      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
-            <span className="material-symbols-outlined text-lg">photo_library</span>
-            Gallery Messages
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Multiple Images, <span className="text-gradient">One Message.</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
-            Gallery messages display multiple images in a responsive grid with a full-screen lightbox. Works for both user-uploaded files and bot-generated images.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'AI Bots', href: '/ai-bots' }]}
+        here="Bot Gallery"
+        title={<>Many pictures, <span className="text-gradient-accent">one message</span></>}
+        lead={<>When a message has several pictures, they show as a tidy grid. Tap one to see it full screen.</>}
+        detail={[
+          <>Gallery messages display multiple images in a responsive grid with a full-screen lightbox. Works for both user-uploaded files and bot-generated images.</>,
+        ]}
+        scene="chat"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="feature_bot_gallery"
+      />
 
       {/* Layout */}
       <section className="relative z-10 py-24 px-4">
@@ -140,22 +128,12 @@ export default function BotGalleryPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">See galleries in action</h2>
-          <p className="text-white/60 mb-8">Upload multiple files or ask a bot to generate images.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/" className="gradient-cta text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200">
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
-              Explore the Universe
-            </Link>
-            <Link href="/features/bot-media-sending" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
-              See bot media sending →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PageClosing
+        title={<>See galleries in action</>}
+        body={<>Upload multiple files or ask a bot to generate images.</>}
+        links={[{ label: 'See bot media sending', href: '/features/bot-media-sending' }, { label: 'Back to the home page', href: '/' }]}
+        source="feature_bot_gallery"
+      />
     </div>
   )
 }

@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Section from '@/components/Section'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 const items = [
   { title: 'The Team', icon: 'groups', desc: 'Meet the people building the BAWES universe.', href: '/team' },
   { title: 'Manifesto', icon: 'auto_awesome', desc: 'Our philosophy, vision, and the future we are building.', href: '/manifesto' },
@@ -21,43 +23,19 @@ const fadeUp = (delay = 0) => ({
 export default function AboutPageContent() {
   return (
     <div className="pt-20">
-      {/* Hero */}
-      <section className="min-h-[45vh] flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-accent-purple/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-accent-amber/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-accent-purple mb-8"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">info</span>
-              About BAWES
-            </motion.div>
-
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-white mb-6 tracking-[-0.03em]">
-              Who We Are &{' '}
-              <span className="bg-[length:200%_200%] animate-shimmer bg-clip-text text-transparent"
-                style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa 0%, #f59e0b 50%, #a78bfa 100%)' }}>
-                What We Believe.
-              </span>
-            </h1>
-
-            <p className="text-lg text-text-muted leading-relaxed max-w-2xl mx-auto">
-              BAWES Universe is built by a distributed team of engineers, designers, and dreamers. We believe in open source, spatial intelligence, and the power of presence.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[]}
+        here="About"
+        eyebrow="About BAWES"
+        title={<>Who we are and <span className="text-gradient-accent">what we believe</span></>}
+        lead={<>We are a small, spread-out team building a place online where being together feels real.</>}
+        detail={[
+          <>BAWES Universe is built by a distributed team of engineers, designers, and dreamers. We believe in open source, spatial intelligence, and the power of presence.</>,
+        ]}
+        scene="fire"
+        actions={[{ label: 'The team', href: '/team' }, { label: 'Read the manifesto', href: '/manifesto' }]}
+        source="page_about"
+      />
 
       {/* Cards */}
       <Section className="relative">
@@ -84,6 +62,12 @@ export default function AboutPageContent() {
           </div>
         </div>
       </Section>
+      <PageClosing
+        title={<>Come and see it for yourself</>}
+        body={<>Walk in, say hello, and look around.</>}
+        links={[{ label: 'Read the manifesto', href: '/manifesto' }, { label: 'Talk to us', href: '/contact' }]}
+        source="page_about"
+      />
     </div>
   )
 }

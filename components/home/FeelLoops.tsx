@@ -2,8 +2,9 @@
 
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
+import { useReducedMotion } from 'framer-motion'
 import { Avatar, Brick, vars, type AvatarId } from './sprites'
-import { at, halt, prefersReducedMotion, put, setRest, walk, type Pt } from './walk'
+import { at, halt, put, setRest, walk, type Pt } from './walk'
 
 /** Three small looping scenes that show how Universe feels, in place of videos. */
 
@@ -13,13 +14,13 @@ function ProximityLoop() {
   const boxRef = useRef<HTMLDivElement>(null)
   const walkerRef = useRef<HTMLSpanElement>(null)
   const [talking, setTalking] = useState(false)
+  const reduce = useReducedMotion() ?? false
 
   useEffect(() => {
     const box = boxRef.current
     const walker = walkerRef.current
     if (!box || !walker) return
 
-    const reduce = prefersReducedMotion()
     let run = 0
     const timers = new Set<ReturnType<typeof setTimeout>>()
     const later = (fn: () => void, ms: number, forRun: number) => {
@@ -70,7 +71,7 @@ function ProximityLoop() {
       timers.forEach(clearTimeout)
       halt(walker)
     }
-  }, [])
+  }, [reduce])
 
   return (
     <div className={`uh-loop-art uh-prox ${talking ? 'uh-talking' : ''}`} ref={boxRef}>
@@ -86,14 +87,15 @@ function ProximityLoop() {
 
 function LooksLoop() {
   const [look, setLook] = useState(0)
+  const reduce = useReducedMotion() ?? false
 
   useEffect(() => {
-    if (prefersReducedMotion()) return
+    if (reduce) return
     const t = setInterval(() => {
       if (!document.hidden) setLook((l) => (l + 1) % LOOKS.length)
     }, 1100)
     return () => clearInterval(t)
-  }, [])
+  }, [reduce])
 
   return (
     <div className="uh-loop-art uh-looks">
