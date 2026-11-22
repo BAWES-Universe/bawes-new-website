@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
 import { GUIDE } from '@/lib/guide'
-import { BRICKS_LIVE } from '@/lib/release'
 import { SITE_URL } from '@/lib/site'
 import '@/components/home/home.css'
 import '@/components/guide/guide.css'
@@ -65,12 +64,6 @@ export default function GuideHome() {
             ))}
           </ol>
 
-          {!BRICKS_LIVE && (
-            <div className="uh-ghub-more">
-              <h2>More pages are on the way</h2>
-              <p>Pages about your own Brick and about Apps arrive together with the Bricks release.</p>
-            </div>
-          )}
 
           <div className="uh-ghub-more">
             <h2>Building something?</h2>

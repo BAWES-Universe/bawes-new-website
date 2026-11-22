@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 import { Avatar, Brick, vars } from './sprites'
-import Soon from './Soon'
 import { at, halt, hasPosition, put, setRest, walk, type Pt } from './walk'
 
 /**
@@ -14,7 +13,6 @@ import { at, halt, hasPosition, put, setRest, walk, type Pt } from './walk'
 
 interface Thing {
   title: string
-  soon?: boolean
   body: string
   go: string
 }
@@ -25,7 +23,7 @@ const THINGS: Thing[] = [
   { title: 'AI residents live here', body: 'They walk around, remember you, and talk out loud or in chat. Each one has a job it is good at.', go: 'Residents stand in the rooms like everyone else. Walk up and talk.' },
   { title: 'Orbit takes you anywhere', body: 'Universes hold worlds, and worlds hold rooms. Orbit shows what is live, keeps your stars and your passport, and takes you there in one tap.', go: 'Open Orbit from anywhere, or search for a room, a world or a person.' },
   { title: 'Talks, classes, game nights', body: 'A stage lets one person speak to the whole crowd. Sit in the audience, or take the stage yourself.', go: 'Friends and starred rooms show you where things are happening.' },
-  { title: 'Your own AI companion', soon: true, body: 'Everyone gets a Brick. Chat with it or call it, connect your Apps, and ask it to build things for you.', go: 'Brick lives in your chats and can walk with you.' },
+  { title: 'Your own AI companion', body: 'Everyone gets a Brick. Chat with it or call it, connect your Apps, and ask it to build things for you.', go: 'Brick lives in your chats and can walk with you.' },
   { title: 'Apps, pages, documents, drawings', body: 'Whatever gets made here is an artifact. Open it inside Universe, or send a link to anyone.', go: 'Your artifacts sit in one list in your account, ready to share.' },
 ]
 
@@ -278,7 +276,6 @@ export default function Plaza() {
         <div>
           <h3>
             {thing.title}
-            {thing.soon && <Soon />}
           </h3>
           <p>{thing.body}</p>
           <p className="uh-go">{thing.go}</p>

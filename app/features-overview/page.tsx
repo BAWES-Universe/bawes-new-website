@@ -56,35 +56,6 @@ function FeatureCard({ href, icon, label, title, desc }: FeatureCardProps) {
   );
 }
 
-interface InfoCardProps {
-  icon: string;
-  label: string;
-  title: string;
-  desc: string;
-}
-
-function InfoCard({ icon, label, title, desc }: InfoCardProps) {
-  return (
-    <div className="info-card p-6 rounded-xl flex flex-col h-full" style={{ cursor: 'default' }}>
-      <div className="flex justify-between items-start mb-4">
-        <span className="material-symbols-outlined text-3xl" style={{ color: 'rgba(167,139,250,0.5)' }}>{icon}</span>
-        <span className="px-2 py-1 rounded text-[10px] font-bold whitespace-nowrap"
-          style={{
-            color: '#34d399',
-            background: 'rgba(52,211,153,0.1)',
-            border: '1px solid rgba(52,211,153,0.2)',
-          }}
-        >
-          {label}
-        </span>
-      </div>
-      <h3 className="font-headline-card text-lg mb-2" style={{ color: 'rgba(255,255,255,0.6)' }}>{title}</h3>
-      <p className="text-sm flex-grow" style={{ color: 'rgba(231,224,237,0.4)' }}>{desc}</p>
-      <div className="card-label mt-2">Feature detail coming soon</div>
-    </div>
-  );
-}
-
 export default function FeaturesOverviewPage() {
   return (
     <div className="pt-20">
@@ -136,6 +107,13 @@ export default function FeaturesOverviewPage() {
           <p className="text-text-secondary max-w-2xl">Intelligent agents that inhabit your universe. Create, configure, and deploy bots that interact, remember, and act.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+          <FeatureCard href="/features/brick" icon="smart_toy" title="Brick" desc="Your own AI companion. Everyone gets one, and it is yours from day one." />
+          <FeatureCard href="/features/apps" icon="apps" title="Apps" desc="Connect email, calendar, GitHub and 1,700+ more. You choose what runs right away and what asks first." />
+          <FeatureCard href="/features/artifacts" icon="auto_awesome" title="Artifacts" desc="Ask for a page, a mini app, a document or a drawing, and keep what it makes." />
+          <FeatureCard href="/features/artifact-community" icon="public" title="Community" desc="Make an artifact public, feature your best, and find what other people made." />
+          <FeatureCard href="/features/brick-templates" icon="content_copy" title="Brick Templates" desc="Start a new Brick from one someone shared, or share yours." />
+          <FeatureCard href="/features/goals-and-tasks" icon="flag" title="Goals and Tasks" desc="Give your Brick a goal, a schedule or a reminder. It keeps at it while you are away." />
+          <FeatureCard href="/features/brick-computer" icon="computer" title="A Computer for Your Brick" desc="For the jobs no App can do. Watch it work, and take over when you want." />
           <FeatureCard href="/features/bot-behaviors" icon="psychology" title="Bot Behaviors" desc="Bots that stay put, wander, walk a route, come over and show the way." />
           <FeatureCard href="/features/bot-memory" icon="memory" title="Bot Memory" desc="Bots remember past interactions, creating persistent relationships with users." />
           <FeatureCard href="/features/bot-streaming" icon="stream" title="Streaming Chat" desc="Replies that appear in the chat as the bot writes them." />
@@ -144,7 +122,7 @@ export default function FeaturesOverviewPage() {
           <FeatureCard href="/features/bot-emotions" icon="favorite" title="Bot Emotions" desc="Feelings a bot builds toward each person, from how their chats go." />
           <FeatureCard href="/features/bot-greetings" icon="waving_hand" title="Bot Greetings" desc="A hello in the bot’s own words when someone comes close." />
           <FeatureCard href="/features/bot-provider-config" icon="settings" title="Bot Provider Config" desc="Configure AI providers — OpenAI, Anthropic, local models, and more." />
-          <FeatureCard href="/features/recursive-bots" icon="device_hub" title="Recursive Bots" desc="A team of bots in one room, each with its own model, memory and tools." />
+          <FeatureCard href="/features/recursive-bots" icon="device_hub" title="Recursive Bots" desc="Ask your Brick for a helper and it makes one. Or run a team of bots in one room, each with its own model, memory and tools." />
           <FeatureCard href="/features/bot-editor" icon="edit" title="Bot Editor" desc="Visual editor to create, tweak, and manage your entire bot fleet." />
           <FeatureCard href="/features/bot-file-parsing" icon="description" title="Bot File Parsing" desc="Bots analyze PDF, Word, Excel, and web pages — extract content and answer questions." />
           <FeatureCard href="/features/bot-media-sending" icon="image" title="Bot Media Sending" desc="Pictures, video and files a bot makes with its tools arrive in your chat." />
@@ -171,6 +149,7 @@ export default function FeaturesOverviewPage() {
           <FeatureCard href="/features/entity-editor" icon="view_in_ar" label="INHERITED" title="Entity Editor" desc="Place, configure, and manage interactive entities on your maps." />
           <FeatureCard href="/features/scripting" icon="code" label="INHERITED" title="Scripting API" desc="Extend functionality with a powerful scripting API for custom logic." />
           <FeatureCard href="/features/teleport" icon="near_me" label="INHERITED" title="Teleport" desc="Walk through an exit and arrive in another room." />
+          <FeatureCard href="/features/quests" icon="explore" title="Quests" desc="Set a few stops for your visitors. Their Brick leads them through." />
           <FeatureCard href="/features/orbit-operator" icon="space_dashboard" title="Orbit Operator" desc="The dashboard for your universe: worlds, rooms, members, roles and visitors." />
           <FeatureCard href="/features/searchable" icon="search" label="INHERITED" title="Searchable" desc="Mark a place or an object as searchable, so people can find it on the map." />
         </div>

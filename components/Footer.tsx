@@ -74,8 +74,11 @@ export default function Footer() {
                 <ul className="space-y-3">
                   {[
                     { label: 'Things to do', href: '/#things' },
-                    { label: 'Brick', href: '/#brick' },
-                    { label: 'Artifacts', href: '/#artifacts' },
+                    { label: 'Brick', href: '/features/brick' },
+                    { label: 'Apps', href: '/features/apps' },
+                    { label: 'Artifacts', href: '/features/artifacts' },
+                    { label: 'Community', href: '/features/artifact-community' },
+                    { label: 'Quests', href: '/features/quests' },
                     { label: 'Orbit and your account', href: '/#orbit' },
                     { label: 'Apps and AI', href: '/#apps' },
                     { label: 'Universe AI', href: '/#universe-ai' },

@@ -41,13 +41,14 @@ export default function UseCaseMarketPageContent() {
         body={[
           <>Universe does not replace your commerce tools. An area on the map can open a website when someone walks in: your web shop, a booking page, a ticket page or a payment link.</>,
           <>The sale itself happens in that tool, with the payment provider you already use.</>,
+          <>Your Brick can also make a page that takes a payment through your own payment service. The buyer pays on that service’s own page.</>,
         ]}
         facts={[
           ["Your shop in a room", "Open a website"],
           ["Payments", "In your own tools"],
           ["Talking to vendors", "Proximity chat"],
         ]}
-        links={[{ label: "Area zones", href: "/features/area-zones" }, { label: "Commerce", href: "/use-cases/commerce" }]}
+        links={[{ label: "Pages that take a payment", href: "/features/artifacts" }, { label: "Area zones", href: "/features/area-zones" }, { label: "Commerce", href: "/use-cases/commerce" }]}
       />
 
       <PartRelated

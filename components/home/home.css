@@ -16,43 +16,6 @@
   --uh-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
 }
 
-.uh-soon {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 100px;
-  font-size: 11px;
-  font-weight: 600;
-  background: rgba(245, 158, 11, 0.15);
-  color: var(--uh-gold);
-  white-space: nowrap;
-  font-family: 'Inter', sans-serif;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
-  -webkit-text-fill-color: currentColor;
-}
-.uh-live {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 100px;
-  font-size: 11px;
-  font-weight: 600;
-  background: rgba(16, 185, 129, 0.14);
-  color: var(--uh-green);
-  white-space: nowrap;
-  font-family: 'Inter', sans-serif;
-  line-height: 1.5;
-}
-.uh-live::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--uh-green);
-  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2);
-}
-.uh-h2-soon { vertical-align: middle; position: relative; top: -0.5em; }
 
 /* ─── hero ─── */
 .uh-hero-top { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: end; margin-bottom: 40px; }

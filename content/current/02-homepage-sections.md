@@ -6,9 +6,9 @@ Source: `app/page.tsx` and `components/home/`. In order, after the hero and plaz
 |---|--------------|----------|---------------|-----------|
 | 1 | How it feels (`#feel`) | Walk up. Say hi. That is the whole trick. | Three small animations: walk up to talk, change your avatar, a Brick building something | `/features/proximity-chat`, `/features/woka-avatars`, `/how-it-works` |
 | 2 | Orbit and your account (`#orbit`) | One account. A whole Universe around you. | Orbit rings (universes, worlds, rooms) and six cards: Orbit, Your universes, Your passport, Your artifacts, Your people, Your AI keys | `/features/orbit-operator` |
-| 3 | Brick (`#brick`) | Meet Brick. Yours from day one. | Example chat, six abilities, settings tabs (Look, Mind, Voice, Behavior, Permissions). Coming with Bricks. | `/ai-bots` |
-| 4 | Artifacts (`#artifacts`) | Ask for anything. Keep what it makes. | Four kinds: App, Page, Document, Drawing. Publish is Coming with Bricks. | |
-| 5 | Apps and AI (`#apps`) | Hook up anything. | 1,700+ Apps (Coming with Bricks), any AI model, any voice, as three moving rows of names | `/mcp-integration`, `/features/bot-provider-config` |
+| 3 | Brick (`#brick`) | Meet Brick. Yours from day one. | Example chat, six abilities, settings tabs (Look, Mind, Voice, Behavior, Permissions). | `/features/brick`, `/guide/your-brick`, `/ai-bots` |
+| 4 | Artifacts (`#artifacts`) | Ask for anything. Keep what it makes. | Four kinds: App, Page, Document, Drawing. | `/features/artifacts`, `/features/artifact-community` |
+| 5 | Apps and AI (`#apps`) | Hook up anything. | 1,700+ Apps, any AI model, any voice, as three moving rows of names | `/features/apps`, `/mcp-integration`, `/features/bot-provider-config` |
 | 6 | What people build (`#use-cases`) | Universes for work, school, community and more. | Seven use cases plus "Something else?" | `/use-cases/*`, `/use-cases` |
 | 7 | Everything in the box (`#features`) | The whole office, campus or venue. Already built. | Ten feature cards and nine "What residents can do" links | `/features/*`, `/features-overview`, `/ai-bots` |
 | 8 | Universe AI (`#universe-ai`) | Free to start. Room to grow. | Three steps: Start free, Bring your own keys, Or let us set it up | `/contact` |

@@ -83,6 +83,7 @@ export default function BotToolsPage() {
 
       <PartRelated
         links={[
+          { label: "Apps", href: "/features/apps", note: "Connect an app once, then pick which Bricks use it." },
           { label: "MCP integration", href: "/mcp-integration", note: "How tools plug into Universe." },
           { label: "Bot media sending", href: "/features/bot-media-sending", note: "Bots that send pictures." },
           { label: "Bot file parsing", href: "/features/bot-file-parsing", note: "Bots that read your files." },

@@ -5,7 +5,6 @@ import { motion, MotionConfig } from 'framer-motion'
 import Plaza from '@/components/home/Plaza'
 import FeelLoops from '@/components/home/FeelLoops'
 import BrickSection from '@/components/home/BrickSection'
-import Soon, { Live } from '@/components/home/Soon'
 import EnterCta from '@/components/home/EnterCta'
 import Parade from '@/components/home/Parade'
 import { Avatar, Brick, vars, type AvatarId } from '@/components/home/sprites'
@@ -38,7 +37,7 @@ const botCaps = [
   { icon: 'perm_media', title: 'Sends media', desc: 'Images, audio, video and files, delivered in-world.', href: '/features/bot-media-sending' },
   { icon: 'directions_walk', title: 'Behaviours', desc: 'Idle, patrol or social. Real pathfinding on the real map.', href: '/features/bot-behaviors' },
   { icon: 'tune', title: 'Any model', desc: 'OpenAI, local models via LM Studio, vision models per bot.', href: '/features/bot-provider-config' },
-  { icon: 'account_tree', title: 'Teams of bots', desc: 'Several bots in one room, each with its own model and memory.', href: '/features/recursive-bots' },
+  { icon: 'account_tree', title: 'Bots that build bots', desc: 'Ask your Brick for a helper and it makes one on the spot.', href: '/features/recursive-bots' },
 ]
 
 const useCases = [
@@ -52,7 +51,7 @@ const useCases = [
 ]
 
 const account = [
-  { title: 'Orbit', live: true, desc: 'See which rooms have people in them and jump straight in.' },
+  { title: 'Orbit', desc: 'See which rooms have people in them and jump straight in.' },
   { title: 'Your universes', desc: 'Create your own universe with worlds and rooms. Keep it open, or members only.' },
   { title: 'Your passport', desc: 'Stamps from the places you visit most, and stars on the ones you love.' },
   { title: 'Your artifacts', desc: 'Everything you have made, in one list, ready to open or share.' },
@@ -246,7 +245,6 @@ export default function Home() {
                 <div key={a.title} className="surface-card">
                   <b>
                     {a.title}
-                    {a.live && <Live>Live now</Live>}
                   </b>
                   <span className="uh-d">{a.desc}</span>
                 </div>
@@ -268,13 +266,15 @@ export default function Home() {
       <Wrap id="brick">
         <SectionHead
           eyebrow="Brick"
-          title={<>Meet Brick. <span className="text-gradient-accent">Yours from day one.</span> <Soon className="uh-h2-soon" /></>}
+          title={<>Meet Brick. <span className="text-gradient-accent">Yours from day one.</span></>}
           body="Brick is your own AI companion. It starts free on Universe AI, and it gets more useful the more you give it to do."
         />
         <motion.div {...rise(0.1)}>
           <BrickSection />
         </motion.div>
         <motion.div {...rise(0.15)} className="mt-6">
+          <MoreLink href="/features/brick" label="More about Brick" source="brick" />
+          <MoreLink href="/guide/your-brick" label="Your Brick, step by step" source="brick" />
           <MoreLink href="/ai-bots" label="Everything residents can do" source="brick" />
         </motion.div>
       </Wrap>
@@ -303,9 +303,11 @@ export default function Home() {
           ))}
         </div>
         <p className="uh-note">
-          <Soon /> Publish a finished version, and keep working on the next one in private.
+          Publish a finished version, and keep working on the next one in private.
         </p>
         <div className="mt-6">
+          <MoreLink href="/features/artifacts" label="More about artifacts" source="artifacts" />
+          <MoreLink href="/features/artifact-community" label="See what people made" source="artifacts" />
           <MoreLink href="/guide/artifacts" label="How artifacts work" source="artifacts" />
         </div>
       </Wrap>
@@ -320,7 +322,6 @@ export default function Home() {
         <motion.div {...rise(0.1)} className="uh-hook">
           <div className="uh-lane surface-card">
             <div>
-              <Soon />
               <b>
                 <span className="uh-big text-gradient-accent">1,700+</span>Apps
               </b>
@@ -330,7 +331,6 @@ export default function Home() {
           </div>
           <div className="uh-lane surface-card">
             <div>
-              <Live />
               <b>Any AI model</b>
               <p>Start on Universe AI. Switch a resident to your own key whenever you like.</p>
             </div>
@@ -338,7 +338,6 @@ export default function Home() {
           </div>
           <div className="uh-lane surface-card">
             <div>
-              <Live />
               <b>Any voice</b>
               <p>Choose who your residents hear with and speak with.</p>
             </div>
@@ -346,6 +345,7 @@ export default function Home() {
           </div>
         </motion.div>
         <motion.div {...rise(0.15)} className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+          <MoreLink href="/features/apps" label="More about Apps" source="apps" />
           <MoreLink href="/mcp-integration" label="Add your own App with MCP" source="apps" />
           <MoreLink href="/features/bot-provider-config" label="Choosing an AI provider" source="apps" />
           <MoreLink href="/guide/ai-and-voice-providers" label="Every model and voice you can add" source="apps" />

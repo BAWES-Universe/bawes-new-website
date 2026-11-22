@@ -42,6 +42,7 @@ export default function UseCaseCommercePageContent() {
         body={[
           <>Universe does not replace your commerce tools and does not take payments for you. It gives them a place people can walk into.</>,
           <>Sell with the shop, ticket or subscription tool you already use. Then give the buyer a role in Orbit, and that role opens the right rooms.</>,
+          <>Your Brick can also make a page that takes a payment through your own payment service. The buyer pays on that service’s own page.</>,
           <>Bots can use tools over MCP, so a bot can look things up in the systems you connect. It asks first before it changes or sends anything.</>,
         ]}
         facts={[
@@ -50,7 +51,7 @@ export default function UseCaseCommercePageContent() {
           ["Access", "By role"],
           ["Bots", "Tools over MCP"],
         ]}
-        links={[{ label: "Bot tool calling", href: "/features/bot-tools" }, { label: "Bot memory", href: "/features/bot-memory" }, { label: "Self-hosting", href: "/features/self-hosting" }]}
+        links={[{ label: "Pages that take a payment", href: "/features/artifacts" }, { label: "Bot tool calling", href: "/features/bot-tools" }, { label: "Bot memory", href: "/features/bot-memory" }, { label: "Self-hosting", href: "/features/self-hosting" }]}
       />
 
       <PartRelated

@@ -16,6 +16,7 @@ const features = [
   { title: 'Searchable', icon: 'search', description: 'Mark a place or an object as searchable, so people can find it on the map.' },
   { title: 'User Directory', icon: 'group', description: 'Browse and connect with users across your universe.' },
   { title: 'Avatar Platform', icon: 'face_6', description: 'Avatar sets and companions, and who may wear them.' },
+  { title: 'Quests', icon: 'explore', description: 'Set a few stops for your visitors. Their Brick leads them through.' },
 ]
 
 const featureSlugs: Record<string, string> = {
@@ -29,6 +30,7 @@ const featureSlugs: Record<string, string> = {
   'Searchable': '/features/searchable',
   'User Directory': '/features/user-directory',
   'Avatar Platform': '/features/avatar-platform',
+  'Quests': '/features/quests',
 }
 
 export default function BuildContent() {
