@@ -1,7 +1,7 @@
-'use client'
-
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated } from '@/components/page/PageParts'
+
 export default function MatrixChatPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
@@ -10,54 +10,47 @@ export default function MatrixChatPageContent() {
         here="Matrix Chat"
         title={<>Chat that <span className="text-gradient-accent">persists</span></>}
         lead={<>Your conversations are still there when you come back, and they follow you from room to room.</>}
-        detail={[
-          <>Optional Matrix/Synapse integration for persistent chat history. Conversations survive between visits. Cross-room message sync across the entire digital frontier.</>,
-        ]}
+        detail={[<>Matrix integration for persistent chat history. Conversations survive between visits and stay with you across rooms.</>]}
         scene="chat"
         actions={[{ label: 'See all features', href: '/features-overview' }]}
         source="feature_matrix_chat"
       />
 
-      {/* Features */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Infrastructure for Continuity</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="glass-card p-8 rounded-2xl flex flex-col items-start gap-6">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary border border-purple-500/20">
-                <span className="material-symbols-outlined">history</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white">Persistent History</h3>
-              <p className="text-white/60">Messages survive when you leave. Pick up exactly where you left off, every time.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl flex flex-col items-start gap-6">
-              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary border border-secondary/20">
-                <span className="material-symbols-outlined">dns</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white">Synapse Backend</h3>
-              <p className="text-white/60">Self-hosted Matrix server support. Full control over your data and infrastructure.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl flex flex-col items-start gap-6">
-              <div className="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary border border-tertiary/20">
-                <span className="material-symbols-outlined">sync_alt</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white">Cross-Room Sync</h3>
-              <p className="text-white/60">Conversation continuity across the entire universe. Stay connected as you move.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl flex flex-col items-start gap-6">
-              <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center text-white border border-white/20">
-                <span className="material-symbols-outlined">settings_suggest</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white">Optional Setup</h3>
-              <p className="text-white/60">Not required for core chat. A powerful enhancement for teams needing archival support.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="What it gives you"
+        title="Chat that remembers"
+        cards={[
+          { icon: "history", title: "Kept between visits", text: "Messages are still there when you come back. Pick up where you left off." },
+          { icon: "sync_alt", title: "It follows you", text: "Your direct messages and groups stay with you as you move from room to room." },
+          { icon: "forum", title: "A chat for a place", text: "Give an area of your map its own chat room.", more: { label: "Area zones", href: "/features/area-zones" } },
+        ]}
+      />
+
+      <PartBuilders
+        title="Built on an open standard"
+        body={[
+          <>Persistent chat runs on Matrix, an open standard for messaging. Universe ships with Synapse, the Matrix server, so when you host Universe yourself the chat history lives on your own server.</>,
+        ]}
+        facts={[
+          ["Standard", "Matrix"],
+          ["Server", "Synapse"],
+          ["Hosting", "Ours or your own"],
+        ]}
+        links={[{ label: "Self-hosting", href: "/features/self-hosting" }, { label: "Technology stack", href: "/features/tech-stack" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Text chat", href: "/features/text-chat", note: "Type to the people near you." },
+          { label: "Chats", href: "/guide/chats", note: "The step-by-step page, in the Guide." },
+          { label: "Self-hosting", href: "/features/self-hosting", note: "Run it on your own servers." },
+          { label: "Proximity chat", href: "/features/proximity-chat", note: "Walk up and talk." },
+        ]}
+      />
 
       <PageClosing
-        title={<>Ready for persistent presence?</>}
-        body={<>Join the distributed network and take control of your communication history today.</>}
+        title={<>Ready to pick up where you left off?</>}
+        body={<>Sign in, and your conversations are there when you come back.</>}
         links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
         source="feature_matrix_chat"
       />

@@ -3,16 +3,16 @@ import MapsPageContent from './MapsContent'
 
 export const metadata: Metadata = {
   title: 'Maps',
-  description: 'Maps are the structural foundation of Universe. Upload pixel-art maps, organize them into worlds and rooms, and build complex spatial hierarchies.',
+  description: 'Maps are the structural foundation of the BAWES Universe. Organize them into universes, worlds and rooms, and build your own pixel-art maps in Tiled.',
   openGraph: {
     title: 'Maps',
-    description: 'Maps are the structural foundation of Universe. Upload pixel-art maps, organize them into worlds and rooms, and build complex spatial hierarchies.',
+    description: 'Maps are the structural foundation of the BAWES Universe. Organize them into universes, worlds and rooms, and build your own pixel-art maps in Tiled.',
     type: 'website',
     images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Maps',
-    description: 'Maps are the structural foundation of Universe. Upload pixel-art maps, organize them into worlds and rooms, and build complex spatial hierarchies.',
+    description: 'Maps are the structural foundation of the BAWES Universe. Organize them into universes, worlds and rooms, and build your own pixel-art maps in Tiled.',
     card: 'summary_large_image',
     images: ['/images/enter-univ.png'],
   },

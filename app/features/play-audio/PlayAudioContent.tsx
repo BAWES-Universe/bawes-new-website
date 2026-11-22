@@ -1,7 +1,7 @@
-'use client'
-
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
+
 export default function PlayAudioPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
@@ -10,99 +10,47 @@ export default function PlayAudioPageContent() {
         here="Play Audio"
         title={<>Sound that <span className="text-gradient-accent">follows you</span></>}
         lead={<>Make an area play a sound when someone walks in: welcome music, a chime, or some background atmosphere.</>}
-        detail={[
-          <>Configure areas to trigger audio files when someone walks in. Perfect for entrance music, announcement chimes, or ambient atmosphere.</>,
-          <>The spatial audio engine dynamically processes zone-triggered sound with automatic culling, distance-based attenuation, and decentralized asset storage — keeping your soundscapes performant and persistent.</>,
-        ]}
+        detail={[<>Configure areas and objects to play audio files. Perfect for entrance music, announcement chimes, or ambient atmosphere that fades as you walk away.</>]}
         scene="fire"
         actions={[{ label: 'See all features', href: '/features-overview' }]}
         source="feature_play_audio"
       />
 
-      {/* Features */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Spatial Audio Features</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 text-primary">
-                <span className="material-symbols-outlined text-3xl">location_on</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Zone-Triggered</h3>
-              <p className="text-white/60 text-sm">Audio plays automatically upon area entry, creating seamless transitions between environments.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 border border-secondary/30 text-secondary">
-                <span className="material-symbols-outlined text-3xl">audio_file</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">File-Based</h3>
-              <p className="text-white/60 text-sm">Easily upload any common audio format. Low-latency playback ensures immediate interaction.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-tertiary/20 flex items-center justify-center mb-6 border border-tertiary/30 text-tertiary">
-                <span className="material-symbols-outlined text-3xl">surround_sound</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Ambiance</h3>
-              <p className="text-white/60 text-sm">Set persistent background music for specific rooms with fine-tuned volume attenuation.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center mb-6 border border-red-500/30 text-red-400">
-                <span className="material-symbols-outlined text-3xl">campaign</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Announcements</h3>
-              <p className="text-white/60 text-sm">Trigger chimes or alerts for global events and real-time updates within your universe.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="Sound in three choices"
+        steps={[
+          { title: "Pick a sound", text: "Upload an MP3, WAV, OGG or M4A file, or paste a link." },
+          { title: "Choose when it starts", text: "When someone comes within range, or when someone clicks the object." },
+          { title: "Choose who hears it", text: "Only the person who clicked, everyone within range, or everyone on the map." },
+        ]}
+      />
 
-      {/* Technical - simple description without code */}
-      <section className="relative z-10 py-24 px-4 bg-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Spatial Audio Engine</h2>
-              <div className="space-y-8">
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full border border-primary/40 flex items-center justify-center text-primary font-bold text-xs">01</div>
-                  <div>
-                    <h4 className="font-semibold text-white mb-1">Culling and Optimization</h4>
-                    <p className="text-white/60 text-sm">The engine only processes active audio sources within the user vicinity, ensuring high performance even in crowded spaces.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full border border-primary/40 flex items-center justify-center text-primary font-bold text-xs">02</div>
-                  <div>
-                    <h4 className="font-semibold text-white mb-1">Spatial Attenuation</h4>
-                    <p className="text-white/60 text-sm">Volume and frequency response adjust dynamically based on distance and orientation between the listener and the trigger zone.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full border border-primary/40 flex items-center justify-center text-primary font-bold text-xs">03</div>
-                  <div>
-                    <h4 className="font-semibold text-white mb-1">Decentralized Storage</h4>
-                    <p className="text-white/60 text-sm">Audio assets are stored on decentralized protocols, guaranteeing that soundscapes remain online and accessible forever.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="flex items-center gap-4 mb-4">
-                <span className="material-symbols-outlined text-primary text-4xl">spatial_audio</span>
-                <div>
-                  <h4 className="text-white font-semibold">Core Engine</h4>
-                  <p className="text-white/40 text-sm">Powered by Web Audio API</p>
-                </div>
-              </div>
-              <p className="text-white/60 text-sm">The spatial audio core initializes a dedicated AudioContext, manages zone triggers as spatial nodes, and applies distance-based gain and filter curves for natural 3D audio positioning. All configuration is handled through the BAWES editor interface — no code required.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="What you can do"
+        title="Sound that belongs to a place"
+        cards={[
+          { icon: "graphic_eq", title: "It fades with distance", text: "Set how close people hear it at full volume and how far it carries. In between it fades out, and two circles on the map show you both." },
+          { icon: "repeat", title: "Loop it, or play it once", text: "Keep it going while someone is near, or play it one time each visit." },
+          { icon: "touch_app", title: "Start it with a click", text: "Put the sound on an object, like a jukebox, and give its button your own words." },
+          { icon: "timer", title: "A pause between plays", text: "Set a wait before it can play again." },
+          { icon: "volume_up", title: "Set the volume", text: "And listen to it right in the editor before you save." },
+          { icon: "tune", title: "Each visitor is in control", text: "People can turn ambient sounds down, pause them or stop them." },
+        ]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Area zones", href: "/features/area-zones", note: "Make a spot do something." },
+          { label: "Objects", href: "/features/entity-editor", note: "Things people can click." },
+          { label: "Map editor", href: "/features/map-editor", note: "Build in the browser." },
+          { label: "Megaphone", href: "/features/megaphone", note: "A stage and an audience." },
+        ]}
+      />
 
       <PageClosing
-        title={<>Ready to add spatial audio?</>}
-        body={<>Configure zone-triggered audio in your universe today.</>}
+        title={<>Ready to add sound?</>}
+        body={<>Pick a sound, choose when it plays, and listen.</>}
         links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
         source="feature_play_audio"
       />

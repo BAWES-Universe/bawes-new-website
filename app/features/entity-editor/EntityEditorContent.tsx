@@ -1,7 +1,7 @@
-'use client'
-
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
+
 export default function EntityEditorPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
@@ -10,96 +10,60 @@ export default function EntityEditorPageContent() {
         here="Entity Editor"
         title={<>Objects that <span className="text-gradient-accent">do things</span></>}
         lead={<>Put objects on your map that people can click: open a website, start something, or set off a little surprise.</>}
-        detail={[
-          <>Place and configure interactive objects on maps. Click an object to open a website, trigger a script, or start an interaction.</>,
-          <>The entity editor uses the WAM format for defining interactive objects. Each entity carries position, properties, animations, and action triggers — all configurable through a visual interface or JSON schema.</>,
-        ]}
+        detail={[<>Place and configure interactive objects on maps. Click an object to open a website, play a sound, or start an interaction.</>]}
         scene="build"
         actions={[{ label: 'See all features', href: '/features-overview' }]}
         source="feature_entity_editor"
       />
 
-      {/* Features */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Powerful Entity Orchestration</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 text-primary">
-                <span className="material-symbols-outlined text-3xl">widgets</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Place Objects</h3>
-              <p className="text-white/60 text-sm">Drag and drop interactive items into your space. Choose from a library of 3D assets or upload your own.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 border border-secondary/30 text-secondary">
-                <span className="material-symbols-outlined text-3xl">tune</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Configure Actions</h3>
-              <p className="text-white/60 text-sm">Set precisely what happens when a player interacts. Toggle states, open modals, or move players between areas.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-tertiary/20 flex items-center justify-center mb-6 border border-tertiary/30 text-tertiary">
-                <span className="material-symbols-outlined text-3xl">link</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Link URLs</h3>
-              <p className="text-white/60 text-sm">Turn any object into a portal. Open external websites, project boards, or documentation directly on click.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 text-primary">
-                <span className="material-symbols-outlined text-3xl">code</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Script Triggers</h3>
-              <p className="text-white/60 text-sm">Run custom logic on interaction. Integrate with the BAWES Scripting API for complex world behaviors.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="Pick, place, choose"
+        steps={[
+          { title: "Pick an object", text: "Search the library, browse by category, or upload your own." },
+          { title: "Click the map", text: "It lands where you click. Press R to turn it." },
+          { title: "Choose what it does", text: "Open its settings and set what happens when someone uses it." },
+        ]}
+      />
 
-      {/* Technical - simple description without code */}
-      <section className="relative z-10 py-24 px-4 bg-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="material-symbols-outlined text-primary text-3xl">description</span>
-                <span className="text-white/40 text-sm font-mono">entity_config.json</span>
-              </div>
-              <ul className="space-y-3 text-white/60 text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary text-lg">check_circle</span>
-                  Unique identifier and entity type classification
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary text-lg">check_circle</span>
-                  Position, rotation, and scale in 3D space
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary text-lg">check_circle</span>
-                  Interactive properties with label and animation state
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary text-lg">check_circle</span>
-                  Action triggers for click, hover, and proximity events
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Under the Hood</h2>
-              <p className="text-white/60">The Entity system uses the industry-standard WAM (World Asset Metadata) format. This allows for seamless portability between different universes and deep integration with the BAWES Scripting API.</p>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Fully extensible JSON schema</li>
-                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Low-latency state syncing</li>
-                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Native support for WASM scripting</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="What you can do"
+        title="Furniture that does things"
+        cards={[
+          { icon: "search", title: "A library to search", text: "Find objects by name or category. The ones you used lately are kept at hand." },
+          { icon: "upload", title: "Upload your own", text: "Add your own pictures, with more than one side and colour if you like." },
+          { icon: "open_with", title: "Move, turn, copy", text: "Rearrange a room in a few clicks, and recolour objects that allow it." },
+          { icon: "label", title: "Give it a button", text: "Name the object and write the words on its button." },
+          { icon: "travel_explore", title: "Make it findable", text: "Mark an object as searchable and people can find it when they look around the map.", more: { label: "Searchable", href: "/features/searchable" } },
+          { icon: "play_circle", title: "Try it first", text: "Test what an object does before anyone else walks up to it." },
+        ]}
+      />
+
+      <PartBuilders
+        title="Saved with the room"
+        body={[
+          <>Objects are saved with the room, next to the Tiled map it is built on. For behaviour that goes beyond the settings, a map script can take over.</>,
+        ]}
+        facts={[
+          ["Placed in", "Map editor"],
+          ["Your own art", "Upload"],
+          ["More logic", "Scripting API"],
+        ]}
+        links={[{ label: "Map editor", href: "/features/map-editor" }, { label: "Scripting API", href: "/features/scripting" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Map editor", href: "/features/map-editor", note: "Build in the browser." },
+          { label: "Area zones", href: "/features/area-zones", note: "Make a spot do something." },
+          { label: "Play audio", href: "/features/play-audio", note: "Sounds that start on a click." },
+          { label: "Searchable", href: "/features/searchable", note: "Help people find things." },
+        ]}
+      />
 
       <PageClosing
         title={<>Ready to create interactive objects?</>}
-        body={<>Place your first entity and configure its actions.</>}
+        body={<>Place your first object and choose what it does.</>}
         links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
         source="feature_entity_editor"
       />
