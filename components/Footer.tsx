@@ -108,6 +108,7 @@ export default function Footer() {
                     { label: 'The Team', href: '/team' },
                     { label: 'Manifesto', href: '/manifesto' },
                     { label: 'The Empty Seat', href: '/empty-seat' },
+                    { label: 'Components', href: '/work' },
                   ].map((item) => (
                     <li key={item.label}>
                       <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">

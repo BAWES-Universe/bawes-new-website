@@ -25,6 +25,9 @@ const dropdowns: NavDropdown[] = [
     items: [
       { label: 'Things to do', href: '/#things', description: 'Seven places to start' },
       { label: 'Brick', href: '/features/brick', description: 'Your own AI companion' },
+      { label: 'Brick templates', href: '/features/brick-templates', description: 'Start from a Brick someone shared' },
+      { label: 'Goals and tasks', href: '/features/goals-and-tasks', description: 'It keeps working while you are away' },
+      { label: 'A computer for your Brick', href: '/features/brick-computer', description: 'For the jobs no App can do' },
       { label: 'Apps', href: '/features/apps', description: '1,700+ Apps your Bricks can use' },
       { label: 'Artifacts', href: '/features/artifacts', description: 'Apps, pages, documents, drawings' },
       { label: 'Community', href: '/features/artifact-community', description: 'See what people made' },
@@ -264,14 +267,14 @@ export default function Navigation() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.96 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute top-full left-0 mt-1 w-72 rounded-2xl p-2 shadow-2xl border border-purple-500/20"
+                        className={`absolute top-full left-0 mt-1 ${dd.items.length > 8 ? 'w-[34rem]' : 'w-72'} rounded-2xl p-2 shadow-2xl border border-purple-500/20`}
                         style={{
                           background: 'rgba(20, 18, 30, 0.97)',
                           backdropFilter: 'blur(24px)',
                           WebkitBackdropFilter: 'blur(24px)',
                         }}
                       >
-                        <div className="grid gap-0.5">
+                        <div className={`grid gap-0.5 ${dd.items.length > 8 ? 'grid-cols-2' : ''}`}>
                           {dd.items.map((item) => (
                             <Link
                               key={item.href}

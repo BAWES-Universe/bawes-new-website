@@ -359,24 +359,25 @@ export default function Home() {
           title={<>Universes for work, school,<br />community and more.</>}
           body="Same platform, different worlds. Pick a starting point and walk in."
         />
-        <div className="scroll-rail flex gap-3.5 overflow-x-auto overflow-y-hidden scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible">
-          {useCases.map((u, i) => (
-            <motion.div key={u.title} {...fade(0.04 * i)} className="min-w-[260px] sm:min-w-0">
+        {/* The whole row fades in once. Cards that wait off to the side of a swipe row must not stay invisible. */}
+        <motion.div {...fade()} className="scroll-rail flex gap-3.5 overflow-x-auto overflow-y-hidden scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible">
+          {useCases.map((u) => (
+            <div key={u.title} className="min-w-[260px] sm:min-w-0">
               <Link href={u.href} className="surface-card surface-card-hover block h-full p-5">
                 <span className="text-3xl block mb-4">{u.emoji}</span>
                 <h3 className="text-[16px] font-semibold text-white mb-1.5">For {u.title}</h3>
                 <p className="text-[13px] text-white/50 leading-relaxed">{u.desc}</p>
               </Link>
-            </motion.div>
+            </div>
           ))}
-          <motion.div {...fade(0.3)} className="min-w-[260px] sm:min-w-0">
+          <div className="min-w-[260px] sm:min-w-0">
             <Link href="/use-cases" className="surface-card surface-card-hover flex flex-col justify-center items-start h-full p-5 border-dashed">
               <span className="material-symbols-outlined text-[28px] text-purple-300 mb-3">add</span>
               <h3 className="text-[16px] font-semibold text-white mb-1.5">Something else?</h3>
               <p className="text-[13px] text-white/50 leading-relaxed">Rooms are just maps. If you can draw it, you can host it.</p>
             </Link>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </Wrap>
 
       {/* ═══ EVERYTHING IN THE BOX ═══ */}

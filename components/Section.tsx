@@ -15,7 +15,10 @@ const Section = forwardRef<HTMLElement, SectionProps>(
   ({ children, className = '', id, animate = true }, ref) => {
     const internalRef = useRef<HTMLElement>(null)
     const sectionRef = (ref as React.MutableRefObject<HTMLElement | null>) || internalRef
-    const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
+    // Show the section as soon as its top edge is a little way into the screen. A share of the section
+    // (the old `amount: 0.2`) can never be reached on a phone when the section is several screens tall,
+    // and the section then stays invisible.
+    const isInView = useInView(sectionRef, { once: true, amount: 'some', margin: '0px 0px -80px 0px' })
 
     if (!animate) {
       return (

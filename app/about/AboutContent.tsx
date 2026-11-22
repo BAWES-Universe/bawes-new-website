@@ -10,6 +10,7 @@ const items = [
   { title: 'Manifesto', icon: 'auto_awesome', desc: 'Our philosophy, vision, and the future we are building.', href: '/manifesto' },
   { title: 'The Empty Seat', icon: 'event_seat', desc: 'A thought experiment on presence and absence in virtual spaces.', href: '/empty-seat' },
   { title: 'Legal', icon: 'gavel', desc: 'Terms of service, privacy policy, and legal framework.', href: '/legal' },
+  { title: 'Components', icon: 'widgets', desc: 'Other BAWES products that connect with Universe.', href: '/work' },
   { title: 'Contact', icon: 'mail', desc: 'Get in touch for support, partnerships, or inquiries.', href: '/contact' },
 ]
 

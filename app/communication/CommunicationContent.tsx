@@ -17,6 +17,9 @@ const features = [
   { title: 'Play Audio', icon: 'music_note', description: 'Play music and sounds in an area. They get quieter as you walk away.' },
   { title: 'Follow', icon: 'group_work', description: 'Ask people to follow you and walk through the map together.' },
   { title: 'Lock & Moderate', icon: 'verified_user', description: 'Lock a conversation or a room so nobody else can join.' },
+  { title: 'Emoji Reactions', icon: 'emoji_emotions', description: 'Express yourself with emoji reactions in chat and spatial spaces.' },
+  { title: 'Availability Status', icon: 'circle', description: 'Show your status: online, away, back in a moment, busy or do not disturb.' },
+  { title: 'User Directory', icon: 'group', description: 'Browse and connect with users across your universe.' },
 ]
 
 const featureSlugs: Record<string, string> = {
@@ -30,6 +33,9 @@ const featureSlugs: Record<string, string> = {
   'Play Audio': '/features/play-audio',
   'Follow': '/features/follow',
   'Lock & Moderate': '/features/lock-discuss',
+  'Emoji Reactions': '/features/emoji-reactions',
+  'Availability Status': '/features/availability-status',
+  'User Directory': '/features/user-directory',
 }
 
 export default function CommunicationContent() {

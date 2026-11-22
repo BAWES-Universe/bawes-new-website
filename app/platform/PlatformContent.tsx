@@ -10,6 +10,7 @@ const features = [
   { title: 'Admin API', icon: 'api', description: 'The REST API between the game and your member system.' },
   { title: 'OIDC Auth', icon: 'vpn_key', description: 'Single sign-on via OpenID Connect with any identity provider.' },
   { title: 'White Label', icon: 'palette', description: 'Your own domain, logos and colours when you host Universe yourself.' },
+  { title: 'Orbit', icon: 'space_dashboard', description: 'The dashboard for your universe: worlds, rooms, members, roles and visitors.' },
   { title: 'Technology Stack', icon: 'layers', description: 'Built on proven open-source technologies — fully transparent and extensible.' },
 ]
 
@@ -18,6 +19,7 @@ const featureSlugs: Record<string, string> = {
   'Admin API': '/features/admin-api',
   'OIDC Auth': '/features/oidc-auth',
   'White Label': '/features/white-label',
+  'Orbit': '/features/orbit-operator',
   'Technology Stack': '/features/tech-stack',
 }
 

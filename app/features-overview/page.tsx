@@ -144,7 +144,7 @@ export default function FeaturesOverviewPage() {
           <FeatureCard href="/features/map-templates" icon="dashboard_customize" title="Map Templates" desc="Pre-configured spatial blueprints for offices, campuses, and events." />
           <FeatureCard href="/features/map-editor" icon="edit_square" label="INHERITED" title="Inline Map Editor" desc="Edit your world in real-time without leaving the platform." />
           <FeatureCard href="/features/avatar-platform" icon="face_6" title="Avatar Platform" desc="Avatar sets and companions, and who may wear them." />
-          <FeatureCard href="/features/woka-avatars" icon="face" title="Avatars" desc="Pipoya-style pixel art avatars — colorful, expressive, and endlessly customizable." />
+          <FeatureCard href="/features/woka-avatars" icon="face" title="Avatars" desc="Pick a colourful avatar or build your own, and wear it in every world." />
           <FeatureCard href="/features/area-zones" icon="widgets" label="INHERITED" title="Area Zones" desc="Define zones with custom behaviors, permissions, and environmental effects." />
           <FeatureCard href="/features/entity-editor" icon="view_in_ar" label="INHERITED" title="Entity Editor" desc="Place, configure, and manage interactive entities on your maps." />
           <FeatureCard href="/features/scripting" icon="code" label="INHERITED" title="Scripting API" desc="Extend functionality with a powerful scripting API for custom logic." />

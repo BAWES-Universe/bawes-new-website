@@ -15,7 +15,9 @@ const features = [
   { title: 'Teleport', icon: 'near_me', description: 'Walk through an exit and arrive in another room.' },
   { title: 'Searchable', icon: 'search', description: 'Mark a place or an object as searchable, so people can find it on the map.' },
   { title: 'User Directory', icon: 'group', description: 'Browse and connect with users across your universe.' },
+  { title: 'Avatars', icon: 'face', description: 'Pick an avatar or build your own, and wear it in every world.' },
   { title: 'Avatar Platform', icon: 'face_6', description: 'Avatar sets and companions, and who may wear them.' },
+  { title: 'Orbit', icon: 'space_dashboard', description: 'The dashboard for your universe: worlds, rooms, members, roles and visitors.' },
   { title: 'Quests', icon: 'explore', description: 'Set a few stops for your visitors. Their Brick leads them through.' },
 ]
 
@@ -29,7 +31,9 @@ const featureSlugs: Record<string, string> = {
   'Teleport': '/features/teleport',
   'Searchable': '/features/searchable',
   'User Directory': '/features/user-directory',
+  'Avatars': '/features/woka-avatars',
   'Avatar Platform': '/features/avatar-platform',
+  'Orbit': '/features/orbit-operator',
   'Quests': '/features/quests',
 }
 
