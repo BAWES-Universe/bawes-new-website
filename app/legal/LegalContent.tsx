@@ -50,7 +50,7 @@ export default function LegalPageContent() {
             </div>
             <h3 className="font-headline-card text-headline-card mb-4">Open Source</h3>
             <p className="font-body-md text-body-md text-text-secondary leading-relaxed">
-              Built for the future. Our own work is <strong>MIT licensed</strong>, and the parts that come from WorkAdventure keep the WorkAdventure license. We believe in open standards and the power of collective innovation. Our code is transparent, auditable, and ready for the community to expand upon.
+              Built for the future. Universe is <strong>open source</strong>. We believe in open standards and the power of collective innovation. Our code is transparent, auditable, and ready for the community to expand upon.
             </p>
           </div>
           <div className="glass-card p-card-padding rounded-2xl group">

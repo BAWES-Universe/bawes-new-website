@@ -15,8 +15,8 @@ const details = [
     desc: 'We welcome pull requests, bug reports, and feature ideas. Our community-driven development process ensures the platform serves its users.',
   },
   {
-    title: 'Licensing',
-    desc: 'Our own work is MIT licensed. The parts that come from WorkAdventure keep the WorkAdventure license.',
+    title: 'Built in the open',
+    desc: 'Universe is open source, and so is WorkAdventure, the project it is built on. Read the code, run it yourself and build on it.',
   },
   {
     title: 'Transparent Roadmap',
