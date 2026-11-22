@@ -40,6 +40,23 @@ export interface PartCard {
   more?: PageLink
 }
 
+/** A short piece of code for builders, with a word on what it does. */
+export function PartCode({ eyebrow, title, body, file, code }: { eyebrow?: string; title: React.ReactNode; body?: React.ReactNode; file: string; code: string }) {
+  return (
+    <section className="uh">
+      <div className="uh-part">
+        <Head eyebrow={eyebrow} title={title} body={body} />
+        <figure className="uh-bcode">
+          <figcaption>{file}</figcaption>
+          <pre>
+            <code>{code}</code>
+          </pre>
+        </figure>
+      </div>
+    </section>
+  )
+}
+
 /** What a person can do: one card for each thing. */
 export function PartCards({ eyebrow, title, body, cards }: { eyebrow?: string; title: React.ReactNode; body?: React.ReactNode; cards: PartCard[] }) {
   return (

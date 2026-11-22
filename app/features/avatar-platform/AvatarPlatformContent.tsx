@@ -1,13 +1,7 @@
-'use client'
-
-'use client';
-
-import React from 'react';
-import Section from '@/components/Section';
-import Button from '@/components/ui/Button';
-import Link from 'next/link';
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated } from '@/components/page/PageParts'
+
 export default function AvatarPlatformPageContent() {
   return (
     <main className="relative pt-20">
@@ -16,69 +10,59 @@ export default function AvatarPlatformPageContent() {
         here="Avatar Platform"
         eyebrow="Avatar infrastructure"
         title={<>Identity <span className="text-gradient-accent">across worlds</span></>}
-        lead={<>Your character goes with you: the same look and the same you in every universe you visit.</>}
-        detail={[
-          <>The Avatar Platform powers cross-world identity. Your character, your items, your presence — persistent across every universe you visit.</>,
-        ]}
+        lead={<>Your character goes with you: the same look and the same name in every universe you visit.</>}
+        detail={[<>The Avatar Platform powers cross-world identity. It keeps your look with your account and decides which avatars each universe offers.</>]}
         scene="looks"
         actions={[{ label: 'Talk to us', href: '/contact' }, { label: 'View documentation', href: 'https://github.com/BAWES-Universe' }]}
         source="page_features_avatar_platform"
       />
 
-      {/* Features */}
-      <section className="bg-surface-container-low py-section-padding-v">
-        <div className="max-w-container-max mx-auto px-gutter">
-          <div className="text-center mb-16">
-            <h2 className="font-headline-section text-headline-section text-on-surface">Platform Capabilities</h2>
-            <p className="text-text-secondary max-w-xl mx-auto mt-4">The infrastructure layer that connects identity across the entire BAWES ecosystem.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="glass-card p-card-padding rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary">badge</span>
-              </div>
-              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Cross-World Identity</h3>
-              <p className="text-text-secondary">Your avatar, items, and settings persist across every universe. One identity for the entire BAWES ecosystem.</p>
-            </div>
-            <div className="glass-card p-card-padding rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-secondary">sync</span>
-              </div>
-              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Real-Time Sync</h3>
-              <p className="text-text-secondary">When you move or change your look, the people around you see it right away.</p>
-            </div>
-            <div className="glass-card p-card-padding rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-tertiary">extension</span>
-              </div>
-              <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Extensible System</h3>
-              <p className="text-text-secondary">Integrate with external avatar systems or build custom rendering pipelines. The platform is designed for maximum flexibility.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="For you"
+        title="One you, everywhere"
+        cards={[
+          { icon: "person", title: "Saved with your account", text: "Pick an avatar once and you wear it in every world, on every device you sign in on." },
+          { icon: "history", title: "Recent looks", text: "Universe remembers the avatars you wore lately, so going back is quick." },
+          { icon: "sync", title: "Seen right away", text: "When you change your look, the people around you see it right away." },
+        ]}
+      />
 
-      {/* Related */}
-      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
-        <h2 className="font-headline-section text-headline-section text-on-surface mb-12 text-center">Related Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Link href="/features/woka-avatars" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
-            <span className="material-symbols-outlined text-primary mb-4 text-3xl">face</span>
-            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-primary transition-colors">Avatars</h3>
-            <p className="text-text-secondary text-sm">Pixel art avatar system with deep customization options and Pipoya aesthetics.</p>
-          </Link>
-          <Link href="/features/proximity-chat" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
-            <span className="material-symbols-outlined text-secondary mb-4 text-3xl">spatial_audio</span>
-            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-secondary transition-colors">Proximity Chat</h3>
-            <p className="text-text-secondary text-sm">Spatial audio that brings your avatar to life with natural voice presence.</p>
-          </Link>
-          <Link href="/build" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
-            <span className="material-symbols-outlined text-tertiary mb-4 text-3xl">build</span>
-            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-tertiary transition-colors">Build & Create</h3>
-            <p className="text-text-secondary text-sm">Design worlds and place objects with our full creation toolkit.</p>
-          </Link>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="For hosts"
+        title="Decide what people can wear"
+        cards={[
+          { icon: "layers", title: "Avatar sets", text: "Group avatar parts and companions into sets, such as a default set, a zoo or museum staff." },
+          { icon: "upload", title: "Your own art", text: "Upload the pictures for each layer and each companion." },
+          { icon: "public", title: "Where a set shows up", text: "Offer a set everywhere, in one universe or in one world." },
+          { icon: "verified_user", title: "Who may wear it", text: "Open a set to everyone, to people with a certain tag, or to people you name." },
+          { icon: "smart_toy", title: "Sets for bots", text: "Choose which sets bots may wear.", more: { label: "Bot avatars", href: "/features/bot-avatars" } },
+        ]}
+      />
+
+      <PartBuilders
+        title="Checked by the server"
+        body={[
+          <>The game sends the names of the layers a person picked. The server checks that this person may wear them in this world before anyone sees them.</>,
+          <>Avatar sets are managed in Orbit by the host of the installation.</>,
+        ]}
+        facts={[
+          ["Kept in", "Orbit"],
+          ["A set holds", "Layers and companions"],
+          ["Shown in", "Everywhere, a universe or a world"],
+          ["Checked", "On the server"],
+        ]}
+        links={[{ label: "Build and create", href: "/build" }, { label: "Orbit", href: "/features/orbit-operator" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Avatars", href: "/features/woka-avatars", note: "Pick or build your pixel-art avatar." },
+          { label: "Proximity chat", href: "/features/proximity-chat", note: "Walk up and talk." },
+          { label: "Build and create", href: "/build", note: "Everything for making rooms." },
+          { label: "White label", href: "/features/white-label", note: "Your domain, your logo, your colours." },
+        ]}
+      />
+
       <PageClosing
         title={<>Come and see it for yourself</>}
         body={<>Walk in, say hello, and look around.</>}

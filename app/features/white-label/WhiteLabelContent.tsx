@@ -1,13 +1,7 @@
-'use client'
-
-'use client';
-
-import React from 'react';
-import Section from '@/components/Section';
-import Button from '@/components/ui/Button';
-import Link from 'next/link';
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated } from '@/components/page/PageParts'
+
 export default function WhiteLabelPageContent() {
   return (
     <main className="pt-20">
@@ -15,113 +9,56 @@ export default function WhiteLabelPageContent() {
         crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Platform', href: '/platform' }]}
         here="White Label"
         title={<>Your brand. <span className="text-gradient-accent">Your universe.</span></>}
-        lead={<>Use your own web address, logo and colours. People see your brand, not ours.</>}
-        detail={[
-          <>Custom domain, logos, and branding for your universe instance. White-label the entire experience — your users see your brand, not ours.</>,
-        ]}
+        lead={<>Host Universe yourself and use your own web address, logo and colours. People see your brand, not ours.</>}
+        detail={[<>Custom domain, logos and branding for your own Universe instance. White-label the experience so your users see your brand.</>]}
         scene="looks"
         actions={[{ label: 'Talk to us', href: '/contact' }, { label: 'Self-hosting', href: '/features/self-hosting' }]}
         source="page_features_white_label"
       />
 
-      {/* Features Grid */}
-      <Section className="py-section-padding-v px-gutter max-w-container-max mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="glass-card p-card-padding rounded-2xl">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-primary text-3xl">language</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-4 text-white">Custom Domain</h3>
-            <p className="font-body-md text-body-md text-text-secondary">Host your universe at your own URL like your-universe.com for a seamless brand experience.</p>
-          </div>
-          <div className="glass-card p-card-padding rounded-2xl">
-            <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-secondary text-3xl">category</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-4 text-white">Custom Logos</h3>
-            <p className="font-body-md text-body-md text-text-secondary">Brand the entire interface. Replace all platform icons and marks with your own identity.</p>
-          </div>
-          <div className="glass-card p-card-padding rounded-2xl">
-            <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-tertiary text-3xl">visibility_off</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-4 text-white">Full White Label</h3>
-            <p className="font-body-md text-body-md text-text-secondary">No BAWES branding visible. From the loading screens to the dashboard, it's 100% yours.</p>
-          </div>
-          <div className="glass-card p-card-padding rounded-2xl">
-            <div className="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-primary-container text-3xl">dns</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-4 text-white">Self-Hosted Option</h3>
-            <p className="font-body-md text-body-md text-text-secondary">Run the entire stack on your infrastructure for maximum control and data sovereignty.</p>
-          </div>
-        </div>
-      </Section>
+      <PartCards
+        eyebrow="What you can brand"
+        title="Your name on the door"
+        cards={[
+          { icon: "language", title: "Your domain", text: "Universe lives at your own address." },
+          { icon: "hourglass_top", title: "Loading logo", text: "Your logo while a room loads." },
+          { icon: "login", title: "Sign-in logo", text: "Your logo on the first screen people see." },
+          { icon: "palette", title: "Colours", text: "Your main colour and your background colour." },
+          { icon: "visibility_off", title: "No powered-by line", text: "The line that names the software can be switched off." },
+          { icon: "face", title: "Your own avatars", text: "Add your own avatar sets, such as staff outfits or a mascot.", more: { label: "Avatar platform", href: "/features/avatar-platform" } },
+          { icon: "map", title: "Your own maps", text: "Build rooms that look like your offices, your campus or your shop.", more: { label: "Map editor", href: "/features/map-editor" } },
+          { icon: "badge", title: "Your own sign-in", text: "People sign in on your login page, with your accounts.", more: { label: "OIDC Auth", href: "/features/oidc-auth" } },
+        ]}
+      />
 
-      {/* Enterprise Section */}
-      <Section className="py-section-padding-v px-gutter max-w-container-max mx-auto">
-        <div className="relative rounded-3xl overflow-hidden glass-card p-12 md:p-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-headline-section text-headline-section mb-8 text-white">Built for Enterprise</h2>
-              <div className="space-y-6">
-                <p className="font-body-md text-body-md text-text-secondary">Our rebranding layer isn't just a skin — it's an architectural abstraction built over the spatial core. Control every hex code, typography choice, and iconography set through our central manifest.</p>
-                <p className="font-body-md text-body-md text-text-secondary">Engineered for high-compliance environments, the white-label instance ensures that your corporate identity remains front and center, while we handle the heavy lifting of spatial physics and RTC protocols.</p>
-              </div>
-              <div className="mt-10 flex gap-4">
-                <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-white">100%</span>
-                  <span className="text-caption uppercase tracking-widest text-text-low-emphasis">Unbranded</span>
-                </div>
-              </div>
-            </div>
-            <div className="relative aspect-square">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-full border border-purple rounded-full animate-[spin_20s_linear_infinite] opacity-30"></div>
-                <div className="absolute w-3/4 h-3/4 border border-secondary rounded-full animate-[spin_15s_linear_infinite_reverse] opacity-20"></div>
-                <div className="w-64 h-64 glass-card rounded-2xl flex items-center justify-center text-primary-container">
-                  <span className="material-symbols-outlined text-[80px]" style={{ fontVariationSettings: "'FILL' 1" }}>layers</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <PartBuilders
+        title="Where the branding lives"
+        body={[
+          <>The game asks the Admin API how a room should look: which logos to show, which colours to use, and whether to show the powered-by line. In Orbit those answers are a few lines and two image files.</>,
+          <>The code is open, so anything beyond that is yours to change.</>,
+          <>On bawes.net every universe carries the Universe look. Your own brand needs your own installation.</>,
+        ]}
+        facts={[
+          ["Domain", "Yours"],
+          ["Logos", "Loading and sign-in"],
+          ["Colours", "Main and background"],
+          ["Needs", "Your own installation"],
+        ]}
+        links={[{ label: "Self-hosting", href: "/features/self-hosting" }, { label: "WorkAdventure fork", href: "/workadventure-fork" }]}
+      />
 
-      {/* Deep Dives */}
-      <Section className="py-section-padding-v px-gutter max-w-container-max mx-auto mb-20">
-        <div className="flex justify-between items-end mb-12">
-          <div>
-            <h2 className="font-headline-section text-headline-section text-white mb-2">Related Deep Dives</h2>
-            <p className="font-body-md text-body-md text-text-low-emphasis">Explore the technical foundations of the universe.</p>
-          </div>
-          <Link href="/features-overview" className="hidden md:flex items-center gap-2 text-primary font-label-navigation hover:gap-3 transition-all">
-            Explore All Docs <span className="material-symbols-outlined">arrow_forward</span>
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Link href="/features/self-hosting" className="group glass-card p-8 rounded-2xl flex items-start gap-6 cursor-pointer">
-            <div className="w-16 h-16 shrink-0 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-              <span className="material-symbols-outlined text-primary">dns</span>
-            </div>
-            <div>
-              <h4 className="font-headline-card text-headline-card mb-2 text-white group-hover:text-primary transition-colors">Self-Hosting</h4>
-              <p className="font-body-md text-body-md text-text-secondary">Learn how to deploy on your own servers and maintain complete data sovereignty for your organization.</p>
-            </div>
-          </Link>
-          <Link href="/workadventure-fork" className="group glass-card p-8 rounded-2xl flex items-start gap-6 cursor-pointer">
-            <div className="w-16 h-16 shrink-0 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
-              <span className="material-symbols-outlined text-secondary">fork_left</span>
-            </div>
-            <div>
-              <h4 className="font-headline-card text-headline-card mb-2 text-white group-hover:text-secondary transition-colors">WorkAdventure Fork</h4>
-              <p className="font-body-md text-body-md text-text-secondary">Extend the core platform with custom code. Documentation for developers looking to modify the engine.</p>
-            </div>
-          </Link>
-        </div>
-      </Section>
+      <PartRelated
+        links={[
+          { label: "Self-hosting", href: "/features/self-hosting", note: "Run Universe on your own servers." },
+          { label: "WorkAdventure fork", href: "/workadventure-fork", note: "The open source project Universe is built on." },
+          { label: "OIDC Auth", href: "/features/oidc-auth", note: "Sign in with the accounts people already have." },
+          { label: "All features", href: "/features-overview", note: "Everything Universe can do." },
+        ]}
+      />
+
       <PageClosing
         title={<>Make it yours</>}
+        body={<>Tell us what you have in mind, or start with the self-hosting guide.</>}
         links={[{ label: 'Talk to us', href: '/contact' }, { label: 'See all features', href: '/features-overview' }]}
         source="page_features_white_label"
       />

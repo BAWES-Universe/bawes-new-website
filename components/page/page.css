@@ -88,6 +88,11 @@
 .uh-bsteps b { display: block; font-family: var(--uh-display); font-size: 18px; font-weight: 700; color: #fff; }
 .uh-bsteps p { font-size: 14.5px; line-height: 1.6; color: var(--uh-muted); margin: 6px 0 0; }
 
+/* a short piece of code */
+.uh-bcode { margin: 0; border-radius: 20px; border: 1px solid var(--uh-line); background: rgba(8, 6, 20, 0.7); overflow: hidden; max-width: 54rem; }
+.uh-bcode figcaption { padding: 10px 18px; font-size: 12.5px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--uh-faint); border-bottom: 1px solid var(--uh-line); }
+.uh-bcode pre { margin: 0; padding: 18px; overflow-x: auto; font-size: 13.5px; line-height: 1.7; color: #ddd6fe; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
 /* the facts for people who build or host */
 .uh-bbuild { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; padding: 32px; border-radius: 24px; border: 1px solid var(--uh-line); background: rgba(255, 255, 255, 0.025); }
 .uh-bbuild h2 { font-family: var(--uh-display); color: #fff; font-size: 28px; line-height: 1.15; font-weight: 700; letter-spacing: -0.025em; margin: 12px 0 0; }

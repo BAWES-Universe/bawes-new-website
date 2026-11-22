@@ -1,13 +1,7 @@
-'use client'
-
-'use client';
-
-import React from 'react';
-import Section from '@/components/Section';
-import Button from '@/components/ui/Button';
-import Link from 'next/link';
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
+
 export default function WokaAvatarsPageContent() {
   return (
     <main className="pt-20">
@@ -15,79 +9,58 @@ export default function WokaAvatarsPageContent() {
         crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Build & Create', href: '/build' }]}
         here="Avatars"
         title={<>Pixel art. <span className="text-gradient-accent">Infinite personalities.</span></>}
-        lead={<>Pick a colourful pixel-art avatar, change its look whenever you like, and take it with you into every world.</>}
-        detail={[
-          <>Pipoya-style user avatars — colorful, expressive pixel art characters. Customize your look and express yourself in every world.</>,
-        ]}
+        lead={<>Pick a colourful pixel-art avatar or build your own, change it whenever you like, and take it with you into every world.</>}
+        detail={[<>Pipoya-style user avatars: colourful, expressive pixel art characters. Customize your look and express yourself in every world.</>]}
         scene="looks"
         actions={[{ label: 'See all features', href: '/features-overview' }]}
         source="page_features_woka_avatars"
       />
 
-      {/* Features Section */}
-      <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v border-t border-divider">
-        <div className="text-center mb-16">
-          <h2 className="font-headline-section text-headline-section text-on-surface mb-4">Expressive by Design</h2>
-          <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Built on the legacy of Pipoya aesthetic, our avatars offer unmatched charm and technical versatility.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-          <div className="glass-card p-8 rounded-2xl group transition-all duration-300">
-            <div className="w-14 h-14 rounded-xl bg-primary-container/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>palette</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-4">Pipoya Style</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant">Classic pixel art aesthetic with high-vibrancy and charm. We stay true to the golden era of 2D RPG visuals while adding modern effects.</p>
-          </div>
-          <div className="glass-card p-8 rounded-2xl group transition-all duration-300">
-            <div className="w-14 h-14 rounded-xl bg-tertiary-container/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-tertiary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>tune</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-4">Customization</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant">Deep control over hair, clothes, and accessories to make your character unique. Thousands of combinations at your fingertips.</p>
-          </div>
-          <div className="glass-card p-8 rounded-2xl group transition-all duration-300">
-            <div className="w-14 h-14 rounded-xl bg-secondary-container/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-secondary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>travel_explore</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-4">Multi-World</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant">Your avatar is persistent; it follows you through every universe and world you visit. Maintain your identity wherever you go.</p>
-          </div>
-        </div>
-      </Section>
+      <PartSteps
+        eyebrow="How it works"
+        title="Ready-made, or made by you"
+        steps={[
+          { title: "Pick a ready-made avatar", text: "Choose one from the list and walk in." },
+          { title: "Or build your own", text: "Go part by part: body, eyes, hair, clothes, hat and accessory." },
+          { title: "Change it any time", text: "You wear the last avatar you picked, in every world." },
+        ]}
+      />
 
+      <PartCards
+        eyebrow="What you can do"
+        title="A look that is yours"
+        cards={[
+          { icon: "checkroom", title: "Six parts to mix", text: "Body, eyes, hair, clothes, hat and accessory." },
+          { icon: "casino", title: "Randomize", text: "Out of ideas? One button gives you a new look." },
+          { icon: "pets", title: "A companion", text: "Bring a little companion that follows you around." },
+          { icon: "badge", title: "Your name", text: "Your name floats above your avatar so people know who you are." },
+          { icon: "smart_toy", title: "Bots wear them too", text: "AI bots use the same avatars, so they look like they belong.", more: { label: "Bot avatars", href: "/features/bot-avatars" } },
+        ]}
+      />
 
-      {/* Related Features */}
-      <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
-        <h2 className="font-headline-section text-headline-section text-on-surface mb-12 text-center">Beyond the Avatar</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Link href="/features/avatar-platform" className="relative rounded-3xl overflow-hidden glass-card h-80 group cursor-pointer border-purple">
-            <div className="absolute inset-0 bg-surface-container-high transition-transform duration-700 group-hover:scale-110 flex items-center justify-center">
-              <span className="material-symbols-outlined text-6xl text-primary/30">dashboard</span>
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 p-10">
-              <h4 className="font-headline-card text-headline-card text-on-surface mb-2">Avatar Platform</h4>
-              <p className="font-body-md text-body-md text-on-surface-variant max-w-sm mb-6">Explore the underlying infrastructure that powers our cross-world identity system.</p>
-              <span className="inline-flex items-center gap-2 text-primary font-bold group-hover:translate-x-2 transition-transform">
-                Learn More <span className="material-symbols-outlined">trending_flat</span>
-              </span>
-            </div>
-          </Link>
-          <Link href="/features/proximity-chat" className="relative rounded-3xl overflow-hidden glass-card h-80 group cursor-pointer border-purple">
-            <div className="absolute inset-0 bg-surface-container-high transition-transform duration-700 group-hover:scale-110 flex items-center justify-center">
-              <span className="material-symbols-outlined text-6xl text-secondary/30">spatial_audio</span>
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 p-10">
-              <h4 className="font-headline-card text-headline-card text-on-surface mb-2">Proximity Chat</h4>
-              <p className="font-body-md text-body-md text-on-surface-variant max-w-sm mb-6">Communicate naturally with spatial audio and real-time social gestures.</p>
-              <span className="inline-flex items-center gap-2 text-secondary font-bold group-hover:translate-x-2 transition-transform">
-                Learn More <span className="material-symbols-outlined">trending_flat</span>
-              </span>
-            </div>
-          </Link>
-        </div>
-      </Section>
+      <PartBuilders
+        title="Layers of pixel art"
+        body={[
+          <>An avatar is a stack of small picture layers, one for each part. The server keeps the list of what people may pick, so nobody can load a picture of their own choosing.</>,
+          <>When you host Universe yourself, you add your own sets in Orbit.</>,
+        ]}
+        facts={[
+          ["Style", "Pipoya pixel art"],
+          ["Parts", "Six"],
+          ["Companions", "Yes"],
+          ["Your own sets", "In Orbit"],
+        ]}
+        links={[{ label: "Avatar platform", href: "/features/avatar-platform" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Avatar platform", href: "/features/avatar-platform", note: "Where avatars are kept and managed." },
+          { label: "Proximity chat", href: "/features/proximity-chat", note: "Walk up and talk." },
+          { label: "Emoji reactions", href: "/features/emoji-reactions", note: "Say it with your avatar." },
+          { label: "Start here", href: "/guide/start-here", note: "Your first five minutes, in the Guide." },
+        ]}
+      />
 
       <PageClosing
         title={<>Ready to enter the Universe?</>}
