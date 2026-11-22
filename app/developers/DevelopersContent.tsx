@@ -9,11 +9,11 @@ const resources = [
   { title: 'Technology Stack', icon: 'layers', desc: 'TypeScript, Node.js, WebRTC, AI, MCP — the technologies powering every world.', href: '/features/tech-stack' },
   { title: 'Scripting API', icon: 'code', desc: 'Extend functionality with WA.ui, WA.room, WA.player, WA.state — the WorkAdventure scripting API.', href: '/features/scripting' },
   { title: 'MCP Integration', icon: 'hub', desc: 'Model Context Protocol — connect any tool, API, or data source to your bots.', href: '/mcp-integration' },
-  { title: 'Self-Hosting', icon: 'dns', desc: 'Deploy the entire BAWES stack on your own infrastructure with Docker or Kubernetes.', href: '/features/self-hosting' },
+  { title: 'Self-Hosting', icon: 'dns', desc: 'Deploy the entire BAWES stack on your own infrastructure with Docker Compose.', href: '/features/self-hosting' },
   { title: 'Open Source', icon: 'code', desc: 'Open source. 80+ repos. Fork, contribute, audit, and build with us.', href: '/open-source' },
   { title: 'WorkAdventure Fork', icon: 'fork_right', desc: 'Built on WorkAdventure, extended for the BAWES ecosystem. Our open source roots.', href: '/workadventure-fork' },
-  { title: 'Admin API', icon: 'api', desc: 'Full REST API for programmatic platform management, automation, and integration.', href: '/features/admin-api' },
-  { title: 'OIDC Auth', icon: 'vpn_key', desc: 'Enterprise single sign-on via OpenID Connect with any identity provider.', href: '/features/oidc-auth' },
+  { title: 'Admin API', icon: 'api', desc: 'The REST API between the game and your member system. Orbit answers it out of the box.', href: '/features/admin-api' },
+  { title: 'OIDC Auth', icon: 'vpn_key', desc: 'Single sign-on via OpenID Connect with any identity provider.', href: '/features/oidc-auth' },
   { title: 'Bot Tool Calling', icon: 'handyman', desc: 'Give bots the ability to invoke APIs and tools to perform real-world actions.', href: '/features/bot-tools' },
 ]
 

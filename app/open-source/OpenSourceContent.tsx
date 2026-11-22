@@ -19,8 +19,8 @@ const details = [
     desc: 'Universe is open source, and so is WorkAdventure, the project it is built on. Read the code, run it yourself and build on it.',
   },
   {
-    title: 'Transparent Roadmap',
-    desc: 'Our development roadmap is public. See what we are working on, vote on feature priorities, and track progress in real time.',
+    title: 'Work you can follow',
+    desc: 'Issues and pull requests are on GitHub. See what is being worked on and join in.',
   },
 ]
 

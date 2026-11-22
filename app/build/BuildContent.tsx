@@ -12,10 +12,10 @@ const features = [
   { title: 'Area Zones', icon: 'widgets', description: 'Define zones with custom behaviors, permissions, and effects.' },
   { title: 'Entity Editor', icon: 'view_in_ar', description: 'Place, configure, and manage interactive entities on your maps.' },
   { title: 'Scripting API', icon: 'code', description: 'Extend functionality with a powerful scripting API for custom logic.' },
-  { title: 'Teleport', icon: 'near_me', description: 'Teleport users between maps, zones, and universes instantly.' },
-  { title: 'Searchable', icon: 'search', description: 'Make your universe content searchable with full-text discovery.' },
+  { title: 'Teleport', icon: 'near_me', description: 'Walk through an exit and arrive in another room.' },
+  { title: 'Searchable', icon: 'search', description: 'Mark a place or an object as searchable, so people can find it on the map.' },
   { title: 'User Directory', icon: 'group', description: 'Browse and connect with users across your universe.' },
-  { title: 'Avatar Platform', icon: 'face_6', description: 'Custom avatar creation and management platform for all users.' },
+  { title: 'Avatar Platform', icon: 'face_6', description: 'Avatar sets and companions, and who may wear them.' },
 ]
 
 const featureSlugs: Record<string, string> = {

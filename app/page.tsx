@@ -24,7 +24,7 @@ const box = [
   { icon: 'select_all', color: '#6ee7b7', title: 'Area zones', desc: 'Draw a zone and give it a job: open a website, play audio, teleport, start a meeting. 18+ behaviours.', href: '/features/area-zones' },
   { icon: 'code', color: '#c4b5fd', title: 'Scripting API', desc: 'A typed API for rooms: popups, triggers, variables, custom UI, anything you can script.', href: '/features/scripting' },
   { icon: 'shield_person', color: '#93c5fd', title: 'OIDC single sign-on', desc: 'Bring your identity provider. Access is spatial and tag-based, not one global switch.', href: '/features/oidc-auth' },
-  { icon: 'dns', color: '#34d399', title: 'Self-host everything', desc: 'Docker Compose or Kubernetes. Your domain, your logos, your data, your models.', href: '/features/self-hosting', wide: true },
+  { icon: 'dns', color: '#34d399', title: 'Self-host everything', desc: 'Docker Compose. Your domain, your logos, your data, your models.', href: '/features/self-hosting', wide: true },
   { icon: 'explore', color: '#fbbf24', title: 'Orbit', desc: 'See where you are, who is online and jump straight to where activity is happening.', href: '/features/orbit-operator' },
   { icon: 'map', color: '#f9a8d4', title: 'Map editor', desc: 'Drag a tile, place a desk, draw a zone. Every change is live for everyone in the room.', href: '/features/map-editor' },
 ]
@@ -38,7 +38,7 @@ const botCaps = [
   { icon: 'perm_media', title: 'Sends media', desc: 'Images, audio, video and files, delivered in-world.', href: '/features/bot-media-sending' },
   { icon: 'directions_walk', title: 'Behaviours', desc: 'Idle, patrol or social. Real pathfinding on the real map.', href: '/features/bot-behaviors' },
   { icon: 'tune', title: 'Any model', desc: 'OpenAI, local models via LM Studio, vision models per bot.', href: '/features/bot-provider-config' },
-  { icon: 'account_tree', title: 'Bots that build bots', desc: 'Hand a bot the admin API and it can provision more.', href: '/features/recursive-bots' },
+  { icon: 'account_tree', title: 'Teams of bots', desc: 'Several bots in one room, each with its own model and memory.', href: '/features/recursive-bots' },
 ]
 
 const useCases = [
@@ -46,8 +46,8 @@ const useCases = [
   { emoji: '🏢', title: 'Work', desc: 'Team rooms, focus pods, standup bots and a watercooler that works.', href: '/use-cases/work' },
   { emoji: '🎮', title: 'Community', desc: 'Event halls, gaming rooms, a bot that greets every newcomer by name.', href: '/use-cases/community' },
   { emoji: '🎓', title: 'Learning', desc: 'Lecture halls, study groups and teaching assistants that never sleep.', href: '/use-cases/learning' },
-  { emoji: '🌐', title: 'Events', desc: 'Sponsor rooms, networking zones and a main stage for thousands.', href: '/use-cases/events' },
-  { emoji: '💰', title: 'Commerce', desc: 'Subscriptions, tickets and payments wired to your existing stack.', href: '/use-cases/commerce' },
+  { emoji: '🌐', title: 'Events', desc: 'Sponsor rooms, networking zones and a main stage.', href: '/use-cases/events' },
+  { emoji: '💰', title: 'Commerce', desc: 'A shop people walk into, with your own payment tools behind it.', href: '/use-cases/commerce' },
   { emoji: '🛍️', title: 'Market', desc: 'Brand showrooms, social shopping and pop-up shops in shared space.', href: '/use-cases/market' },
 ]
 

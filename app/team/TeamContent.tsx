@@ -54,7 +54,7 @@ export default function TeamPageContent() {
               <span className="material-symbols-outlined text-primary">security</span>
             </div>
             <h3 className="font-headline-card text-headline-card text-on-surface">Privacy Respecting</h3>
-            <p className="font-body-md text-text-secondary text-sm">Data ownership belongs to the user. End-to-end encryption and decentralized storage are our standard protocols.</p>
+            <p className="font-body-md text-text-secondary text-sm">Data ownership belongs to the user. Universe is open source, and you can run all of it on your own servers.</p>
           </div>
         </div>
       </section>

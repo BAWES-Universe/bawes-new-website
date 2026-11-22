@@ -7,9 +7,9 @@ import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
 const features = [
   { title: 'Self-Hosting', icon: 'dns', description: 'Deploy and manage the entire platform on your own infrastructure.' },
-  { title: 'Admin API', icon: 'api', description: 'Full REST API for programmatic platform management and automation.' },
+  { title: 'Admin API', icon: 'api', description: 'The REST API between the game and your member system.' },
   { title: 'OIDC Auth', icon: 'vpn_key', description: 'Single sign-on via OpenID Connect with any identity provider.' },
-  { title: 'White Label', icon: 'palette', description: 'Brand the platform as your own with custom theming and domains.' },
+  { title: 'White Label', icon: 'palette', description: 'Your own domain, logos and colours when you host Universe yourself.' },
   { title: 'Technology Stack', icon: 'layers', description: 'Built on proven open-source technologies — fully transparent and extensible.' },
 ]
 
@@ -30,7 +30,7 @@ export default function PlatformContent() {
         title={<>The platform <span className="text-gradient-accent">under your universe</span></>}
         lead={<>Run it on your own servers, put your own brand on it, sign in your own way, and manage it all through an API.</>}
         detail={[
-          <>The engine that powers your universe. Self-host, customize, and scale with enterprise-grade infrastructure.</>,
+          <>The engine that powers your universe. Self-host it, put your brand on it, and connect it to your own systems.</>,
         ]}
         scene="desks"
         actions={[{ label: 'See all features', href: '/features-overview' }]}

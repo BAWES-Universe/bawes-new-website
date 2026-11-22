@@ -1,13 +1,7 @@
-'use client'
-
-'use client';
-
-import React from 'react';
-import Section from '@/components/Section';
-import Button from '@/components/ui/Button';
-import Link from 'next/link';
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
+
 export default function UseCaseCommunityPageContent() {
   return (
     <main className="pt-20">
@@ -15,104 +9,54 @@ export default function UseCaseCommunityPageContent() {
         crumbs={[{ label: 'Use Cases', href: '/use-cases' }]}
         here="For Community"
         title={<>Spaces where <span className="text-gradient-accent">communities</span> come alive</>}
-        lead={<>Hangouts, gaming groups, fan communities, meetups — build a space where people actually want to spend time.</>}
+        lead={<>Hangouts, gaming groups, fan communities and meetups. Build a space where people actually want to spend time.</>}
         scene="fire"
         actions={[{ label: 'Create your space', href: '/contact' }, { label: 'How it works', href: '/how-it-works' }]}
         source="page_use_cases_community"
       />
 
-      {/* How It Works */}
-      <section className="py-section-padding-v px-margin-mobile md:px-gutter max-w-container-max mx-auto">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="font-headline-section text-headline-section">The Mechanics of Connection</h2>
-          <p className="text-text-secondary">Effortless world management for any community size.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="glass-card p-8 rounded-xl space-y-4 hover:-translate-y-2 transition-transform">
-            <div className="w-12 h-12 bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] rounded-lg flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>admin_panel_settings</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card">Your Space, Your Rules</h3>
-            <p className="text-text-low-emphasis">Create a world for your community. Set the map, permissions, and bots. Invite your members with full control over the ecosystem.</p>
-          </div>
-          <div className="glass-card p-8 rounded-xl space-y-4 hover:-translate-y-2 transition-transform">
-            <div className="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>schedule</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card">Always On</h3>
-            <p className="text-text-low-emphasis">The space is always open. Members come and go. Conversations happen naturally across timezones in a persistent environment.</p>
-          </div>
-          <div className="glass-card p-8 rounded-xl space-y-4 hover:-translate-y-2 transition-transform">
-            <div className="w-12 h-12 bg-tertiary-container rounded-lg flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-white" style={{ fontVariationSettings: "'FILL' 1" }}>broadcast_on_home</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card">Events & Gatherings</h3>
-            <p className="text-text-low-emphasis">Schedule live events. Broadcast to everyone with megaphone. Record with LiveKit egress for high-fidelity archival.</p>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="A home that is always open"
+        steps={[
+          { title: "Make your world", text: "Create a world for your community and build its rooms, or start from a template." },
+          { title: "Invite your people", text: "Send invitations and give members roles." },
+          { title: "Leave the door open", text: "The space is always there. People come and go across time zones, and the chat keeps its history." },
+        ]}
+      />
 
-      {/* Key Features */}
-      <section className="py-section-padding-v px-margin-mobile md:px-gutter max-w-container-max mx-auto bg-surface-container-low/30 rounded-[40px] border border-divider">
-        <div className="text-center mb-16">
-          <h2 className="font-headline-section text-headline-section">Designed for Engagement</h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="glass-card p-6 rounded-xl hover:border-primary/40 transition-colors">
-            <span className="material-symbols-outlined text-primary mb-4 text-3xl">map</span>
-            <h4 className="font-headline-card text-[18px] mb-2">Custom Worlds</h4>
-            <p className="text-caption text-text-low-emphasis">Design your community&apos;s space with Tiled maps, zones, and interactive objects.</p>
-          </div>
-          <div className="glass-card p-6 rounded-xl hover:border-primary/40 transition-colors">
-            <span className="material-symbols-outlined text-secondary mb-4 text-3xl">smart_toy</span>
-            <h4 className="font-headline-card text-[18px] mb-2">AI Bots</h4>
-            <p className="text-caption text-text-low-emphasis">Greeters, moderators, and activity bots that live in your space and interact with members.</p>
-          </div>
-          <div className="glass-card p-6 rounded-xl hover:border-primary/40 transition-colors">
-            <span className="material-symbols-outlined text-tertiary mb-4 text-3xl">campaign</span>
-            <h4 className="font-headline-card text-[18px] mb-2">Megaphone</h4>
-            <p className="text-caption text-text-low-emphasis">Announcements, live streams, and events. Reach everyone in the world at once.</p>
-          </div>
-          <div className="glass-card p-6 rounded-xl hover:border-primary/40 transition-colors">
-            <span className="material-symbols-outlined text-on-primary-fixed-variant mb-4 text-3xl">forum</span>
-            <h4 className="font-headline-card text-[18px] mb-2">Persistent Chat</h4>
-            <p className="text-caption text-text-low-emphasis">Matrix-powered chat history. Conversations survive between visits and sessions.</p>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="Made for belonging"
+        title="What keeps people coming back"
+        cards={[
+          { icon: "map", title: "Your own rooms", text: "Design the space with the map editor: areas, objects, sounds and places to gather.", more: { label: "Map editor", href: "/features/map-editor" } },
+          { icon: "military_tech", title: "Roles and badges", text: "Give people roles with a name, a colour and a badge, and choose what each role may do." },
+          { icon: "smart_toy", title: "AI bots", text: "Greeters, guides and helpers that live in your space and talk with members.", more: { label: "AI bots", href: "/ai-bots" } },
+          { icon: "campaign", title: "Reach everyone", text: "Broadcast a message, a voice note or go live, to one place or the whole universe.", more: { label: "Broadcasting", href: "/features/broadcasting" } },
+          { icon: "mic", title: "A stage", text: "Put a stage and an audience area in a room. People on the stage are heard by the whole audience.", more: { label: "Megaphone", href: "/features/megaphone" } },
+          { icon: "chat", title: "Chat that stays", text: "Chat rooms and direct messages run on Matrix and keep their history.", more: { label: "Matrix chat", href: "/features/matrix-chat" } },
+        ]}
+      />
 
-      {/* Use Cases */}
-      <section className="py-section-padding-v px-margin-mobile md:px-gutter max-w-container-max mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <div className="max-w-2xl">
-            <h2 className="font-headline-section text-headline-section mb-4">Every Community Has a Home</h2>
-            <p className="text-text-secondary">From hardcore gaming guilds to local knitting clubs, BAWES provides the infrastructure for presence.</p>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="group cursor-pointer">
-            <div className="relative glass-card rounded-2xl overflow-hidden mb-6 aspect-square flex items-center justify-center transition-all group-hover:shadow-[0_0_30px_rgba(139,92,246,0.2)]">
-              <span className="material-symbols-outlined text-6xl text-primary/30">sports_esports</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-2">Gaming Communities</h3>
-            <p className="text-text-low-emphasis">Game nights, watch parties, LFG rooms. Voice chat in the same space as the game for seamless immersion.</p>
-          </div>
-          <div className="group cursor-pointer">
-            <div className="relative glass-card rounded-2xl overflow-hidden mb-6 aspect-square flex items-center justify-center transition-all group-hover:shadow-[0_0_30px_rgba(139,92,246,0.2)]">
-              <span className="material-symbols-outlined text-6xl text-secondary/30">auto_awesome</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-2">Fan Communities</h3>
-            <p className="text-text-low-emphasis">Watch parties, listening sessions, and creative showcases. Build a space for your fandom to gather.</p>
-          </div>
-          <div className="group cursor-pointer">
-            <div className="relative glass-card rounded-2xl overflow-hidden mb-6 aspect-square flex items-center justify-center transition-all group-hover:shadow-[0_0_30px_rgba(139,92,246,0.2)]">
-              <span className="material-symbols-outlined text-6xl text-tertiary/30">handshake</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-2">Professional Networks</h3>
-            <p className="text-text-low-emphasis">Industry meetups, alumni networks, and professional groups. Networking that feels natural.</p>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="Every community has a home"
+        title="From gaming guilds to knitting clubs"
+        cards={[
+          { icon: "sports_esports", title: "Gaming communities", text: "Game nights, watch parties and rooms to find a group, with voice in the same space." },
+          { icon: "star", title: "Fan communities", text: "Watch parties, listening sessions and creative showcases." },
+          { icon: "work", title: "Professional networks", text: "Industry meetups, alumni groups and networking that feels natural." },
+        ]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Broadcasting", href: "/features/broadcasting", note: "Speak to a whole room or universe." },
+          { label: "User directory", href: "/features/user-directory", note: "See who is around." },
+          { label: "Map templates", href: "/features/map-templates", note: "Start a room from a ready-made map." },
+          { label: "How it works", href: "/how-it-works", note: "Universe in a few steps." },
+        ]}
+      />
+
       <PageClosing
         title={<>Give your community a home</>}
         body={<>Walk in, say hello, and look around.</>}

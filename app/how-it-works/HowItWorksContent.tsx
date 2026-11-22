@@ -211,11 +211,11 @@ export default function HowItWorksPageContent() {
             </div>
             <div className="glass-card p-8 rounded-3xl space-y-6">
               <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
-                <span className="material-symbols-outlined text-secondary text-2xl">call</span>
+                <span className="material-symbols-outlined text-secondary text-2xl">mail</span>
               </div>
               <div>
-                <h4 className="font-headline-card text-[20px] text-white mb-2">Phone Chat</h4>
-                <p className="text-body-md text-text-secondary text-sm">Direct calls across rooms for quick one-on-one syncs.</p>
+                <h4 className="font-headline-card text-[20px] text-white mb-2">Direct Messages</h4>
+                <p className="text-body-md text-text-secondary text-sm">Message anyone, wherever they are. The history stays.</p>
               </div>
             </div>
             <div className="glass-card p-8 rounded-3xl space-y-6">
@@ -224,7 +224,7 @@ export default function HowItWorksPageContent() {
               </div>
               <div>
                 <h4 className="font-headline-card text-[20px] text-white mb-2">Text Chat</h4>
-                <p className="text-body-md text-text-secondary text-sm">Per-room channels with integrated bot streaming support.</p>
+                <p className="text-body-md text-text-secondary text-sm">A chat opens for the people standing together. Bots answer in it too.</p>
               </div>
             </div>
             <div className="glass-card p-8 rounded-3xl space-y-6">

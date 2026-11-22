@@ -8,15 +8,15 @@ import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
 
 const features = [
-  { title: 'Bot Behaviors', icon: 'psychology', description: 'Define complex behavioral patterns for your AI bots.' },
+  { title: 'Bot Behaviors', icon: 'psychology', description: 'Bots that stay put, wander, walk a route, come over and show the way.' },
   { title: 'Bot Memory', icon: 'memory', description: 'Persistent memory so bots remember past conversations and context.' },
   { title: 'Bot Streaming Chat', icon: 'message', description: 'Real-time streaming responses for natural conversational flow.' },
   { title: 'Bot Tool Calling', icon: 'handyman', description: 'Let bots invoke tools and APIs to perform actions on your behalf.' },
   { title: 'Bot Avatars', icon: 'face', description: 'Customize bot appearances with unique avatars and visual identities.' },
-  { title: 'Bot Emotions', icon: 'favorite', description: 'Emotional states and mood-driven responses for lifelike interactions.' },
-  { title: 'Bot Greetings', icon: 'waving_hand', description: 'Personalized welcome messages and greeting behaviors.' },
+  { title: 'Bot Emotions', icon: 'favorite', description: 'Feelings a bot builds toward each person, from how their chats go.' },
+  { title: 'Bot Greetings', icon: 'waving_hand', description: 'A hello in the bot’s own words when someone comes close.' },
   { title: 'Bot Provider Config', icon: 'settings', description: 'Configure AI providers — OpenAI, Anthropic, local models, and more.' },
-  { title: 'Recursive Bots', icon: 'device_hub', description: 'Bots that spawn and coordinate other bots for complex tasks.' },
+  { title: 'Recursive Bots', icon: 'device_hub', description: 'A team of bots in one room, each with its own model, memory and tools.' },
   { title: 'Bot Editor', icon: 'edit', description: 'Visual editor to create, tweak, and manage your bot fleet.' },
   { title: 'Bot File Parsing', icon: 'description', description: 'Bots analyze PDF, Word, Excel, and web pages.' },
   { title: 'Bot Media Sending', icon: 'image', description: 'Auto-send tool-generated images and video to users.' },

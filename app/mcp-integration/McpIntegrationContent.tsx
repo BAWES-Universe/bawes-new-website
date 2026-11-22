@@ -195,7 +195,7 @@ Content-Type: application/json
           </div>
           <div className="mt-8 text-center">
             <p className="text-text-secondary text-sm max-w-xl mx-auto">
-              Timeout: <strong className="text-white">10 seconds</strong>. Requests exceeding this are discarded and the AI receives an error.
+              Timeout: <strong className="text-white">set for each bot</strong>, under Patience. Requests exceeding it are dropped and the AI is told the tool did not answer.
               All tool requests are sent with <code className="text-primary text-xs">player_id</code> for per-user session tracking.
             </p>
           </div>

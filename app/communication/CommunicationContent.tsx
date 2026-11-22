@@ -7,16 +7,16 @@ import Button from '@/components/ui/Button'
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
 const features = [
-  { title: 'Proximity Chat', icon: 'spatial_audio', description: 'Voice chat that respects distance and presence in the spatial world.' },
+  { title: 'Proximity Chat', icon: 'spatial_audio', description: 'Walk up to someone and a voice and video conversation starts.' },
   { title: 'Text Chat', icon: 'chat', description: 'Real-time text messaging between users and groups within your universe.' },
-  { title: 'Matrix Chat', icon: 'hub', description: 'Federated chat via Matrix protocol for cross-universe conversations.' },
-  { title: 'Megaphone', icon: 'campaign', description: 'Broadcast announcements to everyone in your universe at once.' },
-  { title: 'Meeting Rooms', icon: 'video_chat', description: 'Dedicated video conferencing rooms with spatial audio support.' },
+  { title: 'Matrix Chat', icon: 'hub', description: 'Direct messages and chat rooms on the open Matrix protocol, with history that stays.' },
+  { title: 'Megaphone', icon: 'campaign', description: 'A stage and an audience area. People on the stage are heard by the whole audience.' },
+  { title: 'Meeting Rooms', icon: 'video_chat', description: 'Rooms where everyone inside talks together.' },
   { title: 'Screen Sharing', icon: 'present_to_all', description: 'Share your screen with others in real-time during meetings.' },
   { title: 'Broadcasting & Events', icon: 'podcasts', description: 'Stream live events and broadcasts to your entire community.' },
-  { title: 'Play Audio', icon: 'music_note', description: 'Play music, sounds, and audio files in spatial environments.' },
-  { title: 'Follow', icon: 'group_work', description: 'Follow other users to navigate the universe together.' },
-  { title: 'Lock & Moderate', icon: 'verified_user', description: 'Moderate conversations, lock channels, and manage permissions.' },
+  { title: 'Play Audio', icon: 'music_note', description: 'Play music and sounds in an area. They get quieter as you walk away.' },
+  { title: 'Follow', icon: 'group_work', description: 'Ask people to follow you and walk through the map together.' },
+  { title: 'Lock & Moderate', icon: 'verified_user', description: 'Lock a conversation or a room so nobody else can join.' },
 ]
 
 const featureSlugs: Record<string, string> = {

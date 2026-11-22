@@ -50,7 +50,7 @@ const dropdowns: NavDropdown[] = [
       { label: 'For Community', href: '/use-cases/community', description: 'Events, gaming, welcome bots' },
       { label: 'For Learning', href: '/use-cases/learning', description: 'Study rooms, AI teaching assistants' },
       { label: 'For Events', href: '/use-cases/events', description: 'Conferences, broadcasts, meetups' },
-      { label: 'For Commerce', href: '/use-cases/commerce', description: 'Subscriptions, ticketing, revenue' },
+      { label: 'For Commerce', href: '/use-cases/commerce', description: 'Shops, services, members' },
       { label: 'For Market', href: '/use-cases/market', description: 'Brand showrooms, shops, marketplaces' },
     ],
   },

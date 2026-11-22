@@ -74,6 +74,8 @@
 
 /* cards: one thing a person can do each */
 .uh-bcards { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+/* four cards sit two by two, so the last one is not left alone on a row */
+@media (min-width: 901px) { .uh-bcards:has(> li:nth-child(4):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .uh-bcard { height: 100%; padding: 22px; border-radius: 20px; border: 1px solid var(--uh-line); background: rgba(255, 255, 255, 0.03); }
 .uh-bcard .material-symbols-outlined { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; font-size: 22px; color: #c4b5fd; background: rgba(139, 92, 246, 0.16); margin-bottom: 16px; }
 .uh-bcard b { display: block; font-family: var(--uh-display); font-size: 19px; line-height: 1.25; font-weight: 700; color: #fff; letter-spacing: -0.015em; }
