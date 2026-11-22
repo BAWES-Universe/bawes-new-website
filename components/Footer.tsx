@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           <motion.div
-            className="md:col-span-5"
+            className="md:col-span-12 lg:col-span-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -62,13 +62,34 @@ export default function Footer() {
           </motion.div>
 
           <motion.div
-            className="md:col-span-7"
+            className="md:col-span-12 lg:col-span-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-8">
+              <div>
+                <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Universe</h3>
+                <ul className="space-y-3">
+                  {[
+                    { label: 'Things to do', href: '/#things' },
+                    { label: 'Brick', href: '/#brick' },
+                    { label: 'Artifacts', href: '/#artifacts' },
+                    { label: 'Orbit and your account', href: '/#orbit' },
+                    { label: 'Apps and AI', href: '/#apps' },
+                    { label: 'Universe AI', href: '/#universe-ai' },
+                  ].map((item) => (
+                    <li key={item.label}>
+                      <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
+                        {item.label}
+                        <span className="material-symbols-outlined text-[14px] text-white/20 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-all duration-200">chevron_right</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <div>
                 <h3 className="text-sm font-semibold mb-4 text-white/90 uppercase tracking-wider">Explore</h3>
                 <ul className="space-y-3">
@@ -77,10 +98,12 @@ export default function Footer() {
                     { label: 'AI Bots', href: '/ai-bots' },
                     { label: 'Build & Create', href: '/build' },
                     { label: 'Platform', href: '/platform' },
+                    { label: 'All Features', href: '/features-overview' },
                     { label: 'How It Works', href: '/how-it-works' },
                     { label: 'About', href: '/about' },
                     { label: 'The Team', href: '/team' },
                     { label: 'Manifesto', href: '/manifesto' },
+                    { label: 'The Empty Seat', href: '/empty-seat' },
                   ].map((item) => (
                     <li key={item.label}>
                       <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
@@ -103,6 +126,7 @@ export default function Footer() {
                     { label: 'For Events', href: '/use-cases/events' },
                     { label: 'For Commerce', href: '/use-cases/commerce' },
                     { label: 'For Market', href: '/use-cases/market' },
+                    { label: 'All Use Cases', href: '/use-cases' },
                   ].map((item) => (
                     <li key={item.label}>
                       <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
@@ -124,6 +148,7 @@ export default function Footer() {
                     { label: 'Self-Hosting', href: '/features/self-hosting' },
                     { label: 'Open Source', href: '/open-source' },
                     { label: 'WorkAdventure Fork', href: '/workadventure-fork' },
+                    { label: 'Developer Hub', href: '/developers' },
                   ].map((item) => (
                     <li key={item.label}>
                       <Link href={item.href} className="group inline-flex items-center gap-1.5 text-white/50 hover:text-purple-400 transition-colors text-sm">
@@ -143,6 +168,7 @@ export default function Footer() {
                     { label: 'Blog', href: 'https://blog.bawes.net', external: true },
                     { label: 'GitHub', href: 'https://github.com/BAWES-Universe', external: true },
                     { label: 'Contact', href: '/contact' },
+                    { label: 'Legal', href: '/legal' },
                   ].map((item) => (
                     <li key={item.label}>
                       {item.external ? (

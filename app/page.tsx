@@ -2,22 +2,17 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import LivingWorld from '@/components/home/LivingWorld'
-import FeatureTour from '@/components/home/FeatureTour'
-import BotTranscript from '@/components/home/BotTranscript'
-import Ecosystem from '@/components/home/Ecosystem'
+import Plaza from '@/components/home/Plaza'
+import FeelLoops from '@/components/home/FeelLoops'
+import BrickSection from '@/components/home/BrickSection'
+import Soon, { Live } from '@/components/home/Soon'
+import { Avatar, Brick, vars, type AvatarId, type BrickColour } from '@/components/home/sprites'
 import { captureEnterUniverse, captureCtaClick, captureExternalLink, getCrossDomainUrl, UNIVERSE_URL } from '@/lib/posthog'
+import '@/components/home/home.css'
 
 /* ═══════════════════════════════════════════════════════════════
    DATA
    ═══════════════════════════════════════════════════════════════ */
-
-const promises = [
-  { icon: 'directions_walk', title: 'Just walk in', desc: 'Works in your browser. No download, no install, no account to start.' },
-  { icon: 'record_voice_over', title: 'Talk like you are there', desc: 'Get close to someone and you can hear them. Step away and you cannot.' },
-  { icon: 'smart_toy', title: 'Meet the residents', desc: 'AI characters who live in the rooms, remember you and actually help.' },
-  { icon: 'home_work', title: 'Make it yours', desc: 'Build a room, invite friends or your team, and change it any time.' },
-]
 
 const box = [
   { icon: 'meeting_room', color: '#a78bfa', title: 'Meeting rooms', desc: 'Walk in to auto-join. Video, screen share and a shared screen on the wall — no invites, no links.', href: '/features/meeting-rooms', wide: true },
@@ -29,6 +24,7 @@ const box = [
   { icon: 'shield_person', color: '#93c5fd', title: 'OIDC single sign-on', desc: 'Bring your identity provider. Access is spatial and tag-based, not one global switch.', href: '/features/oidc-auth' },
   { icon: 'dns', color: '#34d399', title: 'Self-host everything', desc: 'Docker Compose or Kubernetes. Your domain, your logos, your data, your models.', href: '/features/self-hosting', wide: true },
   { icon: 'explore', color: '#fbbf24', title: 'Orbit', desc: 'See where you are, who is online and jump straight to where activity is happening.', href: '/features/orbit-operator' },
+  { icon: 'map', color: '#f9a8d4', title: 'Map editor', desc: 'Drag a tile, place a desk, draw a zone. Every change is live for everyone in the room.', href: '/features/map-editor' },
 ]
 
 const botCaps = [
@@ -43,13 +39,6 @@ const botCaps = [
   { icon: 'account_tree', title: 'Bots that build bots', desc: 'Hand a bot the admin API and it can provision more.', href: '/features/recursive-bots' },
 ]
 
-const roster = [
-  { icon: 'waving_hand', color: '#a78bfa', name: 'Receptionist bot', job: 'Meets whoever walks in, learns who they are, and hands the lead straight to your team.' },
-  { icon: 'auto_awesome', color: '#fbbf24', name: 'Imagine bot', job: 'Generates images and video on request, right there in the room.' },
-  { icon: 'task_alt', color: '#6ee7b7', name: 'Project bot', job: 'Tracks work in your project tracker, files issues, chases what is still open.' },
-  { icon: 'bug_report', color: '#f9a8d4', name: 'Debug bot', job: 'Reads GitHub and Sentry to explain what broke and why.' },
-]
-
 const useCases = [
   { emoji: '🏠', title: 'Personal', desc: 'Your own space, your own AI companions, friends welcome anytime.', href: '/use-cases/personal' },
   { emoji: '🏢', title: 'Work', desc: 'Team rooms, focus pods, standup bots and a watercooler that works.', href: '/use-cases/work' },
@@ -58,6 +47,41 @@ const useCases = [
   { emoji: '🌐', title: 'Events', desc: 'Sponsor rooms, networking zones and a main stage for thousands.', href: '/use-cases/events' },
   { emoji: '💰', title: 'Commerce', desc: 'Subscriptions, tickets and payments wired to your existing stack.', href: '/use-cases/commerce' },
   { emoji: '🛍️', title: 'Market', desc: 'Brand showrooms, social shopping and pop-up shops in shared space.', href: '/use-cases/market' },
+]
+
+const account = [
+  { title: 'Orbit', live: true, desc: 'See which rooms have people in them and jump straight in.' },
+  { title: 'Your universes', desc: 'Create your own universe with worlds and rooms. Keep it open, or members only.' },
+  { title: 'Your passport', desc: 'Stamps from the places you visit most, and stars on the ones you love.' },
+  { title: 'Your artifacts', desc: 'Everything you have made, in one list, ready to open or share.' },
+  { title: 'Your people', desc: 'Friends, direct messages and voice notes follow you from room to room.' },
+  { title: 'Your AI keys', desc: 'Add your own keys once and every resident you make can use them.' },
+]
+
+const artifacts: { kind: string; colour?: string; thumb: 'app' | 'page' | 'doc' | 'draw'; tint: string; title: string; desc: string; by: string; avatar: AvatarId }[] = [
+  { kind: 'App', colour: '#93c5fd', thumb: 'app', tint: '#1a2147', title: 'Team trivia night', desc: 'Small working apps: a quiz, a tracker, a game, a calculator.', by: 'Noura', avatar: 'a' },
+  { kind: 'Page', thumb: 'page', tint: '#231a4d', title: 'Studio open day', desc: 'Pages people can visit: an invite, a portfolio, a menu.', by: 'Omar', avatar: 'j' },
+  { kind: 'Document', colour: '#34d399', thumb: 'doc', tint: '#12302f', title: 'Study plan, week 3', desc: 'Plans, notes, reports and guides you can keep editing.', by: 'Sara', avatar: 'd' },
+  { kind: 'Drawing', colour: '#fbbf24', thumb: 'draw', tint: '#2b1a38', title: 'Room poster', desc: 'Logos, diagrams and posters, drawn to order.', by: 'Yousef', avatar: 'g' },
+]
+
+const appTiles = ['#93c5fd', '#fbbf24', '#f472b6', '#34d399', '#a78bfa', '#67e8f9']
+
+/* Names shown in the moving rows. Apps: well-known ones from the 1,700+ list. AI and voice: providers Universe supports today. */
+const appNames = ['Gmail', 'Google Calendar', 'Notion', 'GitHub', 'Slack', 'Google Drive', 'Linear', 'Google Sheets', 'Figma', 'Trello', 'Airtable', 'HubSpot', 'Discord', 'Outlook', 'Asana', 'Jira', 'Dropbox', 'Shopify', 'YouTube', 'Calendly']
+const aiNames = ['Universe AI', 'OpenAI', 'Claude', 'Gemini', 'DeepSeek', 'xAI', 'Mistral', 'Groq', 'OpenRouter', 'Qwen', 'Kimi', 'Together AI', 'Fireworks AI', 'Cerebras', 'Hugging Face', 'LM Studio', 'Ollama', 'Any OpenAI-compatible server']
+const voiceNames = ['ElevenLabs', 'Cartesia', 'Deepgram', 'Soniox', 'Fish Audio', 'Hume', 'Azure AI Speech', 'Google', 'OpenAI', 'AssemblyAI', 'Speechmatics', 'Rime', 'Inworld', 'MiniMax', 'Resemble AI', 'Gladia']
+
+const steps = [
+  { n: 'Step 1', title: 'Start free', desc: 'Universe AI is built in. Residents answer from your first minute, on a generous free plan.' },
+  { n: 'Step 2', title: 'Bring your own keys', desc: 'Already pay for an AI provider? Add your key and your residents run on it.' },
+  { n: 'Step 3', title: 'Or let us set it up', desc: 'Want more, or want it done for you? Meet the team. We set it up with you or raise your limits.' },
+]
+
+/* The closing parade: avatars walk right, Bricks hop right. */
+const parade: ({ avatar: AvatarId } | { brick: BrickColour })[] = [
+  { avatar: 'a' }, { brick: 'orange' }, { avatar: 'j' }, { avatar: 'd' }, { brick: 'violet' }, { avatar: 'g' }, { avatar: 'cat' }, { avatar: 'e' }, { brick: 'teal' }, { avatar: 'k' },
+  { avatar: 'c' }, { brick: 'pink' }, { avatar: 'm' }, { avatar: 'dog' }, { brick: 'sky' }, { avatar: 'b' }, { avatar: 'i' }, { brick: 'green' }, { avatar: 'l' }, { avatar: 'n' },
 ]
 
 /* ═══════════════════════════════════════════════════════════════
@@ -111,9 +135,34 @@ function SectionHead({ eyebrow, title, body, align = 'left' }: { eyebrow: string
 
 function Wrap({ children, className = '', id }: { children: React.ReactNode; className?: string; id?: string }) {
   return (
-    <section id={id} className={`relative py-20 md:py-28 px-4 sm:px-6 lg:px-8 ${className}`}>
+    <section id={id} className={`relative scroll-mt-20 py-20 md:py-28 px-4 sm:px-6 lg:px-8 ${className}`}>
       <div className="max-w-7xl mx-auto">{children}</div>
     </section>
+  )
+}
+
+function MoreLink({ href, label, source }: { href: string; label: string; source: string }) {
+  return (
+    <Link href={href} onClick={() => captureCtaClick(label, source)} className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-300 hover:text-white transition-colors group">
+      {label}
+      <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+    </Link>
+  )
+}
+
+/** A row of names that drifts sideways. The second copy only exists to make the loop seamless. */
+function Ticker({ names, seconds, reverse = false }: { names: string[]; seconds: number; reverse?: boolean }) {
+  return (
+    <div className={`uh-tick ${reverse ? 'uh-rev' : ''}`} style={vars({ '--t': `${seconds}s` })}>
+      <div>
+        {names.map((n) => (
+          <span key={n}>{n}</span>
+        ))}
+        {names.map((n) => (
+          <span key={`${n}-2`} aria-hidden="true">{n}</span>
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -123,123 +172,203 @@ function Wrap({ children, className = '', id }: { children: React.ReactNode; cla
 
 export default function Home() {
   return (
-    <div className="relative z-10 overflow-x-clip">
-      {/* ═══ HERO ═══ */}
-      <section className="relative pt-28 md:pt-36 pb-10 md:pb-16 px-4 sm:px-6 lg:px-8">
+    <div className="uh relative z-10 overflow-x-clip">
+      {/* ═══ HERO + PLAZA ═══ */}
+      <section className="relative pt-28 md:pt-32 pb-6 md:pb-10 px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 -z-10 grid-fade opacity-70" />
         <div className="absolute left-1/2 top-[-10%] -translate-x-1/2 w-[900px] h-[500px] -z-10 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse at center, rgba(139,92,246,0.18), transparent 60%)' }} />
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          {/* Copy */}
-          <div className="lg:col-span-5">
-            <motion.h1
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.05 }}
-              className="font-display text-[44px] sm:text-6xl lg:text-[64px] xl:text-[72px] leading-[1.0] font-bold text-white tracking-[-0.035em] mb-6"
-            >
-              Where people and{' '}
-              <span className="text-gradient-accent">AI actually live</span>{' '}
-              together.
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.12 }}
-              className="text-lg text-white/60 leading-relaxed max-w-[480px] mb-8"
-            >
-              Universe is made of spaces you walk into, not links you click. See who&apos;s around,
-              walk over and talk naturally — with people and bots that have memories, feelings,
-              and real tools to help.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap items-center gap-3 mb-7"
-            >
-              <EnterCta source="hero" />
-              <Link href="/how-it-works" onClick={() => captureCtaClick('How it works', 'hero')} className="cta-secondary">
-                How it works
-                <span className="material-symbols-outlined text-[18px]">north_east</span>
-              </Link>
+        <div className="max-w-7xl mx-auto">
+          <div className="uh-hero-top">
+            <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.05 }}>
+              <div className="eyebrow">People and AI, living together</div>
+              <h1 className="uh-h1">
+                <span className="uh-ln">A <span className="uh-g">Universe</span></span>{' '}
+                <span className="uh-ln">where you</span>{' '}
+                <span className="uh-ln">belong.</span>
+              </h1>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.35 }}
-              className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] text-white/45"
-            >
-              <span className="inline-flex items-center gap-1.5"><span className="material-symbols-outlined text-[16px] text-emerald-300">check</span> No credit card</span>
-              <span className="inline-flex items-center gap-1.5"><span className="material-symbols-outlined text-[16px] text-emerald-300">check</span> Works in the browser</span>
-              <span className="inline-flex items-center gap-1.5"><span className="material-symbols-outlined text-[16px] text-emerald-300">check</span> Free to start</span>
+            <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}>
+              <p className="uh-lead">
+                Walk in, meet people and make a space of your own. <b>Build anything</b> with Brick, the AI
+                that lives here with you, and connect it to the Apps you already use.
+              </p>
+              <div className="uh-cta">
+                <EnterCta source="hero" />
+                <a href="#brick" onClick={() => captureCtaClick('Meet Brick', 'hero')} className="cta-secondary">
+                  Meet Brick
+                </a>
+              </div>
+              <ul className="uh-facts">
+                <li>Free to start</li>
+                <li>Works in the browser</li>
+                <li>No download</li>
+              </ul>
             </motion.div>
           </div>
 
-          {/* Living world */}
-          <motion.div
-            initial={{ opacity: 0, y: 24, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-7"
-          >
-            <div className="hero-frame">
-              <div className="rounded-[18px] overflow-hidden">
-                <LivingWorld />
-              </div>
-            </div>
-            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 px-1 text-[12px] text-white/45">
-              <span className="inline-flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[15px] text-amber-300">science</span>
-                Live simulation of a Universe room, drawn in your browser. Not a video.
-              </span>
-              <span className="hidden sm:inline-flex items-center gap-3">
-                <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-purple-400/70" /> proximity bubble</span>
-                <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-amber-400/80" /> you</span>
-                <span className="inline-flex items-center gap-1"><span className="material-symbols-outlined text-[13px] text-purple-300">smart_toy</span> resident bot</span>
-              </span>
-            </div>
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
+            <Plaza />
           </motion.div>
         </div>
       </section>
 
-      {/* ═══ PROMISES ═══ */}
-      <section className="px-4 sm:px-6 lg:px-8 pb-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="divider-glow mb-10" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6">
-            {promises.map((p, i) => (
-              <motion.div key={p.title} {...rise(i * 0.05)} className="flex items-start gap-3.5">
-                <span className="w-10 h-10 rounded-xl bg-purple-500/12 border border-purple-400/20 text-purple-200 flex items-center justify-center flex-shrink-0">
-                  <span className="material-symbols-outlined text-[20px]">{p.icon}</span>
-                </span>
-                <span>
-                  <span className="block text-[15px] font-semibold text-white leading-tight mb-1">{p.title}</span>
-                  <span className="block text-[13px] text-white/50 leading-relaxed">{p.desc}</span>
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ SIGNATURE FEATURES ═══ */}
-      <Wrap id="different">
+      {/* ═══ HOW IT FEELS ═══ */}
+      <Wrap id="feel">
         <SectionHead
-          eyebrow="What makes it different"
-          title={<>Not a tool. Not a game.<br />A <span className="text-gradient-accent">living space</span>.</>}
+          eyebrow="How it feels"
+          title={<>Walk up. Say hi. <span className="text-gradient-accent">That is the whole trick.</span></>}
         />
         <motion.div {...rise(0.1)}>
-          <FeatureTour />
+          <FeelLoops />
+        </motion.div>
+        <motion.div {...rise(0.15)} className="mt-6">
+          <MoreLink href="/how-it-works" label="See how it works" source="feel" />
+        </motion.div>
+      </Wrap>
+
+      {/* ═══ ORBIT AND YOUR ACCOUNT ═══ */}
+      <Wrap id="orbit" className="!pt-8">
+        <SectionHead
+          eyebrow="Orbit and your account"
+          title={<>One account. <span className="text-gradient-accent">A whole Universe</span> around you.</>}
+          body="A universe holds worlds, and worlds hold rooms. Orbit shows you where people are right now and takes you there in one tap."
+        />
+        <motion.div {...rise(0.1)} className="uh-orbit-grid">
+          <div className="uh-orbit" aria-hidden="true">
+            <span className="uh-o" style={vars({ width: '96%', height: '96%', '--t': '80s' })}>
+              <i style={vars({ '--c': '#a78bfa', '--a': '40deg', '--d': '20px' })} />
+              <i style={vars({ '--c': '#fbbf24', '--a': '150deg', '--d': '16px' })} />
+              <i style={vars({ '--c': '#93c5fd', '--a': '265deg', '--d': '18px' })} />
+            </span>
+            <span className="uh-o uh-r" style={vars({ width: '68%', height: '68%', '--t': '52s' })}>
+              <i style={vars({ '--c': '#34d399', '--a': '70deg' })} />
+              <i style={vars({ '--c': '#f472b6', '--a': '200deg' })} />
+              <i style={vars({ '--c': '#a78bfa', '--a': '310deg', '--d': '12px' })} />
+            </span>
+            <span className="uh-o" style={vars({ width: '42%', height: '42%', '--t': '30s' })}>
+              <i style={vars({ '--c': '#fbbf24', '--a': '30deg', '--d': '10px' })} />
+              <i style={vars({ '--c': '#67e8f9', '--a': '150deg', '--d': '10px' })} />
+              <i style={vars({ '--c': '#fb923c', '--a': '270deg', '--d': '10px' })} />
+            </span>
+            <span className="uh-lab" style={{ top: '2%' }}>Universes</span>
+            <span className="uh-lab" style={{ top: '16%' }}>Worlds</span>
+            <span className="uh-lab" style={{ top: '29%' }}>Rooms</span>
+            <span className="uh-core" />
+            <Avatar id="i">
+              <span className="uh-tag uh-you">You</span>
+            </Avatar>
+          </div>
+          <div>
+            <div className="uh-acct">
+              {account.map((a) => (
+                <div key={a.title} className="surface-card">
+                  <b>
+                    {a.title}
+                    {a.live && <Live>Live now</Live>}
+                  </b>
+                  <span className="uh-d">{a.desc}</span>
+                </div>
+              ))}
+            </div>
+            <div className="uh-crumb">
+              <b>Universe</b>→<b>World</b>→<b>Room</b>
+              <span>One link for every room.</span>
+            </div>
+            <div className="mt-6">
+              <MoreLink href="/features/orbit-operator" label="More about Orbit" source="orbit" />
+            </div>
+          </div>
+        </motion.div>
+      </Wrap>
+
+      {/* ═══ BRICK ═══ */}
+      <Wrap id="brick">
+        <SectionHead
+          eyebrow="Brick"
+          title={<>Meet Brick. <span className="text-gradient-accent">Yours from day one.</span> <Soon className="uh-h2-soon" /></>}
+          body="Brick is your own AI companion. It starts free on Universe AI, and it gets more useful the more you give it to do."
+        />
+        <motion.div {...rise(0.1)}>
+          <BrickSection />
+        </motion.div>
+        <motion.div {...rise(0.15)} className="mt-6">
+          <MoreLink href="/ai-bots" label="Everything residents can do" source="brick" />
+        </motion.div>
+      </Wrap>
+
+      {/* ═══ ARTIFACTS ═══ */}
+      <Wrap id="artifacts" className="!pt-8">
+        <SectionHead
+          eyebrow="Artifacts"
+          title={<>Ask for anything. <span className="text-gradient-accent">Keep what it makes.</span></>}
+          body="Whatever a resident builds for you becomes an artifact. Open it inside Universe, ask for changes, go back a version, or share it with a link."
+        />
+        <div className="uh-shelf">
+          {artifacts.map((a, i) => (
+            <motion.article key={a.title} {...rise(0.05 * i)} className="uh-art surface-card">
+              <div className={`uh-thumb uh-${a.thumb}`} style={vars({ '--t': a.tint })}>
+                {a.thumb === 'app' && appTiles.map((b) => <i key={b} style={vars({ '--b': b })} />)}
+              </div>
+              <span className="uh-kind" style={a.colour ? vars({ '--k': a.colour }) : undefined}>{a.kind}</span>
+              <b>{a.title}</b>
+              <p>{a.desc}</p>
+              <div className="uh-by">
+                <Avatar id={a.avatar} />
+                {a.by}
+              </div>
+            </motion.article>
+          ))}
+        </div>
+        <p className="uh-note">
+          <Soon /> Publish a finished version, and keep working on the next one in private.
+        </p>
+      </Wrap>
+
+      {/* ═══ APPS AND AI ═══ */}
+      <Wrap id="apps">
+        <SectionHead
+          eyebrow="Apps and AI"
+          title={<>Hook up <span className="text-gradient-accent">anything.</span></>}
+          body="Your residents work with the Apps you already use, think with the AI you choose, and speak with the voice you pick."
+        />
+        <motion.div {...rise(0.1)} className="uh-hook">
+          <div className="uh-lane surface-card">
+            <div>
+              <Soon />
+              <b>
+                <span className="uh-big text-gradient-accent">1,700+</span>Apps
+              </b>
+              <p>Connect one in a tap. Not listed? Paste its MCP link and add your own.</p>
+            </div>
+            <Ticker names={appNames} seconds={60} />
+          </div>
+          <div className="uh-lane surface-card">
+            <div>
+              <Live />
+              <b>Any AI model</b>
+              <p>Start on Universe AI. Switch a resident to your own key whenever you like.</p>
+            </div>
+            <Ticker names={aiNames} seconds={52} reverse />
+          </div>
+          <div className="uh-lane surface-card">
+            <div>
+              <Live />
+              <b>Any voice</b>
+              <p>Choose who your residents hear with and speak with.</p>
+            </div>
+            <Ticker names={voiceNames} seconds={56} />
+          </div>
+        </motion.div>
+        <motion.div {...rise(0.15)} className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+          <MoreLink href="/mcp-integration" label="Add your own App with MCP" source="apps" />
+          <MoreLink href="/features/bot-provider-config" label="Choosing an AI provider" source="apps" />
         </motion.div>
       </Wrap>
 
       {/* ═══ USE CASES ═══ */}
-      <Wrap className="!pt-8">
+      <Wrap id="use-cases" className="!pt-8">
         <SectionHead
           eyebrow="What people build"
           title={<>Universes for work, school,<br />community and more.</>}
@@ -265,64 +394,8 @@ export default function Home() {
         </div>
       </Wrap>
 
-      {/* ═══ BOTS ═══ */}
-      <Wrap className="!pt-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          <div className="lg:col-span-5 lg:sticky lg:top-28">
-            <SectionHead
-              eyebrow="AI residents"
-              title={<>A bot is a resident,<br />not a chat window.</>}
-              body="Universe bots join rooms as players. They walk the map, see who is nearby, remember every conversation and call real tools — then bring you the result in person. You build one per job, and they keep working when nobody is talking to them."
-            />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-2.5 -mt-6">
-              {botCaps.map((c, i) => (
-                <motion.div key={c.title} {...rise(0.03 * i)}>
-                  <Link href={c.href} className="surface-card surface-card-hover flex items-start gap-3 p-3.5 h-full">
-                    <span className="w-8 h-8 rounded-lg bg-purple-500/15 text-purple-200 flex items-center justify-center flex-shrink-0">
-                      <span className="material-symbols-outlined text-[18px]">{c.icon}</span>
-                    </span>
-                    <span>
-                      <span className="block text-sm font-semibold text-white leading-tight mb-0.5">{c.title}</span>
-                      <span className="block text-[12.5px] text-white/50 leading-snug">{c.desc}</span>
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-            <motion.div {...rise(0.2)} className="mt-6">
-              <Link href="/ai-bots" onClick={() => captureCtaClick('Everything bots can do', 'bots')} className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-300 hover:text-white transition-colors group">
-                Everything bots can do
-                <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_forward</span>
-              </Link>
-            </motion.div>
-          </div>
-          <motion.div {...rise(0.1)} className="lg:col-span-7">
-            <BotTranscript />
-            <div className="mt-5">
-              <div className="text-[11px] uppercase tracking-[0.16em] text-white/35 mb-3">
-                You don&apos;t get one assistant. You build one for each job.
-              </div>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                {roster.map((r) => (
-                  <div key={r.name} className="surface-card px-3.5 py-3.5 h-full">
-                    <span
-                      className="w-8 h-8 rounded-lg flex items-center justify-center mb-2.5"
-                      style={{ background: `${r.color}1f`, color: r.color }}
-                    >
-                      <span className="material-symbols-outlined text-[18px]">{r.icon}</span>
-                    </span>
-                    <div className="text-[13.5px] font-semibold text-white leading-tight mb-1">{r.name}</div>
-                    <div className="text-[12px] text-white/50 leading-snug">{r.job}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </Wrap>
-
       {/* ═══ EVERYTHING IN THE BOX ═══ */}
-      <Wrap>
+      <Wrap id="features">
         <SectionHead
           eyebrow="Everything in the box"
           title={<>The whole office, campus or venue. <span className="text-gradient-accent">Already built.</span></>}
@@ -347,38 +420,51 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-        <motion.div {...rise(0.2)} className="mt-8 text-center">
+
+        <motion.div {...rise(0.15)} className="mt-10">
+          <div className="text-[11px] uppercase tracking-[0.16em] text-white/35 mb-3">What residents can do</div>
+          <div className="flex flex-wrap gap-2.5">
+            {botCaps.map((c) => (
+              <Link key={c.title} href={c.href} title={c.desc} className="surface-card surface-card-hover inline-flex items-center gap-2 !rounded-full px-4 py-2.5 text-[13.5px] font-semibold text-white/85">
+                <span className="material-symbols-outlined text-[18px] text-purple-300">{c.icon}</span>
+                {c.title}
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div {...rise(0.2)} className="mt-8 flex flex-wrap justify-center gap-3">
           <Link href="/features-overview" onClick={() => captureCtaClick('All features', 'box')} className="cta-secondary !py-3 !text-sm">
             See all features
+            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </Link>
+          <Link href="/ai-bots" onClick={() => captureCtaClick('Everything bots can do', 'box')} className="cta-secondary !py-3 !text-sm">
+            Everything residents can do
             <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
           </Link>
         </motion.div>
       </Wrap>
 
-      {/* ═══ ECOSYSTEM ═══ */}
-      <Wrap className="!pt-8">
+      {/* ═══ UNIVERSE AI ═══ */}
+      <Wrap id="universe-ai" className="!pt-8">
         <SectionHead
-          eyebrow="How it fits together"
-          title={<>One universe.<br />Everything <span className="text-gradient-accent">connected.</span></>}
-          body="Universe is the space you walk through — worlds and rooms, all in one place. Around it we built the control room, the AI residents, the tools they can use and a link to your Discord."
+          eyebrow="Universe AI"
+          title={<>Free to start. <span className="text-gradient-accent">Room to grow.</span></>}
         />
-        <motion.div {...rise(0.1)}>
-          <Ecosystem />
-        </motion.div>
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3.5">
-          {[
-            { icon: 'account_tree', title: 'Universes → Worlds → Rooms', desc: 'Three levels, one URL per room. Orbit shows you where you are and lets you jump to where activity is.', href: '/how-it-works' },
-            { icon: 'lock', title: 'Spatial access control', desc: 'Open spaces with protected cores. Membership tags decide who can enter a room, edit a map or run a bot.', href: '/features/oidc-auth' },
-            { icon: 'code', title: 'Open source, self-hostable', desc: 'Built on WorkAdventure and developed in the open. Run it on our cloud or on your own servers.', href: '/open-source' },
-          ].map((c, i) => (
-            <motion.div key={c.title} {...rise(0.05 * i)}>
-              <Link href={c.href} className="surface-card surface-card-hover block h-full p-5">
-                <span className="material-symbols-outlined text-[22px] text-purple-300 mb-3 block">{c.icon}</span>
-                <h3 className="text-[15px] font-semibold text-white mb-1.5">{c.title}</h3>
-                <p className="text-[13px] text-white/50 leading-relaxed">{c.desc}</p>
-              </Link>
-            </motion.div>
+        <motion.div {...rise(0.1)} className="uh-path surface-card">
+          {steps.map((s) => (
+            <div key={s.n}>
+              <span className="uh-n">{s.n}</span>
+              <b>{s.title}</b>
+              <p>{s.desc}</p>
+            </div>
           ))}
+        </motion.div>
+        <div className="uh-after">
+          <EnterCta source="universe_ai" />
+          <Link href="/contact" onClick={() => captureCtaClick('Talk to us', 'universe_ai')} className="cta-secondary">
+            Talk to us
+          </Link>
         </div>
       </Wrap>
 
@@ -446,7 +532,7 @@ export default function Home() {
       <Wrap className="!pt-4 !pb-32">
         <motion.div
           {...rise()}
-          className="relative rounded-[32px] p-10 sm:p-16 md:p-24 text-center overflow-hidden"
+          className="relative rounded-[32px] px-6 pt-14 sm:px-16 sm:pt-20 md:pt-24 text-center overflow-hidden"
           style={{
             background: 'radial-gradient(ellipse at 50% 120%, rgba(139,92,246,0.30), rgba(10,8,20,0) 60%), linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))',
             border: '1px solid rgba(167,139,250,0.2)',
@@ -455,11 +541,11 @@ export default function Home() {
           <div className="absolute inset-0 grid-fade opacity-40 pointer-events-none" />
           <div className="relative">
             <div className="eyebrow justify-center mb-6">Free to enter</div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-[64px] font-bold text-white leading-[1.02] tracking-[-0.03em] mb-5 text-balance">
-              Step into a universe<br />that&apos;s waiting for you.
+            <h2 className="font-display text-4xl sm:text-5xl md:text-[68px] font-bold text-white leading-[1.02] tracking-[-0.03em] mb-5 text-balance">
+              Your <span className="text-gradient-accent">Brick</span> is waiting.
             </h2>
             <p className="text-base md:text-lg text-white/55 max-w-[520px] mx-auto mb-9">
-              No credit card, no commitment. Walk in, meet the residents, build a room, invite a friend.
+              Walk in, say hello, and see what you build together.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <EnterCta source="footer_cta" />
@@ -471,6 +557,17 @@ export default function Home() {
               <a href="https://discord.gg/CXceJWnwNT" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Join the Discord →</a>
               <Link href="/manifesto" className="hover:text-white transition-colors">Read the manifesto →</Link>
               <Link href="/developers" className="hover:text-white transition-colors">Developer hub →</Link>
+            </div>
+          </div>
+          <div className="uh-road" aria-hidden="true">
+            <div className="uh-parade">
+              {[...parade, ...parade].map((who, k) =>
+                'brick' in who ? (
+                  <Brick key={k} colour={who.brick} className="uh-hopping" style={vars({ '--d': `-${((k % parade.length) * 0.13).toFixed(2)}s` })} />
+                ) : (
+                  <Avatar key={k} id={who.avatar} className="uh-walking" />
+                ),
+              )}
             </div>
           </div>
         </motion.div>

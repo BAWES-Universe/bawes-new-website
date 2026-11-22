@@ -1,106 +1,22 @@
-# Homepage Sections (Current)
+# Homepage sections (Current)
 
-Sections displayed below the hero on the home page (`/`), in order.
+Source: `app/page.tsx` and `components/home/`. In order, after the hero and plaza (see `01-hero.md`):
 
----
+| # | Section (id) | Headline | What it holds | Links out |
+|---|--------------|----------|---------------|-----------|
+| 1 | How it feels (`#feel`) | Walk up. Say hi. That is the whole trick. | Three small animations: walk up to talk, change your avatar, a Brick building something | `/features/proximity-chat`, `/features/woka-avatars`, `/how-it-works` |
+| 2 | Orbit and your account (`#orbit`) | One account. A whole Universe around you. | Orbit rings (universes, worlds, rooms) and six cards: Orbit, Your universes, Your passport, Your artifacts, Your people, Your AI keys | `/features/orbit-operator` |
+| 3 | Brick (`#brick`) | Meet Brick. Yours from day one. | Example chat, six abilities, settings tabs (Look, Mind, Voice, Behavior, Permissions). Coming with Bricks. | `/ai-bots` |
+| 4 | Artifacts (`#artifacts`) | Ask for anything. Keep what it makes. | Four kinds: App, Page, Document, Drawing. Publish is Coming with Bricks. | |
+| 5 | Apps and AI (`#apps`) | Hook up anything. | 1,700+ Apps (Coming with Bricks), any AI model, any voice, as three moving rows of names | `/mcp-integration`, `/features/bot-provider-config` |
+| 6 | What people build (`#use-cases`) | Universes for work, school, community and more. | Seven use cases plus "Something else?" | `/use-cases/*`, `/use-cases` |
+| 7 | Everything in the box (`#features`) | The whole office, campus or venue. Already built. | Ten feature cards and nine "What residents can do" links | `/features/*`, `/features-overview`, `/ai-bots` |
+| 8 | Universe AI (`#universe-ai`) | Free to start. Room to grow. | Three steps: Start free, Bring your own keys, Or let us set it up | `/contact` |
+| 9 | Open by default | Standing on giant shoulders. Building in the open. | WorkAdventure fork story and the self-host snippet | GitHub, `/workadventure-fork`, `/open-source` |
+| 10 | Closing | Your Brick is waiting. | Enter the Universe, Talk to us, and a parade of avatars and hopping Bricks | `/contact`, Discord, `/manifesto`, `/developers` |
 
-## 1. What is Universe?
+## Notes
 
-Logo badge + headline.
-
-**Headline:** "What is **Universe**?"
-
-**Body:**
-> Universe is a shared digital environment made of spaces, not apps or pages.
->
-> People move through rooms and worlds, see who's around, and work together naturally, whether they're collaborating, studying, building, shopping, or just hanging out.
-
-**Highlight block:**
-> You don't switch tools.
-> **The space adapts to what you're doing.**
-
----
-
-## 2. What people use it for
-
-Four grid cards, each with emoji, title, description. Staggered fade-in animation.
-
-| Card | Emoji | Description |
-|------|-------|-------------|
-| Work | 🤝 | Team spaces, focus rooms, spontaneous collaboration, real execution. |
-| Learning | 📚 | Personal study rooms, group learning, mentorship, digital campuses. |
-| Commerce | 🛍️ | Shops, services, and marketplaces embedded into shared spaces, connected to real-world tools. |
-| Community | 🎮 | Hangouts, gaming groups, events, casual meetups. |
-
----
-
-## 3. Shared markets & commerce
-
-**Headline:** "Shared markets & **commerce**"
-
-**Body:**
-> Universe supports shared market experiences where people discover products, services, and opportunities together, not in isolation.
-
-**Two feature blocks:**
-1. **Commerce is tool-agnostic.** Shops and marketplaces can connect to whatever stack fits: Shopify, custom systems, booking tools, or existing infrastructure.
-2. **BAWES helps design and integrate** these experiences when needed. We don't just provide tools; we help you build.
-
-**CTA:** "Learn about markets in Universe" → `/market`
-
----
-
-## 4. Get help when you need it
-
-**Headline:** "Get help when you need it"
-
-**Body:**
-> You can ask the Universe for help (guidance, people, or execution), and your request is routed to the right place.
-
-**Three animated phrases (staggered):**
-- Real humans.
-- Real work.
-- **Real progress.**
-
-**Highlight block:**
-> Universe doesn't promise answers to everything.
-> It promises a **path forward** for anything.
-
-**Bot capability highlight:**
-> Drop a file, get answers. Bots read PDFs, Word documents, Excel spreadsheets, and web pages — then answer your questions, summarize key points, and generate images and video. Not just chat. Real work.
-
----
-
-## 5. Work with Universe Components
-
-**Headline:** "Work with **Universe Components**"
-
-**Body:**
-> Universe is built from modular components that work together seamlessly.
-> Each component serves a specific purpose while integrating naturally with the broader ecosystem.
-
-**CTA:** "Explore components" → `/work`
-
----
-
-## 6. Open by default
-
-**Headline:** "Open by **default**"
-
-**Body:** "BAWES operates in the open."
-
-**Three cards:**
-- Open-source projects
-- Public community
-- Transparent systems
-
----
-
-## 7. Closing CTA
-
-**Headline:** "You don't need to understand everything to start."
-
-**Subheadline:** "You just need a place where things **move forward**."
-
-**Dual CTA:**
-- "Enter the Universe" (gold gradient, opens universe.bawes.net)
-- "Talk to us" → `/contact`
+- "1,700+ Apps" is the number Composio publishes for the Apps Universe connects through it.
+- AI and voice provider names are the providers Universe supports today.
+- No prices and no limits are named on the page.
