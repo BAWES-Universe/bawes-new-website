@@ -88,7 +88,7 @@ export default function AreaZonesPageContent() {
 
       <PageClosing
         title={<>Ready to define your space?</>}
-        body={<>Join thousands of creators building interactive experiences in the BAWES Universe.</>}
+        body={<>Draw a zone, pick what it does, and walk in to try it.</>}
         links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
         source="feature_area_zones"
       />

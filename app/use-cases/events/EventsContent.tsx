@@ -34,7 +34,7 @@ export default function UseCaseEventsPageContent() {
               <span className="material-symbols-outlined text-3xl">campaign</span>
             </div>
             <h3 className="font-headline-card text-headline-card text-white mb-4">Conferences & Summits</h3>
-            <p className="text-on-surface-variant leading-relaxed">Multi-track conferences with main stages, breakout rooms, sponsor halls, and networking lounges. Broadcast audio and video to thousands of attendees simultaneously.</p>
+            <p className="text-on-surface-variant leading-relaxed">Multi-track conferences with main stages, breakout rooms, sponsor halls, and networking lounges. Broadcast audio and video to the whole audience at once.</p>
           </div>
           <div className="glass-card p-10 rounded-2xl group hover:translate-y-[-4px] transition-all duration-300">
             <div className="mb-6 flex items-center justify-center w-14 h-14 rounded-xl bg-secondary/10 text-secondary border border-secondary/20">

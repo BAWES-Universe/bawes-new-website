@@ -126,29 +126,6 @@ export default function TechStackPageContent() {
         </div>
       </Section>
 
-      {/* Stats Callout */}
-      <Section className="max-w-container-max mx-auto px-gutter mb-section-padding-v">
-        <div className="glass-card rounded-3xl p-12 text-center border-purple/10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <div className="text-4xl md:text-6xl font-bold text-on-surface mb-2">15ms</div>
-              <div className="text-caption uppercase text-text-low-emphasis tracking-widest">Average Latency</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-6xl font-bold text-on-surface mb-2">10k+</div>
-              <div className="text-caption uppercase text-text-low-emphasis tracking-widest">CCU per World</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-6xl font-bold text-on-surface mb-2">99.9%</div>
-              <div className="text-caption uppercase text-text-low-emphasis tracking-widest">Uptime SLA</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-6xl font-bold text-on-surface mb-2">60fps</div>
-              <div className="text-caption uppercase text-text-low-emphasis tracking-widest">Canvas Render</div>
-            </div>
-          </div>
-        </div>
-      </Section>
       <PageClosing
         title={<>Come and see it for yourself</>}
         body={<>Walk in, say hello, and look around.</>}

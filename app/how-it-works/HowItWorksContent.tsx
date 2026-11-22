@@ -261,7 +261,7 @@ export default function HowItWorksPageContent() {
                   <span className="material-symbols-outlined text-tertiary text-xl">person</span>
                 </div>
               </div>
-              <span className="text-white font-semibold">Join thousands of world builders</span>
+              <span className="text-white font-semibold">Come and build with us</span>
             </div>
           </div>
         </div>

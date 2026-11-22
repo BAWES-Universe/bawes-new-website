@@ -55,31 +55,6 @@ export default function WokaAvatarsPageContent() {
         </div>
       </Section>
 
-      {/* Stats */}
-      <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v bg-surface-container-lowest rounded-3xl my-10 border border-divider">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <span className="material-symbols-outlined text-primary mb-2 text-3xl">groups</span>
-            <p className="font-headline-section text-headline-section text-on-surface">500k+</p>
-            <p className="font-label-navigation text-label-navigation text-text-low-emphasis">Active Avatars</p>
-          </div>
-          <div>
-            <span className="material-symbols-outlined text-secondary mb-2 text-3xl">shopping_bag</span>
-            <p className="font-headline-section text-headline-section text-on-surface">12k+</p>
-            <p className="font-label-navigation text-label-navigation text-text-low-emphasis">Unique Items</p>
-          </div>
-          <div>
-            <span className="material-symbols-outlined text-tertiary mb-2 text-3xl">public</span>
-            <p className="font-headline-section text-headline-section text-on-surface">45+</p>
-            <p className="font-label-navigation text-label-navigation text-text-low-emphasis">Connected Worlds</p>
-          </div>
-          <div>
-            <span className="material-symbols-outlined text-error mb-2 text-3xl">bolt</span>
-            <p className="font-headline-section text-headline-section text-on-surface">2.4ms</p>
-            <p className="font-label-navigation text-label-navigation text-text-low-emphasis">Sync Latency</p>
-          </div>
-        </div>
-      </Section>
 
       {/* Related Features */}
       <Section className="max-w-container-max mx-auto px-gutter py-section-padding-v">

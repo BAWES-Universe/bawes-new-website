@@ -54,9 +54,9 @@ export default function ProximityChatPageContent() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Powered by LiveKit</h2>
-              <p className="text-white/60 mb-8">All proximity voice runs on top of LiveKit's battle-tested WebRTC infrastructure, ensuring high-quality audio and smooth scaling from 2 to 2000 participants.</p>
+              <p className="text-white/60 mb-8">All proximity voice runs on top of LiveKit's battle-tested WebRTC infrastructure, so voices stay clear as more people join a conversation.</p>
               <ul className="space-y-4">
-                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Ultra-low latency WebRTC</li>
+                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Low-latency WebRTC</li>
                 <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Self-hostable SFU servers</li>
                 <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Opus codec for crisp voice</li>
               </ul>
@@ -65,9 +65,8 @@ export default function ProximityChatPageContent() {
               <h4 className="text-lg font-semibold text-white mb-4">Audio Stack</h4>
               <div className="space-y-3 text-white/60">
                 <div className="flex justify-between"><span>Codec</span><span className="text-primary">Opus</span></div>
-                <div className="flex justify-between"><span>Latency</span><span className="text-primary">&lt;50ms</span></div>
                 <div className="flex justify-between"><span>SFU</span><span className="text-primary">LiveKit</span></div>
-                <div className="flex justify-between"><span>Spatial</span><span className="text-primary">HRTF 3D</span></div>
+                <div className="flex justify-between"><span>Transport</span><span className="text-primary">WebRTC</span></div>
               </div>
             </div>
           </div>

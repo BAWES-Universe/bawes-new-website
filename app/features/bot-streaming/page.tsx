@@ -59,7 +59,7 @@ export default function BotStreamingPage() {
                 <span className="material-symbols-outlined text-tertiary text-3xl">bolt</span>
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">Low Latency</h3>
-              <p className="text-white/60">Optimized WebSocket pipeline keeps response delay to a minimum. First-token latency under 200ms for supported providers.</p>
+              <p className="text-white/60">Optimized WebSocket pipeline keeps response delay to a minimum.</p>
             </div>
           </div>
         </div>

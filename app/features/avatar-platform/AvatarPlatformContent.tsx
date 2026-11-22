@@ -45,7 +45,7 @@ export default function AvatarPlatformPageContent() {
                 <span className="material-symbols-outlined text-secondary">sync</span>
               </div>
               <h3 className="font-headline-card text-headline-card text-on-surface mb-4">Real-Time Sync</h3>
-              <p className="text-text-secondary">Sub-10ms state synchronization ensures your avatar position and appearance updates instantly across all connected worlds.</p>
+              <p className="text-text-secondary">When you move or change your look, the people around you see it right away.</p>
             </div>
             <div className="glass-card p-card-padding rounded-2xl">
               <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-6">

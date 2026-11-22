@@ -55,24 +55,24 @@ export default function FollowPageContent() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <h2 className="text-3xl md:text-4xl font-bold text-white">Under the Hood</h2>
-                <p className="text-white/60">Seamless camera synchronization is handled via the core spatial engine, ensuring zero latency between the leader and follower.</p>
+                <p className="text-white/60">Following is built into the game itself, and a map script can start it too. This call asks everyone in your conversation to follow you.</p>
                 <div className="p-4 rounded-lg bg-black/40 border-l-4 border-primary font-mono text-sm text-white/70">
                   WA.player.proximityMeeting.followMe();
                 </div>
-                <p className="text-white/40 text-xs">* Supported across all modern desktop browsers via BAWES Native SDK.</p>
+                <p className="text-white/40 text-xs">From the map scripting API.</p>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-6 bg-white/5 rounded-xl border border-white/10">
-                  <div className="text-primary text-3xl font-bold mb-1">0ms</div>
-                  <div className="text-white/40 text-xs uppercase">Input Lag</div>
+                  <div className="text-primary text-3xl font-bold mb-1">1 click</div>
+                  <div className="text-white/40 text-xs uppercase">To start</div>
                 </div>
                 <div className="p-6 bg-white/5 rounded-xl border border-white/10">
-                  <div className="text-primary text-3xl font-bold mb-1">60fps</div>
-                  <div className="text-white/40 text-xs uppercase">Motion Sync</div>
+                  <div className="text-primary text-3xl font-bold mb-1">Any time</div>
+                  <div className="text-white/40 text-xs uppercase">You can stop</div>
                 </div>
                 <div className="p-6 bg-white/5 rounded-xl border border-white/10">
-                  <div className="text-primary text-3xl font-bold mb-1">100%</div>
-                  <div className="text-white/40 text-xs uppercase">Privacy Safe</div>
+                  <div className="text-primary text-3xl font-bold mb-1">Tours</div>
+                  <div className="text-white/40 text-xs uppercase">Made easy</div>
                 </div>
                 <div className="p-6 bg-white/5 rounded-xl border border-white/10">
                   <div className="text-primary text-3xl font-bold mb-1">API</div>

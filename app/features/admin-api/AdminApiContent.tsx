@@ -88,28 +88,28 @@ export default function AdminApiPageContent() {
           </div>
         </div>
         <div className="space-y-8 order-1 md:order-2">
-          <h2 className="font-headline-section text-headline-section text-on-surface">Built for Performance & Security</h2>
-          <p className="text-text-secondary">Our infrastructure is architected to handle high-frequency programmatic interactions without compromising on latency or data integrity.</p>
+          <h2 className="font-headline-section text-headline-section text-on-surface">Yours to run</h2>
+          <p className="text-text-secondary">The Admin API is how your own tools talk to your Universe. You decide who may call it.</p>
           <div className="grid grid-cols-1 gap-6">
             <div className="flex items-start gap-4">
               <div className="mt-1 text-primary"><span className="material-symbols-outlined">bolt</span></div>
               <div>
-                <div className="text-white font-bold">&lt;50ms Global Latency</div>
-                <div className="text-text-secondary text-caption">Ultra-fast response times globally via our edge network.</div>
+                <div className="text-white font-bold">Runs with your Universe</div>
+                <div className="text-text-secondary text-caption">When you host Universe yourself, the API runs on your own servers and the data stays there.</div>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <div className="mt-1 text-primary"><span className="material-symbols-outlined">verified_user</span></div>
               <div>
-                <div className="text-white font-bold">AES-256 Encryption</div>
-                <div className="text-text-secondary text-caption">End-to-end encryption for all API communications and data at rest.</div>
+                <div className="text-white font-bold">A secret token on every call</div>
+                <div className="text-text-secondary text-caption">Calls are only answered when they carry your admin token.</div>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <div className="mt-1 text-primary"><span className="material-symbols-outlined">cloud_done</span></div>
               <div>
-                <div className="text-white font-bold">99.9% Uptime SLA</div>
-                <div className="text-text-secondary text-caption">Enterprise-grade reliability guaranteed for critical automation tasks.</div>
+                <div className="text-white font-bold">Plain web requests</div>
+                <div className="text-text-secondary text-caption">It speaks REST and JSON, so it works from any language.</div>
               </div>
             </div>
           </div>

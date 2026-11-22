@@ -48,37 +48,9 @@ export default function ScreenSharingPageContent() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="relative z-10 py-24 px-4 bg-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 text-center">
-            <div>
-              <span className="material-symbols-outlined text-primary mb-2">speed</span>
-              <div className="text-4xl font-bold text-white mb-1">20ms</div>
-              <div className="text-sm text-white/40 uppercase tracking-widest">Latency</div>
-            </div>
-            <div>
-              <span className="material-symbols-outlined text-primary mb-2">hd</span>
-              <div className="text-4xl font-bold text-white mb-1">4K</div>
-              <div className="text-sm text-white/40 uppercase tracking-widest">Resolution</div>
-            </div>
-            <div>
-              <span className="material-symbols-outlined text-primary mb-2">security</span>
-              <div className="text-4xl font-bold text-white mb-1">AES</div>
-              <div className="text-sm text-white/40 uppercase tracking-widest">Encrypted</div>
-            </div>
-            <div>
-              <span className="material-symbols-outlined text-primary mb-2">groups</span>
-              <div className="text-4xl font-bold text-white mb-1">∞</div>
-              <div className="text-sm text-white/40 uppercase tracking-widest">Participants</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <PageClosing
         title={<>Ready to expand your universe?</>}
-        body={<>Join thousands of pioneers already building, collaborating, and exploring in the BAWES Universe.</>}
+        body={<>Walk up to someone and share your screen with the people standing with you.</>}
         links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
         source="feature_screen_sharing"
       />

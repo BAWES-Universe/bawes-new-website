@@ -73,11 +73,6 @@ export default function WhiteLabelPageContent() {
                   <span className="text-4xl font-bold text-white">100%</span>
                   <span className="text-caption uppercase tracking-widest text-text-low-emphasis">Unbranded</span>
                 </div>
-                <div className="w-[1px] h-12 bg-divider"></div>
-                <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-white">&lt;50ms</span>
-                  <span className="text-caption uppercase tracking-widest text-text-low-emphasis">Global Latency</span>
-                </div>
               </div>
             </div>
             <div className="relative aspect-square">
