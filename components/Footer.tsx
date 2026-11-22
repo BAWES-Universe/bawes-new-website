@@ -100,6 +100,7 @@ export default function Footer() {
                     { label: 'Platform', href: '/platform' },
                     { label: 'All Features', href: '/features-overview' },
                     { label: 'How It Works', href: '/how-it-works' },
+                    { label: 'Guide', href: '/guide' },
                     { label: 'About', href: '/about' },
                     { label: 'The Team', href: '/team' },
                     { label: 'Manifesto', href: '/manifesto' },

@@ -202,8 +202,9 @@ export default function Home() {
         <motion.div {...rise(0.1)}>
           <FeelLoops />
         </motion.div>
-        <motion.div {...rise(0.15)} className="mt-6">
+        <motion.div {...rise(0.15)} className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
           <MoreLink href="/how-it-works" label="See how it works" source="feel" />
+          <MoreLink href="/guide/start-here" label="Your first five minutes" source="feel" />
         </motion.div>
       </Wrap>
 
@@ -255,8 +256,9 @@ export default function Home() {
               <b>Universe</b>→<b>World</b>→<b>Room</b>
               <span>One link for every room.</span>
             </div>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
               <MoreLink href="/features/orbit-operator" label="More about Orbit" source="orbit" />
+              <MoreLink href="/guide/orbit" label="Orbit, step by step" source="orbit" />
             </div>
           </div>
         </motion.div>
@@ -303,6 +305,9 @@ export default function Home() {
         <p className="uh-note">
           <Soon /> Publish a finished version, and keep working on the next one in private.
         </p>
+        <div className="mt-6">
+          <MoreLink href="/guide/artifacts" label="How artifacts work" source="artifacts" />
+        </div>
       </Wrap>
 
       {/* ═══ APPS AND AI ═══ */}
@@ -343,6 +348,7 @@ export default function Home() {
         <motion.div {...rise(0.15)} className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
           <MoreLink href="/mcp-integration" label="Add your own App with MCP" source="apps" />
           <MoreLink href="/features/bot-provider-config" label="Choosing an AI provider" source="apps" />
+          <MoreLink href="/guide/ai-and-voice-providers" label="Every model and voice you can add" source="apps" />
         </motion.div>
       </Wrap>
 
@@ -444,6 +450,7 @@ export default function Home() {
           <Link href="/contact" onClick={() => captureCtaClick('Talk to us', 'universe_ai')} className="cta-secondary">
             Talk to us
           </Link>
+          <MoreLink href="/guide/universe-ai" label="Universe AI and your own keys" source="universe_ai" />
         </div>
       </Wrap>
 

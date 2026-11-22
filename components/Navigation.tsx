@@ -80,6 +80,7 @@ const dropdowns: NavDropdown[] = [
 
 const standaloneLinks = [
   { label: 'How It Works', href: '/how-it-works', icon: 'explore' },
+  { label: 'Guide', href: '/guide', icon: 'menu_book' },
 ]
 
 const topLinks = [
@@ -404,6 +405,17 @@ export default function Navigation() {
                   <div className="flex-1">
                     <div className="text-sm font-medium text-white/80">How It Works</div>
                     <p className="text-xs text-white/40 mt-0.5">Platform deep dive</p>
+                  </div>
+                </Link>
+                <Link
+                  href="/guide"
+                  onClick={() => setIsMobileOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"
+                >
+                  <span className="material-symbols-outlined text-purple-400 text-lg">menu_book</span>
+                  <div className="flex-1">
+                    <div className="text-sm font-medium text-white/80">Guide</div>
+                    <p className="text-xs text-white/40 mt-0.5">Short pages in plain words</p>
                   </div>
                 </Link>
               </div>
