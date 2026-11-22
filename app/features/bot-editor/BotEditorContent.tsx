@@ -1,7 +1,7 @@
-'use client'
-
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
+
 export default function BotEditorPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
@@ -9,109 +9,64 @@ export default function BotEditorPageContent() {
         crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'AI Bots', href: '/ai-bots' }]}
         here="Bot Editor"
         title={<>Build a bot. <span className="text-gradient-accent">No code.</span></>}
-        lead={<>Set up everything about your bot on one screen: how it acts, what it knows, and how it looks.</>}
-        detail={[
-          <>A visual interface for configuring your bot's entire soul. Define behaviors, personality, knowledge, and appearance from one unified dashboard.</>,
-        ]}
+        lead={<>Set up everything about your bot in one place: how it acts, how it talks, how it looks and who can use it.</>}
+        detail={[<>A visual editor for the whole bot. Behavior, personality, voice, tools and appearance sit side by side, inside the map editor.</>]}
         scene="resident"
         actions={[{ label: 'See all features', href: '/features-overview' }]}
         source="feature_bot_editor"
       />
 
-      {/* Features Grid */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Visual Builder Capabilities</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary">psychology</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Behavior Wizard</h3>
-              <p className="text-white/60">Step-by-step configuration of bot movement, patrol paths, and reactive triggers with a visual drag-and-drop interface.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-secondary">face</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Personality Tuning</h3>
-              <p className="text-white/60">Fine-tune moods, emotional baselines, and response styles from cheerful guide to professional assistant.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-tertiary">database</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Knowledge Injection</h3>
-              <p className="text-white/60">Upload documents or connect knowledge bases to give your bot domain-specific expertise anchored in your data.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary">preview</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Live Preview</h3>
-              <p className="text-white/60">See how your bot behaves in real-time with an embedded 3D preview panel. Test interactions before deploying to the universe.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="A new bot in a minute"
+        steps={[
+          { title: "Open Bots", text: "In the map editor, pick Bots. It lists the helpers that live in this room." },
+          { title: "Press New bot", text: "Give it a name and pick its avatar." },
+          { title: "Shape it", text: "Open any part of the bot and change it. Universe AI is ready to use, so there is no key to set up first." },
+        ]}
+      />
 
-      {/* Configuration Panel */}
-      <section className="relative z-10 py-24 px-4 bg-white/[0.02]">
-        <div className="max-w-6xl mx-auto">
-          <div className="glass-card rounded-3xl p-8 md:p-12 overflow-hidden">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-white">Configuration Panel</h2>
-                <p className="text-white/60">The editor presents every bot property in a clean, categorized panel. No JSON editing required, but you can always export your configuration for programmatic use.</p>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-primary">check_circle</span>
-                    <div>
-                      <strong className="text-white block">Identity & Appearance</strong>
-                      <span className="text-white/40 text-sm">Name, avatar, visual style</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-primary">check_circle</span>
-                    <div>
-                      <strong className="text-white block">Behavior & Movement</strong>
-                      <span className="text-white/40 text-sm">Idle, patrol, social modes, waypoints</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-primary">check_circle</span>
-                    <div>
-                      <strong className="text-white block">AI & Personality</strong>
-                      <span className="text-white/40 text-sm">Provider config, emotional state, greeting messages</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div className="glass-card rounded-2xl border border-white/10 p-6 bg-black/30">
-                <div className="flex gap-2 mb-6">
-                  <div className="w-3 h-3 rounded-full bg-error"></div>
-                  <div className="w-3 h-3 rounded-full bg-tertiary"></div>
-                  <div className="w-3 h-3 rounded-full bg-primary"></div>
-                </div>
-                <div className="font-mono text-sm leading-relaxed text-white/80">
-                  <div className="text-primary">Bot Editor v2.4</div>
-                  <div className="text-white/40 mt-2">{'//'} Visual configuration mode</div>
-                  <div className="mt-4 space-y-1">
-                    <div><span className="text-primary">Behavior:</span> <span className="text-blue-400">Patrol</span></div>
-                    <div><span className="text-primary">Personality:</span> <span className="text-blue-400">Friendly Guide</span></div>
-                    <div><span className="text-primary">Provider:</span> <span className="text-blue-400">Anthropic Claude</span></div>
-                    <div><span className="text-primary">Avatar:</span> <span className="text-blue-400">Nexus_Guide_v2</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="What you can set"
+        title="One bot, every part of it"
+        cards={[
+          { icon: "psychology", title: "Personality", text: "Write who the bot is and how it should talk.", more: { label: "Bot greetings", href: "/features/bot-greetings" } },
+          { icon: "memory", title: "Mind", text: "Run it on Universe AI or on your own AI key, and pick the model.", more: { label: "Bot provider config", href: "/features/bot-provider-config" } },
+          { icon: "record_voice_over", title: "Voice", text: "Give it a voice. Search by name or language and hear a sample first.", more: { label: "Talking to residents out loud", href: "/guide/talking-out-loud" } },
+          { icon: "directions_walk", title: "Moves and people", text: "Stay put, wander or walk a route. Go to people or wait for them.", more: { label: "Bot behaviors", href: "/features/bot-behaviors" } },
+          { icon: "build", title: "Tools", text: "Connect tools and choose which ones it uses right away, asks about first, or never uses.", more: { label: "Bot tool calling", href: "/features/bot-tools" } },
+          { icon: "shield_person", title: "Permissions", text: "Open it to everyone who can enter the room, guests too, or keep it to the roles and people you pick." },
+          { icon: "face", title: "Looks", text: "Its avatar, its companion, its name and what it is for.", more: { label: "Bot avatars", href: "/features/bot-avatars" } },
+          { icon: "monitoring", title: "Usage", text: "See how much it is used and what it ran on. You see who chatted, how much and when. Never what they said." },
+        ]}
+      />
+
+      <PartBuilders
+        title="It lives in the room"
+        body={[
+          <>A bot belongs to one room and is edited where it stands, in the map editor. Its route and the area it wanders are drawn on the map.</>,
+          <>Turn a bot off and nobody sees it until you turn it back on. Nothing is lost.</>,
+        ]}
+        facts={[
+          ["Where", "Map editor, Bots"],
+          ["Code needed", "None"],
+          ["Works out of the box", "With Universe AI"],
+        ]}
+        links={[{ label: "Map editor", href: "/features/map-editor" }, { label: "Universe AI and your own keys", href: "/guide/universe-ai" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Bot behaviors", href: "/features/bot-behaviors", note: "How a bot moves around." },
+          { label: "Bot tool calling", href: "/features/bot-tools", note: "Bots that get things done." },
+          { label: "Bot memory", href: "/features/bot-memory", note: "What a bot remembers." },
+          { label: "Map editor", href: "/features/map-editor", note: "Where bots are made." },
+        ]}
+      />
 
       <PageClosing
         title={<>Ready to build your first bot?</>}
-        body={<>The visual editor makes it easy. No coding required.</>}
+        body={<>Open the map editor, go to Bots and press New bot. No code needed.</>}
         links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
         source="feature_bot_editor"
       />

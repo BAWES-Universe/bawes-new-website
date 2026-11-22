@@ -1,19 +1,20 @@
 import type { Metadata } from 'next'
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
 
 export const metadata: Metadata = {
   title: 'Bot Streaming Chat — Real-Time AI Responses',
-  description: 'Bot responses stream token-by-token into chat bubbles. Watch the AI think, compose, and respond in real time. Tool calls and media delivery happen mid-stream.',
+  description: 'Bot responses stream into chat bubbles as the AI writes them. Watch the answer take shape in real time, with tool calls and media arriving along the way.',
   openGraph: {
     title: 'Bot Streaming Chat — Real-Time AI Responses',
-    description: 'Bot responses stream token-by-token into chat bubbles. Watch the AI think, compose, and respond in real time. Tool calls and media delivery happen mid-stream.',
+    description: 'Bot responses stream into chat bubbles as the AI writes them. Watch the answer take shape in real time, with tool calls and media arriving along the way.',
     type: 'website',
     images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Bot Streaming Chat — Real-Time AI Responses',
-    description: 'Bot responses stream token-by-token into chat bubbles. Watch the AI think, compose, and respond in real time. Tool calls and media delivery happen mid-stream.',
+    description: 'Bot responses stream into chat bubbles as the AI writes them. Watch the answer take shape in real time, with tool calls and media arriving along the way.',
     card: 'summary_large_image',
     images: ['/images/enter-univ.png'],
   },
@@ -26,95 +27,59 @@ export default function BotStreamingPage() {
         crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'AI Bots', href: '/ai-bots' }]}
         here="Streaming Chat"
         title={<>Watch AI think <span className="text-gradient-accent">in real time</span></>}
-        lead={<>A bot&apos;s answer appears word by word as it writes, so you are never staring at an empty bubble.</>}
-        detail={[
-          <>Bot responses stream token-by-token directly into chat bubbles. See the artificial intelligence think, compose, and respond as it happens.</>,
-        ]}
+        lead={<>An answer from a bot appears as it is written, so you are never staring at an empty bubble.</>}
+        detail={[<>Bot responses stream into the chat as the model writes them. You see the answer take shape as it happens.</>]}
         scene="chat"
         actions={[{ label: 'See all features', href: '/features-overview' }]}
         source="feature_bot_streaming"
       />
 
-      {/* Features */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Streaming Capabilities</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary text-3xl">stream</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Token-by-Token</h3>
-              <p className="text-white/60">Every word appears as the model generates it. No loading spinners, no black boxes — just pure, visible intelligence.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-secondary text-3xl">chat_bubble</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">In-World Bubbles</h3>
-              <p className="text-white/60">Streams appear directly in proximity-based chat bubbles above the bot. The conversation feels alive and immediate.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-tertiary text-3xl">bolt</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Low Latency</h3>
-              <p className="text-white/60">Optimized WebSocket pipeline keeps response delay to a minimum.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="You read while it writes"
+        steps={[
+          { title: "You ask", text: "Say or type your question." },
+          { title: "The answer starts at once", text: "The first words show up while the rest is still being written." },
+          { title: "It keeps coming", text: "When the bot stops to use a tool, it carries on from where it was." },
+        ]}
+      />
 
-      {/* Technical */}
-      <section className="relative z-10 py-24 px-4 bg-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Streaming Architecture</h2>
-              <p className="text-white/60 mb-8">Our streaming pipeline uses server-sent events and WebSocket connections to push tokens from the AI provider directly into the spatial chat system with minimal overhead.</p>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary">check_circle</span>
-                  <span>Direct provider-to-browser streaming</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary">check_circle</span>
-                  <span>Automatic reconnection on interruption</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary">check_circle</span>
-                  <span>Multi-model streaming support</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary">check_circle</span>
-                  <span>Tool calls produce media output mid-stream — images and video appear in chat automatically</span>
-                </li>
-              </ul>
-            </div>
-            <div className="glass-card p-6 rounded-2xl bg-black/40 border border-white/10 font-mono text-sm">
-              <div className="flex items-center gap-2 mb-4 border-b border-white/10 pb-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                <span className="text-white/40 text-xs ml-2 uppercase">stream_handler.ts</span>
-              </div>
-              <pre className="text-white/70">
-                <span className="text-purple-400">const</span> stream = <span className="text-blue-400">await</span> bot.chat.stream({'{'}{'\n'}
-                {'  '}message: userInput,{'\n'}
-                {'  '}onToken: (token) =&gt; {'{'}{'\n'}
-                {'    '}bubble.append(token);{'\n'}
-                {'  '}{'}'},{'\n'}
-                {'}'});{'\n\n'}
-                <span className="text-white/40">{'//'} Each token appears in the bubble instantly</span>
-              </pre>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="What you see"
+        title="More than text"
+        cards={[
+          { icon: "stream", title: "Words as they come", text: "No long wait followed by a wall of text." },
+          { icon: "build", title: "Tools along the way", text: "The owner of a bot can show the names of the tools it uses in the chat, or keep them hidden.", more: { label: "Bot tool calling", href: "/features/bot-tools" } },
+          { icon: "image", title: "Pictures in the same flow", text: "When a tool makes a picture or a file, it is sent to the chat with the reply.", more: { label: "Bot media sending", href: "/features/bot-media-sending" } },
+          { icon: "record_voice_over", title: "Out loud too", text: "A bot with a voice answers out loud, and the words also show in the chat.", more: { label: "Talking to residents out loud", href: "/guide/talking-out-loud" } },
+        ]}
+      />
+
+      <PartBuilders
+        title="Streamed from the model"
+        body={[
+          <>The bot server passes the reply on as the model produces it. The chat adds the words to the bubble as they arrive. If you leave in the middle, the text stops where it was.</>,
+        ]}
+        facts={[
+          ["Reply", "Streamed as it is written"],
+          ["Tool calls", "Shown or hidden, per bot"],
+          ["Set up", "Nothing"],
+        ]}
+        links={[{ label: "Bot provider config", href: "/features/bot-provider-config" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Bot tool calling", href: "/features/bot-tools", note: "Bots that get things done." },
+          { label: "Bot provider config", href: "/features/bot-provider-config", note: "Pick the model for each bot." },
+          { label: "Text chat", href: "/features/text-chat", note: "Chat with the people around you." },
+          { label: "Bot media sending", href: "/features/bot-media-sending", note: "Bots that send pictures." },
+        ]}
+      />
 
       <PageClosing
-        title={<>Ready to see AI think in real-time?</>}
-        body={<>Enable streaming on your bots through the provider config.</>}
+        title={<>Ready to see AI think in real time?</>}
+        body={<>Walk up to a bot and ask it something.</>}
         links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
         source="feature_bot_streaming"
       />

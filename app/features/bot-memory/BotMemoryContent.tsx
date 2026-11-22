@@ -1,7 +1,7 @@
-'use client'
-
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated } from '@/components/page/PageParts'
+
 export default function BotMemoryPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
@@ -9,94 +9,61 @@ export default function BotMemoryPageContent() {
         crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'AI Bots', href: '/ai-bots' }]}
         here="Bot Memory"
         title={<>Bots that <span className="text-gradient-accent">remember</span></>}
-        lead={<>Your bot remembers earlier chats, what people like, and what matters, so nobody has to repeat themselves.</>}
-        detail={[
-          <>Persistent conversation memory for your bot. It remembers past interactions, user preferences, and important context across sessions.</>,
-        ]}
+        lead={<>Your bot remembers earlier chats, what people told it, and how they got along, so nobody has to repeat themselves.</>}
+        detail={[<>Persistent conversation memory for your bot. It remembers past interactions, preferences and important context across sessions.</>]}
         scene="resident"
         actions={[{ label: 'See all features', href: '/features-overview' }]}
         source="feature_bot_memory"
       />
 
-      {/* Memory Types */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Memory Architecture</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary">history</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Conversation History</h3>
-              <p className="text-white/60">Bots retain the full context of ongoing conversations, allowing them to reference earlier messages and maintain coherent dialogue.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-secondary">manage_search</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Vector Search</h3>
-              <p className="text-white/60">Semantic search over past conversations enables bots to recall relevant details from any previous interaction automatically.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-tertiary">stylus_note</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Persistent Notes</h3>
-              <p className="text-white/60">Bots can write and recall persistent notes about users, capturing preferences, facts, and important details for future reference.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="What it remembers"
+        title="A memory for each person"
+        cards={[
+          { icon: "history", title: "Your recent chats", text: "The bot keeps the latest part of your conversation, so it can pick up where you left off." },
+          { icon: "person", title: "Things you told it", text: "Your name, what you like, your birthday, small facts you mentioned along the way." },
+          { icon: "favorite", title: "How you get along", text: "When you first met, how often you talk, and how it feels about you.", more: { label: "Bot emotions", href: "/features/bot-emotions" } },
+        ]}
+      />
 
-      {/* Technical Section */}
-      <section className="relative z-10 py-24 px-4 bg-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Memory Engine</h2>
-              <p className="text-white/60">Powered by a hybrid retrieval system combining short-term context windows with long-term vector storage. Memories persist across sessions and are shared appropriately between bots.</p>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary">check_circle</span>
-                  <span>Hybrid short-term + long-term memory</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary">check_circle</span>
-                  <span>Automatic context summarization</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-primary">check_circle</span>
-                  <span>Privacy-preserving memory isolation</span>
-                </li>
-              </ul>
-            </div>
-            <div className="glass-card rounded-2xl p-6 bg-black/40 border border-white/10">
-              <div className="flex items-center gap-2 mb-4 border-b border-white/10 pb-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                <span className="text-white/40 text-xs ml-2 uppercase">memory_store.ts</span>
-              </div>
-              <pre className="font-mono text-sm text-white/70">
-                <span className="text-purple-400">const</span> memory = <span className="text-purple-400">await</span> bot.memory.query({'{'}<br/>
-                {'  '}userId: <span className="text-green-300">"usr_8f2a"</span>,<br/>
-                {'  '}type: <span className="text-green-300">"preference"</span>,<br/>
-                {'  '}limit: 5<br/>
-                {'}'});<br/>
-                <br/>
-                <span className="text-purple-400">if</span> (memory.length &gt; 0) {'{'}<br/>
-                {'  '}<span className="text-blue-300">{'//'} Bot recalls user's preference</span><br/>
-                {'  '}<span className="text-purple-400">return</span> `I remember you like $<span className="text-orange-300">{'{memory[0].value}'}</span>`;<br/>
-                {'}'}
-              </pre>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="Good to know"
+        title="You stay in charge of it"
+        cards={[
+          { icon: "toggle_on", title: "Always on", text: "Bots always save their chats and remember people. There is nothing to switch on." },
+          { icon: "person_remove", title: "Forget one person", text: "The owner of a bot can make it forget everything about one person: their name, facts and feelings." },
+          { icon: "delete_sweep", title: "Forget everyone", text: "One button wipes what the bot remembers about everybody. It cannot be undone." },
+          { icon: "lock", title: "Kept private", text: "What a bot remembers about a person is never shown on a page." },
+        ]}
+      />
+
+      <PartBuilders
+        title="Where the memory lives"
+        body={[
+          <>Each bot keeps its own memory, apart from every other bot. It is saved through Orbit, so it is still there after a restart or a new visit.</>,
+          <>A person is recognised again on their next visit, so the bot carries on from last time.</>,
+        ]}
+        facts={[
+          ["Kept", "For each bot and each person"],
+          ["Saved in", "Orbit"],
+          ["Survives", "Restarts and new visits"],
+          ["Forget", "One person or everyone"],
+        ]}
+        links={[{ label: "Bot emotions", href: "/features/bot-emotions" }, { label: "Bot editor", href: "/features/bot-editor" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Bot emotions", href: "/features/bot-emotions", note: "How a bot feels about you." },
+          { label: "Bot greetings", href: "/features/bot-greetings", note: "How a bot says hello." },
+          { label: "Bot file parsing", href: "/features/bot-file-parsing", note: "Bots that read your files." },
+          { label: "Bot editor", href: "/features/bot-editor", note: "Everything about a bot on one screen." },
+        ]}
+      />
 
       <PageClosing
-        title={<>Ready to give your bot memory?</>}
-        body={<>Enable persistent memory through the bot editor.</>}
+        title={<>Ready for a bot that remembers?</>}
+        body={<>Memory is always on. Make a bot and it starts remembering.</>}
         links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
         source="feature_bot_memory"
       />

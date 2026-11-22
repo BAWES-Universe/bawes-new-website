@@ -1,7 +1,7 @@
-'use client'
-
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
+
 export default function BotEmotionsPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
@@ -9,104 +9,61 @@ export default function BotEmotionsPageContent() {
         crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'AI Bots', href: '/ai-bots' }]}
         here="Bot Emotions"
         title={<>Bots have <span className="text-gradient-accent">feelings</span> too</>}
-        lead={<>Give each bot a mood. A cheerful bot is chatty and helpful, a serious one keeps it short and professional.</>}
-        detail={[
-          <>Emotional states that change how bots respond. Happy bots are more helpful; serious bots keep it professional. Configurable per bot.</>,
-        ]}
+        lead={<>A bot keeps a feeling about each person it talks to. Be kind and it warms to you. Be rude and it remembers that too.</>}
+        detail={[<>Emotional states change how a bot responds to you. They grow out of your conversations, one person at a time.</>]}
         scene="resident"
         actions={[{ label: 'See all features', href: '/features-overview' }]}
         source="feature_bot_emotions"
       />
 
-      {/* Features Section */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Evolutionary Capabilities</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary">face</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Emotional States</h3>
-              <p className="text-white/60">Happy, neutral, serious, playful. Choose the core personality of your bot.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-secondary">forum</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Response Modulation</h3>
-              <p className="text-white/60">Vocabulary and tone automatically shift based on the active emotional state.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-tertiary">tune</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Configurable</h3>
-              <p className="text-white/60">Granular controls per individual bot. No global overrides required.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary">auto_fix_high</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Dynamic</h3>
-              <p className="text-white/60">Emotions shift fluidly based on user interaction sentiment analysis.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="Feelings that come from the conversation"
+        steps={[
+          { title: "You talk", text: "The bot reads the mood of what you say, along with the words." },
+          { title: "It feels something", text: "How happy it is with you, how much it trusts you and how well it knows you all move a little." },
+          { title: "It answers that way", text: "The next reply carries that feeling, and so does the next visit." },
+        ]}
+      />
 
-      {/* How Emotions Work */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="glass-card rounded-3xl p-8 md:p-12">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-white">How Emotions Work</h2>
-                <p className="text-white/60">Our Affective Computing engine processes inputs through three primary filters: length, vocabulary, and helpfulness.</p>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-primary">check_circle</span>
-                    <div>
-                      <strong className="text-white">Length Vector</strong>
-                      <span className="text-white/40 block">Playful bots are wordy; Serious bots are concise.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-primary">check_circle</span>
-                    <div>
-                      <strong className="text-white">Vocabulary Semantic Bias</strong>
-                      <span className="text-white/40 block">Adjusts word choice toward empathetic or objective lexicons.</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div className="glass-card p-6 rounded-2xl bg-black/40 border border-white/10 font-mono text-sm">
-                <div className="flex items-center gap-2 mb-4 border-b border-white/10 pb-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-                  <span className="text-white/40 text-xs ml-2 uppercase tracking-widest">emotion_engine.json</span>
-                </div>
-                <div className="space-y-2 text-white/80">
-                  <div className="text-purple-400">{'"bot_state"'}: <span className="text-blue-300">{'{'}</span></div>
-                  <div className="pl-4 text-purple-400">{'"current"'}: <span className="text-green-300">{'"JOYFUL"'}</span>,</div>
-                  <div className="pl-4 text-purple-400">{'"intensity"'}: <span className="text-orange-300">0.85</span>,</div>
-                  <div className="pl-4 text-purple-400">{'"modifiers"'}: <span className="text-blue-300">{'{'}</span></div>
-                  <div className="pl-8 text-purple-400">{'"sentence_expansion"'}: <span className="text-orange-300">1.2</span>,</div>
-                  <div className="pl-8 text-purple-400">{'"empathetic_bias"'}: <span className="text-orange-300">0.9</span>,</div>
-                  <div className="pl-8 text-purple-400">{'"professional_filter"'}: <span className="text-green-300">false</span></div>
-                  <div className="pl-4 text-blue-300">{'}'}</div>
-                  <div className="text-blue-300">{'}'}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="What a bot feels"
+        title="Four feelings, kept for each person"
+        cards={[
+          { icon: "sentiment_satisfied", title: "Happiness", text: "A good chat lifts it. The bot gets warmer and more playful with you." },
+          { icon: "handshake", title: "Trust", text: "Trust goes up when your chats go well and down when they do not." },
+          { icon: "diversity_1", title: "Familiarity", text: "The more you talk, the more it treats you like someone it knows." },
+          { icon: "mood_bad", title: "Anger", text: "Insults leave a mark, and a bot does not forget them quickly." },
+        ]}
+      />
+
+      <PartBuilders
+        title="Not a setting, a memory"
+        body={[
+          <>You do not pick a mood from a list. Who the bot is comes from its Personality, and how it feels about each person comes from their own history together.</>,
+          <>Feelings are saved with the rest of what the bot remembers about a person. The owner of the bot can make it forget one person or everyone.</>,
+        ]}
+        facts={[
+          ["Kept", "For each person"],
+          ["Changes", "With every reply"],
+          ["Saved", "Right away"],
+          ["Reset", "Forget, in Orbit"],
+        ]}
+        links={[{ label: "Bot memory", href: "/features/bot-memory" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Bot memory", href: "/features/bot-memory", note: "What a bot remembers about you." },
+          { label: "Bot greetings", href: "/features/bot-greetings", note: "How a bot says hello." },
+          { label: "Bot editor", href: "/features/bot-editor", note: "Write a personality for your bot." },
+          { label: "Talking to residents out loud", href: "/guide/talking-out-loud", note: "Say its name and talk." },
+        ]}
+      />
 
       <PageClosing
-        title={<>Ready to give your bot emotions?</>}
-        body={<>Configure emotional states through the bot editor.</>}
+        title={<>Ready to meet a bot with feelings?</>}
+        body={<>Walk up to one, say something nice, and see what happens next time.</>}
         links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
         source="feature_bot_emotions"
       />
