@@ -6,39 +6,21 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function EmptySeatPageContent() {
   return (
     <main className="pt-20">
-      {/* Hero Section */}
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/about" className="hover:text-primary transition-colors">About</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">The Empty Seat</span>
-        </div>
-      </div>
-            <section className="relative pt-48 pb-24 overflow-hidden">
-        <div className="max-w-container-max mx-auto px-margin-mobile grid md:grid-cols-2 gap-12 items-center">
-          <div className="z-10">
-            <span className="inline-block px-4 py-1.5 mb-6 glass-card rounded-full font-label-navigation text-label-navigation text-primary">
-              Core Philosophy
-            </span>
-            <h1 className="font-display-hero text-display-hero md:text-display-hero text-on-surface mb-8">
-              The Empty <br /><span className="text-gradient">Seat</span>
-            </h1>
-            <p className="font-headline-section text-headline-section font-bold text-on-surface-variant leading-tight">
-              No one owns the throne. No one rules forever. Power is borrowed, not held.
-            </p>
-          </div>
-          <div className="relative flex justify-center items-center">
-            <div className="w-full aspect-square glass-card rounded-3xl flex items-center justify-center p-8 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent"></div>
-              <span className="material-symbols-outlined text-8xl text-primary/20" style={{ fontVariationSettings: "'FILL' 1" }}>weekend</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'About', href: '/about' }]}
+        here="The Empty Seat"
+        eyebrow="Core philosophy"
+        title={<>The empty <span className="text-gradient-accent">seat</span></>}
+        lead={<>No one owns the throne. No one rules forever. Power is borrowed, not held.</>}
+        scene="fire"
+        actions={[{ label: 'Read the manifesto', href: '/manifesto' }]}
+        source="page_empty_seat"
+      />
 
       {/* Introduction Section */}
       <section className="py-section-padding-v border-t border-divider">
@@ -99,6 +81,12 @@ export default function EmptySeatPageContent() {
           </div>
         </div>
       </section>
+      <PageClosing
+        title={<>Come and see it for yourself</>}
+        body={<>Walk in, say hello, and look around.</>}
+        links={[{ label: 'Read the manifesto', href: '/manifesto' }, { label: 'Talk to us', href: '/contact' }]}
+        source="page_empty_seat"
+      />
     </main>
   );
 }

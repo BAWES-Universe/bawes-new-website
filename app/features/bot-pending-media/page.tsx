@@ -1,18 +1,20 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
 
 export const metadata: Metadata = {
   title: 'Bot Pending Media — Reliable Delivery on Re-Entry',
-  description: 'If you walk away while a bot is generating media, it queues the result and delivers it the moment you return. Nothing gets lost.',
+  description: 'If you walk away while a bot is generating media, it queues the result and delivers it when you return. Nothing gets lost.',
   openGraph: {
     title: 'Bot Pending Media — Reliable Delivery on Re-Entry',
-    description: 'If you walk away while a bot is generating media, it queues the result and delivers it the moment you return. Nothing gets lost.',
+    description: 'If you walk away while a bot is generating media, it queues the result and delivers it when you return. Nothing gets lost.',
     type: 'website',
     images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Bot Pending Media — Reliable Delivery on Re-Entry',
-    description: 'If you walk away while a bot is generating media, it queues the result and delivers it the moment you return. Nothing gets lost.',
+    description: 'If you walk away while a bot is generating media, it queues the result and delivers it when you return. Nothing gets lost.',
     card: 'summary_large_image',
     images: ['/images/enter-univ.png'],
   },
@@ -21,140 +23,66 @@ export const metadata: Metadata = {
 export default function BotPendingMediaPage() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/ai-bots" className="hover:text-primary transition-colors">AI Bots</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Bot Pending Media</span>
-        </div>
-      </div>
 
-      {/* Hero */}
-      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
-            <span className="material-symbols-outlined text-lg">schedule</span>
-            Reliable Delivery
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Nothing <span className="text-gradient">Gets Lost.</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
-            If you walk away while a bot is generating media, it queues the result and delivers it the moment you return. No lost images, no repeated requests.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'AI Bots', href: '/ai-bots' }]}
+        here="Bot Pending Media"
+        title={<>Nothing <span className="text-gradient-accent">gets lost</span></>}
+        lead={<>Walk away while a bot is still making your picture? It keeps it safe and hands it over the moment you are back.</>}
+        detail={[<>If you walk away while a bot is making something, it keeps the result and delivers it when you return. No lost images and no repeated requests.</>]}
+        scene="resident"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="feature_bot_pending_media"
+      />
 
-      {/* The Problem */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">The Problem</h2>
-          <div className="glass-card p-8 md:p-12 rounded-2xl border border-red-500/10">
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-red-400/60 text-2xl mt-1">person</span>
-                <p className="text-white/60">User walks up to a bot and asks it to generate an image.</p>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-amber-400/60 text-2xl mt-1">hourglass_top</span>
-                <p className="text-white/60">The bot calls a tool (e.g. ComfyUI) — generation takes 10-30 seconds.</p>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-red-400/60 text-2xl mt-1">logout</span>
-                <p className="text-white/60">User walks away to another part of the room. The tool finishes. The image is ready — but there's nobody to send it to.</p>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-red-400/60 text-2xl mt-1">cancel</span>
-                <p className="text-white/60">Without pending media: the image is lost. The user comes back and has to ask again.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="Made while you were gone, handed over when you are back"
+        steps={[
+          { title: "You ask and walk off", text: "Pictures and videos can take a while. You do not have to stand there." },
+          { title: "The bot keeps it", text: "When the result is ready and you are gone, the bot puts it aside under your name." },
+          { title: "You come back", text: "Walk up to the bot again and it hands the result over." },
+        ]}
+      />
 
-      {/* The Fix */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">The Fix</h2>
-          <div className="glass-card p-8 md:p-12 rounded-2xl border border-green-500/10">
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-green-400/60 text-2xl mt-1">lock_clock</span>
-                <p className="text-white/60"><strong className="text-white">Pre-queue</strong> — URLs from tool results are queued to <code className="text-primary">pendingMedia</code> immediately after the tool finishes, before the AI generates its response.</p>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-green-400/60 text-2xl mt-1">login</span>
-                <p className="text-white/60"><strong className="text-white">Re-entry detection</strong> — when the user walks back to the bot, <code className="text-primary">flushPendingMedia</code> delivers all queued media.</p>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-green-400/60 text-2xl mt-1">filter_alt</span>
-                <p className="text-white/60"><strong className="text-white">Deduplication</strong> — <code className="text-primary">originalUrl</code> tracking prevents the bot from re-sending the same image if the user already received it.</p>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-green-400/60 text-2xl mt-1">chat</span>
-                <p className="text-white/60"><strong className="text-white">Greeting context</strong> — the bot's greeting on re-entry notes that media was delivered while away, so the AI doesn't try to re-generate it.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="Good to know"
+        title="Nothing to do on your side"
+        cards={[
+          { icon: "inventory_2", title: "Kept for you", text: "The result waits for the person who asked. Nobody else gets it." },
+          { icon: "chat_bubble", title: "The bot knows", text: "It is told that something is waiting for you, so it can say so when you return." },
+          { icon: "replay", title: "No asking twice", text: "You do not have to repeat the request." },
+        ]}
+      />
 
-      {/* Flow */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Delivery Flow</h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="glass-card p-6 rounded-xl text-center">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto border border-primary/20">
-                <span className="material-symbols-outlined text-primary text-2xl">build</span>
-              </div>
-              <h3 className="text-sm font-semibold text-white mb-2">1. Tool Runs</h3>
-              <p className="text-white/50 text-xs">Bot calls MCP tool, gets result with media URLs</p>
-            </div>
-            <div className="glass-card p-6 rounded-xl text-center">
-              <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-4 mx-auto border border-secondary/30">
-                <span className="material-symbols-outlined text-secondary text-2xl">queue</span>
-              </div>
-              <h3 className="text-sm font-semibold text-white mb-2">2. Pre-Queue</h3>
-              <p className="text-white/50 text-xs">URLs saved to pendingMedia immediately</p>
-            </div>
-            <div className="glass-card p-6 rounded-xl text-center">
-              <div className="w-12 h-12 rounded-full bg-tertiary/20 flex items-center justify-center mb-4 mx-auto border border-tertiary/30">
-                <span className="material-symbols-outlined text-tertiary text-2xl">login</span>
-              </div>
-              <h3 className="text-sm font-semibold text-white mb-2">3. User Returns</h3>
-              <p className="text-white/50 text-xs">Re-entry triggers flushPendingMedia</p>
-            </div>
-            <div className="glass-card p-6 rounded-xl text-center">
-              <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center mb-4 mx-auto border border-green-500/20">
-                <span className="material-symbols-outlined text-green-400 text-2xl">mark_email_read</span>
-              </div>
-              <h3 className="text-sm font-semibold text-white mb-2">4. Delivered</h3>
-              <p className="text-white/50 text-xs">Media sent to chat, greeting notes delivery</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartBuilders
+        title="A safety net on the bot server"
+        body={[
+          <>Media from a tool is put on a waiting list for that person before it is sent. If sending fails because the person left, it stays on the list and goes out the next time they are with the bot.</>,
+        ]}
+        facts={[
+          ["Kept", "For each person"],
+          ["Delivered", "When you are back with the bot"],
+          ["Set up", "Nothing"],
+        ]}
+        links={[{ label: "Bot media sending", href: "/features/bot-media-sending" }]}
+      />
 
-      {/* CTA */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Reliable by design</h2>
-          <p className="text-white/60 mb-8">Walk away, come back — your media is waiting.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/" className="gradient-cta text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200">
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
-              Explore the Universe
-            </Link>
-            <Link href="/features/bot-media-sending" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
-              See bot media sending →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PartRelated
+        links={[
+          { label: "Bot media sending", href: "/features/bot-media-sending", note: "Bots that send pictures." },
+          { label: "Bot gallery", href: "/features/bot-gallery", note: "Many pictures in one message." },
+          { label: "Bot memory", href: "/features/bot-memory", note: "What a bot remembers." },
+          { label: "Bot tool calling", href: "/features/bot-tools", note: "Bots that get things done." },
+        ]}
+      />
+
+      <PageClosing
+        title={<>Reliable by design</>}
+        body={<>Walk away, come back, and your media is waiting.</>}
+        links={[{ label: 'See bot media sending', href: '/features/bot-media-sending' }, { label: 'Back to the home page', href: '/' }]}
+        source="feature_bot_pending_media"
+      />
     </div>
   )
 }

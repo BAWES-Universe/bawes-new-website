@@ -3,25 +3,20 @@
 'use client';
 
 import React from 'react';
+import PageHero from '@/components/page/PageHero'
 export default function ContactPageContent() {
   return (
-    <main className="pt-32 pb-section-padding-v max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-      {/* Hero Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center mb-section-padding-v">
-        <div className="space-y-6">
-          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">Talk to us.</h1>
-          <p className="text-text-secondary text-lg max-w-lg">
-            Sometimes you don&apos;t need a product. You need clarity, structure, or help executing something real. We work with founders, teams, students, and organizations, intentionally and hands-on.
-          </p>
-        </div>
-        <div className="relative flex justify-end">
-          <div className="w-full max-w-lg aspect-square rounded-2xl overflow-hidden glass-card p-2">
-            <div className="w-full h-full rounded-xl shadow-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-              <span className="material-symbols-outlined text-7xl text-primary/30">forum</span>
-            </div>
-          </div>
-        </div>
-      </section>
+    <main className="pt-20 pb-section-padding-v max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+      <PageHero
+        crumbs={[]}
+        here="Contact"
+        eyebrow="Contact"
+        title={<>Talk to <span className="text-gradient-accent">us</span></>}
+        lead={<>Sometimes you don&apos;t need a product. You need clarity, structure, or help executing something real. We work with founders, teams, students, and organizations, intentionally and hands-on.</>}
+        scene="chat"
+        noEnter
+        source="page_contact"
+      />
 
       {/* Get In Touch Section */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-gutter items-start">

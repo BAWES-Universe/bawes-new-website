@@ -1,140 +1,99 @@
-'use client'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
 
-import Link from 'next/link'
 export default function RecursiveBotsPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Hero */}
-            {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/ai-bots" className="hover:text-primary transition-colors">AI Bots</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Recursive Bots</span>
-        </div>
-      </div>
-      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
-            <span className="material-symbols-outlined text-lg">psychology</span>
-            Next-Gen Autonomy
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Bots That <span className="text-gradient">Build Bots.</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
-            Bots can spawn other bots. Each spawned bot gets its own provider config, behavior, and memory. Self-architecting AI systems designed for infinite scalability.
-          </p>
-          <p className="text-base text-white/40 max-w-2xl mx-auto mt-6">
-            Parent bots pass context, instructions, and state to child bots via the BAWES Scripting API. This enables specialized intelligence delegation with dynamic provider switching for cost-optimized subtask execution.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'AI Bots', href: '/ai-bots' }]}
+        here="Recursive Bots"
+        title={<>Bricks that make <span className="text-gradient-accent">more Bricks</span></>}
+        lead={<>Ask your Brick for a helper and it makes one on the spot: a new Brick with one job, its own chat and its own memory.</>}
+        detail={[<>Or build a team by hand. Put several bots in one room and give each its own provider config, behavior and memory.</>]}
+        scene="brick"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source='feature_recursive_bots'
+      />
 
-      {/* Features */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Architectural Primitives</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 text-primary">
-                <span className="material-symbols-outlined text-3xl">account_tree</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Bot Spawning</h3>
-              <p className="text-white/60 text-sm">Bots can create new bots. Dynamically expand your agent workforce based on real-world triggers, events, or logical conditions.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 border border-secondary/30 text-secondary">
-                <span className="material-symbols-outlined text-3xl">settings_input_component</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Config Inheritance</h3>
-              <p className="text-white/60 text-sm">Spawned bots get their own settings. Customize LLM providers, temperature, and specific toolsets for every child bot in the tree.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 border border-primary/20 text-primary">
-                <span className="material-symbols-outlined text-3xl">schema</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Self-Architecting</h3>
-              <p className="text-white/60 text-sm">Build complex bot hierarchies. Create trees of intelligence that handle multi-step workflows autonomously with zero human oversight.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="Ask once, and it is there"
+        steps={[
+          { title: "Ask your Brick", text: "In your chat with it, say what you need: make me a bot that keeps my mum's recipes." },
+          { title: "It makes one", text: "It gives the new Brick a name, one line on what it does and its instructions, from what you already told it. There is no form to fill in." },
+          { title: "Open its chat", text: "The answer carries a link to the new Brick's chat, and it is in Chats from then on." },
+        ]}
+      />
 
-      {/* Technical - simple description without code */}
-      <section className="relative z-10 py-24 px-4 bg-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">The Recursion Protocol</h2>
-              <p className="text-white/60 text-lg">Parent bots can pass context and specific instructions to child bots via the BAWES Scripting API. This allows specialized intelligence delegating tasks to more efficient micro-agents.</p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-primary mt-1">check_circle</span>
-                  <div>
-                    <span className="font-semibold text-white block">Context Injection</span>
-                    <span className="text-white/40 text-sm">Pass partial conversation history and state variables down the tree.</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-primary mt-1">check_circle</span>
-                  <div>
-                    <span className="font-semibold text-white block">Dynamic Providers</span>
-                    <span className="text-white/40 text-sm">Switch from GPT-4 to Llama-3 mid-workflow for cost-optimized subtasks.</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-primary mt-1">check_circle</span>
-                  <div>
-                    <span className="font-semibold text-white block">Memory Isolation</span>
-                    <span className="text-white/40 text-sm">Each spawned bot maintains its own memory context for task-focused reasoning.</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="material-symbols-outlined text-primary text-3xl">psychology</span>
-                <span className="text-white font-semibold">How Spawning Works</span>
-              </div>
-              <ol className="space-y-4 text-white/60 text-sm">
-                <li className="flex gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">1</span>
-                  <span>Parent bot detects a workload that can be delegated, such as a data burst or document analysis request.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">2</span>
-                  <span>Parent calls the spawn API with behavior definition, provider config, memory scope, and task instructions.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">3</span>
-                  <span>Child bot processes the assigned task independently and returns results to the parent when complete.</span>
-                </li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="More Bricks"
+        title="A Brick for every job"
+        cards={[
+          { icon: "add_circle", title: "Ask for one", text: "Say what the helper is for and your Brick makes it right away. Change anything about it later." },
+          { icon: "lightbulb", title: "Brick may suggest one", text: "When the same kind of job keeps coming back, a small card appears under the answer: make a Brick just for it, or Not now. Say Not now and it does not ask again." },
+          { icon: "palette", title: "Make one yourself", text: "Press New Brick on the Bricks page and pick its look. Or start from a template.", more: { label: "Brick templates", href: "/features/brick-templates" } },
+          { icon: "undo", title: "Change your mind", text: "Delete a Brick and you can still undo it on the Bricks page until the day shown." },
+        ]}
+      />
 
-      {/* CTA */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to build recursive intelligence?</h2>
-          <p className="text-white/60 mb-8">Create self-architecting AI systems with autonomous bot spawning.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/" className="gradient-cta text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200">
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
-              Explore the Universe
-            </Link>
-            <Link href="/features-overview" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
-              See all features →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="In a room"
+        title="Build a team one bot at a time"
+        steps={[
+          { title: "Add a bot", text: "In the map editor, open Bots and press New bot. Or add one of your own Bricks to the room." },
+          { title: "Give it one job", text: "Write its personality, pick its model and connect only the Apps that job needs." },
+          { title: "Add the next one", text: "A greeter by the door, a guide who walks a route, an expert at the desk." },
+        ]}
+      />
+
+      <PartCards
+        eyebrow="Every bot is its own"
+        title="Specialists, side by side"
+        cards={[
+          { icon: "memory", title: "Its own model", text: "One bot runs on a fast, cheap model and another on a big one. You choose for each.", more: { label: "Bot provider config", href: "/features/bot-provider-config" } },
+          { icon: "directions_walk", title: "Its own behavior", text: "One stays put, one wanders, one walks a route and goes to people.", more: { label: "Bot behaviors", href: "/features/bot-behaviors" } },
+          { icon: "history", title: "Its own memory", text: "Each bot keeps its own memory of the people it meets.", more: { label: "Bot memory", href: "/features/bot-memory" } },
+          { icon: "build", title: "Its own tools", text: "Give each bot only what it needs, with its own rules for when to ask first.", more: { label: "Bot tool calling", href: "/features/bot-tools" } },
+          { icon: "shield_person", title: "Its own audience", text: "Open one bot to every visitor and keep another for your team." },
+          { icon: "pan_tool", title: "You stay in charge", text: "Bots that live in a room are put there by people who can edit that room. A Brick your Brick makes is yours alone until you place it somewhere." },
+        ]}
+      />
+
+      <PartBuilders
+        title="Good to know"
+        body={[
+          <>The Brick that comes with your account is the one that makes new Bricks, in your own chat with it. A new Brick starts with no memory of that chat, so your Brick writes what it needs into its instructions.</>,
+          <>When two bots stand in the same conversation, they answer in text for now. Voice comes back when one of them leaves.</>,
+          <>Bots load when their room opens. If one fails to start, the others still do.</>,
+        ]}
+        facts={[
+          ["Who makes a Brick", "You, or your Brick when you ask"],
+          ["A new Brick gets", "A name, one job, its own chat and memory"],
+          ["Changed your mind", "Delete, with Undo"],
+          ["Bots in a room", "As many as you add"],
+          ["Model, memory, tools", "Separate for each bot"],
+        ]}
+        links={[{ label: "Bot editor", href: "/features/bot-editor" }, { label: "Map scripting", href: "/features/scripting" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Brick", href: "/features/brick", note: "Your own AI companion." },
+          { label: "Brick templates", href: "/features/brick-templates", note: "Start from one someone shared." },
+          { label: "Bot editor", href: "/features/bot-editor", note: "Everything about a bot on one screen." },
+          { label: "Bot provider config", href: "/features/bot-provider-config", note: "A different brain for every job." },
+          { label: "Bot behaviors", href: "/features/bot-behaviors", note: "How a bot moves around." },
+          { label: "Bot tool calling", href: "/features/bot-tools", note: "Bots that get things done." },
+        ]}
+      />
+
+      <PageClosing
+        title={<>Ready for a second Brick?</>}
+        body={<>Ask your Brick for one. It takes a sentence.</>}
+        links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
+        source='feature_recursive_bots'
+      />
     </div>
   )
 }

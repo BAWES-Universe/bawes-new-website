@@ -1,83 +1,49 @@
-'use client'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
+import { PartCards, PartRelated } from '@/components/page/PageParts'
 
-import Link from 'next/link'
 export default function UserDirectoryPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/communication" className="hover:text-primary transition-colors">Communication</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">User Directory</span>
-        </div>
-      </div>
-      {/* Hero */}
-      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            See Who's Around. <span className="text-gradient">Find Anyone.</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
-            Browse users, see their status, and locate them on the map. Know who's online across your universe in real-time with zero friction.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Communication', href: '/communication' }]}
+        here="User Directory"
+        title={<>See who is around. <span className="text-gradient-accent">Find anyone.</span></>}
+        lead={<>See who is here, open their card, send a message, or walk up to them in one click.</>}
+        detail={[<>Browse users, see their status, and locate them on the map. Know who is around in real time.</>]}
+        scene="fire"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="feature_user_directory"
+      />
 
-      {/* Features */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
-                <span className="material-symbols-outlined">groups</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Browse Users</h3>
-              <p className="text-white/60 text-sm">See all members and filter by group or world with advanced tagging.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-6 text-secondary">
-                <span className="material-symbols-outlined">sensors</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Status Indicators</h3>
-              <p className="text-white/60 text-sm">Real-time Online, Busy, and Away status with synchronized color coding.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-6 text-tertiary">
-                <span className="material-symbols-outlined">location_on</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Locate on Map</h3>
-              <p className="text-white/60 text-sm">Jump directly to anyone's location with one-click map tracking and pathing.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-6 text-red-400">
-                <span className="material-symbols-outlined">sync</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Cross-Platform Sync</h3>
-              <p className="text-white/60 text-sm">Automatic status synchronization with Discord, Matrix, and BAWES Kernel.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="What you can do"
+        title="Everyone, one list"
+        cards={[
+          { icon: "groups", title: "See who is here", text: "Open the people list for everyone in the room. It works for guests too." },
+          { icon: "badge", title: "Open their card", text: "A visit card shows what the person chose to share about themselves." },
+          { icon: "mail", title: "Send a message", text: "Start a chat right from the list.", more: { label: "Text chat", href: "/features/text-chat" } },
+          { icon: "directions_walk", title: "Walk up to them", text: "One click and your avatar goes to where they are." },
+          { icon: "circle", title: "See their status", text: "Online, busy, away or do not disturb, at a glance.", more: { label: "Availability status", href: "/features/availability-status" } },
+          { icon: "person_add", title: "Add a friend", text: "Friends can see where each other are in Universe, and go there in one tap.", more: { label: "Chats, in the Guide", href: "/guide/chats" } },
+        ]}
+      />
 
-      {/* CTA */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to find your team?</h2>
-          <p className="text-white/60 mb-8">Browse the directory and locate your fellow explorers.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/" className="gradient-cta text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200">
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
-              Explore the Universe
-            </Link>
-            <Link href="/features-overview" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
-              See all features →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PartRelated
+        links={[
+          { label: "Availability status", href: "/features/availability-status", note: "Show when you are busy." },
+          { label: "Text chat", href: "/features/text-chat", note: "Type to the people near you." },
+          { label: "Follow", href: "/features/follow", note: "Keep a group together." },
+          { label: "Orbit", href: "/guide/orbit", note: "Discover people and places." },
+        ]}
+      />
+
+      <PageClosing
+        title={<>Ready to find your team?</>}
+        body={<>Open the people list and walk up to someone.</>}
+        links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
+        source="feature_user_directory"
+      />
     </div>
   )
 }

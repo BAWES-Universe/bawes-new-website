@@ -1,10 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
 import Link from 'next/link'
 import Section from '@/components/Section'
 import Button from '@/components/ui/Button'
+import PageHero from '@/components/page/PageHero'
 const details = [
   {
     title: 'Fully Open Source',
@@ -15,63 +15,28 @@ const details = [
     desc: 'We welcome pull requests, bug reports, and feature ideas. Our community-driven development process ensures the platform serves its users.',
   },
   {
-    title: 'Permissive Licensing',
-    desc: 'Licensed for both personal and commercial use. Build on BAWES, extend it, or deploy it for your organization without restrictive terms.',
+    title: 'Built in the open',
+    desc: 'Universe is open source, and so is WorkAdventure, the project it is built on. Read the code, run it yourself and build on it.',
   },
   {
-    title: 'Transparent Roadmap',
-    desc: 'Our development roadmap is public. See what we are working on, vote on feature priorities, and track progress in real time.',
+    title: 'Work you can follow',
+    desc: 'Issues and pull requests are on GitHub. See what is being worked on and join in.',
   },
 ]
 
 export default function OpenSourcePageContent() {
-  const heroRef = useRef(null)
-
   return (
     <div className="pt-20">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/developers" className="hover:text-primary transition-colors">Developers</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Open Source</span>
-        </div>
-      </div>
-            <section
-        ref={heroRef}
-        className="min-h-[50vh] flex items-center justify-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-accent-purple/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-accent-amber/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-accent-purple mb-8"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">code</span>
-              Community
-            </motion.div>
-
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-white mb-6 tracking-[-0.03em]">
-              Open Source
-            </h1>
-
-            <p className="text-lg text-text-muted leading-relaxed max-w-2xl mx-auto">
-              BAWES is built in the open. Our code is transparent, our process is collaborative, and everyone is welcome to contribute.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Developers', href: '/developers' }]}
+        here="Open Source"
+        eyebrow="Community"
+        title={<>Open <span className="text-gradient-accent">source</span></>}
+        lead={<>BAWES is built in the open. Our code is transparent, our process is collaborative, and everyone is welcome to contribute.</>}
+        scene="fire"
+        actions={[{ label: 'Developer hub', href: '/developers' }, { label: 'GitHub', href: 'https://github.com/BAWES-Universe' }]}
+        source="page_open_source"
+      />
 
       <Section className="relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern -z-10" />

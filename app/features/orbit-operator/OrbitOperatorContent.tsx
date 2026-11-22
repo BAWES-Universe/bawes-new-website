@@ -1,140 +1,78 @@
-'use client'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated } from '@/components/page/PageParts'
 
-'use client';
-
-import React from 'react';
-import Section from '@/components/Section';
-import Button from '@/components/ui/Button';
-import Link from 'next/link';
 export default function OrbitOperatorPageContent() {
   return (
 <main className="pt-20 max-w-screen-xl mx-auto px-6">
-      {/* Breadcrumb */}
-      <div className="flex items-center gap-2 pt-0 pb-2 text-xs text-text-muted max-w-container-max mx-auto px-gutter">
-        <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
-        <span className="text-white/20">/</span>
-        <span className="text-primary">Orbit Operator</span>
-      </div>
-      {/* Hero Section */}
-      <section className="max-w-container-max mx-auto px-gutter mb-section-padding-v grid md:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-border-purple">
-            <span className="material-symbols-outlined text-sm text-primary">space_dashboard</span>
-            <span className="text-caption font-label-navigation uppercase tracking-widest text-primary">Orbit Operator Console</span>
-          </div>
-          <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface">
-            Your Universe, <span className="text-gradient">In Command.</span>
-          </h1>
-          <p className="text-body-md text-text-secondary max-w-xl">
-            Orbit Operator gives you manual control over your universe. Review logs, manage worlds, monitor performance, and control bots — all from a single dashboard.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-4">
-            <button className="neon-gradient px-8 py-4 rounded-full text-white font-bold flex items-center gap-2 active:scale-95 transition-transform">
-              Launch Dashboard
-              <span className="material-symbols-outlined">open_in_new</span>
-            </button>
-            <button className="glass-card px-8 py-4 rounded-full text-on-surface font-bold hover:bg-surface-glass transition-all">
-              View Documentation
-            </button>
-          </div>
-        </div>
-        <div className="relative group">
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all"></div>
-          <div className="relative glass-card rounded-2xl overflow-hidden border border-white/10 aspect-video">
-            <div className="w-full h-full bg-surface-container-high flex items-center justify-center">
-              <span className="material-symbols-outlined text-6xl text-primary/30">dashboard</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Build & Create', href: '/build' }]}
+        here="Orbit Operator"
+        eyebrow="Orbit"
+        title={<>Your universe, <span className="text-gradient-accent">in command</span></>}
+        lead={<>Orbit is where you run your universe: create worlds and rooms, invite people, give them roles and see who visits.</>}
+        detail={[<>Orbit is the dashboard for your universe. It opens inside Universe, as a side panel or full screen, on a computer and on your phone.</>]}
+        scene="desks"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="page_features_orbit_operator"
+      />
 
-      {/* Features Grid */}
-      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v">
-        <div className="text-center mb-16">
-          <h2 className="font-headline-section text-headline-section text-on-surface mb-4">Everything at your fingertips</h2>
-          <p className="text-text-secondary max-w-xl mx-auto">Manage every aspect of your universe from a single, unified dashboard designed for operators.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="glass-card p-card-padding rounded-2xl space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-primary">monitor_heart</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card text-on-surface">Live Monitoring</h3>
-            <p className="text-text-secondary">Real-time metrics on server load, concurrent users, and resource utilization across all worlds.</p>
-          </div>
-          <div className="glass-card p-card-padding rounded-2xl space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-secondary">manage_accounts</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card text-on-surface">User Management</h3>
-            <p className="text-text-secondary">Review active sessions, moderate users, and manage roles across your entire universe hierarchy.</p>
-          </div>
-          <div className="glass-card p-card-padding rounded-2xl space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-tertiary">description</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card text-on-surface">Audit Logs</h3>
-            <p className="text-text-secondary">Complete activity trail for every administrative action. Track changes, permissions, and world modifications.</p>
-          </div>
-          <div className="glass-card p-card-padding rounded-2xl space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-primary">smart_toy</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card text-on-surface">Bot Control</h3>
-            <p className="text-text-secondary">Deploy, configure, and manage AI bots across your worlds. Start, stop, or relocate agents live.</p>
-          </div>
-          <div className="glass-card p-card-padding rounded-2xl space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-secondary">map</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card text-on-surface">World Management</h3>
-            <p className="text-text-secondary">Create, duplicate, archive, and delete worlds. Manage map assignments and room configurations.</p>
-          </div>
-          <div className="glass-card p-card-padding rounded-2xl space-y-4">
-            <div className="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center">
-              <span className="material-symbols-outlined text-tertiary">api</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card text-on-surface">API Access</h3>
-            <p className="text-text-secondary">Generate and manage API tokens for programmatic access. Configure webhooks and integration endpoints.</p>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="What you do in Orbit"
+        title="Everything about your universe, in one place"
+        cards={[
+          { icon: "public", title: "Universes, worlds and rooms", text: "Create them, rename them, make them public or private, and delete them." },
+          { icon: "dashboard_customize", title: "Rooms from a template", text: "Pick a ready-made map and you have a room. Switch the template later if you like.", more: { label: "Map templates", href: "/features/map-templates" } },
+          { icon: "group_add", title: "Members and invitations", text: "Invite people to a world, change what they may do, or remove them." },
+          { icon: "military_tech", title: "Roles", text: "Make roles with a name, a colour and a badge, and choose what each role may do." },
+          { icon: "monitoring", title: "Visitors", text: "See who visited a universe, a world or a room." },
+          { icon: "key", title: "AI keys", text: "Add your own AI and voice keys and lend them to a universe for its bots.", more: { label: "Bot provider config", href: "/features/bot-provider-config" } },
+          { icon: "travel_explore", title: "Discover", text: "Browse public universes, worlds, rooms and people, and star the rooms you like." },
+          { icon: "id_card", title: "Your visit card", text: "What other people see when they look you up." },
+        ]}
+      />
 
-      {/* Deep Dives */}
-      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v border-t border-divider">
-        <h2 className="font-headline-section text-headline-section text-on-surface mb-12 text-center">Related Tools</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Link href="/features/admin-api" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
-            <span className="material-symbols-outlined text-primary mb-4 text-3xl">code</span>
-            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-primary transition-colors">Admin API</h3>
-            <p className="text-text-secondary text-sm">Programmatic access to the same powerful operations via our REST API.</p>
-          </Link>
-          <Link href="/features/self-hosting" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
-            <span className="material-symbols-outlined text-secondary mb-4 text-3xl">dns</span>
-            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-secondary transition-colors">Self-Hosting</h3>
-            <p className="text-text-secondary text-sm">Run the BAWES stack on your own infrastructure with full control.</p>
-          </Link>
-          <Link href="/features/scripting" className="glass-card p-card-padding rounded-2xl group cursor-pointer">
-            <span className="material-symbols-outlined text-tertiary mb-4 text-3xl">terminal</span>
-            <h3 className="font-headline-card text-headline-card text-on-surface mb-2 group-hover:text-tertiary transition-colors">Scripting API</h3>
-            <p className="text-text-secondary text-sm">Write custom behaviors and in-world logic with our JS/TS SDK.</p>
-          </Link>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="When you host Universe yourself"
+        title="A few more tools for the host"
+        cards={[
+          { icon: "face", title: "Avatar sets", text: "Add your own avatars and companions, and choose who may wear them.", more: { label: "Avatar platform", href: "/features/avatar-platform" } },
+          { icon: "auto_awesome", title: "Universe AI", text: "Set which AI providers answer when a bot runs on Universe AI, and see the usage." },
+          { icon: "dns", title: "MCP servers", text: "Manage the tool servers bots can connect to.", more: { label: "Bot tool calling", href: "/features/bot-tools" } },
+          { icon: "category", title: "Template library", text: "Manage the categories, templates and maps people can start a room from." },
+        ]}
+      />
 
-      {/* CTA */}
-      <section className="max-w-container-max mx-auto px-gutter py-section-padding-v text-center">
-        <div className="glass-card p-12 rounded-[2rem] relative overflow-hidden">
-          <h2 className="font-headline-section text-headline-section text-on-surface mb-6">Ready to take command?</h2>
-          <p className="text-text-secondary max-w-xl mx-auto mb-10">Get instant access to the Orbit Operator dashboard and start managing your universe like a pro.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="neon-gradient px-10 py-4 rounded-full text-white font-bold active:scale-95 transition-transform">Launch Dashboard</button>
-            <button className="glass-card px-10 py-4 rounded-full text-on-surface font-bold hover:bg-surface-glass transition-all">Talk to Sales</button>
-          </div>
-        </div>
-      </section>
+      <PartBuilders
+        title="Dashboard and Admin API in one"
+        body={[
+          <>Orbit is also the Admin API the game talks to. When someone opens a room, the game asks Orbit who they are and what they may do.</>,
+          <>Orbit signs you in through the game, so there is no second password.</>,
+        ]}
+        facts={[
+          ["Opens", "Inside Universe"],
+          ["Views", "Side panel or full screen"],
+          ["Built with", "Next.js and PostgreSQL"],
+          ["Also is", "The Admin API"],
+        ]}
+        links={[{ label: "Admin API", href: "/features/admin-api" }, { label: "Orbit, step by step", href: "/guide/orbit" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Admin API", href: "/features/admin-api", note: "How the game and Orbit talk." },
+          { label: "Self-hosting", href: "/features/self-hosting", note: "Run Universe on your own servers." },
+          { label: "Scripting API", href: "/features/scripting", note: "Code that runs inside a map." },
+          { label: "Orbit, in the Guide", href: "/guide/orbit", note: "Your account, step by step." },
+        ]}
+      />
+
+      <PageClosing
+        title={<>Ready to take command?</>}
+        body={<>Open Orbit from inside Universe and start with your first universe.</>}
+        links={[{ label: 'Talk to us', href: '/contact' }, { label: 'See all features', href: '/features-overview' }]}
+        source="page_features_orbit_operator"
+      />
     </main>
   );
 }

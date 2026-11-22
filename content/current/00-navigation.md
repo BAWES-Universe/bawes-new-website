@@ -1,22 +1,26 @@
 # Navigation (Current)
 
-## Navbar links (desktop)
+Source: `components/Navigation.tsx`. The desktop bar shows from 1280px up; below that the hamburger menu shows the same links.
 
-| Link | Type |
-|------|------|
-| Home `/` | Internal |
-| How It Works `/how-it-works` | Internal |
-| Blog `https://blog.bawes.net` | External |
-| Market `/market` | Internal |
-| Components `/work` | Internal |
-| Manifesto `/manifesto` | Internal |
-| The Empty Seat `/empty-seat` | Internal |
-| Contact `/contact` | Internal |
+## Navbar (desktop, left to right)
 
-**Desktop:** Full link list displayed inline, plus a Discord CTA button ("Join us on Discord" → `https://discord.gg/CXceJWnwNT`)
+| Item | Type | Links |
+|------|------|-------|
+| Logo | Link | `/` |
+| How It Works | Link | `/how-it-works` |
+| Universe | Dropdown, two columns (hub `/`) | Things to do `/#things`, Brick `/features/brick`, Brick templates `/features/brick-templates`, Goals and tasks `/features/goals-and-tasks`, A computer for your Brick `/features/brick-computer`, Apps `/features/apps`, Artifacts `/features/artifacts`, Community `/features/artifact-community`, Quests `/features/quests`, Orbit and your account `/#orbit`, AI and voice `/#apps`, Universe AI `/#universe-ai` |
+| Features | Dropdown (hub `/features-overview`) | Communication `/communication`, AI Bots `/ai-bots`, Build & Create `/build`, Platform `/platform` |
+| Use Cases | Dropdown (hub `/use-cases`) | Personal, Work, Community, Learning, Events, Commerce, Market under `/use-cases/...` |
+| Developers | Dropdown (hub `/developers`) | Technology Stack `/features/tech-stack`, Scripting API `/features/scripting`, MCP Integration `/mcp-integration`, Self-Hosting `/features/self-hosting`, Open Source `/open-source`, WorkAdventure Fork `/workadventure-fork` |
+| About | Dropdown (hub `/about`) | The Team `/team`, Manifesto `/manifesto`, The Empty Seat `/empty-seat`, Legal `/legal` |
+| Contact | Link | `/contact` |
+| Discord | Icon button | `https://discord.gg/CXceJWnwNT` |
+| Enter the Universe | Primary button | `https://universe.bawes.net` |
 
-**Mobile:** Hamburger menu → full-screen overlay with same links. Discord button shown inline next to hamburger.
+## Mobile
 
-## Logo
+Logo, Discord icon, hamburger. The menu opens full screen: Enter the Universe first, then How It Works, then every dropdown group with its links, then Contact. Blog is in the footer only.
 
-Left side: BAWES logo image + "BAWES" (bold) + "Universe" (gradient)
+## Rule
+
+Never remove a link from the menu or footer without a redirect and a new home for it. Every page must stay reachable.

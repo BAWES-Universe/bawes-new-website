@@ -4,17 +4,26 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Section from '@/components/Section'
 import Button from '@/components/ui/Button'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 
 const features = [
-  { title: 'Bot Behaviors', icon: 'psychology', description: 'Define complex behavioral patterns for your AI bots.' },
+  { title: 'Brick', icon: 'smart_toy', description: 'Your own AI companion. Everyone gets one, and it is yours from day one.' },
+  { title: 'Apps', icon: 'apps', description: 'Connect email, calendar, GitHub and 1,700+ more. You choose what runs right away and what asks first.' },
+  { title: 'Artifacts', icon: 'auto_awesome', description: 'Ask for a page, a mini app, a document or a drawing, and keep what it makes.' },
+  { title: 'Community', icon: 'public', description: 'Make an artifact public, feature your best, and find what other people made.' },
+  { title: 'Brick Templates', icon: 'content_copy', description: 'Start a new Brick from one someone shared, or share yours.' },
+  { title: 'Goals and Tasks', icon: 'flag', description: 'Give your Brick a goal, a schedule or a reminder. It keeps at it while you are away.' },
+  { title: 'A Computer for Your Brick', icon: 'computer', description: 'For the jobs no App can do. Watch it work, and take over when you want.' },
+  { title: 'Bot Behaviors', icon: 'psychology', description: 'Bots that stay put, wander, walk a route, come over and show the way.' },
   { title: 'Bot Memory', icon: 'memory', description: 'Persistent memory so bots remember past conversations and context.' },
   { title: 'Bot Streaming Chat', icon: 'message', description: 'Real-time streaming responses for natural conversational flow.' },
   { title: 'Bot Tool Calling', icon: 'handyman', description: 'Let bots invoke tools and APIs to perform actions on your behalf.' },
   { title: 'Bot Avatars', icon: 'face', description: 'Customize bot appearances with unique avatars and visual identities.' },
-  { title: 'Bot Emotions', icon: 'favorite', description: 'Emotional states and mood-driven responses for lifelike interactions.' },
-  { title: 'Bot Greetings', icon: 'waving_hand', description: 'Personalized welcome messages and greeting behaviors.' },
+  { title: 'Bot Emotions', icon: 'favorite', description: 'Feelings a bot builds toward each person, from how their chats go.' },
+  { title: 'Bot Greetings', icon: 'waving_hand', description: 'A hello in the bot’s own words when someone comes close.' },
   { title: 'Bot Provider Config', icon: 'settings', description: 'Configure AI providers — OpenAI, Anthropic, local models, and more.' },
-  { title: 'Recursive Bots', icon: 'device_hub', description: 'Bots that spawn and coordinate other bots for complex tasks.' },
+  { title: 'Recursive Bots', icon: 'device_hub', description: 'Ask your Brick for a helper and it makes one. Or run a team of bots in one room, each with its own model, memory and tools.' },
   { title: 'Bot Editor', icon: 'edit', description: 'Visual editor to create, tweak, and manage your bot fleet.' },
   { title: 'Bot File Parsing', icon: 'description', description: 'Bots analyze PDF, Word, Excel, and web pages.' },
   { title: 'Bot Media Sending', icon: 'image', description: 'Auto-send tool-generated images and video to users.' },
@@ -23,6 +32,13 @@ const features = [
 ]
 
 const featureSlugs: Record<string, string> = {
+  'Brick': '/features/brick',
+  'Apps': '/features/apps',
+  'Artifacts': '/features/artifacts',
+  'Community': '/features/artifact-community',
+  'Brick Templates': '/features/brick-templates',
+  'Goals and Tasks': '/features/goals-and-tasks',
+  'A Computer for Your Brick': '/features/brick-computer',
   'Bot Avatars': '/features/bot-avatars',
   'Bot Greetings': '/features/bot-greetings',
   'Bot Editor': '/features/bot-editor',
@@ -42,38 +58,18 @@ const featureSlugs: Record<string, string> = {
 export default function AiBotsContent() {
   return (
     <div className="pt-20">
-      {/* Hero */}
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">AI Bots</span>
-        </div>
-      </div>
-            <section className="min-h-[50vh] flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-accent-purple/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-accent-amber/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-white mb-6 tracking-[-0.03em]">
-              AI Bots
-            </h1>
-
-            <p className="text-lg text-text-muted leading-relaxed max-w-2xl mx-auto">
-              Intelligent agents that inhabit your universe. Create, configure, and deploy bots that interact, remember, and act.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }]}
+        here="AI Bots"
+        title={<>AI bots that <span className="text-gradient-accent">live in your world</span></>}
+        lead={<>Bots are AI helpers with a body and a place in your space. They greet people, answer questions, remember, and get things done.</>}
+        detail={[
+          <>Intelligent agents that inhabit your universe. Create, configure, and deploy bots that interact, remember, and act.</>,
+        ]}
+        scene="resident"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="page_ai_bots"
+      />
 
       {/* Feature Grid */}
       <Section className="relative">
@@ -104,20 +100,11 @@ export default function AiBotsContent() {
         </div>
       </Section>
 
-      {/* CTA */}
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Bring your world to life</h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="gradient-cta text-white px-8 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200">
-              Start Building Bots
-            </Link>
-            <Link href="/features-overview" className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
-              See all features
-            </Link>
-          </div>
-        </div>
-      </Section>
+      <PageClosing
+        title={<>Bring your world to life</>}
+        links={[{ label: 'Start building bots', href: '/contact' }, { label: 'See all features', href: '/features-overview' }]}
+        source="page_ai_bots"
+      />
     </div>
   )
 }

@@ -1,108 +1,77 @@
-'use client'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
 
-import Link from 'next/link'
 export default function ProximityChatPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Hero */}
-            {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/communication" className="hover:text-primary transition-colors">Communication</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Proximity Chat</span>
-        </div>
-      </div>
-      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
-            <span className="material-symbols-outlined text-lg">spatial_audio</span>
-            Spatial Voice Technology
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Talk Like You're <span className="text-gradient">In the Same Room.</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
-            Proximity-based spatial voice chat with WebRTC. Walk closer to hear better, walk away to fade out. Powered by LiveKit for ultra-low latency.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Communication', href: '/communication' }]}
+        here="Proximity Chat"
+        title={<>Talk like you are <span className="text-gradient-accent">in the same room</span></>}
+        lead={<>Walk up to someone and a conversation starts. Walk away and it ends. No links to send and no rooms to book.</>}
+        detail={[<>Proximity voice and video chat over WebRTC, powered by LiveKit when a group grows.</>]}
+        scene="talk"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="feature_proximity_chat"
+      />
 
-      {/* Features */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Voice Features</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary">spatial_audio</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Spatial Audio</h3>
-              <p className="text-white/60">3D positional audio that makes voices sound like they're coming from the right direction and distance.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-secondary">graphic_eq</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Distance Attenuation</h3>
-              <p className="text-white/60">Volume naturally decreases with distance. Whispers up close, muffled from across the room — just like real life.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-tertiary">mic</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Push-to-Talk</h3>
-              <p className="text-white/60">Optional PTT mode for cleaner audio environments. Configurable keybindings for advanced workflows.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="Three steps, and you already know them"
+        steps={[
+          { title: 'Walk up', text: 'Stand next to someone. A circle appears around the two of you.' },
+          { title: 'Talk', text: 'You see and hear each other right away. Others can walk up and join in.' },
+          { title: 'Walk away', text: 'Step out of the circle and you have left. Nobody has to hang up.' },
+        ]}
+      />
 
-      {/* Technical */}
-      <section className="relative z-10 py-24 px-4 bg-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Powered by LiveKit</h2>
-              <p className="text-white/60 mb-8">All proximity voice runs on top of LiveKit's battle-tested WebRTC infrastructure, ensuring high-quality audio and smooth scaling from 2 to 2000 participants.</p>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Ultra-low latency WebRTC</li>
-                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Self-hostable SFU servers</li>
-                <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> Opus codec for crisp voice</li>
-              </ul>
-            </div>
-            <div className="glass-card p-8 rounded-2xl bg-black/40 border border-white/10">
-              <h4 className="text-lg font-semibold text-white mb-4">Audio Stack</h4>
-              <div className="space-y-3 text-white/60">
-                <div className="flex justify-between"><span>Codec</span><span className="text-primary">Opus</span></div>
-                <div className="flex justify-between"><span>Latency</span><span className="text-primary">&lt;50ms</span></div>
-                <div className="flex justify-between"><span>SFU</span><span className="text-primary">LiveKit</span></div>
-                <div className="flex justify-between"><span>Spatial</span><span className="text-primary">HRTF 3D</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="What you can do"
+        title="Everything a good conversation needs"
+        cards={[
+          { icon: 'lock', title: 'Lock the conversation', text: 'Press Lock and nobody else can join. Only the people already there stay in.' },
+          { icon: 'graphic_eq', title: 'Clean sound', text: 'A noise filter is built in. The Strong setting also removes typing, clicks and voices behind you, and it runs on your own device.' },
+          { icon: 'blur_on', title: 'Choose your background', text: 'Blur what is behind you, or put a picture or a video there.' },
+          { icon: 'present_to_all', title: 'Share your screen', text: 'Show your screen to the people standing with you.', more: { label: 'Screen sharing', href: '/features/screen-sharing' } },
+          { icon: 'chat', title: 'Type as well', text: 'A chat for the people standing together opens on its own. It works for guests too.', more: { label: 'Chats, in the Guide', href: '/guide/chats' } },
+          { icon: 'smart_toy', title: 'Residents join in', text: 'AI residents with a voice talk in the circle like anyone else. Say their name and they answer.', more: { label: 'Talking to residents out loud', href: '/guide/talking-out-loud' } },
+        ]}
+      />
 
-      {/* CTA */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to talk in spatial audio?</h2>
-          <p className="text-white/60 mb-8">Experience voice chat that feels as natural as being in the same room.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/" className="gradient-cta text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200">
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
-              Explore the Universe
-            </Link>
-            <Link href="/features-overview" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
-              See all features →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PartBuilders
+        title="What carries the sound"
+        body={[
+          <>A small conversation connects browser to browser over WebRTC. When more people join, it moves to LiveKit on its own, so voices stay clear.</>,
+          <>LiveKit is open source, so you can host it yourself next to your own Universe.</>,
+        ]}
+        facts={[
+          ['Voice and video', 'WebRTC'],
+          ['Larger groups', 'LiveKit'],
+          ['Audio codec', 'Opus'],
+          ['Hosting', 'Ours or your own'],
+        ]}
+        links={[
+          { label: 'Self-hosting', href: '/features/self-hosting' },
+          { label: 'Technology stack', href: '/features/tech-stack' },
+        ]}
+      />
+
+      <PartRelated
+        links={[
+          { label: 'Follow', href: '/features/follow', note: 'Keep a group together on a tour.' },
+          { label: 'Megaphone', href: '/features/megaphone', note: 'Speak to a whole room at once.' },
+          { label: 'Meeting rooms', href: '/features/meeting-rooms', note: 'A room for a proper sit-down.' },
+          { label: 'Start here', href: '/guide/start-here', note: 'Your first five minutes, in the Guide.' },
+        ]}
+      />
+
+      <PageClosing
+        title={<>Ready to say hello?</>}
+        body={<>Walk in, find someone, and stand next to them. That is all it takes.</>}
+        links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
+        source="feature_proximity_chat"
+      />
     </div>
   )
 }

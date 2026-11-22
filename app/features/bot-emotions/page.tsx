@@ -3,16 +3,16 @@ import BotEmotionsPageContent from './BotEmotionsContent'
 
 export const metadata: Metadata = {
   title: 'Bot Emotions',
-  description: 'Emotional states that change how bots respond. Happy bots are more helpful; serious bots keep it professional. Configurable per bot.',
+  description: 'Emotional states that change how bots respond. A bot grows happier, warier or more trusting with each person, based on how their chats go.',
   openGraph: {
     title: 'Bot Emotions',
-    description: 'Emotional states that change how bots respond. Happy bots are more helpful; serious bots keep it professional. Configurable per bot.',
+    description: 'Emotional states that change how bots respond. A bot grows happier, warier or more trusting with each person, based on how their chats go.',
     type: 'website',
     images: [{ url: '/images/enter-univ.png', width: 1200, height: 630, alt: 'BAWES Universe' }],
   },
   twitter: {
     title: 'Bot Emotions',
-    description: 'Emotional states that change how bots respond. Happy bots are more helpful; serious bots keep it professional. Configurable per bot.',
+    description: 'Emotional states that change how bots respond. A bot grows happier, warier or more trusting with each person, based on how their chats go.',
     card: 'summary_large_image',
     images: ['/images/enter-univ.png'],
   },

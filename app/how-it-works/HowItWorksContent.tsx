@@ -6,36 +6,25 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function HowItWorksPageContent() {
   return (
-    <main className="relative">
-      {/* HERO SECTION */}
-      <section className="pt-40 pb-section-padding-v px-gutter max-w-container-max mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
-            <div className="flex flex-wrap gap-3">
-              <span className="glass-card px-4 py-1.5 rounded-full text-caption font-label-navigation text-primary">Presence matters.</span>
-              <span className="glass-card px-4 py-1.5 rounded-full text-caption font-label-navigation text-primary">Context matters.</span>
-              <span className="glass-card px-4 py-1.5 rounded-full text-caption font-label-navigation text-primary">Where you are shapes what you can do.</span>
-            </div>
-            <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero text-white leading-none">
-              Universe, simply <span className="text-gradient">explained.</span>
-            </h1>
-            <p className="font-body-md text-body-md text-text-secondary max-w-xl">
-              Universe is composed of universes, worlds, and rooms people move through — not interfaces people click through.
-            </p>
-          </div>
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all"></div>
-            <div className="relative rounded-3xl overflow-hidden glass-card aspect-video border-2 border-white/10 flex items-center justify-center">
-              <div className="z-10 bg-black/40 backdrop-blur-sm p-4 rounded-xl flex items-center gap-3 border border-white/10">
-                <span className="material-symbols-outlined text-primary text-4xl">play_circle</span>
-                <span className="font-semibold text-white">Watch Universe in action</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <main className="relative pt-20">
+      <PageHero
+        crumbs={[]}
+        here="How It Works"
+        eyebrow="How it works"
+        title={<>Universe, simply <span className="text-gradient-accent">explained</span></>}
+        lead={<>Universe is made of places you walk through, not screens you click through: universes, worlds and rooms.</>}
+        detail={[
+          <>Universe is composed of universes, worlds, and rooms people move through — not interfaces people click through.</>,
+          <>Presence matters. Context matters. Where you are shapes what you can do.</>,
+        ]}
+        scene="travel"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="page_how_it_works"
+      />
 
       {/* SECTION 1: ORBIT */}
       <section className="py-section-padding-v px-gutter max-w-container-max mx-auto border-t border-divider">
@@ -222,11 +211,11 @@ export default function HowItWorksPageContent() {
             </div>
             <div className="glass-card p-8 rounded-3xl space-y-6">
               <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
-                <span className="material-symbols-outlined text-secondary text-2xl">call</span>
+                <span className="material-symbols-outlined text-secondary text-2xl">mail</span>
               </div>
               <div>
-                <h4 className="font-headline-card text-[20px] text-white mb-2">Phone Chat</h4>
-                <p className="text-body-md text-text-secondary text-sm">Direct calls across rooms for quick one-on-one syncs.</p>
+                <h4 className="font-headline-card text-[20px] text-white mb-2">Direct Messages</h4>
+                <p className="text-body-md text-text-secondary text-sm">Message anyone, wherever they are. The history stays.</p>
               </div>
             </div>
             <div className="glass-card p-8 rounded-3xl space-y-6">
@@ -235,7 +224,7 @@ export default function HowItWorksPageContent() {
               </div>
               <div>
                 <h4 className="font-headline-card text-[20px] text-white mb-2">Text Chat</h4>
-                <p className="text-body-md text-text-secondary text-sm">Per-room channels with integrated bot streaming support.</p>
+                <p className="text-body-md text-text-secondary text-sm">A chat opens for the people standing together. Bots answer in it too.</p>
               </div>
             </div>
             <div className="glass-card p-8 rounded-3xl space-y-6">
@@ -272,7 +261,7 @@ export default function HowItWorksPageContent() {
                   <span className="material-symbols-outlined text-tertiary text-xl">person</span>
                 </div>
               </div>
-              <span className="text-white font-semibold">Join thousands of world builders</span>
+              <span className="text-white font-semibold">Come and build with us</span>
             </div>
           </div>
         </div>
@@ -312,25 +301,12 @@ export default function HowItWorksPageContent() {
         </div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="py-32 px-gutter">
-        <div className="max-w-container-max mx-auto relative overflow-hidden glass-card rounded-[60px] p-20 text-center space-y-8">
-          <div className="relative z-10 space-y-6">
-            <h2 className="font-display-hero text-display-hero-mobile md:text-headline-section text-white">Ready to enter the Universe?</h2>
-            <p className="text-body-md text-text-secondary max-w-xl mx-auto">
-              Experience a spatial digital world that feels like being there. Start building your ecosystem today.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-              <Link href="/contact" className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white font-bold px-12 py-5 rounded-full text-lg shadow-lg shadow-purple-500/30 hover:scale-105 active:scale-95 transition-all inline-block">
-                Get Started
-              </Link>
-              <Link href="/contact" className="glass-card text-white font-bold px-12 py-5 rounded-full text-lg border border-white/20 hover:bg-white/10 active:scale-95 transition-all inline-block">
-                Request Demo
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageClosing
+        title={<>Ready to enter the Universe?</>}
+        body={<>Experience a spatial digital world that feels like being there. Start building your ecosystem today.</>}
+        links={[{ label: 'Get started', href: '/contact' }, { label: 'See what people build', href: '/use-cases' }]}
+        source="page_how_it_works"
+      />
     </main>
   );
 }

@@ -1,10 +1,11 @@
 'use client'
 
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import Image from 'next/image'
 import Section from '@/components/Section'
 import Button from '@/components/ui/Button'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 const getColorClasses = (color: string) => {
   const colorMap: Record<string, { border: string; bg: string; text: string }> = {
     'bawes-gold': {
@@ -57,9 +58,7 @@ const getColorClasses = (color: string) => {
 }
 
 export default function WorkContent() {
-  const heroRef = useRef(null)
   const sectionRef = useRef(null)
-  const heroInView = useInView(heroRef, { once: true })
   
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -69,53 +68,19 @@ export default function WorkContent() {
 
   return (
     <div className="pt-20">
-      {/* Hero */}
-      <section 
-        ref={heroRef}
-        className="min-h-[70vh] flex items-center justify-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-bawes-gold/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-bawes-red/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
-        </div>
-        
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div 
-              className="inline-block mb-6 p-3 bg-gradient-to-r from-bawes-gold/20 via-bawes-red/20 to-bawes-orange/20 rounded-2xl backdrop-blur-sm border border-white/10"
-              animate={{ rotate: [0, 5, -5, 0] }}
-              transition={{ duration: 8, repeat: Infinity }}
-            >
-              <div className="w-16 h-16 relative">
-                <Image src="/images/bawes-logo.png" alt="BAWES" fill className="object-contain" />
-              </div>
-            </motion.div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold mb-8">
-              <span className="text-white">Work with</span>
-              <br />
-              <span className="bawes-gradient-text">Universe Components</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-white/70 leading-relaxed mb-8">
-              Discover and connect powerful components to enhance your Universe experience.
-            </p>
-            
-            <motion.p 
-              className="text-lg text-white/60 max-w-2xl mx-auto"
-              initial={{ opacity: 0 }}
-              animate={heroInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.3 }}
-            >
-              Each component is designed to work seamlessly within the Universe, helping you build, manage, and grow your digital environment.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[]}
+        here="Components"
+        eyebrow="Components"
+        title={<>Work with <span className="text-gradient-accent">Universe components</span></>}
+        lead={<>Discover and connect powerful components to enhance your Universe experience.</>}
+        detail={[
+          <>Each component is designed to work seamlessly within the Universe, helping you build, manage, and grow your digital environment.</>,
+        ]}
+        scene="build"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="page_work"
+      />
 
       {/* Universe Components */}
       <Section ref={sectionRef} className="relative overflow-hidden bg-[#050505]">
@@ -406,26 +371,11 @@ export default function WorkContent() {
         </div>
       </Section>
 
-      {/* CTA */}
-      <Section className="relative min-h-[40vh] flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-radial from-bawes-red/15 to-transparent rounded-full blur-3xl" />
-        </div>
-        
-        <div className="text-center">
-          <motion.p 
-            className="text-xl text-white/60 mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Ready to build your universe?
-          </motion.p>
-          <Button href="/contact" size="lg">
-            Get Started
-          </Button>
-        </div>
-      </Section>
+      <PageClosing
+        title={<>Ready to build your universe?</>}
+        links={[{ label: 'Get started', href: '/contact' }]}
+        source="page_work"
+      />
     </div>
   )
 }

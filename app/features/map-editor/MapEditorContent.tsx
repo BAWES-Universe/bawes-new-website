@@ -1,82 +1,74 @@
-'use client'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
 
-import Link from 'next/link'
 export default function MapEditorPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
-      {/* Hero */}
-            {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/build" className="hover:text-primary transition-colors">Build & Create</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">Map Editor</span>
-        </div>
-      </div>
-      <section className="relative z-10 min-h-[70vh] flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-purple-300 mb-8 border border-purple-500/20">
-            <span className="material-symbols-outlined text-lg">architecture</span>
-            World Building Tools
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Build Your World <span className="text-gradient">in Real-Time.</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto">
-            Live map editing tools in the browser. Modify tiles, add zones, place entities, and see changes instantly — no reload needed. Direct feedback loop for creators.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Build & Create', href: '/build' }]}
+        here="Map Editor"
+        title={<>Build your world <span className="text-gradient-accent">in real time</span></>}
+        lead={<>Change your room right in the browser: place objects, draw areas and add residents. Everyone sees the change at once.</>}
+        detail={[<>Live map editing tools in the browser. Add areas, place objects, and see changes instantly, with no reload needed.</>]}
+        scene="build"
+        actions={[{ label: 'See all features', href: '/features-overview' }]}
+        source="feature_map_editor"
+      />
 
-      {/* Features */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Editor Capabilities</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary">edit_square</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Tile Editing</h3>
-              <p className="text-white/60">Paint, erase, and swap tiles on your map grid. Modify terrain, walls, and floors with intuitive brush tools.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-secondary">grid_view</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Zone Drawing</h3>
-              <p className="text-white/60">Draw rectangular or polygonal zones directly on the map. Assign properties and triggers to each zone in real-time.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-tertiary">visibility</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Live Preview</h3>
-              <p className="text-white/60">See your changes reflected immediately. Walk through your edited space without leaving the editor or reloading the page.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="Pick a tool, click the map"
+        steps={[
+          { title: "Open the map editor", text: "It opens on top of the room you are standing in." },
+          { title: "Pick a tool", text: "Objects, Areas, Bots or Delete." },
+          { title: "Click the map", text: "What you place is there for everyone right away." },
+        ]}
+      />
 
-      {/* CTA */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to edit your world?</h2>
-          <p className="text-white/60 mb-8">Open the inline map editor and start building.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/" className="gradient-cta text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200">
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
-              Explore the Universe
-            </Link>
-            <Link href="/features-overview" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200">
-              See all features →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="What you can do"
+        title="Four tools, one room"
+        cards={[
+          { icon: "chair", title: "Place objects", text: "Pick one from the library, then click the map. Move it, turn it, copy it or change its colour.", more: { label: "Objects", href: "/features/entity-editor" } },
+          { icon: "select_all", title: "Draw areas", text: "Mark a part of the map and choose what happens there: a meeting, a sound, a website, an exit.", more: { label: "Area zones", href: "/features/area-zones" } },
+          { icon: "smart_toy", title: "Add residents", text: "Put AI helpers in the room, right from the editor.", more: { label: "AI residents", href: "/ai-bots" } },
+          { icon: "upload", title: "Add your own", text: "Upload your own pictures as objects. Drop a file anywhere on the map." },
+          { icon: "undo", title: "Undo", text: "Changed your mind? Undo brings it back, also after a delete." },
+          { icon: "smartphone", title: "On a phone too", text: "Pick a tool, drag to move around and pinch to zoom." },
+        ]}
+      />
+
+      <PartBuilders
+        title="On top of your Tiled map"
+        body={[
+          <>The room itself is a map made in Tiled, the open map editor. What you add in the browser is saved next to it, so the two never overwrite each other.</>,
+          <>Who may edit is set with tags.</>,
+        ]}
+        facts={[
+          ["Tools", "Objects, Areas, Bots, Delete"],
+          ["Base map", "Tiled"],
+          ["Editing rights", "By tag"],
+          ["Shortcuts", "R to turn, Ctrl+Z to undo"],
+        ]}
+        links={[{ label: "Maps", href: "/features/maps" }, { label: "Scripting API", href: "/features/scripting" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Area zones", href: "/features/area-zones", note: "Make a spot do something." },
+          { label: "Objects", href: "/features/entity-editor", note: "Things people can click." },
+          { label: "Map templates", href: "/features/map-templates", note: "Start from a ready-made room." },
+          { label: "Maps", href: "/features/maps", note: "The ground you walk on." },
+        ]}
+      />
+
+      <PageClosing
+        title={<>Ready to edit your world?</>}
+        body={<>Open the map editor in a room you manage and start building.</>}
+        links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
+        source="feature_map_editor"
+      />
     </div>
   )
 }

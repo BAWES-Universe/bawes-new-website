@@ -1,181 +1,74 @@
-'use client'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
 
-'use client';
-
-import React from 'react';
-import Section from '@/components/Section';
-import Button from '@/components/ui/Button';
-import Link from 'next/link';
 export default function OidcAuthPageContent() {
   return (
-    <main className="relative z-10 pt-32">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/features-overview" className="hover:text-primary transition-colors">Features</Link>
-          <span className="text-white/20">/</span>
-          <Link href="/platform" className="hover:text-primary transition-colors">Platform</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">OIDC Auth</span>
-        </div>
-      </div>
-      {/* Hero Section */}
-      <Section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v grid md:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8">
-          <div className="inline-flex items-center space-x-2 bg-surface-container px-4 py-1.5 rounded-full border border-border-purple">
-            <span className="material-symbols-outlined text-primary text-[18px]">verified_user</span>
-            <span className="font-caption text-caption uppercase tracking-widest text-primary">OIDC Protocol Enabled</span>
-          </div>
-          <h1 className="font-display-hero text-display-hero">
-            Your Identity. <br />
-            <span className="text-gradient">Your Way.</span>
-          </h1>
-          <p className="font-body-md text-body-md text-text-secondary max-w-lg">
-            OpenID Connect authentication. Connect your existing SSO — Google, GitHub, Microsoft, or custom OIDC providers. Secure, decentralized, and seamless.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/contact" className="bg-gradient-primary text-white font-label-navigation px-8 py-4 rounded-full neon-glow-purple active:scale-95 transition-all inline-block">
-              Start Integrating
-            </Link>
-            <a href="https://github.com/BAWES-Universe" target="_blank" rel="noopener noreferrer" className="bg-surface-glass border border-white/20 text-on-surface font-label-navigation px-8 py-4 rounded-full hover:bg-white/10 active:scale-95 transition-all inline-block">
-              View Docs
-            </a>
-          </div>
-        </div>
-        <div className="relative">
-          <div className="glass-card rounded-xl p-8 overflow-hidden group">
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 rounded-full bg-error"></div>
-                <div className="w-3 h-3 rounded-full bg-tertiary"></div>
-                <div className="w-3 h-3 rounded-full bg-secondary"></div>
-              </div>
-              <div className="text-caption font-caption text-text-low-emphasis">oidc-config.yaml</div>
-            </div>
-            <pre className="text-secondary font-mono text-sm leading-relaxed overflow-x-auto"><code>{`oidc:
-  issuer: "https://auth.bawes.io"
-  client_id: "universe-portal-v1"
-  scopes: ["openid", "profile", "email"]
-  mapping:
-    roles: "custom:universe_roles"
-    username: "preferred_username"
-  security:
-    pkce: true
-    jwt_validation: strict`}</code></pre>
-            <div className="absolute -bottom-10 -right-10 opacity-10 group-hover:opacity-20 transition-opacity duration-700">
-              <span className="material-symbols-outlined text-[200px]" style={{ fontVariationSettings: "'FILL' 1" }}>security</span>
-            </div>
-          </div>
-          <div className="absolute -top-6 -right-6 glass-card px-6 py-4 rounded-xl flex items-center space-x-4">
-            <div className="bg-primary-container/20 p-2 rounded-lg">
-              <span className="material-symbols-outlined text-primary">bolt</span>
-            </div>
-            <div>
-              <div className="font-headline-card text-headline-card text-white">99.9%</div>
-              <div className="font-caption text-caption text-text-low-emphasis uppercase">Auth Uptime</div>
-            </div>
-          </div>
-        </div>
-      </Section>
+    <main className="relative z-10 pt-20">
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Platform', href: '/platform' }]}
+        here="OIDC Auth"
+        title={<>Your identity. <span className="text-gradient-accent">Your way.</span></>}
+        lead={<>Let people sign in with the account they already have. Universe connects to your company login, or to any sign-in service that speaks OpenID Connect.</>}
+        detail={[<>OpenID Connect authentication. Connect your existing SSO, such as Google, Microsoft, Okta, Keycloak or Authentik, or any custom OIDC provider.</>]}
+        scene="desks"
+        actions={[{ label: 'Start integrating', href: '/contact' }, { label: 'View docs', href: 'https://github.com/BAWES-Universe' }]}
+        source="page_features_oidc_auth"
+      />
 
-      {/* Features Bento Grid */}
-      <Section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v">
-        <div className="text-center mb-16">
-          <h2 className="font-headline-section text-headline-section mb-4">Enterprise Grade Auth</h2>
-          <div className="w-20 h-1 bg-gradient-primary mx-auto rounded-full"></div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-          <div className="glass-card p-card-padding rounded-xl flex flex-col items-start">
-            <div className="bg-secondary-container/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-secondary">group</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-3">SSO Integration</h3>
-            <p className="text-text-secondary text-sm">One-click login for your users with familiar social and enterprise providers.</p>
-          </div>
-          <div className="glass-card p-card-padding rounded-xl flex flex-col items-start">
-            <div className="bg-primary-container/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-primary">hub</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-3">Custom OIDC Providers</h3>
-            <p className="text-text-secondary text-sm">Bring your own identity server. Full support for any standard OpenID Connect endpoint.</p>
-          </div>
-          <div className="glass-card p-card-padding rounded-xl flex flex-col items-start">
-            <div className="bg-tertiary-container/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-tertiary">fork_right</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-3">Role Mapping</h3>
-            <p className="text-text-secondary text-sm">Automatically sync user roles and permissions from your identity provider to BAWES Universe.</p>
-          </div>
-          <div className="glass-card p-card-padding rounded-xl flex flex-col items-start">
-            <div className="bg-error-container/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-              <span className="material-symbols-outlined text-error">lock_open</span>
-            </div>
-            <h3 className="font-headline-card text-headline-card mb-3">Secure by Default</h3>
-            <p className="text-text-secondary text-sm">Enterprise-grade security with JWT validation, encryption at rest, and PKCE support.</p>
-          </div>
-        </div>
-      </Section>
+      <PartSteps
+        eyebrow="How it works"
+        title="Three settings and a redirect address"
+        steps={[
+          { title: "Register Universe", text: "In your login service, add Universe as an application and give it the redirect address of your game." },
+          { title: "Fill in three values", text: "The address of your login service, the client ID and the client secret." },
+          { title: "People sign in", text: "They press sign in, land on your own login page, and come back to Universe signed in." },
+        ]}
+      />
 
-      {/* Deep Dives */}
-      <Section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v border-t border-divider">
-        <div className="flex justify-between items-end mb-12">
-          <div>
-            <h2 className="font-headline-section text-headline-section mb-2">Deep Dives</h2>
-            <p className="text-text-secondary">Extend your authentication capabilities further.</p>
-          </div>
-          <Link href="/features-overview" className="hidden md:flex items-center text-primary font-label-navigation hover:translate-x-2 transition-transform">
-            View all modules <span className="material-symbols-outlined ml-2">arrow_forward</span>
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-          <Link href="/features/self-hosting" className="group cursor-pointer">
-            <div className="relative w-full h-48 rounded-xl mb-6 overflow-hidden glass-card">
-              <div className="w-full h-full bg-surface-container-high flex items-center justify-center">
-                <span className="material-symbols-outlined text-5xl text-primary/30">dns</span>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-background-page to-transparent opacity-60"></div>
-            </div>
-            <h4 className="font-headline-card text-headline-card mb-2 group-hover:text-primary transition-colors">Self-Hosting</h4>
-            <p className="text-text-secondary text-sm">Run the entire stack on your own infrastructure with Docker or Kubernetes support.</p>
-          </Link>
-          <Link href="/features/admin-api" className="group cursor-pointer">
-            <div className="relative w-full h-48 rounded-xl mb-6 overflow-hidden glass-card">
-              <div className="w-full h-full bg-surface-container-high flex items-center justify-center">
-                <span className="material-symbols-outlined text-5xl text-secondary/30">api</span>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-background-page to-transparent opacity-60"></div>
-            </div>
-            <h4 className="font-headline-card text-headline-card mb-2 group-hover:text-primary transition-colors">Admin API</h4>
-            <p className="text-text-secondary text-sm">Full programmatic control over users, worlds, and permissions via our REST API.</p>
-          </Link>
-          <Link href="/features/white-label" className="group cursor-pointer">
-            <div className="relative w-full h-48 rounded-xl mb-6 overflow-hidden glass-card">
-              <div className="w-full h-full bg-surface-container-high flex items-center justify-center">
-                <span className="material-symbols-outlined text-5xl text-tertiary/30">palette</span>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-background-page to-transparent opacity-60"></div>
-            </div>
-            <h4 className="font-headline-card text-headline-card mb-2 group-hover:text-primary transition-colors">White Label</h4>
-            <p className="text-text-secondary text-sm">Customize the entire auth flow with your own branding, logos, and custom domain names.</p>
-          </Link>
-        </div>
-      </Section>
+      <PartCards
+        eyebrow="What you can set"
+        title="Your login, your rules"
+        cards={[
+          { icon: "key", title: "Any OpenID Connect provider", text: "Google, Microsoft, Okta, Keycloak, Authentik and every other service that follows the standard." },
+          { icon: "diversity_3", title: "Social logins", text: "Want GitHub, Discord or others? Put an identity server such as Keycloak or Authentik in front and offer them all." },
+          { icon: "person", title: "Names from your directory", text: "Choose which field becomes the name in Universe, and whether people may change it." },
+          { icon: "sell", title: "Tags from your directory", text: "A field from your login service can carry tags. The game uses tags to decide who may do what." },
+          { icon: "door_front", title: "Guests or members only", text: "Let visitors walk in without an account, or ask everyone to sign in first." },
+          { icon: "translate", title: "Language", text: "Universe can start in the language your login service knows the person speaks." },
+        ]}
+      />
 
-      {/* CTA */}
-      <Section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v">
-        <div className="glass-card rounded-2xl p-12 text-center relative overflow-hidden">
-          <div className="relative z-10">
-            <h2 className="font-headline-section text-headline-section mb-6">Ready to secure your world?</h2>
-            <p className="text-text-secondary max-w-xl mx-auto mb-10">Join 5,000+ developers building the future of decentralized identity on the BAWES Universe protocol.</p>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className="bg-gradient-primary text-white font-label-navigation px-10 py-4 rounded-full neon-glow-purple active:scale-95 transition-all inline-block text-center">Get Started Free</Link>
-              <Link href="https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer" target="_blank" rel="noopener noreferrer" className="glass-card text-on-surface font-label-navigation px-10 py-4 rounded-full hover:bg-white/5 active:scale-95 transition-all inline-block text-center">View Documentation</Link>
-            </div>
-          </div>
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-[80px]"></div>
-        </div>
-      </Section>
+      <PartBuilders
+        title="The standard flow"
+        body={[
+          <>Universe uses the Authorization Code flow with PKCE. It asks for the openid, email and profile scopes unless you set others.</>,
+          <>The redirect address is the address of your game followed by /openid-callback.</>,
+        ]}
+        facts={[
+          ["Protocol", "OpenID Connect"],
+          ["Flow", "Authorization Code with PKCE"],
+          ["Default scopes", "openid email profile"],
+          ["Redirect", "/openid-callback"],
+        ]}
+        links={[{ label: "OpenID Connect guide", href: "https://github.com/BAWES-Universe/workadventure-universe/blob/universe/docs/others/self-hosting/openid.md" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Self-hosting", href: "/features/self-hosting", note: "Run Universe on your own servers." },
+          { label: "Admin API", href: "/features/admin-api", note: "Connect the game to your own member system." },
+          { label: "White label", href: "/features/white-label", note: "Your domain, your logo, your colours." },
+          { label: "All features", href: "/features-overview", note: "Everything Universe can do." },
+        ]}
+      />
+
+      <PageClosing
+        title={<>Ready to secure your world?</>}
+        body={<>Let people sign in the way they already know.</>}
+        links={[{ label: 'Get started', href: '/contact' }, { label: 'View documentation', href: 'https://github.com/BAWES-Universe/workadventure-universe/tree/universe/docs/developer' }]}
+        source="page_features_oidc_auth"
+      />
     </main>
   );
 }

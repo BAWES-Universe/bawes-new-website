@@ -6,42 +6,20 @@ import React from 'react';
 import Section from '@/components/Section';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 export default function TeamPageContent() {
   return (
-    <main className="pt-32">
-      {/* Hero Section */}
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-2">
-        <div className="flex items-center gap-2 text-xs text-text-muted">
-          <Link href="/about" className="hover:text-primary transition-colors">About</Link>
-          <span className="text-white/20">/</span>
-          <span className="text-primary">The Team</span>
-        </div>
-      </div>
-            <section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v grid md:grid-cols-2 items-center gap-gutter">
-        <div className="space-y-6">
-          <h1 className="font-display-hero text-display-hero text-on-surface leading-tight">
-            Building the Future of <span className="text-gradient">Shared Spaces.</span>
-          </h1>
-          <p className="font-body-md text-body-md text-text-secondary max-w-lg">
-            A small team with a big vision. We build Universe because we believe in open, AI-powered collaboration.
-          </p>
-          <div className="flex gap-4">
-            <Link href="/team" className="bg-primary text-on-primary px-8 py-3 rounded-full font-label-navigation font-bold neon-glow-purple active:scale-95 transition-transform inline-block">
-              Meet the Core
-            </Link>
-            <Link href="/manifesto" className="glass-card px-8 py-3 rounded-full font-label-navigation text-on-surface active:scale-95 transition-transform inline-block">
-              Read Manifesto
-            </Link>
-          </div>
-        </div>
-        <div className="relative flex justify-center">
-          <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full scale-75 animate-pulse"></div>
-          <div className="w-full max-w-md animate-float relative z-10 glass-card rounded-2xl aspect-square flex items-center justify-center">
-            <span className="material-symbols-outlined text-7xl text-primary/30">diversity_3</span>
-          </div>
-        </div>
-      </section>
+    <main className="pt-20">
+      <PageHero
+        crumbs={[{ label: 'About', href: '/about' }]}
+        here="The Team"
+        title={<>Building the future of <span className="text-gradient-accent">shared spaces</span></>}
+        lead={<>A small team with a big vision. We build Universe because we believe in open, AI-powered collaboration.</>}
+        scene="fire"
+        actions={[{ label: 'Read the manifesto', href: '/manifesto' }, { label: 'About us', href: '/about' }]}
+        source="page_team"
+      />
 
       {/* Core Values */}
       <section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding-v">
@@ -76,7 +54,7 @@ export default function TeamPageContent() {
               <span className="material-symbols-outlined text-primary">security</span>
             </div>
             <h3 className="font-headline-card text-headline-card text-on-surface">Privacy Respecting</h3>
-            <p className="font-body-md text-text-secondary text-sm">Data ownership belongs to the user. End-to-end encryption and decentralized storage are our standard protocols.</p>
+            <p className="font-body-md text-text-secondary text-sm">Data ownership belongs to the user. Universe is open source, and you can run all of it on your own servers.</p>
           </div>
         </div>
       </section>
@@ -92,7 +70,7 @@ export default function TeamPageContent() {
             </div>
             <h2 className="font-headline-section text-headline-section text-on-surface mb-6">Open Source Commitment</h2>
             <p className="font-body-md text-text-secondary text-lg leading-relaxed mb-8">
-              Built on WorkAdventure (MIT). We stand on the shoulders of open source. By forking and contributing back to the ecosystem, we ensure a resilient future for digital assembly.
+              Built on WorkAdventure. We stand on the shoulders of open source. By forking and contributing back to the ecosystem, we ensure a resilient future for digital assembly.
             </p>
             <Link href="/workadventure-fork" className="inline-flex items-center gap-2 text-primary hover:underline font-bold transition-all">
               View Repository <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -127,6 +105,12 @@ export default function TeamPageContent() {
           </Link>
         </div>
       </section>
+      <PageClosing
+        title={<>Come and see it for yourself</>}
+        body={<>Walk in, say hello, and look around.</>}
+        links={[{ label: 'Read the manifesto', href: '/manifesto' }, { label: 'Talk to us', href: '/contact' }]}
+        source="page_team"
+      />
     </main>
   );
 }

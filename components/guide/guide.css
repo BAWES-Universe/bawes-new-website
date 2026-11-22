@@ -1,0 +1,78 @@
+/* ═══════════════════════════════════════════════════════════════
+   THE GUIDE: plain-words pages under /guide.
+   Same uh- prefix as components/home/home.css, and it lives inside a .uh root for the colours.
+   ═══════════════════════════════════════════════════════════════ */
+
+.uh-guide { max-width: calc(80rem + 32px); margin: 0 auto; padding: 8px 16px 24px; display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 56px; align-items: start; }
+
+/* one section of a guide page */
+.uh-gsec { padding: 34px 0; border-top: 1px solid var(--uh-line); }
+.uh-gsec:first-child { padding-top: 0; border-top: 0; }
+.uh-gsec h2 { font-family: var(--uh-display); color: #fff; font-size: 28px; line-height: 1.15; font-weight: 700; letter-spacing: -0.025em; margin: 0 0 6px; }
+.uh-gsec p { font-size: 16.5px; line-height: 1.7; color: rgba(255, 255, 255, 0.72); max-width: 41em; margin: 10px 0 0; }
+
+.uh-gsteps { counter-reset: uh-gstep; list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; max-width: 44em; }
+.uh-gsteps li { counter-increment: uh-gstep; position: relative; padding: 14px 18px 14px 58px; border-radius: 16px; border: 1px solid var(--uh-line); background: rgba(255, 255, 255, 0.03); font-size: 15.5px; line-height: 1.6; color: rgba(255, 255, 255, 0.82); }
+.uh-gsteps li::before { content: counter(uh-gstep); position: absolute; left: 16px; top: 13px; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700; color: #fff; background: var(--uh-grad-cta); }
+
+.uh-gpoints { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 9px; max-width: 44em; }
+.uh-gpoints li { position: relative; padding-left: 24px; font-size: 15.5px; line-height: 1.6; color: rgba(255, 255, 255, 0.78); }
+.uh-gpoints li::before { content: ''; position: absolute; left: 4px; top: 0.62em; width: 8px; height: 8px; border-radius: 2px; background: var(--uh-purple); }
+
+.uh-gnames { margin-top: 20px; max-width: 46em; }
+.uh-gnames h3 { font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--uh-faint); margin: 0 0 10px; }
+.uh-gnames ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.uh-gnames li { padding: 5px 12px; border-radius: 100px; border: 1px solid var(--uh-line); background: rgba(255, 255, 255, 0.05); font-size: 13.5px; font-weight: 600; color: rgba(255, 255, 255, 0.85); }
+
+.uh-gnote { margin: 18px 0 0; max-width: 44em; padding: 12px 16px; border-left: 3px solid var(--uh-purple); border-radius: 0 12px 12px 0; background: rgba(139, 92, 246, 0.09); font-size: 14.5px; line-height: 1.6; color: rgba(255, 255, 255, 0.72); }
+
+/* the list of all guide pages, beside the text */
+.uh-gside { position: sticky; top: 96px; padding: 18px 14px 14px; border-radius: 20px; border: 1px solid var(--uh-line); background: rgba(255, 255, 255, 0.025); }
+.uh-gside h2 { font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--uh-faint); margin: 0 8px 10px; }
+.uh-gside ol { list-style: none; padding: 0; margin: 0; }
+.uh-gside a { display: block; padding: 8px 10px; border-radius: 10px; font-size: 14px; line-height: 1.4; color: rgba(255, 255, 255, 0.6); transition: color 0.2s, background 0.2s; }
+.uh-gside a:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
+.uh-gside a[aria-current] { color: #fff; background: rgba(139, 92, 246, 0.2); box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.35) inset; }
+
+/* previous and next page */
+.uh-gturn { max-width: calc(80rem + 32px); margin: 0 auto; padding: 16px 16px 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.uh-gturn a { display: block; padding: 18px 20px; border-radius: 18px; border: 1px solid var(--uh-line); background: rgba(255, 255, 255, 0.03); transition: border-color 0.2s, background 0.2s; }
+.uh-gturn a:hover { border-color: rgba(167, 139, 250, 0.45); background: rgba(139, 92, 246, 0.08); }
+.uh-gturn small { display: block; font-size: 12px; color: var(--uh-faint); margin-bottom: 4px; }
+.uh-gturn b { font-family: var(--uh-display); font-size: 18px; font-weight: 700; color: #fff; }
+.uh-gturn .uh-gturn-next { text-align: right; grid-column: 2; }
+
+/* the front page of the guide */
+.uh-ghub { max-width: calc(80rem + 32px); margin: 0 auto; padding: 8px 16px 24px; }
+.uh-ghub-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.uh-ghub-grid a { position: relative; display: flex; flex-direction: column; height: 100%; padding: 22px 22px 20px; border-radius: 20px; border: 1px solid var(--uh-line); background: rgba(255, 255, 255, 0.03); transition: border-color 0.2s, background 0.2s, transform 0.2s; }
+.uh-ghub-grid a:hover { border-color: rgba(167, 139, 250, 0.45); background: rgba(139, 92, 246, 0.08); transform: translateY(-2px); }
+.uh-ghub-grid i { font-style: normal; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; font-size: 13px; font-weight: 700; color: #fff; background: var(--uh-grad-cta); margin-bottom: 14px; }
+.uh-ghub-grid b { font-family: var(--uh-display); font-size: 20px; line-height: 1.2; font-weight: 700; color: #fff; letter-spacing: -0.015em; }
+.uh-ghub-grid span { margin-top: 8px; font-size: 14.5px; line-height: 1.6; color: rgba(255, 255, 255, 0.6); }
+.uh-ghub-more { margin-top: 40px; padding: 24px; border-radius: 20px; border: 1px solid var(--uh-line); background: rgba(255, 255, 255, 0.025); }
+.uh-ghub-more h2 { font-family: var(--uh-display); font-size: 22px; font-weight: 700; color: #fff; letter-spacing: -0.02em; margin: 0 0 6px; }
+.uh-ghub-more p { font-size: 15px; line-height: 1.6; color: rgba(255, 255, 255, 0.6); max-width: 44em; margin: 0; }
+.uh-ghub-more ul { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; }
+.uh-ghub-more a { color: #c4b5fd; transition: color 0.2s; }
+.uh-ghub-more a:hover { color: #fff; }
+
+@media (max-width: 1000px) {
+  .uh-guide { grid-template-columns: 1fr; gap: 36px; }
+  .uh-gside { position: static; }
+  .uh-ghub-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .uh-gsec { padding: 28px 0; }
+  .uh-gsec h2 { font-size: 23px; }
+  .uh-gsec p { font-size: 15.5px; }
+  .uh-gturn { grid-template-columns: 1fr; }
+  .uh-gturn .uh-gturn-next { grid-column: 1; text-align: left; }
+  .uh-ghub-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uh-ghub-grid a { transition: none; }
+  .uh-ghub-grid a:hover { transform: none; }
+}

@@ -3,15 +3,17 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Section from '@/components/Section'
+import PageHero from '@/components/page/PageHero'
+import PageClosing from '@/components/page/PageClosing'
 const resources = [
   { title: 'Technology Stack', icon: 'layers', desc: 'TypeScript, Node.js, WebRTC, AI, MCP — the technologies powering every world.', href: '/features/tech-stack' },
   { title: 'Scripting API', icon: 'code', desc: 'Extend functionality with WA.ui, WA.room, WA.player, WA.state — the WorkAdventure scripting API.', href: '/features/scripting' },
   { title: 'MCP Integration', icon: 'hub', desc: 'Model Context Protocol — connect any tool, API, or data source to your bots.', href: '/mcp-integration' },
-  { title: 'Self-Hosting', icon: 'dns', desc: 'Deploy the entire BAWES stack on your own infrastructure with Docker or Kubernetes.', href: '/features/self-hosting' },
-  { title: 'Open Source', icon: 'code', desc: 'MIT licensed. 80+ repos. Fork, contribute, audit, and build with us.', href: '/open-source' },
+  { title: 'Self-Hosting', icon: 'dns', desc: 'Deploy the entire BAWES stack on your own infrastructure with Docker Compose.', href: '/features/self-hosting' },
+  { title: 'Open Source', icon: 'code', desc: 'Open source. 80+ repos. Fork, contribute, audit, and build with us.', href: '/open-source' },
   { title: 'WorkAdventure Fork', icon: 'fork_right', desc: 'Built on WorkAdventure, extended for the BAWES ecosystem. Our open source roots.', href: '/workadventure-fork' },
-  { title: 'Admin API', icon: 'api', desc: 'Full REST API for programmatic platform management, automation, and integration.', href: '/features/admin-api' },
-  { title: 'OIDC Auth', icon: 'vpn_key', desc: 'Enterprise single sign-on via OpenID Connect with any identity provider.', href: '/features/oidc-auth' },
+  { title: 'Admin API', icon: 'api', desc: 'The REST API between the game and your member system. Orbit answers it out of the box.', href: '/features/admin-api' },
+  { title: 'OIDC Auth', icon: 'vpn_key', desc: 'Single sign-on via OpenID Connect with any identity provider.', href: '/features/oidc-auth' },
   { title: 'Bot Tool Calling', icon: 'handyman', desc: 'Give bots the ability to invoke APIs and tools to perform real-world actions.', href: '/features/bot-tools' },
 ]
 
@@ -26,43 +28,19 @@ export default function DevelopersPageContent() {
   return (
     <div className="pt-20">
 
-      {/* Hero */}
-      <section className="min-h-[45vh] flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-accent-purple/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-accent-amber/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-accent-purple mb-8"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <span className="material-symbols-outlined text-lg">code</span>
-              Developer Hub
-            </motion.div>
-
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-white mb-6 tracking-[-0.03em]">
-              Build on the{' '}
-              <span className="bg-[length:200%_200%] animate-shimmer bg-clip-text text-transparent"
-                style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa 0%, #f59e0b 50%, #a78bfa 100%)' }}>
-                Universe.
-              </span>
-            </h1>
-
-            <p className="text-lg text-text-muted leading-relaxed max-w-2xl mx-auto">
-              Everything you need to extend, integrate, and customize the BAWES platform. APIs, SDKs, protocols, and open-source foundations.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[]}
+        here="Developers"
+        eyebrow="Developer hub"
+        title={<>Build on the <span className="text-gradient-accent">Universe</span></>}
+        lead={<>Everything you need to extend Universe and connect it to your own tools.</>}
+        detail={[
+          <>Everything you need to extend, integrate, and customize the BAWES platform. APIs, SDKs, protocols, and open-source foundations.</>,
+        ]}
+        scene="desks"
+        actions={[{ label: 'Open source', href: '/open-source' }, { label: 'GitHub', href: 'https://github.com/BAWES-Universe' }]}
+        source="page_developers"
+      />
 
       {/* Resource Grid */}
       <Section className="relative">
@@ -90,29 +68,11 @@ export default function DevelopersPageContent() {
         </div>
       </Section>
 
-      {/* CTA */}
-      <Section className="relative min-h-[35vh] flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Ready to start building?</h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://github.com/BAWES-Universe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gradient-cta text-white px-8 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(139,92,246,0.35)] transition-all duration-200"
-            >
-              <span className="material-symbols-outlined text-lg">code</span>
-              View on GitHub
-            </a>
-            <Link
-              href="/features-overview"
-              className="px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.12)] text-text-secondary font-medium text-sm hover:border-[rgba(255,255,255,0.3)] hover:text-white hover:bg-[rgba(255,255,255,0.04)] transition-all duration-200"
-            >
-              Explore all features
-            </Link>
-          </div>
-        </div>
-      </Section>
+      <PageClosing
+        title={<>Ready to start building?</>}
+        links={[{ label: 'View on GitHub', href: 'https://github.com/BAWES-Universe' }, { label: 'Explore all features', href: '/features-overview' }]}
+        source="page_developers"
+      />
     </div>
   )
 }

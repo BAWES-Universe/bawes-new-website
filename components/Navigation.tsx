@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { captureEnterUniverse, getCrossDomainUrl, UNIVERSE_URL } from '@/lib/posthog'
 
 interface DropdownItem {
   label: string
@@ -18,6 +19,24 @@ interface NavDropdown {
 }
 
 const dropdowns: NavDropdown[] = [
+  {
+    label: 'Universe',
+    icon: 'public',
+    items: [
+      { label: 'Things to do', href: '/#things', description: 'Seven places to start' },
+      { label: 'Brick', href: '/features/brick', description: 'Your own AI companion' },
+      { label: 'Brick templates', href: '/features/brick-templates', description: 'Start from a Brick someone shared' },
+      { label: 'Goals and tasks', href: '/features/goals-and-tasks', description: 'It keeps working while you are away' },
+      { label: 'A computer for your Brick', href: '/features/brick-computer', description: 'For the jobs no App can do' },
+      { label: 'Apps', href: '/features/apps', description: '1,700+ Apps your Bricks can use' },
+      { label: 'Artifacts', href: '/features/artifacts', description: 'Apps, pages, documents, drawings' },
+      { label: 'Community', href: '/features/artifact-community', description: 'See what people made' },
+      { label: 'Quests', href: '/features/quests', description: 'Little tours, led by your Brick' },
+      { label: 'Orbit and your account', href: '/#orbit', description: 'Universes, worlds, rooms, passport' },
+      { label: 'AI and voice', href: '/#apps', description: 'Any AI model, any voice' },
+      { label: 'Universe AI', href: '/#universe-ai', description: 'Free to start, room to grow' },
+    ],
+  },
   {
     label: 'Features',
     icon: 'grid_view',
@@ -37,7 +56,7 @@ const dropdowns: NavDropdown[] = [
       { label: 'For Community', href: '/use-cases/community', description: 'Events, gaming, welcome bots' },
       { label: 'For Learning', href: '/use-cases/learning', description: 'Study rooms, AI teaching assistants' },
       { label: 'For Events', href: '/use-cases/events', description: 'Conferences, broadcasts, meetups' },
-      { label: 'For Commerce', href: '/use-cases/commerce', description: 'Subscriptions, ticketing, revenue' },
+      { label: 'For Commerce', href: '/use-cases/commerce', description: 'Shops, services, members' },
       { label: 'For Market', href: '/use-cases/market', description: 'Brand showrooms, shops, marketplaces' },
     ],
   },
@@ -49,7 +68,7 @@ const dropdowns: NavDropdown[] = [
       { label: 'Scripting API', href: '/features/scripting', description: 'Extend with custom logic' },
       { label: 'MCP Integration', href: '/mcp-integration', description: 'Model Context Protocol' },
       { label: 'Self-Hosting', href: '/features/self-hosting', description: 'Deploy on your own infra' },
-      { label: 'Open Source', href: '/open-source', description: 'MIT license, 80+ repos' },
+      { label: 'Open Source', href: '/open-source', description: 'Open source, 80+ repos' },
       { label: 'WorkAdventure Fork', href: '/workadventure-fork', description: 'Our open source roots' },
     ],
   },
@@ -67,15 +86,17 @@ const dropdowns: NavDropdown[] = [
 
 const standaloneLinks = [
   { label: 'How It Works', href: '/how-it-works', icon: 'explore' },
+  { label: 'Guide', href: '/guide', icon: 'menu_book' },
 ]
 
-const topLinks = [
-  { label: 'Blog', href: 'https://blog.bawes.net', external: true },
+/* The Blog link lives in the footer. */
+const topLinks: { label: string; href: string; external?: boolean }[] = [
   { label: 'Contact', href: '/contact' },
 ]
 
 const getHubHref = (label: string) => {
   switch (label) {
+    case 'Universe': return '/'
     case 'Features': return '/features-overview'
     case 'Use Cases': return '/use-cases'
     case 'Developers': return '/developers'
@@ -86,12 +107,33 @@ const getHubHref = (label: string) => {
 
 const getViewAllText = (label: string) => {
   switch (label) {
+    case 'Universe': return 'Start on the home page'
     case 'Features': return 'View all features'
     case 'Use Cases': return 'View all use cases'
     case 'Developers': return 'View all developer resources'
     case 'About': return 'View all about BAWES'
     default: return 'View all'
   }
+}
+
+/** "Enter the Universe" with the same tracking as the buttons on the pages. */
+function EnterLink({ source, className, onNavigate }: { source: string; className: string; onNavigate?: () => void }) {
+  return (
+    <a
+      href={UNIVERSE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={(e) => {
+        e.preventDefault()
+        captureEnterUniverse(source)
+        window.open(getCrossDomainUrl(UNIVERSE_URL), '_blank', 'noopener')
+        onNavigate?.()
+      }}
+      className={className}
+    >
+      Enter the Universe
+    </a>
+  )
 }
 
 export default function Navigation() {
@@ -163,20 +205,19 @@ export default function Navigation() {
                 height={71}
                 priority
                 unoptimized
-                className="h-8 min-[400px]:h-10 lg:h-8 xl:h-9 w-auto"
+                className="h-8 min-[400px]:h-10 xl:h-8 w-auto"
               />
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden xl:flex items-center gap-0.5">
               {/* Standalone links (How It Works) */}
               {standaloneLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
+                  className="flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200 whitespace-nowrap"
                 >
-                  <span className="material-symbols-outlined text-base">{link.icon}</span>
                   {link.label}
                 </Link>
               ))}
@@ -190,7 +231,7 @@ export default function Navigation() {
                   onMouseLeave={handleMouseLeave}
                 >
                   <div
-                    className={`flex items-center gap-0 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    className={`flex items-center gap-0 px-2.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                       openDropdown === dd.label
                         ? 'text-white bg-white/10'
                         : 'text-white/70 hover:text-white hover:bg-white/5'
@@ -201,7 +242,6 @@ export default function Navigation() {
                       onClick={() => setOpenDropdown(null)}
                       className="flex items-center gap-1.5"
                     >
-                      <span className="material-symbols-outlined text-base">{dd.icon}</span>
                       {dd.label}
                     </Link>
                     <button
@@ -227,14 +267,14 @@ export default function Navigation() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.96 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute top-full left-0 mt-1 w-72 rounded-2xl p-2 shadow-2xl border border-purple-500/20"
+                        className={`absolute top-full left-0 mt-1 ${dd.items.length > 8 ? 'w-[34rem]' : 'w-72'} rounded-2xl p-2 shadow-2xl border border-purple-500/20`}
                         style={{
                           background: 'rgba(20, 18, 30, 0.97)',
                           backdropFilter: 'blur(24px)',
                           WebkitBackdropFilter: 'blur(24px)',
                         }}
                       >
-                        <div className="grid gap-0.5">
+                        <div className={`grid gap-0.5 ${dd.items.length > 8 ? 'grid-cols-2' : ''}`}>
                           {dd.items.map((item) => (
                             <Link
                               key={item.href}
@@ -282,7 +322,7 @@ export default function Navigation() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
+                    className="px-2.5 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
                   >
                     {link.label}
                   </a>
@@ -290,7 +330,7 @@ export default function Navigation() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
+                    className="px-2.5 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
                   >
                     {link.label}
                   </Link>
@@ -302,17 +342,19 @@ export default function Navigation() {
                 href="https://discord.gg/CXceJWnwNT"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#5865F2] hover:bg-[#4752C4] text-white text-sm font-medium transition-all whitespace-nowrap ml-2"
+                aria-label="Discord"
+                className="flex items-center gap-2 px-2.5 py-2 rounded-lg bg-[#5865F2] hover:bg-[#4752C4] text-white text-sm font-medium transition-all whitespace-nowrap ml-1.5"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
                 </svg>
-                Discord
               </a>
+
+              <EnterLink source="nav" className="cta-primary !py-2.5 !px-5 !text-sm ml-2 whitespace-nowrap" />
             </div>
 
             {/* Mobile: Discord + Hamburger */}
-            <div className="lg:hidden flex items-center gap-2">
+            <div className="xl:hidden flex items-center gap-2">
               <a
                 href="https://discord.gg/CXceJWnwNT"
                 target="_blank"
@@ -347,13 +389,17 @@ export default function Navigation() {
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 flex flex-col lg:hidden overflow-y-auto"
+            className="fixed inset-0 z-40 flex flex-col xl:hidden overflow-y-auto"
             style={{ backgroundColor: 'rgba(10, 10, 20, 0.98)', backdropFilter: 'blur(24px)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <div className="flex-1 pt-24 pb-8 px-4 overflow-y-auto">
+              <div className="mb-6 px-1">
+                <EnterLink source="nav_mobile" className="cta-primary w-full justify-center" onNavigate={() => setIsMobileOpen(false)} />
+              </div>
+
               {/* How It Works — standalone at top of mobile menu */}
               <div className="mb-6">
                 <Link
@@ -365,6 +411,17 @@ export default function Navigation() {
                   <div className="flex-1">
                     <div className="text-sm font-medium text-white/80">How It Works</div>
                     <p className="text-xs text-white/40 mt-0.5">Platform deep dive</p>
+                  </div>
+                </Link>
+                <Link
+                  href="/guide"
+                  onClick={() => setIsMobileOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"
+                >
+                  <span className="material-symbols-outlined text-purple-400 text-lg">menu_book</span>
+                  <div className="flex-1">
+                    <div className="text-sm font-medium text-white/80">Guide</div>
+                    <p className="text-xs text-white/40 mt-0.5">Short pages in plain words</p>
                   </div>
                 </Link>
               </div>
