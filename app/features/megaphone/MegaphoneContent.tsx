@@ -1,7 +1,7 @@
-'use client'
-
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
+
 export default function MegaphonePageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
@@ -9,81 +9,62 @@ export default function MegaphonePageContent() {
         crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Communication', href: '/communication' }]}
         here="Megaphone"
         title={<>Speak loud. <span className="text-gradient-accent">Be heard.</span></>}
-        lead={<>Stand on the right spot and your voice reaches the whole room. Great for announcements, and quiet zones stay quiet.</>}
-        detail={[
-          <>Zone-based megaphone: designate speakers and listeners within area zones. Amplify your voice to a whole room — or silence it with a silent zone.</>,
-        ]}
+        lead={<>Step onto the stage and everyone in the audience hears you. Made for talks, classes and announcements.</>}
+        detail={[<>Zone-based megaphone: a Stage area for speakers, an Audience area for listeners, and quiet zones where nobody can talk.</>]}
         scene="stage"
         actions={[{ label: 'See all features', href: '/features-overview' }]}
         source="feature_megaphone"
       />
 
-      {/* Features */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Megaphone Features</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary">campaign</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Speaker Zones</h3>
-              <p className="text-white/60">Designate zones where users become megaphone speakers. Their voice reaches the entire designated area or room.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-secondary">hearing</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Listener Zones</h3>
-              <p className="text-white/60">Users in listener zones receive the broadcast. Control who hears what across your spatial environments.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl">
-              <div className="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-tertiary">volume_off</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Silent Zones</h3>
-              <p className="text-white/60">Mute audio/video for players inside silent zones. Useful for libraries, presentations, or focus areas.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="A stage, an audience, and you"
+        steps={[
+          { title: "Draw a Stage", text: "In the map editor, mark the spot where speakers stand and give it a name." },
+          { title: "Draw an Audience", text: "Mark where people listen, and link it to your Stage." },
+          { title: "Step up and speak", text: "Everyone in the audience hears you. Step off and you are back in the crowd." },
+        ]}
+      />
 
-      {/* Config */}
-      <section className="relative z-10 py-24 px-4 bg-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="glass-card p-8 md:p-12 rounded-2xl">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Zone Properties</h2>
-                <p className="text-white/60 mb-6">Configure megaphone behavior through simple zone properties in the inline map editor. No coding required.</p>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> megaphoneSpeaker — Designates broadcast origin</li>
-                  <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> megaphoneListener — Designates broadcast receiver</li>
-                  <li className="flex items-center gap-3"><span className="material-symbols-outlined text-primary">check_circle</span> silentZone — Mutes audio in restricted areas</li>
-                </ul>
-              </div>
-              <div className="glass-card p-6 rounded-xl bg-black/40 border border-white/10 font-mono text-sm">
-                <div className="flex items-center gap-2 mb-4 border-b border-white/10 pb-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span className="text-white/40 text-xs ml-2 uppercase">zone_config.json</span>
-                </div>
-                <pre className="text-white/70">
-                  <span className="text-orange-400">{'"zone_id"'}</span>: <span className="text-blue-400">{'"stage_01"'}</span>,{'\n'}
-                  <span className="text-orange-400">{'"type"'}</span>: <span className="text-blue-400">{'"megaphoneSpeaker"'}</span>,{'\n'}
-                  <span className="text-orange-400">{'"range"'}</span>: <span className="text-white">50</span>,{'\n'}
-                  <span className="text-orange-400">{'"persistent"'}</span>: <span className="text-purple-400">true</span>
-                </pre>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="What you can do"
+        title="Everything a talk needs"
+        cards={[
+          { icon: "front_hand", title: "Raise a hand", text: "People in the audience raise a hand to ask something. It goes down when they have spoken, or when a moderator lowers it." },
+          { icon: "record_voice_over", title: "Invite someone to speak", text: "A moderator invites a person up. Their microphone and camera go live to the whole audience, and they move back when they are done." },
+          { icon: "videocam", title: "See your audience", text: "Speakers can see the people in the audience who have their camera on. They do not hear them, and the audience is told." },
+          { icon: "chat_bubble", title: "Side chats, or none", text: "You decide if people next to each other can chat while they listen, or if everyone only listens to the stage." },
+          { icon: "volume_off", title: "Quiet zones", text: "Mark a zone where nobody can talk. Good for a library corner or a focus area." },
+          { icon: "draw", title: "No code", text: "Stages, audiences and quiet zones are drawn in the map editor.", more: { label: "Map editor", href: "/features/map-editor" } },
+        ]}
+      />
+
+      <PartBuilders
+        title="Three kinds of area"
+        body={[
+          <>It is all set up with areas you draw on the map. A Stage speaks to its Audience, and a quiet zone silences everyone inside.</>,
+        ]}
+        facts={[
+          ["Stage", "Speak to the audience"],
+          ["Audience", "Hear the stage"],
+          ["Quiet zone", "No one can talk here"],
+          ["Set up in", "Map editor"],
+        ]}
+        links={[{ label: "Area zones", href: "/features/area-zones" }, { label: "Map editor", href: "/features/map-editor" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Broadcasting", href: "/features/broadcasting", note: "Reach everyone at once." },
+          { label: "Meeting rooms", href: "/features/meeting-rooms", note: "Everyone inside talks together." },
+          { label: "For events", href: "/use-cases/events", note: "Talks, meetups and shows." },
+          { label: "For learning", href: "/use-cases/learning", note: "Classes and study rooms." },
+        ]}
+      />
 
       <PageClosing
-        title={<>Ready to broadcast your voice?</>}
-        body={<>Set up megaphone zones in your universe today.</>}
+        title={<>Ready to take the stage?</>}
+        body={<>Draw a stage and an audience in your room, and step up.</>}
         links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
         source="feature_megaphone"
       />

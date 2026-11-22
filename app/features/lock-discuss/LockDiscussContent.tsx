@@ -1,7 +1,7 @@
-'use client'
-
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
+
 export default function LockDiscussPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
@@ -18,65 +18,38 @@ export default function LockDiscussPageContent() {
         source="feature_lock_discuss"
       />
 
-      {/* How It Works */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">Seamless Privacy Control</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass-card p-10 rounded-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-6 text-8xl opacity-5 text-white pointer-events-none">1</div>
-              <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-primary text-3xl">touch_app</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Click Lock</h3>
-              <p className="text-white/60">Click the lock icon on your active conversation bubble to immediately secure your current session.</p>
-            </div>
-            <div className="glass-card p-10 rounded-xl relative overflow-hidden border-primary/40 bg-white/5 scale-105">
-              <div className="absolute top-0 right-0 p-6 text-8xl opacity-5 text-white pointer-events-none">2</div>
-              <div className="w-14 h-14 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-secondary text-3xl">shield_person</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Stay Private</h3>
-              <p className="text-white/60">New people cannot join the bubble while it is locked. Your conversation remains exclusive to existing participants.</p>
-            </div>
-            <div className="glass-card p-10 rounded-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-6 text-8xl opacity-5 text-white pointer-events-none">3</div>
-              <div className="w-14 h-14 rounded-full bg-tertiary/10 border border-tertiary/20 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-tertiary text-3xl">lock_open</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Open Again</h3>
-              <p className="text-white/60">Simply click unlock whenever you're ready to allow others to join and expand the conversation dynamic.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="One press to lock, one to open"
+        steps={[
+          { title: "Start talking", text: "Walk up to someone and the conversation opens." },
+          { title: "Press Lock", text: "Nobody else can join. Only the people already there stay in." },
+          { title: "Press Unlock", text: "When you are ready, others can walk up again." },
+        ]}
+      />
 
-      {/* Use Cases */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div>
-              <span className="text-tertiary text-sm uppercase tracking-widest font-semibold">Contexts</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Built for Modern Flow</h2>
-            </div>
-            <p className="text-white/60 max-w-md">Whether you are collaborating on a global project or catching up 1:1, BAWES Lock adapts to your rhythm.</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="glass-card p-8 rounded-2xl">
-              <h3 className="text-xl font-semibold text-white mb-4">Private 1:1s</h3>
-              <p className="text-white/60">Have confidential 1:1 meetings even in the middle of a busy campus or room without interruptions.</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <h3 className="text-xl font-semibold text-white mb-4">Focused Group Work</h3>
-              <p className="text-white/60">Block out distractions and prevent accidental walk-ins during deep-work team sessions in shared hubs.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="When it helps"
+        title="Privacy without leaving the room"
+        cards={[
+          { icon: "forum", title: "A private word", text: "Have a one-to-one in the middle of a busy room, with no walk-ins." },
+          { icon: "target", title: "Finish the thought", text: "Keep a small group focused until the work is done." },
+          { icon: "location_on", title: "Stay where you are", text: "There is no room to find and no link to send. You lock the conversation you are already in." },
+        ]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Proximity chat", href: "/features/proximity-chat", note: "Walk up and talk." },
+          { label: "Meeting rooms", href: "/features/meeting-rooms", note: "A room for a proper sit-down." },
+          { label: "Availability status", href: "/features/availability-status", note: "Show when you are busy." },
+          { label: "Screen sharing", href: "/features/screen-sharing", note: "Show your screen to the group." },
+        ]}
+      />
 
       <PageClosing
-        title={<>Ready to lock in and focus?</>}
-        body={<>Secure your conversations with one click.</>}
+        title={<>Ready for a private word?</>}
+        body={<>One press locks it, one press opens it again.</>}
         links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
         source="feature_lock_discuss"
       />

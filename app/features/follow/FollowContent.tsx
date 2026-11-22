@@ -1,7 +1,7 @@
-'use client'
-
 import PageHero from '@/components/page/PageHero'
 import PageClosing from '@/components/page/PageClosing'
+import { PartBuilders, PartCards, PartRelated, PartSteps } from '@/components/page/PageParts'
+
 export default function FollowPageContent() {
   return (
     <div className="pt-20 relative min-h-screen overflow-hidden">
@@ -9,84 +9,58 @@ export default function FollowPageContent() {
         crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Communication', href: '/communication' }]}
         here="Follow"
         title={<>Never lose sight of <span className="text-gradient-accent">your team</span></>}
-        lead={<>Click someone to follow them, and you go where they go. Handy for tours and for sticking together in a crowd.</>}
-        detail={[
-          <>Click to follow another player through the map. Your view tracks their movement. Perfect for tours, escorts, and staying together in crowded spaces.</>,
-        ]}
+        lead={<>Ask the people you are talking with to follow you. Whoever says yes walks behind you until they choose to stop.</>}
+        detail={[<>Follow keeps a group together as you move through the map. Perfect for tours, escorts, and staying together in crowded spaces.</>]}
         scene="travel"
         actions={[{ label: 'See all features', href: '/features-overview' }]}
         source="feature_follow"
       />
 
-      {/* How It Works */}
-      <section className="relative z-10 py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-16 text-center">How It Works</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass-card p-8 rounded-xl flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-3xl text-primary">mouse</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Click Follow</h3>
-              <p className="text-white/60">Click the follow icon on any nearby player's context menu to initiate the link.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-3xl text-primary">sync_alt</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Synchronized View</h3>
-              <p className="text-white/60">Your camera automatically tracks their avatar as they navigate the complex world map.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-3xl text-primary">link_off</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Auto-Drop</h3>
-              <p className="text-white/60">The follow state automatically disconnects when you walk away or click to stop manually.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartSteps
+        eyebrow="How it works"
+        title="Ask, and lead the way"
+        steps={[
+          { title: "Ask", text: "While you are talking with people, choose Ask to follow." },
+          { title: "They say yes", text: "Each person gets a question. Anyone who says yes starts following right away." },
+          { title: "Walk", text: "Their avatars walk behind you, wherever you go." },
+        ]}
+      />
 
-      {/* Technical */}
-      <section className="relative z-10 py-24 px-4 bg-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="glass-card p-8 md:p-12 rounded-[2rem]">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-white">Under the Hood</h2>
-                <p className="text-white/60">Following is built into the game itself, and a map script can start it too. This call asks everyone in your conversation to follow you.</p>
-                <div className="p-4 rounded-lg bg-black/40 border-l-4 border-primary font-mono text-sm text-white/70">
-                  WA.player.proximityMeeting.followMe();
-                </div>
-                <p className="text-white/40 text-xs">From the map scripting API.</p>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-6 bg-white/5 rounded-xl border border-white/10">
-                  <div className="text-primary text-3xl font-bold mb-1">1 click</div>
-                  <div className="text-white/40 text-xs uppercase">To start</div>
-                </div>
-                <div className="p-6 bg-white/5 rounded-xl border border-white/10">
-                  <div className="text-primary text-3xl font-bold mb-1">Any time</div>
-                  <div className="text-white/40 text-xs uppercase">You can stop</div>
-                </div>
-                <div className="p-6 bg-white/5 rounded-xl border border-white/10">
-                  <div className="text-primary text-3xl font-bold mb-1">Tours</div>
-                  <div className="text-white/40 text-xs uppercase">Made easy</div>
-                </div>
-                <div className="p-6 bg-white/5 rounded-xl border border-white/10">
-                  <div className="text-primary text-3xl font-bold mb-1">API</div>
-                  <div className="text-white/40 text-xs uppercase">Extensible</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartCards
+        eyebrow="Good to know"
+        title="Nobody is dragged along"
+        cards={[
+          { icon: "how_to_reg", title: "People choose", text: "Following only starts when someone says yes. If nobody answers, the request ends on its own." },
+          { icon: "visibility", title: "You see who is with you", text: "Universe tells you who is following you, and tells them who they follow." },
+          { icon: "logout", title: "Stop any time", text: "Anyone can stop following whenever they like, and walk on by themselves." },
+        ]}
+      />
+
+      <PartBuilders
+        title="A map script can start it too"
+        body={[
+          <>Following is part of the game, and the map scripting API has two calls for it. One asks everyone in the conversation to follow the player. The other ends it.</>,
+        ]}
+        facts={[
+          ["Start", "proximityMeeting.followMe()"],
+          ["End", "proximityMeeting.stopLeading()"],
+          ["Where", "Map scripting API"],
+        ]}
+        links={[{ label: "Scripting API", href: "/features/scripting" }]}
+      />
+
+      <PartRelated
+        links={[
+          { label: "Proximity chat", href: "/features/proximity-chat", note: "Walk up and talk." },
+          { label: "Teleport", href: "/features/teleport", note: "Jump straight to a place." },
+          { label: "Megaphone", href: "/features/megaphone", note: "Speak to a whole audience." },
+          { label: "Start here", href: "/guide/start-here", note: "Your first five minutes, in the Guide." },
+        ]}
+      />
 
       <PageClosing
         title={<>Ready to stay together?</>}
-        body={<>Try follow mode on your next team exploration.</>}
+        body={<>Try it on your next tour.</>}
         links={[{ label: 'See all features', href: '/features-overview' }, { label: 'Back to the home page', href: '/' }]}
         source="feature_follow"
       />
