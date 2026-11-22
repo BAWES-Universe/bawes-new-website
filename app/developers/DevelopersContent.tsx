@@ -10,7 +10,7 @@ const resources = [
   { title: 'Scripting API', icon: 'code', desc: 'Extend functionality with WA.ui, WA.room, WA.player, WA.state — the WorkAdventure scripting API.', href: '/features/scripting' },
   { title: 'MCP Integration', icon: 'hub', desc: 'Model Context Protocol — connect any tool, API, or data source to your bots.', href: '/mcp-integration' },
   { title: 'Self-Hosting', icon: 'dns', desc: 'Deploy the entire BAWES stack on your own infrastructure with Docker or Kubernetes.', href: '/features/self-hosting' },
-  { title: 'Open Source', icon: 'code', desc: 'MIT licensed. 80+ repos. Fork, contribute, audit, and build with us.', href: '/open-source' },
+  { title: 'Open Source', icon: 'code', desc: 'Open source. 80+ repos. Fork, contribute, audit, and build with us.', href: '/open-source' },
   { title: 'WorkAdventure Fork', icon: 'fork_right', desc: 'Built on WorkAdventure, extended for the BAWES ecosystem. Our open source roots.', href: '/workadventure-fork' },
   { title: 'Admin API', icon: 'api', desc: 'Full REST API for programmatic platform management, automation, and integration.', href: '/features/admin-api' },
   { title: 'OIDC Auth', icon: 'vpn_key', desc: 'Enterprise single sign-on via OpenID Connect with any identity provider.', href: '/features/oidc-auth' },

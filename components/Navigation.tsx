@@ -62,7 +62,7 @@ const dropdowns: NavDropdown[] = [
       { label: 'Scripting API', href: '/features/scripting', description: 'Extend with custom logic' },
       { label: 'MCP Integration', href: '/mcp-integration', description: 'Model Context Protocol' },
       { label: 'Self-Hosting', href: '/features/self-hosting', description: 'Deploy on your own infra' },
-      { label: 'Open Source', href: '/open-source', description: 'MIT license, 80+ repos' },
+      { label: 'Open Source', href: '/open-source', description: 'Open source, 80+ repos' },
       { label: 'WorkAdventure Fork', href: '/workadventure-fork', description: 'Our open source roots' },
     ],
   },

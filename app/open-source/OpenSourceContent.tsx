@@ -15,8 +15,8 @@ const details = [
     desc: 'We welcome pull requests, bug reports, and feature ideas. Our community-driven development process ensures the platform serves its users.',
   },
   {
-    title: 'Permissive Licensing',
-    desc: 'Licensed for both personal and commercial use. Build on BAWES, extend it, or deploy it for your organization without restrictive terms.',
+    title: 'Licensing',
+    desc: 'Our own work is MIT licensed. The parts that come from WorkAdventure keep the WorkAdventure license.',
   },
   {
     title: 'Transparent Roadmap',

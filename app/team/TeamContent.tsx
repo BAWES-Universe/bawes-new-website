@@ -70,7 +70,7 @@ export default function TeamPageContent() {
             </div>
             <h2 className="font-headline-section text-headline-section text-on-surface mb-6">Open Source Commitment</h2>
             <p className="font-body-md text-text-secondary text-lg leading-relaxed mb-8">
-              Built on WorkAdventure (MIT). We stand on the shoulders of open source. By forking and contributing back to the ecosystem, we ensure a resilient future for digital assembly.
+              Built on WorkAdventure. We stand on the shoulders of open source. By forking and contributing back to the ecosystem, we ensure a resilient future for digital assembly.
             </p>
             <Link href="/workadventure-fork" className="inline-flex items-center gap-2 text-primary hover:underline font-bold transition-all">
               View Repository <span className="material-symbols-outlined text-sm">arrow_forward</span>
