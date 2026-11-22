@@ -188,7 +188,7 @@
 }
 .uh-loop-txt { padding: 18px 20px 20px; }
 .uh-loop-txt b { display: block; font-family: var(--uh-display); font-size: 19px; color: #fff; margin-bottom: 3px; }
-.uh-loop-txt span { color: var(--uh-muted); font-size: 15px; }
+.uh-loop-txt span { display: block; color: var(--uh-muted); font-size: 15px; }
 .uh-loop-more { display: inline-block; margin-top: 10px; font-size: 13.5px; font-weight: 600; color: #c4b5fd; }
 .uh-loop-more::after { content: ' →'; }
 .uh-loop-more:hover { color: #fff; }

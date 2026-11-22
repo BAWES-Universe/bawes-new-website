@@ -272,7 +272,7 @@ export default function Home() {
         <motion.div {...rise(0.1)}>
           <BrickSection />
         </motion.div>
-        <motion.div {...rise(0.15)} className="mt-6">
+        <motion.div {...rise(0.15)} className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
           <MoreLink href="/features/brick" label="More about Brick" source="brick" />
           <MoreLink href="/guide/your-brick" label="Your Brick, step by step" source="brick" />
           <MoreLink href="/ai-bots" label="Everything residents can do" source="brick" />
@@ -305,7 +305,7 @@ export default function Home() {
         <p className="uh-note">
           Publish a finished version, and keep working on the next one in private.
         </p>
-        <div className="mt-6">
+        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
           <MoreLink href="/features/artifacts" label="More about artifacts" source="artifacts" />
           <MoreLink href="/features/artifact-community" label="See what people made" source="artifacts" />
           <MoreLink href="/guide/artifacts" label="How artifacts work" source="artifacts" />

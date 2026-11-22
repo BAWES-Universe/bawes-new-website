@@ -9,7 +9,7 @@ export default function WokaAvatarsPageContent() {
         crumbs={[{ label: 'Features', href: '/features-overview' }, { label: 'Build & Create', href: '/build' }]}
         here="Avatars"
         title={<>Pixel art. <span className="text-gradient-accent">Infinite personalities.</span></>}
-        lead={<>Pick a colourful pixel-art avatar or build your own, change it whenever you like, and take it with you into every world.</>}
+        lead={<>Pick a colourful avatar or build your own, change it whenever you like, and take it with you into every world.</>}
         detail={[<>Pipoya-style user avatars: colourful, expressive pixel art characters. Customize your look and express yourself in every world.</>]}
         scene="looks"
         actions={[{ label: 'See all features', href: '/features-overview' }]}

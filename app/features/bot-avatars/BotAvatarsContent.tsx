@@ -30,7 +30,7 @@ export default function BotAvatarsPageContent() {
         eyebrow="What you can do"
         title="Make it one of the locals"
         cards={[
-          { icon: "face", title: "A body like yours", text: "Bots use the same avatars as people. They walk, turn and stand in a conversation like anyone else.", more: { label: "Pixel art avatars", href: "/features/woka-avatars" } },
+          { icon: "face", title: "A body like yours", text: "Bots use the same avatars as people. They walk, turn and stand in a conversation like anyone else.", more: { label: "Avatars", href: "/features/woka-avatars" } },
           { icon: "pets", title: "A companion", text: "Give your bot a little companion from the list your room offers." },
           { icon: "badge", title: "A name and a purpose", text: "Name your bot and write what it is for, so people know who they are talking to." },
           { icon: "visibility_off", title: "Off for now", text: "Turn a bot off and nobody sees it until you turn it back on." },
@@ -54,7 +54,7 @@ export default function BotAvatarsPageContent() {
         links={[
           { label: "Bot editor", href: "/features/bot-editor", note: "Everything about a bot on one screen." },
           { label: "Bot behaviors", href: "/features/bot-behaviors", note: "How a bot moves around." },
-          { label: "Pixel art avatars", href: "/features/woka-avatars", note: "The avatars people and bots wear." },
+          { label: "Avatars", href: "/features/woka-avatars", note: "The avatars people and bots wear." },
           { label: "Avatar platform", href: "/features/avatar-platform", note: "Where avatars are managed." },
         ]}
       />

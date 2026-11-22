@@ -56,7 +56,7 @@ export default function AvatarPlatformPageContent() {
 
       <PartRelated
         links={[
-          { label: "Avatars", href: "/features/woka-avatars", note: "Pick or build your pixel-art avatar." },
+          { label: "Avatars", href: "/features/woka-avatars", note: "Pick or build your avatar." },
           { label: "Proximity chat", href: "/features/proximity-chat", note: "Walk up and talk." },
           { label: "Build and create", href: "/build", note: "Everything for making rooms." },
           { label: "White label", href: "/features/white-label", note: "Your domain, your logo, your colours." },
